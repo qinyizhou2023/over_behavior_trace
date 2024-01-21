@@ -1,0 +1,3 @@
+.log-text {
+  @apply border border-red-500;
+}
