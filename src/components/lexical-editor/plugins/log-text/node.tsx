@@ -1,4 +1,4 @@
-import { EditorConfig, LexicalNode, NodeKey, TextNode } from 'lexical';
+import { EditorConfig, LexicalNode, NodeKey, TextNode } from "lexical";
 
 export class LogTextNode extends TextNode {
   constructor(text: string, key?: NodeKey) {
@@ -25,10 +25,27 @@ export class LogTextNode extends TextNode {
     config: EditorConfig
   ): boolean {
     const updated = super.updateDOM(prevNode, dom, config);
-    // if (updated) {
-    //     dom.classList.add("log-text");
-    // }
+
     return updated;
+  }
+
+  isUnmergeable(): boolean {
+    return false;
+  }
+
+  override isSimpleText(): boolean {
+    return true;
+  }
+
+  mergeWithSibling(target: LogTextNode): LogTextNode {
+    console.log("mergeWithSibling", target);
+    return super.mergeWithSibling(target);
+  }
+
+  splitText(...splitOffsets: number[]): LogTextNode[] {
+    const nodes = super.splitText(...splitOffsets);
+
+    return nodes;
   }
 }
 

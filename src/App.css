@@ -1,3 +1,7 @@
 .log-text {
   @apply border border-red-500;
 }
+
+.sentence-separator {
+  @apply border border-blue-500;
+}

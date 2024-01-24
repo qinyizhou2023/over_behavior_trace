@@ -1,15 +1,21 @@
-import { ParagraphNode, TextNode } from 'lexical';
-import React from 'react';
+import { ParagraphNode, TextNode } from "lexical";
+import React from "react";
 
-import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
-import { InitialConfigType, LexicalComposer } from '@lexical/react/LexicalComposer';
-import { ContentEditable } from '@lexical/react/LexicalContentEditable';
-import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
-import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
+import {
+  InitialConfigType,
+  LexicalComposer,
+} from "@lexical/react/LexicalComposer";
+import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 // import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
-import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 
-import { LogTextNode } from './extensions/log-text/node';
+import LogTextPlugin from "./plugins/log-text";
+import { SentenceSeparator } from "./plugins/log-text/extra/sentence-separator";
+import { LogTextNode } from "./plugins/log-text/node";
+import TreeViewPlugin from "./plugins/tree-view";
 
 export const Editor: React.FC = () => {
   const config: InitialConfigType = {
@@ -31,6 +37,7 @@ export const Editor: React.FC = () => {
     nodes: [
       ParagraphNode,
       LogTextNode,
+      SentenceSeparator,
       {
         replace: TextNode,
         with: (node: TextNode) => new LogTextNode(node.__text),
@@ -52,7 +59,13 @@ export const Editor: React.FC = () => {
         />
         <HistoryPlugin />
         <AutoFocusPlugin />
+
+        <LogTextPlugin />
         {/* <MarkdownShortcutPlugin transformers={TRANSFORMERS} /> */}
+
+        <div className="absolute bottom-0 left-0 border border-red-500 overflow-auto max-w-full h-1/2">
+          <TreeViewPlugin />
+        </div>
       </LexicalComposer>
     </div>
   );
