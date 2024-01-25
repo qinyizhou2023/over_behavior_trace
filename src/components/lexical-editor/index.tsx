@@ -40,7 +40,7 @@ export const Editor: React.FC = () => {
       SentenceSeparator,
       {
         replace: TextNode,
-        with: (node: TextNode) => new LogTextNode(node.__text),
+        with: (node: TextNode) => new LogTextNode(node.__text, 0),
       },
     ],
 
@@ -63,7 +63,7 @@ export const Editor: React.FC = () => {
         <LogTextPlugin />
         {/* <MarkdownShortcutPlugin transformers={TRANSFORMERS} /> */}
 
-        <div className="absolute bottom-0 left-0 border border-red-500 overflow-auto max-w-full h-1/2">
+        <div className="absolute bottom-0 left-0">
           <TreeViewPlugin />
         </div>
       </LexicalComposer>

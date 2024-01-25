@@ -32,17 +32,29 @@ export default function LogTextPlugin() {
           selection.deleteCharacter(true);
 
           const node = selection.getNodes()[0];
-
           if (!$isLogTextNode(node)) return false;
 
           const separator = $createSentenceSeparator();
-
           selection.insertNodes([separator]);
-
           return true;
         },
         COMMAND_PRIORITY_EDITOR
       ),
+
+      editor.registerTextContentListener(() => {
+        editor.update(() => {
+          const selection = $getSelection();
+          if (!$isRangeSelection(selection) || !selection.isCollapsed()) {
+            return;
+          }
+
+          const node = selection.getNodes()[0];
+
+          if (!$isLogTextNode(node)) return;
+
+          node.onTyping();
+        });
+      }),
 
       editor.registerTextContentListener(() => {
         editor.getEditorState().read(() => {

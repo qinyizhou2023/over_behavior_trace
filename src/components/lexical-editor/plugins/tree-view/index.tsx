@@ -6,6 +6,7 @@
  *
  */
 
+import { buttonVariants } from "@/components/ui/button";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { TreeView } from "@lexical/react/LexicalTreeView";
 
@@ -13,12 +14,19 @@ export default function TreeViewPlugin(): JSX.Element {
   const [editor] = useLexicalComposerContext();
   return (
     <TreeView
-      viewClassName="tree-view-output"
-      treeTypeButtonClassName="debug-treetype-button"
+      // viewClassName="tree-view-output"
       timeTravelPanelClassName="debug-timetravel-panel"
-      timeTravelButtonClassName="debug-timetravel-button"
+      treeTypeButtonClassName={buttonVariants({
+        variant: "default",
+      })}
+      viewClassName="rounded border bg-card text-card-foreground shadow p-6 m-4"
+      timeTravelButtonClassName={buttonVariants({
+        variant: "default",
+      })}
       timeTravelPanelSliderClassName="debug-timetravel-panel-slider"
-      timeTravelPanelButtonClassName="debug-timetravel-panel-button"
+      timeTravelPanelButtonClassName={buttonVariants({
+        variant: "default",
+      })}
       editor={editor}
     />
   );
