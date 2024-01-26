@@ -1,7 +1,8 @@
 import { DecoratorNode, NodeKey } from "lexical";
 import { ReactNode } from "react";
 
-import type { LexicalNode } from "lexical";
+import type { LexicalNode, SerializedLexicalNode } from "lexical";
+
 export class SentenceSeparator extends DecoratorNode<ReactNode> {
   static getType() {
     return "sentence-separator";
@@ -37,6 +38,17 @@ export class SentenceSeparator extends DecoratorNode<ReactNode> {
 
   isKeyboardSelectable(): boolean {
     return false;
+  }
+
+  static importJSON(): SentenceSeparator {
+    return new SentenceSeparator();
+  }
+
+  exportJSON(): SerializedLexicalNode {
+    return {
+      type: SentenceSeparator.getType(),
+      version: 1,
+    };
   }
 }
 

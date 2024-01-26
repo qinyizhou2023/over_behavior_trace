@@ -9,7 +9,6 @@ import {
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-// import { PlainTextPlugin } from '@lexical/react/LexicalPlainTextPlugin';
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 
 import LogTextPlugin from "./plugins/log-text";
@@ -54,14 +53,12 @@ export const Editor: React.FC = () => {
         <RichTextPlugin
           contentEditable={<ContentEditable />}
           placeholder={null}
-          // placeholder={"Type something..."}
           ErrorBoundary={LexicalErrorBoundary}
         />
         <HistoryPlugin />
         <AutoFocusPlugin />
 
         <LogTextPlugin />
-        {/* <MarkdownShortcutPlugin transformers={TRANSFORMERS} /> */}
 
         <div className="absolute bottom-0 left-0">
           <TreeViewPlugin />
