@@ -1,5 +1,6 @@
 import {
   EditorConfig,
+  LexicalEditor,
   LexicalNode,
   NodeKey,
   SerializedTextNode,
@@ -7,18 +8,27 @@ import {
   TextNode,
 } from "lexical";
 
+type Revisions = {
+  character_deletings: number;
+  range_deletings: number;
+  insertings: number;
+  pastings: number;
+};
+
 type SerializedLogTextNode = Spread<
   {
     __typing_speed: number;
     __dwelling_time: number;
     __last_update_timestamp: number;
     __update_count: number;
+    __revisions: Revisions;
   },
   SerializedTextNode
 >;
 
 export class LogTextNode extends TextNode {
   __typing_speed: number;
+  __revisions: Revisions;
 
   // internal use only
   __dwelling_time: number;
@@ -31,6 +41,7 @@ export class LogTextNode extends TextNode {
     dwelling_time?: number,
     last_udate_timestamp?: number,
     update_count?: number,
+    revisions?: Revisions,
     key?: NodeKey
   ) {
     super(text, key);
@@ -38,6 +49,12 @@ export class LogTextNode extends TextNode {
     this.__last_update_timestamp = last_udate_timestamp ?? Date.now();
     this.__dwelling_time = dwelling_time ?? 0;
     this.__update_count = update_count ?? 0;
+    this.__revisions = revisions ?? {
+      character_deletings: 0,
+      range_deletings: 0,
+      insertings: 0,
+      pastings: 0,
+    };
   }
 
   static getType(): string {
@@ -51,6 +68,7 @@ export class LogTextNode extends TextNode {
       node.__dwelling_time,
       node.__last_update_timestamp,
       node.__update_count,
+      node.__revisions,
       node.__key
     );
     return newNode;
@@ -61,6 +79,7 @@ export class LogTextNode extends TextNode {
     element.classList.add("log-text");
 
     element.setAttribute("data-typing-speed", this.__typing_speed.toString());
+    element.setAttribute("data-revisions", JSON.stringify(this.__revisions));
     return element;
   }
 
@@ -74,6 +93,17 @@ export class LogTextNode extends TextNode {
       dom.setAttribute("data-typing-speed", this.__typing_speed.toString());
     }
 
+    if (
+      this.__revisions.character_deletings !==
+        prevNode.__revisions.character_deletings ||
+      this.__revisions.range_deletings !==
+        prevNode.__revisions.range_deletings ||
+      this.__revisions.insertings !== prevNode.__revisions.insertings ||
+      this.__revisions.pastings !== prevNode.__revisions.pastings
+    ) {
+      dom.setAttribute("data-revisions", JSON.stringify(this.__revisions));
+    }
+
     return updated;
   }
 
@@ -84,6 +114,7 @@ export class LogTextNode extends TextNode {
       __dwelling_time: this.__dwelling_time,
       __last_update_timestamp: this.__last_update_timestamp,
       __update_count: this.__update_count,
+      __revisions: this.__revisions,
     };
   }
 
@@ -93,7 +124,8 @@ export class LogTextNode extends TextNode {
       json.__typing_speed,
       json.__dwelling_time,
       json.__last_update_timestamp,
-      json.__update_count
+      json.__update_count,
+      json.__revisions
     );
     return node;
   }
@@ -116,7 +148,16 @@ export class LogTextNode extends TextNode {
       (target.__typing_speed + this.__typing_speed) / 2,
       target.__dwelling_time + this.__dwelling_time,
       Math.max(target.__last_update_timestamp, this.__last_update_timestamp),
-      target.__update_count + this.__update_count
+      target.__update_count + this.__update_count,
+      {
+        character_deletings:
+          target.__revisions.character_deletings +
+          this.__revisions.character_deletings,
+        range_deletings:
+          target.__revisions.range_deletings + this.__revisions.range_deletings,
+        insertings: target.__revisions.insertings + this.__revisions.insertings,
+        pastings: target.__revisions.pastings + this.__revisions.pastings,
+      }
     );
   }
 
@@ -133,9 +174,15 @@ export class LogTextNode extends TextNode {
           new LogTextNode(
             node.__text,
             this.__typing_speed,
-            this.__dwelling_time,
+            this.__dwelling_time / 2,
             this.__last_update_timestamp,
-            this.__update_count
+            this.__update_count / 2,
+            {
+              character_deletings: this.__revisions.character_deletings / 2,
+              range_deletings: this.__revisions.range_deletings / 2,
+              insertings: this.__revisions.insertings / 2,
+              pastings: this.__revisions.pastings / 2,
+            }
           )
         );
       }
@@ -148,6 +195,27 @@ export class LogTextNode extends TextNode {
   getTypingSpeed(): number {
     const self = this.getLatest();
     return self.__typing_speed;
+  }
+
+  getRevisions(): Revisions {
+    const self = this.getLatest();
+    return self.__revisions;
+  }
+
+  getSentenceCompletion(editor: LexicalEditor): number {
+    const self = this.getLatest();
+    const sentences =
+      editor.getRootElement()?.textContent?.split(/(?<=[.?!])\s+/) ?? [];
+
+    const allWords = editor.getRootElement()?.textContent?.split(/\s+/) ?? [];
+    const averageWordPerSentence = allWords.length / sentences.length;
+
+    const words = self.__text.split(/\s+/);
+    return self.__text.endsWith(".") ||
+      self.__text.endsWith("?") ||
+      self.__text.endsWith("!")
+      ? 1
+      : words.length / averageWordPerSentence;
   }
 
   onTyping(): void {
@@ -172,6 +240,38 @@ export class LogTextNode extends TextNode {
 
     writable.__typing_speed =
       (__update_count + 1) / ((__dwelling_time + delta) / 1000);
+  }
+
+  onDeleting(isRange: boolean): void {
+    const writable = this.getWritable();
+
+    if (isRange) {
+      writable.__revisions = {
+        ...writable.__revisions,
+        range_deletings: writable.__revisions.range_deletings + 1,
+      };
+    } else {
+      writable.__revisions = {
+        ...writable.__revisions,
+        character_deletings: writable.__revisions.character_deletings + 1,
+      };
+    }
+  }
+
+  onInserting(): void {
+    const writable = this.getWritable();
+    writable.__revisions = {
+      ...writable.__revisions,
+      insertings: writable.__revisions.insertings + 1,
+    };
+  }
+
+  onPasting(): void {
+    const writable = this.getWritable();
+    writable.__revisions = {
+      ...writable.__revisions,
+      pastings: writable.__revisions.pastings + 1,
+    };
   }
 }
 
