@@ -128,3 +128,16 @@ export const blockThresholdInSecAtom = focusAtom(timeTravelAtom, (optic) =>
 export const currentSessionIdAtom = focusAtom(timeTravelAtom, (optic) =>
   optic.prop("currentSessionId")
 );
+
+export const currentSessionAtom = atom<Session>((get) => {
+  const currentSessionId = get(currentSessionIdAtom);
+  const sessionList = get(sessionListAtom);
+  return (
+    sessionList.find((session) => session.id === currentSessionId) ?? {
+      id: "",
+      saveTime: new Date(),
+      logs: [],
+      blocks: [],
+    }
+  );
+});
