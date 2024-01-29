@@ -43,6 +43,7 @@ export default function LogTextPlugin() {
 
           const separator = $createSentenceSeparator();
           selection.insertNodes([separator]);
+
           return true;
         },
         COMMAND_PRIORITY_EDITOR

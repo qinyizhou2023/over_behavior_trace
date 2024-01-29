@@ -25,16 +25,16 @@ export class SentenceSeparator extends DecoratorNode<ReactNode> {
   }
 
   decorate(): ReactNode {
-    return <span className="border border-blue-400">&nbsp;</span>;
+    return <span className="sentence-separator">&nbsp;</span>;
   }
 
   isInline(): boolean {
     return true;
   }
 
-  isIsolated(): boolean {
-    return true;
-  }
+  // isIsolated(): boolean {
+  //   return true;
+  // }
 
   isKeyboardSelectable(): boolean {
     return false;

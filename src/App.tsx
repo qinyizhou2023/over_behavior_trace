@@ -1,10 +1,10 @@
-import './App.css';
+import "./App.css";
 
-import { Editor } from './components/lexical-editor';
+import { Editor } from "./components/lexical-editor";
 
 function App() {
   return (
-    <main className="w-screen h-screen">
+    <main className="w-screen h-screen flex">
       <Editor />
     </main>
   );

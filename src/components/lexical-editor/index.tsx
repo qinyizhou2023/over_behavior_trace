@@ -16,12 +16,18 @@ import { SentenceSeparator } from "./plugins/log-text/extra/sentence-separator";
 import { LogTextNode } from "./plugins/log-text/node";
 import TreeViewPlugin from "./plugins/tree-view";
 
+const DEBUG_MODE = false;
+
+if (DEBUG_MODE) {
+  import("./debug.css");
+}
+
 export const Editor: React.FC = () => {
   const config: InitialConfigType = {
     namespace: "lexical-editor",
     editable: true,
     theme: {
-      root: "prose dark:prose-invert lg:prose-lg focus:outline-none flex-1 mx-auto shadow overflow-auto p-4 border m-4 rounded-md",
+      root: "prose lg:prose-lg xl:prose-xl focus:outline-none w-full flex-1 mx-auto overflow-auto p-4",
       link: "cursor-pointer",
       placeholder: "text-gray-400",
       text: {
@@ -48,7 +54,8 @@ export const Editor: React.FC = () => {
     },
   };
   return (
-    <div className="container flex w-full h-full">
+    <div className="prose dark:prose-invert flex-1 flex m-5 p-4 flex-col relative rounded-lg shadow border lg:prose-lg xl:prose-xl mx-auto">
+      {/* <div className="w-full sticky top-0 bg-white z-10">123</div> */}
       <LexicalComposer initialConfig={config}>
         <RichTextPlugin
           contentEditable={<ContentEditable />}
@@ -60,9 +67,13 @@ export const Editor: React.FC = () => {
 
         <LogTextPlugin />
 
-        <div className="absolute bottom-0 left-0">
-          <TreeViewPlugin />
-        </div>
+        {DEBUG_MODE ? (
+          <div className="absolute bottom-0 left-0">
+            <TreeViewPlugin />
+          </div>
+        ) : (
+          <></>
+        )}
       </LexicalComposer>
     </div>
   );

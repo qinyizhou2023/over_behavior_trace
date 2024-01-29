@@ -107,9 +107,11 @@ export class LogTextNode extends TextNode {
     return updated;
   }
 
-  exportJSON(): SerializedLogTextNode {
+  override exportJSON(): SerializedLogTextNode {
+    console.log("Exporting LogTextNode");
     return {
       ...super.exportJSON(),
+      type: LogTextNode.getType(),
       __typing_speed: this.__typing_speed,
       __dwelling_time: this.__dwelling_time,
       __last_update_timestamp: this.__last_update_timestamp,

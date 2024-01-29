@@ -1,0 +1,8 @@
+.log-text {
+  @apply border border-red-500 after:content-[attr(data-typing-speed)] after:text-green-600 after:text-xs;
+}
+
+
+.sentence-separator {
+  @apply border border-blue-500;
+}
