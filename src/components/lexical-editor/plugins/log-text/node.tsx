@@ -8,7 +8,7 @@ import {
   TextNode,
 } from "lexical";
 
-type Revisions = {
+export type Revisions = {
   character_deletings: number;
   range_deletings: number;
   insertings: number;
@@ -108,7 +108,6 @@ export class LogTextNode extends TextNode {
   }
 
   override exportJSON(): SerializedLogTextNode {
-    console.log("Exporting LogTextNode");
     return {
       ...super.exportJSON(),
       type: LogTextNode.getType(),
@@ -217,7 +216,8 @@ export class LogTextNode extends TextNode {
       self.__text.endsWith("?") ||
       self.__text.endsWith("!")
       ? 1
-      : words.length / averageWordPerSentence;
+      : // scale to 0-1 using sigmoid function
+        1 / (1 + Math.exp(-words.length / averageWordPerSentence));
   }
 
   onTyping(): void {
