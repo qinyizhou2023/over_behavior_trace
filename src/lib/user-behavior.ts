@@ -56,17 +56,11 @@ const $getRootBehavior = (editor: LexicalEditor): UserBehaviorItem => {
   );
 
   const typingSpeed = totalSpeed / totalChildrenNum;
-  const revisions = {
-    character_deletings: totalRevisions.character_deletings / totalChildrenNum,
-    range_deletings: totalRevisions.range_deletings / totalChildrenNum,
-    insertings: totalRevisions.insertings / totalChildrenNum,
-    pastings: totalRevisions.pastings / totalChildrenNum,
-  };
   const sentenceCompletion = totalSentenceCompletion / totalChildrenNum;
 
   return {
     typing_speed: typingSpeed,
-    revisions,
+    revisions: totalRevisions,
     sentence_completion: sentenceCompletion,
   };
 };
