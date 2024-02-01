@@ -14,7 +14,6 @@ export type UserBehaviorItem = {
     insertings: number;
     pastings: number;
   };
-  sentence_completion: number;
 };
 
 export type UserBehaviorType = {
@@ -32,7 +31,6 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: 0,
       pastings: 0,
     },
-    sentence_completion: 0,
   },
   paragraph: {
     typing_speed: 0,
@@ -42,7 +40,6 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: 0,
       pastings: 0,
     },
-    sentence_completion: 0,
   },
   document: {
     typing_speed: 0,
@@ -52,7 +49,6 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: 0,
       pastings: 0,
     },
-    sentence_completion: 0,
   },
 };
 
@@ -76,6 +72,14 @@ export type BlockType = {
   start_time: number;
   duration_block: number;
   threshold: number;
+
+  relative_start_time: number;
+  num_blocks: number;
+  avg_block_duration: number;
+
+  sentence_completion: number;
+  overall_word_cnt: number;
+  overall_sentence_cnt: number;
 
   user_behavior: UserBehaviorType;
   annotated: boolean;

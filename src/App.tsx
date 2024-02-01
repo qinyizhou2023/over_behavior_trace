@@ -6,7 +6,7 @@ import { Toaster } from "./components/ui/sonner";
 function App() {
   return (
     <main className="w-screen h-screen flex p-4">
-      <Toaster />
+      <Toaster closeButton={true} />
       <Editor />
     </main>
   );

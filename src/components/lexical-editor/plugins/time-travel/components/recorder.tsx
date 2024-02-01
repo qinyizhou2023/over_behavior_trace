@@ -12,7 +12,7 @@ import {
   timeTravelRecorderStateAtom,
 } from "@/atoms/time-travel-atom";
 import { Button } from "@/components/ui/button";
-import { getUserBehavior } from "@/lib/user-behavior";
+import { $getDocumentMetrics, getUserBehavior } from "@/lib/user-behavior";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { PlayIcon, StopIcon } from "@radix-ui/react-icons";
 
@@ -24,6 +24,7 @@ export default function Recorder() {
     timeTravelRecorderStateAtom
   );
 
+  const sessionStartTime = useRef<number>(Date.now());
   const lastUpdateTime = useRef<number>(Date.now());
 
   const currentTimeTravelLogs = useRef<{
@@ -38,6 +39,7 @@ export default function Recorder() {
 
   useEffect(() => {
     if (timeTravelRecorderState === "idle") return;
+    sessionStartTime.current = Date.now();
     return editor.registerUpdateListener(({ editorState }) => {
       const currentTime = Date.now();
       const timeDiff = currentTime - lastUpdateTime.current;
@@ -45,18 +47,31 @@ export default function Recorder() {
 
       if (hasBlockBefore) {
         const blockId = uuidv4();
+        const { sentence_completion, overall_sentence_cnt, overall_word_cnt } =
+          $getDocumentMetrics();
         currentTimeTravelLogs.current.blocks.push({
           id: blockId,
           start_time: lastUpdateTime.current,
           duration_block: timeDiff,
           threshold: MIN_THRESHOLD_IN_SEC * 1000,
 
+          sentence_completion,
+          overall_sentence_cnt,
+          overall_word_cnt,
+
+          relative_start_time:
+            lastUpdateTime.current - sessionStartTime.current,
+          num_blocks: currentTimeTravelLogs.current.blocks.length,
+          avg_block_duration:
+            currentTimeTravelLogs.current.blocks.reduce(
+              (acc, curr) => acc + curr.duration_block,
+              0
+            ) / currentTimeTravelLogs.current.blocks.length,
+
           user_behavior: getUserBehavior(editor),
           annotated: false,
           annotation: defaultBlockAnnotation,
         });
-
-        console.log("block", currentTimeTravelLogs.current.blocks);
 
         currentTimeTravelLogs.current.logs.push({
           id: uuidv4(),

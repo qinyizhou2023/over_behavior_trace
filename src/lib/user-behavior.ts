@@ -12,16 +12,11 @@ import {
 import { $isLogTextNode } from "@/components/lexical-editor/plugins/log-text/node";
 import { $getNearestNodeOfType } from "@lexical/utils";
 
-const $getRootBehavior = (editor: LexicalEditor): UserBehaviorItem => {
+const $getRootBehavior = (): UserBehaviorItem => {
   const root = $getRoot();
   const children = root.getChildren();
 
-  const {
-    totalSpeed,
-    totalChildrenNum,
-    totalRevisions,
-    totalSentenceCompletion,
-  } = children.reduce(
+  const { totalSpeed, totalChildrenNum, totalRevisions } = children.reduce(
     (acc, child) => {
       if (!$isLogParagraphNode(child)) return acc;
       const typingSpeed = child.getTypingSpeed();
@@ -38,8 +33,6 @@ const $getRootBehavior = (editor: LexicalEditor): UserBehaviorItem => {
           insertings: acc.totalRevisions.insertings + revisions.insertings,
           pastings: acc.totalRevisions.pastings + revisions.pastings,
         },
-        totalSentenceCompletion:
-          acc.totalSentenceCompletion + child.getSentenceCompletion(editor),
       };
     },
     {
@@ -51,17 +44,55 @@ const $getRootBehavior = (editor: LexicalEditor): UserBehaviorItem => {
         insertings: 0,
         pastings: 0,
       },
-      totalSentenceCompletion: 0,
     }
   );
 
   const typingSpeed = totalSpeed / totalChildrenNum;
-  const sentenceCompletion = totalSentenceCompletion / totalChildrenNum;
 
   return {
     typing_speed: typingSpeed,
     revisions: totalRevisions,
-    sentence_completion: sentenceCompletion,
+  };
+};
+
+export const $getDocumentMetrics = () => {
+  const selection = $getSelection();
+  const rootNode = $getRoot();
+  const allSentence = rootNode.getTextContent().split(/(?<=[.?!])\s+/) ?? [];
+
+  const allWords = rootNode.getTextContent().split(/\s+/) ?? [];
+
+  if (!selection)
+    return {
+      sentence_completion: 0,
+      overall_word_cnt: allWords.length,
+      overall_sentence_cnt: allSentence.length,
+    };
+  const targetNode = selection.getNodes()[0];
+  if (!$isLogTextNode(targetNode))
+    return {
+      sentence_completion: 0,
+      overall_word_cnt: allWords.length,
+      overall_sentence_cnt: allSentence.length,
+    };
+  const currentSentence = targetNode.getTextContent();
+
+  const currentWords = currentSentence.split(/\s+/) ?? [];
+
+  const averageWords = allWords.length / allSentence.length;
+  const currentWordsLength = currentWords.length;
+
+  const completion =
+    currentSentence.trim().endsWith(".") ||
+    currentSentence.trim().endsWith("?") ||
+    currentSentence.trim().endsWith("!")
+      ? 1
+      : 1 / (1 + Math.exp(-currentWordsLength / averageWords));
+
+  return {
+    sentence_completion: completion,
+    overall_word_cnt: allWords.length,
+    overall_sentence_cnt: allSentence.length,
   };
 };
 
@@ -69,7 +100,7 @@ export const getUserBehavior = (editor: LexicalEditor): UserBehaviorType => {
   const userBehavior = defaultUserBehavior;
   const editorState = editor.getEditorState();
   editorState.read(() => {
-    const rootBehavior = $getRootBehavior(editor);
+    const rootBehavior = $getRootBehavior();
     userBehavior.document = rootBehavior;
 
     const selection = $getSelection();
@@ -80,11 +111,9 @@ export const getUserBehavior = (editor: LexicalEditor): UserBehaviorType => {
     if ($isLogTextNode(targetNode)) {
       const typingSpeed = targetNode.getTypingSpeed();
       const revisions = targetNode.getRevisions();
-      const sentenceCompletion = targetNode.getSentenceCompletion(editor);
       userBehavior.sentence = {
         typing_speed: typingSpeed,
         revisions,
-        sentence_completion: sentenceCompletion,
       };
 
       const parent = $getNearestNodeOfType(targetNode, LogParagraphNode);
@@ -92,11 +121,9 @@ export const getUserBehavior = (editor: LexicalEditor): UserBehaviorType => {
       if (parent) {
         const typingSpeed = parent.getTypingSpeed();
         const revisions = parent.getRevisions();
-        const sentenceCompletion = parent.getSentenceCompletion(editor);
         userBehavior.paragraph = {
           typing_speed: typingSpeed,
           revisions,
-          sentence_completion: sentenceCompletion,
         };
       }
     }
