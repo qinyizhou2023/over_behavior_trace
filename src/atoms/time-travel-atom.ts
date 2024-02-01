@@ -9,10 +9,10 @@ export const MIN_THRESHOLD_IN_SEC = 5;
 export type UserBehaviorItem = {
   typing_speed: number;
   revisions: {
-    character_deletings: number;
-    range_deletings: number;
-    insertings: number;
-    pastings: number;
+    character_deletings: number[];
+    range_deletings: number[];
+    insertings: number[];
+    pastings: number[];
   };
 };
 
@@ -26,28 +26,28 @@ export const defaultUserBehavior: UserBehaviorType = {
   sentence: {
     typing_speed: 0,
     revisions: {
-      character_deletings: 0,
-      range_deletings: 0,
-      insertings: 0,
-      pastings: 0,
+      character_deletings: [],
+      range_deletings: [],
+      insertings: [],
+      pastings: [],
     },
   },
   paragraph: {
     typing_speed: 0,
     revisions: {
-      character_deletings: 0,
-      range_deletings: 0,
-      insertings: 0,
-      pastings: 0,
+      character_deletings: [],
+      range_deletings: [],
+      insertings: [],
+      pastings: [],
     },
   },
   document: {
     typing_speed: 0,
     revisions: {
-      character_deletings: 0,
-      range_deletings: 0,
-      insertings: 0,
-      pastings: 0,
+      character_deletings: [],
+      range_deletings: [],
+      insertings: [],
+      pastings: [],
     },
   },
 };

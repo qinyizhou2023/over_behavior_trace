@@ -83,8 +83,9 @@ export default function LogTextPlugin() {
           // if typing is in the middle of the text
           if (selection.anchor.offset !== node.getTextContent().length) {
             if (insertTimeout.current === null) {
-              node.onInserting();
+              node.onInserting(true, 1);
             } else {
+              node.onInserting(false, 1);
               clearTimeout(insertTimeout.current);
             }
 
@@ -111,8 +112,21 @@ export default function LogTextPlugin() {
           nodes.forEach((node) => {
             if ($isLogTextNode(node)) {
               if (deleteTimeout.current === null) {
-                node.onDeleting(!selection.isCollapsed());
+                node.onDeleting(
+                  !selection.isCollapsed(),
+                  true,
+                  selection.isCollapsed()
+                    ? 1
+                    : selection.getTextContent().length
+                );
               } else {
+                node.onDeleting(
+                  !selection.isCollapsed(),
+                  false,
+                  selection.isCollapsed()
+                    ? 1
+                    : selection.getTextContent().length
+                );
                 clearTimeout(deleteTimeout.current);
               }
 
@@ -140,7 +154,7 @@ export default function LogTextPlugin() {
 
           nodes.forEach((node) => {
             if ($isLogTextNode(node)) {
-              node.onPasting();
+              node.onPasting(true);
             }
           });
 

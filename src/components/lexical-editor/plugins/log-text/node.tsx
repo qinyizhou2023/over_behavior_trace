@@ -9,10 +9,10 @@ import {
 } from "lexical";
 
 export type Revisions = {
-  character_deletings: number;
-  range_deletings: number;
-  insertings: number;
-  pastings: number;
+  character_deletings: number[];
+  range_deletings: number[];
+  insertings: number[];
+  pastings: number[];
 };
 
 type SerializedLogTextNode = Spread<
@@ -50,10 +50,10 @@ export class LogTextNode extends TextNode {
     this.__dwelling_time = dwelling_time ?? 0;
     this.__update_count = update_count ?? 0;
     this.__revisions = revisions ?? {
-      character_deletings: 0,
-      range_deletings: 0,
-      insertings: 0,
-      pastings: 0,
+      character_deletings: [],
+      range_deletings: [],
+      insertings: [],
+      pastings: [],
     };
   }
 
@@ -151,13 +151,22 @@ export class LogTextNode extends TextNode {
       Math.max(target.__last_update_timestamp, this.__last_update_timestamp),
       target.__update_count + this.__update_count,
       {
-        character_deletings:
-          target.__revisions.character_deletings +
-          this.__revisions.character_deletings,
-        range_deletings:
-          target.__revisions.range_deletings + this.__revisions.range_deletings,
-        insertings: target.__revisions.insertings + this.__revisions.insertings,
-        pastings: target.__revisions.pastings + this.__revisions.pastings,
+        character_deletings: [
+          ...target.__revisions.character_deletings,
+          ...this.__revisions.character_deletings,
+        ],
+        range_deletings: [
+          ...target.__revisions.range_deletings,
+          ...this.__revisions.range_deletings,
+        ],
+        insertings: [
+          ...target.__revisions.insertings,
+          ...this.__revisions.insertings,
+        ],
+        pastings: [
+          ...target.__revisions.pastings,
+          ...this.__revisions.pastings,
+        ],
       }
     );
   }
@@ -179,10 +188,14 @@ export class LogTextNode extends TextNode {
             this.__last_update_timestamp,
             this.__update_count / 2,
             {
-              character_deletings: this.__revisions.character_deletings / 2,
-              range_deletings: this.__revisions.range_deletings / 2,
-              insertings: this.__revisions.insertings / 2,
-              pastings: this.__revisions.pastings / 2,
+              character_deletings: this.__revisions.character_deletings.map(
+                (x) => x / 2
+              ),
+              range_deletings: this.__revisions.range_deletings.map(
+                (x) => x / 2
+              ),
+              insertings: this.__revisions.insertings.map((x) => x / 2),
+              pastings: this.__revisions.pastings.map((x) => x / 2),
             }
           )
         );
@@ -220,6 +233,20 @@ export class LogTextNode extends TextNode {
         1 / (1 + Math.exp(-words.length / averageWordPerSentence));
   }
 
+  private getNewRevision(
+    metric: keyof Revisions,
+    isNew: boolean,
+    amount: number = 1
+  ): number[] {
+    const self = this.getLatest();
+    return isNew || self.__revisions[metric].length === 0
+      ? [...self.__revisions[metric], amount]
+      : [
+          ...self.__revisions[metric].slice(0, -1),
+          self.__revisions[metric].slice(-1)[0] + amount,
+        ];
+  }
+
   onTyping(): void {
     const writable = this.getWritable();
     // const latest = this.getLatest();
@@ -244,35 +271,39 @@ export class LogTextNode extends TextNode {
       (__update_count + 1) / ((__dwelling_time + delta) / 1000);
   }
 
-  onDeleting(isRange: boolean): void {
+  onDeleting(isRange: boolean, isNew: boolean, amount?: number): void {
     const writable = this.getWritable();
 
     if (isRange) {
       writable.__revisions = {
         ...writable.__revisions,
-        range_deletings: writable.__revisions.range_deletings + 1,
+        range_deletings: this.getNewRevision("range_deletings", isNew, amount),
       };
     } else {
       writable.__revisions = {
         ...writable.__revisions,
-        character_deletings: writable.__revisions.character_deletings + 1,
+        character_deletings: this.getNewRevision(
+          "character_deletings",
+          isNew,
+          1
+        ),
       };
     }
   }
 
-  onInserting(): void {
+  onInserting(isNew: boolean, amount?: number): void {
     const writable = this.getWritable();
     writable.__revisions = {
       ...writable.__revisions,
-      insertings: writable.__revisions.insertings + 1,
+      insertings: this.getNewRevision("insertings", isNew, amount),
     };
   }
 
-  onPasting(): void {
+  onPasting(isNew: boolean, amount?: number): void {
     const writable = this.getWritable();
     writable.__revisions = {
       ...writable.__revisions,
-      pastings: writable.__revisions.pastings + 1,
+      pastings: this.getNewRevision("pastings", isNew, amount),
     };
   }
 }

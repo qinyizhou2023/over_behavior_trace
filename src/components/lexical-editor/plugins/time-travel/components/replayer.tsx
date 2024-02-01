@@ -1,6 +1,5 @@
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { EditorState } from "lexical";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { blockAnnotationAtom } from "@/atoms/block-atom";
@@ -46,14 +45,6 @@ export default function Replayer() {
 
   // const [isBlock, setIsBlock] = useAtom(isBlockAtom);
 
-  const setEditorState = useCallback(
-    (editorState: EditorState) => {
-      // const hydratedEditorState = editor.parseEditorState(editorState);
-      editor.setEditorState(editorState);
-    },
-    [editor]
-  );
-
   const totalSteps = currentSession.logs.length - 1;
 
   const firstEditorState = useMemo(
@@ -62,10 +53,10 @@ export default function Replayer() {
   );
 
   useEffect(() => {
-    setEditorState(firstEditorState);
+    editor.setEditorState(firstEditorState);
     currentStepRef.current = 0;
     setSliderValue(0);
-  }, [firstEditorState, setEditorState]);
+  }, [editor, firstEditorState]);
 
   const [playbackSpeedIndex, setPlaybackSpeedIndex] = useState(2);
 
@@ -107,7 +98,7 @@ export default function Replayer() {
 
           const newStep = currentStepRef.current;
 
-          setEditorState(currentSession.logs[newStep].editorState);
+          editor.setEditorState(currentSession.logs[newStep].editorState);
 
           play();
         }, timeDiff / PLAYBACK_SPEEDS[playbackSpeedIndex]);
@@ -126,7 +117,6 @@ export default function Replayer() {
     totalSteps,
     blockThresholdInSec,
     setReplayState,
-    setEditorState,
     setCurrentBlockAnnotation,
     currentSession.logs,
     currentSession.blocks,
@@ -244,7 +234,7 @@ export default function Replayer() {
         onValueChange={([ind]) => {
           setSliderValue(ind);
           const editorState = currentSession.logs[ind].editorState;
-          setEditorState(editorState);
+          editor.setEditorState(editorState);
         }}
       />
 
@@ -255,7 +245,7 @@ export default function Replayer() {
             const index = totalSteps;
 
             if (latestEditorState) {
-              setEditorState(latestEditorState);
+              editor.setEditorState(latestEditorState);
             }
 
             setSliderValue(index);

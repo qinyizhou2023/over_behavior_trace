@@ -25,13 +25,20 @@ const $getRootBehavior = (): UserBehaviorItem => {
         totalSpeed: acc.totalSpeed + typingSpeed,
         totalChildrenNum: acc.totalChildrenNum + 1,
         totalRevisions: {
-          character_deletings:
-            acc.totalRevisions.character_deletings +
-            revisions.character_deletings,
-          range_deletings:
-            acc.totalRevisions.range_deletings + revisions.range_deletings,
-          insertings: acc.totalRevisions.insertings + revisions.insertings,
-          pastings: acc.totalRevisions.pastings + revisions.pastings,
+          character_deletings: [
+            ...acc.totalRevisions.character_deletings,
+            ...revisions.character_deletings,
+          ],
+          range_deletings: [
+            ...acc.totalRevisions.range_deletings,
+            ...revisions.range_deletings,
+          ],
+
+          insertings: [
+            ...acc.totalRevisions.insertings,
+            ...revisions.insertings,
+          ],
+          pastings: [...acc.totalRevisions.pastings, ...revisions.pastings],
         },
       };
     },
@@ -39,10 +46,10 @@ const $getRootBehavior = (): UserBehaviorItem => {
       totalSpeed: 0,
       totalChildrenNum: 0,
       totalRevisions: {
-        character_deletings: 0,
-        range_deletings: 0,
-        insertings: 0,
-        pastings: 0,
+        character_deletings: [] as number[],
+        range_deletings: [] as number[],
+        insertings: [] as number[],
+        pastings: [] as number[],
       },
     }
   );

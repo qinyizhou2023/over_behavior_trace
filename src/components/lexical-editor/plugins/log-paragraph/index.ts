@@ -52,18 +52,23 @@ export class LogParagraphNode extends ParagraphNode {
         if (!$isLogTextNode(child)) return acc;
         const childRevisions = child.getRevisions();
         return {
-          character_deletings:
-            acc.character_deletings + childRevisions.character_deletings,
-          range_deletings: acc.range_deletings + childRevisions.range_deletings,
-          insertings: acc.insertings + childRevisions.insertings,
-          pastings: acc.pastings + childRevisions.pastings,
+          character_deletings: [
+            ...acc.character_deletings,
+            ...childRevisions.character_deletings,
+          ],
+          range_deletings: [
+            ...acc.range_deletings,
+            ...childRevisions.range_deletings,
+          ],
+          insertings: [...acc.insertings, ...childRevisions.insertings],
+          pastings: [...acc.pastings, ...childRevisions.pastings],
         };
       },
       {
-        character_deletings: 0,
-        range_deletings: 0,
-        insertings: 0,
-        pastings: 0,
+        character_deletings: [] as number[],
+        range_deletings: [] as number[],
+        insertings: [] as number[],
+        pastings: [] as number[],
       }
     );
 

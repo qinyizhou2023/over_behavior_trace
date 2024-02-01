@@ -47,37 +47,42 @@ export default function Recorder() {
 
       if (hasBlockBefore) {
         const blockId = uuidv4();
-        const { sentence_completion, overall_sentence_cnt, overall_word_cnt } =
-          $getDocumentMetrics();
-        currentTimeTravelLogs.current.blocks.push({
-          id: blockId,
-          start_time: lastUpdateTime.current,
-          duration_block: timeDiff,
-          threshold: MIN_THRESHOLD_IN_SEC * 1000,
+        editorState.read(() => {
+          const {
+            sentence_completion,
+            overall_sentence_cnt,
+            overall_word_cnt,
+          } = $getDocumentMetrics();
+          currentTimeTravelLogs.current.blocks.push({
+            id: blockId,
+            start_time: lastUpdateTime.current,
+            duration_block: timeDiff,
+            threshold: MIN_THRESHOLD_IN_SEC * 1000,
 
-          sentence_completion,
-          overall_sentence_cnt,
-          overall_word_cnt,
+            sentence_completion,
+            overall_sentence_cnt,
+            overall_word_cnt,
 
-          relative_start_time:
-            lastUpdateTime.current - sessionStartTime.current,
-          num_blocks: currentTimeTravelLogs.current.blocks.length,
-          avg_block_duration:
-            currentTimeTravelLogs.current.blocks.reduce(
-              (acc, curr) => acc + curr.duration_block,
-              0
-            ) / currentTimeTravelLogs.current.blocks.length,
+            relative_start_time:
+              lastUpdateTime.current - sessionStartTime.current,
+            num_blocks: currentTimeTravelLogs.current.blocks.length,
+            avg_block_duration:
+              currentTimeTravelLogs.current.blocks.reduce(
+                (acc, curr) => acc + curr.duration_block,
+                0
+              ) / currentTimeTravelLogs.current.blocks.length,
 
-          user_behavior: getUserBehavior(editor),
-          annotated: false,
-          annotation: defaultBlockAnnotation,
-        });
+            user_behavior: getUserBehavior(editor),
+            annotated: false,
+            annotation: defaultBlockAnnotation,
+          });
 
-        currentTimeTravelLogs.current.logs.push({
-          id: uuidv4(),
-          time: currentTime,
-          editorState,
-          blockId: blockId,
+          currentTimeTravelLogs.current.logs.push({
+            id: uuidv4(),
+            time: currentTime,
+            editorState,
+            blockId: blockId,
+          });
         });
       } else {
         currentTimeTravelLogs.current.logs.push({
