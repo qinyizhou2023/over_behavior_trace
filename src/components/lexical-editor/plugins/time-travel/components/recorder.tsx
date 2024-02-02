@@ -53,6 +53,13 @@ export default function Recorder() {
             overall_sentence_cnt,
             overall_word_cnt,
           } = $getDocumentMetrics();
+
+          const lastBehavior =
+            currentTimeTravelLogs.current.blocks.length > 0
+              ? currentTimeTravelLogs.current.blocks[
+                  currentTimeTravelLogs.current.blocks.length - 1
+                ].user_behavior
+              : undefined;
           currentTimeTravelLogs.current.blocks.push({
             id: blockId,
             start_time: lastUpdateTime.current,
@@ -72,7 +79,7 @@ export default function Recorder() {
                 0
               ) / currentTimeTravelLogs.current.blocks.length,
 
-            user_behavior: getUserBehavior(editor),
+            user_behavior: getUserBehavior(editor, lastBehavior),
             annotated: false,
             annotation: defaultBlockAnnotation,
           });

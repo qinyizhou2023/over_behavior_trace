@@ -20,6 +20,7 @@ export type UserBehaviorType = {
   sentence: UserBehaviorItem;
   paragraph: UserBehaviorItem;
   document: UserBehaviorItem;
+  since_block: UserBehaviorItem;
 };
 
 export const defaultUserBehavior: UserBehaviorType = {
@@ -42,6 +43,15 @@ export const defaultUserBehavior: UserBehaviorType = {
     },
   },
   document: {
+    typing_speed: 0,
+    revisions: {
+      character_deletings: [],
+      range_deletings: [],
+      insertings: [],
+      pastings: [],
+    },
+  },
+  since_block: {
     typing_speed: 0,
     revisions: {
       character_deletings: [],

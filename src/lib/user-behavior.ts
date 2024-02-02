@@ -103,12 +103,48 @@ export const $getDocumentMetrics = () => {
   };
 };
 
-export const getUserBehavior = (editor: LexicalEditor): UserBehaviorType => {
+const getUserBehaviorDiff = (
+  current: UserBehaviorItem,
+  last: UserBehaviorItem
+): UserBehaviorItem => {
+  const typingSpeed = current.typing_speed - last.typing_speed;
+  const revisions = {
+    character_deletings: current.revisions.character_deletings.slice(
+      last.revisions.character_deletings.length
+    ),
+
+    range_deletings: current.revisions.range_deletings.slice(
+      last.revisions.range_deletings.length
+    ),
+    insertings: current.revisions.insertings.slice(
+      last.revisions.insertings.length
+    ),
+    pastings: current.revisions.pastings.slice(last.revisions.pastings.length),
+  };
+  return {
+    typing_speed: typingSpeed,
+    revisions,
+  };
+};
+
+export const getUserBehavior = (
+  editor: LexicalEditor,
+  lastBlockUserBehavior?: UserBehaviorType
+): UserBehaviorType => {
   const userBehavior = defaultUserBehavior;
   const editorState = editor.getEditorState();
   editorState.read(() => {
     const rootBehavior = $getRootBehavior();
     userBehavior.document = rootBehavior;
+
+    if (lastBlockUserBehavior) {
+      userBehavior.since_block = getUserBehaviorDiff(
+        rootBehavior,
+        lastBlockUserBehavior.document
+      );
+    } else {
+      userBehavior.since_block = rootBehavior;
+    }
 
     const selection = $getSelection();
     if (!selection) return;
