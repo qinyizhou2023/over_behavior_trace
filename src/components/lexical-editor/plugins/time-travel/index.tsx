@@ -25,7 +25,7 @@ export default function TimeTravelPlugin() {
     blockThresholdInSecAtom
   );
   return (
-    <Card className="w-[400px] absolute bottom-0 left-0 z-20 m-5">
+    <Card className="w-[400px] fixed bottom-0 left-0 z-20 m-5">
       <CardHeader>
         <CardTitle>Time Travel</CardTitle>
         <CardDescription>

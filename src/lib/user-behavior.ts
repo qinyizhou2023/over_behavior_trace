@@ -10,55 +10,75 @@ import {
   LogParagraphNode,
 } from "@/components/lexical-editor/plugins/log-paragraph";
 import { $isLogTextNode } from "@/components/lexical-editor/plugins/log-text/node";
+import { MouseActivityType } from "@/components/lexical-editor/plugins/mouse-activity";
 import { $getNearestNodeOfType } from "@lexical/utils";
+
+import { DEFAULT_MOUSE_ACTIVITY } from "./constants";
 
 const $getRootBehavior = (): UserBehaviorItem => {
   const root = $getRoot();
   const children = root.getChildren();
 
-  const { totalSpeed, totalChildrenNum, totalRevisions } = children.reduce(
-    (acc, child) => {
-      if (!$isLogParagraphNode(child)) return acc;
-      const typingSpeed = child.getTypingSpeed();
-      const revisions = child.getRevisions();
-      return {
-        totalSpeed: acc.totalSpeed + typingSpeed,
-        totalChildrenNum: acc.totalChildrenNum + 1,
-        totalRevisions: {
-          character_deletings: [
-            ...acc.totalRevisions.character_deletings,
-            ...revisions.character_deletings,
-          ],
-          range_deletings: [
-            ...acc.totalRevisions.range_deletings,
-            ...revisions.range_deletings,
-          ],
+  const { totalSpeed, totalChildrenNum, totalRevisions, totalMouseActivity } =
+    children.reduce(
+      (acc, child) => {
+        if (!$isLogParagraphNode(child)) return acc;
+        const typingSpeed = child.getTypingSpeed();
+        const revisions = child.getRevisions();
+        const mouseActivity = child.getMouseActivity();
+        return {
+          totalSpeed: acc.totalSpeed + typingSpeed,
+          totalChildrenNum: acc.totalChildrenNum + 1,
+          totalRevisions: {
+            character_deletings: [
+              ...acc.totalRevisions.character_deletings,
+              ...revisions.character_deletings,
+            ],
+            range_deletings: [
+              ...acc.totalRevisions.range_deletings,
+              ...revisions.range_deletings,
+            ],
 
-          insertings: [
-            ...acc.totalRevisions.insertings,
-            ...revisions.insertings,
-          ],
-          pastings: [...acc.totalRevisions.pastings, ...revisions.pastings],
-        },
-      };
-    },
-    {
-      totalSpeed: 0,
-      totalChildrenNum: 0,
-      totalRevisions: {
-        character_deletings: [] as number[],
-        range_deletings: [] as number[],
-        insertings: [] as number[],
-        pastings: [] as number[],
+            insertings: [
+              ...acc.totalRevisions.insertings,
+              ...revisions.insertings,
+            ],
+            pastings: [...acc.totalRevisions.pastings, ...revisions.pastings],
+          },
+
+          totalMouseActivity: {
+            click: acc.totalMouseActivity.click + mouseActivity.click,
+            move_distance:
+              acc.totalMouseActivity.move_distance +
+              mouseActivity.move_distance,
+            drag_distance:
+              acc.totalMouseActivity.drag_distance +
+              mouseActivity.drag_distance,
+            scroll_distance:
+              acc.totalMouseActivity.scroll_distance +
+              mouseActivity.scroll_distance,
+          },
+        };
       },
-    }
-  );
+      {
+        totalSpeed: 0,
+        totalChildrenNum: 0,
+        totalRevisions: {
+          character_deletings: [] as number[],
+          range_deletings: [] as number[],
+          insertings: [] as number[],
+          pastings: [] as number[],
+        },
+        totalMouseActivity: DEFAULT_MOUSE_ACTIVITY,
+      }
+    );
 
   const typingSpeed = totalSpeed / totalChildrenNum;
 
   return {
     typing_speed: typingSpeed,
     revisions: totalRevisions,
+    mouse_activity: totalMouseActivity,
   };
 };
 
@@ -121,9 +141,22 @@ const getUserBehaviorDiff = (
     ),
     pastings: current.revisions.pastings.slice(last.revisions.pastings.length),
   };
+
+  const mouseActivity: MouseActivityType = {
+    click: current.mouse_activity.click - last.mouse_activity.click,
+    move_distance:
+      current.mouse_activity.move_distance - last.mouse_activity.move_distance,
+    drag_distance:
+      current.mouse_activity.drag_distance - last.mouse_activity.drag_distance,
+    scroll_distance:
+      current.mouse_activity.scroll_distance -
+      last.mouse_activity.scroll_distance,
+  };
+
   return {
     typing_speed: typingSpeed,
     revisions,
+    mouse_activity: mouseActivity,
   };
 };
 
@@ -154,9 +187,11 @@ export const getUserBehavior = (
     if ($isLogTextNode(targetNode)) {
       const typingSpeed = targetNode.getTypingSpeed();
       const revisions = targetNode.getRevisions();
+      const mouseActivity = targetNode.getMouseActivity();
       userBehavior.sentence = {
         typing_speed: typingSpeed,
         revisions,
+        mouse_activity: mouseActivity,
       };
 
       const parent = $getNearestNodeOfType(targetNode, LogParagraphNode);
@@ -164,9 +199,11 @@ export const getUserBehavior = (
       if (parent) {
         const typingSpeed = parent.getTypingSpeed();
         const revisions = parent.getRevisions();
+        const mouseActivity = parent.getMouseActivity();
         userBehavior.paragraph = {
           typing_speed: typingSpeed,
           revisions,
+          mouse_activity: mouseActivity,
         };
       }
     }

@@ -2,6 +2,9 @@ import { atom } from "jotai";
 import { focusAtom } from "jotai-optics";
 import { EditorState } from "lexical";
 
+import { MouseActivityType } from "@/components/lexical-editor/plugins/mouse-activity";
+import { DEFAULT_MOUSE_ACTIVITY } from "@/lib/constants";
+
 import { BlockAnnotation } from "./block-atom";
 
 export const MIN_THRESHOLD_IN_SEC = 5;
@@ -14,6 +17,7 @@ export type UserBehaviorItem = {
     insertings: number[];
     pastings: number[];
   };
+  mouse_activity: MouseActivityType;
 };
 
 export type UserBehaviorType = {
@@ -32,6 +36,7 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: [],
       pastings: [],
     },
+    mouse_activity: DEFAULT_MOUSE_ACTIVITY,
   },
   paragraph: {
     typing_speed: 0,
@@ -41,6 +46,7 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: [],
       pastings: [],
     },
+    mouse_activity: DEFAULT_MOUSE_ACTIVITY,
   },
   document: {
     typing_speed: 0,
@@ -50,6 +56,7 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: [],
       pastings: [],
     },
+    mouse_activity: DEFAULT_MOUSE_ACTIVITY,
   },
   since_block: {
     typing_speed: 0,
@@ -59,6 +66,7 @@ export const defaultUserBehavior: UserBehaviorType = {
       insertings: [],
       pastings: [],
     },
+    mouse_activity: DEFAULT_MOUSE_ACTIVITY,
   },
 };
 

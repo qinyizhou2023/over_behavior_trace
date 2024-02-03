@@ -1,9 +1,4 @@
-import {
-  LexicalEditor,
-  LexicalNode,
-  ParagraphNode,
-  SerializedParagraphNode,
-} from "lexical";
+import { LexicalNode, ParagraphNode, SerializedParagraphNode } from "lexical";
 
 import { $isLogTextNode, Revisions } from "../log-text/node";
 
@@ -75,23 +70,37 @@ export class LogParagraphNode extends ParagraphNode {
     return revisions;
   }
 
-  getSentenceCompletion(editor: LexicalEditor): number {
+  getMouseActivity() {
     const self = this.getLatest();
     const children = self.getChildren();
 
-    const { totalCompletion, totalChildrenNum } = children.reduce(
+    const { totalActivity } = children.reduce(
       (acc, child) => {
         if (!$isLogTextNode(child)) return acc;
-        const completion = child.getSentenceCompletion(editor);
+        const activity = child.getMouseActivity();
         return {
-          totalCompletion: acc.totalCompletion + completion,
-          totalChildrenNum: acc.totalChildrenNum + 1,
+          totalActivity: {
+            click: acc.totalActivity.click + activity.click,
+            move_distance:
+              acc.totalActivity.move_distance + activity.move_distance,
+            drag_distance:
+              acc.totalActivity.drag_distance + activity.drag_distance,
+            scroll_distance:
+              acc.totalActivity.scroll_distance + activity.scroll_distance,
+          },
         };
       },
-      { totalCompletion: 0, totalChildrenNum: 0 }
+      {
+        totalActivity: {
+          click: 0,
+          move_distance: 0,
+          drag_distance: 0,
+          scroll_distance: 0,
+        },
+      }
     );
 
-    return totalCompletion / totalChildrenNum;
+    return totalActivity;
   }
 }
 

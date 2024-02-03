@@ -15,6 +15,7 @@ import { LogParagraphNode } from "./plugins/log-paragraph";
 import LogTextPlugin from "./plugins/log-text";
 import { SentenceSeparator } from "./plugins/log-text/extra/sentence-separator";
 import { LogTextNode } from "./plugins/log-text/node";
+import { MouseActivityPlugin } from "./plugins/mouse-activity";
 import TimeTravelPlugin from "./plugins/time-travel";
 import TreeViewPlugin from "./plugins/tree-view";
 
@@ -29,7 +30,7 @@ export const Editor: React.FC = () => {
     namespace: "lexical-editor",
     editable: true,
     theme: {
-      root: "prose dark:prose-invert lg:prose-lg xl:prose-xl focus:outline-none w-full flex-1 mx-auto overflow-auto p-4",
+      root: "prose dark:prose-invert lg:prose-lg xl:prose-xl focus:outline-none w-full flex-1 mx-auto p-4",
       link: "cursor-pointer",
       placeholder: "text-gray-400",
       text: {
@@ -60,7 +61,10 @@ export const Editor: React.FC = () => {
     },
   };
   return (
-    <div className="flex-1 flex p-4 flex-col relative rounded-lg shadow border mx-auto">
+    <div
+      className="flex-1 flex p-4 flex-col relative rounded-lg shadow border mx-auto overflow-auto"
+      id="editor-container"
+    >
       {/* <div className="w-full sticky top-0 bg-white z-10">123</div> */}
       <LexicalComposer initialConfig={config}>
         <RichTextPlugin
@@ -74,6 +78,8 @@ export const Editor: React.FC = () => {
         <LogTextPlugin />
 
         <TimeTravelPlugin />
+
+        <MouseActivityPlugin />
 
         {DEBUG_MODE ? (
           <div className="absolute bottom-0 left-0">

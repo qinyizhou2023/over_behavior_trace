@@ -1,12 +1,15 @@
 import {
   EditorConfig,
-  LexicalEditor,
   LexicalNode,
   NodeKey,
   SerializedTextNode,
   Spread,
   TextNode,
 } from "lexical";
+
+import { DEFAULT_MOUSE_ACTIVITY } from "@/lib/constants";
+
+import { MouseActivityType } from "../mouse-activity";
 
 export type Revisions = {
   character_deletings: number[];
@@ -22,6 +25,7 @@ type SerializedLogTextNode = Spread<
     __last_update_timestamp: number;
     __update_count: number;
     __revisions: Revisions;
+    __mouse_activity: MouseActivityType;
   },
   SerializedTextNode
 >;
@@ -29,6 +33,7 @@ type SerializedLogTextNode = Spread<
 export class LogTextNode extends TextNode {
   __typing_speed: number;
   __revisions: Revisions;
+  __mouse_activity: MouseActivityType;
 
   // internal use only
   __dwelling_time: number;
@@ -42,6 +47,7 @@ export class LogTextNode extends TextNode {
     last_udate_timestamp?: number,
     update_count?: number,
     revisions?: Revisions,
+    mouse_activity?: MouseActivityType,
     key?: NodeKey
   ) {
     super(text, key);
@@ -55,6 +61,8 @@ export class LogTextNode extends TextNode {
       insertings: [],
       pastings: [],
     };
+
+    this.__mouse_activity = mouse_activity ?? DEFAULT_MOUSE_ACTIVITY;
   }
 
   static getType(): string {
@@ -69,6 +77,7 @@ export class LogTextNode extends TextNode {
       node.__last_update_timestamp,
       node.__update_count,
       node.__revisions,
+      node.__mouse_activity,
       node.__key
     );
     return newNode;
@@ -116,6 +125,7 @@ export class LogTextNode extends TextNode {
       __last_update_timestamp: this.__last_update_timestamp,
       __update_count: this.__update_count,
       __revisions: this.__revisions,
+      __mouse_activity: this.__mouse_activity,
     };
   }
 
@@ -126,7 +136,8 @@ export class LogTextNode extends TextNode {
       json.__dwelling_time,
       json.__last_update_timestamp,
       json.__update_count,
-      json.__revisions
+      json.__revisions,
+      json.__mouse_activity
     );
     return node;
   }
@@ -167,6 +178,18 @@ export class LogTextNode extends TextNode {
           ...target.__revisions.pastings,
           ...this.__revisions.pastings,
         ],
+      },
+      {
+        click: target.__mouse_activity.click + this.__mouse_activity.click,
+        move_distance:
+          target.__mouse_activity.move_distance +
+          this.__mouse_activity.move_distance,
+        drag_distance:
+          target.__mouse_activity.drag_distance +
+          this.__mouse_activity.drag_distance,
+        scroll_distance:
+          target.__mouse_activity.scroll_distance +
+          this.__mouse_activity.scroll_distance,
       }
     );
   }
@@ -184,18 +207,27 @@ export class LogTextNode extends TextNode {
           new LogTextNode(
             node.__text,
             this.__typing_speed,
-            this.__dwelling_time / 2,
+            this.__dwelling_time / nodes.length,
             this.__last_update_timestamp,
-            this.__update_count / 2,
+            this.__update_count / nodes.length,
             {
               character_deletings: this.__revisions.character_deletings.map(
-                (x) => x / 2
+                (x) => x / nodes.length
               ),
               range_deletings: this.__revisions.range_deletings.map(
-                (x) => x / 2
+                (x) => x / nodes.length
               ),
-              insertings: this.__revisions.insertings.map((x) => x / 2),
-              pastings: this.__revisions.pastings.map((x) => x / 2),
+              insertings: this.__revisions.insertings.map(
+                (x) => x / nodes.length
+              ),
+              pastings: this.__revisions.pastings.map((x) => x / nodes.length),
+            },
+            {
+              click: this.__mouse_activity.click / nodes.length,
+              move_distance: this.__mouse_activity.move_distance / nodes.length,
+              drag_distance: this.__mouse_activity.drag_distance / nodes.length,
+              scroll_distance:
+                this.__mouse_activity.scroll_distance / nodes.length,
             }
           )
         );
@@ -216,23 +248,6 @@ export class LogTextNode extends TextNode {
     return self.__revisions;
   }
 
-  getSentenceCompletion(editor: LexicalEditor): number {
-    const self = this.getLatest();
-    const sentences =
-      editor.getRootElement()?.textContent?.split(/(?<=[.?!])\s+/) ?? [];
-
-    const allWords = editor.getRootElement()?.textContent?.split(/\s+/) ?? [];
-    const averageWordPerSentence = allWords.length / sentences.length;
-
-    const words = self.__text.split(/\s+/);
-    return self.__text.endsWith(".") ||
-      self.__text.endsWith("?") ||
-      self.__text.endsWith("!")
-      ? 1
-      : // scale to 0-1 using sigmoid function
-        1 / (1 + Math.exp(-words.length / averageWordPerSentence));
-  }
-
   private getNewRevision(
     metric: keyof Revisions,
     isNew: boolean,
@@ -245,6 +260,16 @@ export class LogTextNode extends TextNode {
           ...self.__revisions[metric].slice(0, -1),
           self.__revisions[metric].slice(-1)[0] + amount,
         ];
+  }
+
+  getMouseActivity(): MouseActivityType {
+    const self = this.getLatest();
+    return self.__mouse_activity;
+  }
+
+  setMouseActivity(activity: MouseActivityType): void {
+    const writable = this.getWritable();
+    writable.__mouse_activity = activity;
   }
 
   onTyping(): void {
