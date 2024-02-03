@@ -16,6 +16,7 @@ export type MouseActivityType = {
 export function MouseActivityPlugin() {
   const [editor] = useLexicalComposerContext();
   const currentPosition = useRef<{ x: number; y: number }>();
+  const currentDragPosition = useRef<{ x: number; y: number }>();
 
   const withActiveLogTextNode = useCallback(
     (fn: (logTextNode: LogTextNode) => void) => {
@@ -38,16 +39,37 @@ export function MouseActivityPlugin() {
       const currentX = e.clientX;
       const currentY = e.clientY;
 
-      if (currentPosition.current) {
-        activity.move_distance += Math.sqrt(
-          (currentX - currentPosition.current.x) ** 2 +
-            (currentY - currentPosition.current.y) ** 2
-        );
+      if (e.buttons === 0) {
+        currentDragPosition.current = undefined;
+
+        node.setMouseActivity({
+          ...activity,
+          move_distance:
+            activity.move_distance +
+            (currentPosition.current
+              ? Math.sqrt(
+                  (currentX - currentPosition.current.x) ** 2 +
+                    (currentY - currentPosition.current.y) ** 2
+                )
+              : 0),
+        });
+
+        currentPosition.current = { x: currentX, y: currentY };
+      } else {
+        if (currentDragPosition.current) {
+          node.setMouseActivity({
+            ...activity,
+            drag_distance:
+              activity.drag_distance +
+              Math.sqrt(
+                (currentX - currentDragPosition.current.x) ** 2 +
+                  (currentY - currentDragPosition.current.y) ** 2
+              ),
+          });
+        }
+
+        currentDragPosition.current = { x: currentX, y: currentY };
       }
-
-      currentPosition.current = { x: currentX, y: currentY };
-
-      node.setMouseActivity(activity);
     });
   }, 100);
 
@@ -55,11 +77,14 @@ export function MouseActivityPlugin() {
     withActiveLogTextNode((node) => {
       if (!node) return;
 
+      // console.log("click", node.getMouseActivity(), node.__type, node.getKey());
+
       const activity = node.getMouseActivity();
 
-      activity.click += 1;
-
-      node.setMouseActivity(activity);
+      node.setMouseActivity({
+        ...activity,
+        click: activity.click + 1,
+      });
     });
   }, 100);
 
@@ -68,8 +93,10 @@ export function MouseActivityPlugin() {
       if (!node) return;
 
       const activity = node.getMouseActivity();
-      activity.scroll_distance += Math.abs(e.deltaY);
-      node.setMouseActivity(activity);
+      node.setMouseActivity({
+        ...activity,
+        scroll_distance: activity.scroll_distance + Math.abs(e.deltaY),
+      });
     });
   });
 
