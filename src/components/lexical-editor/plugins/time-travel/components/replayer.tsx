@@ -43,8 +43,6 @@ export default function Replayer() {
 
   const setSessionList = useSetAtom(sessionListAtom);
 
-  // const [isBlock, setIsBlock] = useAtom(isBlockAtom);
-
   const totalSteps = currentSession.logs.length - 1;
 
   const firstEditorState = useMemo(
@@ -165,23 +163,11 @@ export default function Replayer() {
 
           toast.success("Block annotation saved.");
 
-          // timeTravelConfiguration.onUpdateLog(currentTimeTravelLogId, {
-          //   id: currentTimeTravelLogId,
-          //   saveTime: new Date(),
-          //   log: timeTravelLogs,
-          // });
-
           setPauseFormOpen(false);
           currentStepRef.current++;
           setSliderValue(currentStepRef.current);
           setReplayState("playing");
         }}
-        // onNotBlocking={() => {
-        //   setPauseFormOpen(false);
-        //   currentStepRef.current++;
-        //   setSliderValue(currentStepRef.current);
-        //   setReplayState(TimeTravelReplayerState.Playing);
-        // }}
       />
 
       <div className="grid grid-cols-3 items-center">
