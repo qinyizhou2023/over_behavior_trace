@@ -27,24 +27,26 @@ export type BlockAnnotation = {
   blockAiAssistance: BlockAiAssistancePossibility;
 };
 
+const DEFAULT_BLOCK_ANNOTATION_LEVEL = 1;
+
 export const defaultBlockAnnotation: BlockAnnotation = {
-  blockPossibility: 4,
+  blockPossibility: DEFAULT_BLOCK_ANNOTATION_LEVEL,
   blockStage: {
     planning: {
-      generating: 4,
-      organizing: 4,
-      setting: 4,
+      generating: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+      organizing: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+      setting: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     },
-    translating: 4,
+    translating: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     reviewing: {
-      evaluating: 4,
-      revising: 4,
+      evaluating: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+      revising: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     },
   },
   blockAiAssistance: {
-    ideas: 4,
-    completion: 4,
-    feedback: 4,
+    ideas: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+    completion: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+    feedback: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     other: "",
   },
 };
