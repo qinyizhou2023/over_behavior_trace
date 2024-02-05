@@ -27,7 +27,7 @@ export default function TimeTravelPlugin() {
   return (
     <Card className="w-[400px] fixed bottom-0 left-0 z-20 m-5">
       <CardHeader>
-        <CardTitle>Time Travel</CardTitle>
+        <CardTitle>Writing Log</CardTitle>
         <CardDescription>
           Record and replay your writing sessions.
         </CardDescription>

@@ -175,7 +175,7 @@ export default function SessionList() {
                           await onDownloadLog(session.id, false);
                         }}
                       >
-                        Precise
+                        Block Only
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
