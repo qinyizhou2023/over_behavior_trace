@@ -164,20 +164,21 @@ export const getUserBehavior = (
   editor: LexicalEditor,
   lastBlockUserBehavior?: UserBehaviorType
 ): UserBehaviorType => {
-  const userBehavior = defaultUserBehavior;
+  let userBehavior = defaultUserBehavior;
   const editorState = editor.getEditorState();
   editorState.read(() => {
     const rootBehavior = $getRootBehavior();
-    userBehavior.document = rootBehavior;
+    userBehavior = {
+      ...userBehavior,
+      document: rootBehavior,
+    };
 
-    if (lastBlockUserBehavior) {
-      userBehavior.since_block = getUserBehaviorDiff(
-        rootBehavior,
-        lastBlockUserBehavior.document
-      );
-    } else {
-      userBehavior.since_block = rootBehavior;
-    }
+    userBehavior = {
+      ...userBehavior,
+      since_block: lastBlockUserBehavior
+        ? getUserBehaviorDiff(rootBehavior, lastBlockUserBehavior.document)
+        : rootBehavior,
+    };
 
     const selection = $getSelection();
     if (!selection) return;
@@ -185,13 +186,23 @@ export const getUserBehavior = (
     const targetNode = selection.getNodes()[0];
 
     if ($isLogTextNode(targetNode)) {
+      console.log("targetNode", targetNode.getTypingSpeed());
       const typingSpeed = targetNode.getTypingSpeed();
       const revisions = targetNode.getRevisions();
       const mouseActivity = targetNode.getMouseActivity();
-      userBehavior.sentence = {
-        typing_speed: typingSpeed,
-        revisions,
-        mouse_activity: mouseActivity,
+      // userBehavior.sentence = {
+      //   typing_speed: typingSpeed,
+      //   revisions,
+      //   mouse_activity: mouseActivity,
+      // };
+
+      userBehavior = {
+        ...userBehavior,
+        sentence: {
+          typing_speed: typingSpeed,
+          revisions,
+          mouse_activity: mouseActivity,
+        },
       };
 
       const parent = $getNearestNodeOfType(targetNode, LogParagraphNode);
@@ -200,13 +211,22 @@ export const getUserBehavior = (
         const typingSpeed = parent.getTypingSpeed();
         const revisions = parent.getRevisions();
         const mouseActivity = parent.getMouseActivity();
-        userBehavior.paragraph = {
-          typing_speed: typingSpeed,
-          revisions,
-          mouse_activity: mouseActivity,
+        // userBehavior.paragraph = {
+        //   typing_speed: typingSpeed,
+        //   revisions,
+        //   mouse_activity: mouseActivity,
+        // };
+        userBehavior = {
+          ...userBehavior,
+          paragraph: {
+            typing_speed: typingSpeed,
+            revisions,
+            mouse_activity: mouseActivity,
+          },
         };
       }
     }
   });
+  console.log("userBehavior", userBehavior);
   return userBehavior;
 };

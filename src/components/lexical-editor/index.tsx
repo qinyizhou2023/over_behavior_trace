@@ -19,7 +19,7 @@ import { MouseActivityPlugin } from "./plugins/mouse-activity";
 import TimeTravelPlugin from "./plugins/time-travel";
 import TreeViewPlugin from "./plugins/tree-view";
 
-const DEBUG_MODE = false;
+const DEBUG_MODE = true;
 
 if (DEBUG_MODE) {
   import("./debug.css");

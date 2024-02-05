@@ -70,8 +70,7 @@ export default function Recorder() {
             overall_sentence_cnt,
             overall_word_cnt,
 
-            relative_start_time:
-              lastUpdateTime.current - sessionStartTime.current,
+            relative_start_time: currentTime - sessionStartTime.current,
             num_blocks: currentTimeTravelLogs.current.blocks.length,
             avg_block_duration:
               currentTimeTravelLogs.current.blocks.reduce(

@@ -7,7 +7,7 @@ import { DEFAULT_MOUSE_ACTIVITY } from "@/lib/constants";
 
 import { BlockAnnotation } from "./block-atom";
 
-export const MIN_THRESHOLD_IN_SEC = 5;
+export const MIN_THRESHOLD_IN_SEC = 1;
 
 export type UserBehaviorItem = {
   typing_speed: number;
