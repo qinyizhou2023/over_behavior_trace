@@ -143,7 +143,7 @@ const getUserBehaviorDiff = (
   };
 
   const mouseActivity: MouseActivityType = {
-    click: current.mouse_activity.click - last.mouse_activity.click,
+    click: (current.mouse_activity.click + last.mouse_activity.click) / 2,
     move_distance:
       current.mouse_activity.move_distance - last.mouse_activity.move_distance,
     drag_distance:
