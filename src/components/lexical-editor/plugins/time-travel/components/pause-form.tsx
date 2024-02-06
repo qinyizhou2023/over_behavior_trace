@@ -39,13 +39,7 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
   const [other, setOther] = useAtom(blockAiAssistanceOtherAnnotationAtom);
   const [currentStep, setCurrentStep] = useState("step-1");
   return (
-    <Sheet
-      defaultOpen={false}
-      open={open}
-      // onOpenChange={onOpenChange}
-
-      modal={false}
-    >
+    <Sheet defaultOpen={false} open={open} modal={false}>
       {/* <SheetTrigger asChild>{trigger}</SheetTrigger> */}
       <SheetContent
         className="flex flex-col space-y-4 pr-1"

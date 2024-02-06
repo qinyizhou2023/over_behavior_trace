@@ -127,7 +127,7 @@ const getUserBehaviorDiff = (
   current: UserBehaviorItem,
   last: UserBehaviorItem
 ): UserBehaviorItem => {
-  const typingSpeed = current.typing_speed - last.typing_speed;
+  const typingSpeed = (current.typing_speed + last.typing_speed) / 2;
   const revisions = {
     character_deletings: current.revisions.character_deletings.slice(
       last.revisions.character_deletings.length
@@ -143,7 +143,7 @@ const getUserBehaviorDiff = (
   };
 
   const mouseActivity: MouseActivityType = {
-    click: (current.mouse_activity.click + last.mouse_activity.click) / 2,
+    click: current.mouse_activity.click - last.mouse_activity.click,
     move_distance:
       current.mouse_activity.move_distance - last.mouse_activity.move_distance,
     drag_distance:
