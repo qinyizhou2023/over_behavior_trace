@@ -1,4 +1,5 @@
 import { useAtom } from "jotai";
+import { useState } from "react";
 
 import {
   blockAiAssistanceCompletionAnnotationAtom,
@@ -36,6 +37,7 @@ interface PauseFormProps {
 
 export default function PauseForm({ open, onSave }: PauseFormProps) {
   const [other, setOther] = useAtom(blockAiAssistanceOtherAnnotationAtom);
+  const [currentStep, setCurrentStep] = useState("step-1");
   return (
     <Sheet
       defaultOpen={false}
@@ -45,9 +47,17 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
       modal={false}
     >
       {/* <SheetTrigger asChild>{trigger}</SheetTrigger> */}
-      <SheetContent className="flex flex-col space-y-4 pr-1">
+      <SheetContent
+        className="flex flex-col space-y-4 pr-1"
+        showCloseButton={false}
+      >
         <ScrollArea className="flex-1 pr-4">
-          <Tabs defaultValue="step-1" className="w-full flex flex-col">
+          <Tabs
+            defaultValue="step-1"
+            className="w-full flex flex-col"
+            value={currentStep}
+            onValueChange={(value) => setCurrentStep(value)}
+          >
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="step-1">Block Type</TabsTrigger>
               <TabsTrigger value="step-2">AI Assistance</TabsTrigger>
@@ -178,9 +188,18 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
         </ScrollArea>
 
         <SheetFooter>
-          <Button className="ml-auto mr-4" onClick={onSave}>
-            Save changes
-          </Button>
+          {currentStep === "step-1" ? (
+            <Button onClick={() => setCurrentStep("step-2")}>Next</Button>
+          ) : (
+            <Button
+              onClick={() => {
+                setCurrentStep("step-1");
+                onSave();
+              }}
+            >
+              Save changes
+            </Button>
+          )}
         </SheetFooter>
       </SheetContent>
     </Sheet>
