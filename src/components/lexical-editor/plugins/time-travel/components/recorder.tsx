@@ -53,7 +53,7 @@ export default function Recorder() {
 
       const currentTime = Date.now();
 
-      const timeDiff = currentTime - lastUpdateTime.current;
+      const timeDiff = currentTime - lastUpdateTime.current || 0;
       const hasBlockBefore = timeDiff > MIN_THRESHOLD_IN_SEC * 1000;
 
       if (hasBlockBefore) {
@@ -74,7 +74,7 @@ export default function Recorder() {
               : undefined;
           currentTimeTravelLogs.current.blocks.push({
             id: blockId,
-            start_time: currentTime,
+            start_time: Date.now(),
             duration_block: timeDiff,
             threshold: MIN_THRESHOLD_IN_SEC * 1000,
 
