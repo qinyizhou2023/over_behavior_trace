@@ -94,6 +94,7 @@ export const $getDocumentMetrics = () => {
       sentence_completion: 0,
       overall_word_cnt: allWords.length,
       overall_sentence_cnt: allSentence.length,
+      block_sentence: "",
     };
   const targetNode = selection.getNodes()[0];
   if (!$isLogTextNode(targetNode))
@@ -101,6 +102,7 @@ export const $getDocumentMetrics = () => {
       sentence_completion: 0,
       overall_word_cnt: allWords.length,
       overall_sentence_cnt: allSentence.length,
+      block_sentence: "",
     };
   const currentSentence = targetNode.getTextContent();
 
@@ -120,6 +122,7 @@ export const $getDocumentMetrics = () => {
     sentence_completion: completion,
     overall_word_cnt: allWords.length,
     overall_sentence_cnt: allSentence.length,
+    block_sentence: currentSentence,
   };
 };
 

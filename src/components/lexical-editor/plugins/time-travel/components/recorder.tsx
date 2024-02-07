@@ -25,7 +25,7 @@ export default function Recorder() {
   );
 
   const sessionStartTime = useRef<number>(Date.now());
-  const lastUpdateTime = useRef<number>(Date.now());
+  const lastUpdateTime = useRef<number>();
 
   const currentTimeTravelLogs = useRef<{
     logs: LogItem[];
@@ -41,7 +41,18 @@ export default function Recorder() {
     if (timeTravelRecorderState === "idle") return;
     sessionStartTime.current = Date.now();
     return editor.registerUpdateListener(({ editorState }) => {
+      if (!lastUpdateTime.current) {
+        lastUpdateTime.current = Date.now();
+        currentTimeTravelLogs.current.logs.push({
+          id: uuidv4(),
+          time: Date.now(),
+          editorState,
+        });
+        return;
+      }
+
       const currentTime = Date.now();
+
       const timeDiff = currentTime - lastUpdateTime.current;
       const hasBlockBefore = timeDiff > MIN_THRESHOLD_IN_SEC * 1000;
 
@@ -52,6 +63,7 @@ export default function Recorder() {
             sentence_completion,
             overall_sentence_cnt,
             overall_word_cnt,
+            block_sentence,
           } = $getDocumentMetrics();
 
           const lastBehavior =
@@ -69,6 +81,8 @@ export default function Recorder() {
             sentence_completion,
             overall_sentence_cnt,
             overall_word_cnt,
+
+            block_sentence,
 
             relative_start_time: currentTime - sessionStartTime.current,
             num_blocks: currentTimeTravelLogs.current.blocks.length,

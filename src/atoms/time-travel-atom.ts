@@ -99,6 +99,8 @@ export type BlockType = {
   overall_word_cnt: number;
   overall_sentence_cnt: number;
 
+  block_sentence: string;
+
   user_behavior: UserBehaviorType;
   annotated: boolean;
   annotation: BlockAnnotation;
