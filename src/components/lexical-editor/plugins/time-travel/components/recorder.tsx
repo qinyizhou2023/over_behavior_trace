@@ -74,7 +74,7 @@ export default function Recorder() {
               : undefined;
           currentTimeTravelLogs.current.blocks.push({
             id: blockId,
-            start_time: lastUpdateTime.current,
+            start_time: currentTime,
             duration_block: timeDiff,
             threshold: MIN_THRESHOLD_IN_SEC * 1000,
 
