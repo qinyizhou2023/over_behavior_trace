@@ -116,7 +116,7 @@ export const sessionListAtom = atom<SessionList>([]);
 export const timeTravelAtom = atom<{
   timeTravelState: "recording" | "replaying";
   timeTravelRecorderState: "idle" | "recording";
-  timeTravelReplayerState: "idle" | "playing" | "finished";
+  timeTravelReplayerState: "idle" | "playing" | "finished" | "looping";
   latestEditorState: EditorState | null;
 
   currentSessionId?: string;
@@ -126,7 +126,7 @@ export const timeTravelAtom = atom<{
   timeTravelRecorderState: "idle",
   timeTravelReplayerState: "idle",
   latestEditorState: null,
-  blockThresholdInSec: MIN_THRESHOLD_IN_SEC,
+  blockThresholdInSec: 5,
 });
 
 export const timeTravelRecorderStateAtom = focusAtom(timeTravelAtom, (optic) =>

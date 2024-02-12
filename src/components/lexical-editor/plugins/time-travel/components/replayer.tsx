@@ -1,4 +1,5 @@
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
+import { EditorState } from "lexical";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
@@ -22,6 +23,8 @@ import PauseForm from "./pause-form";
 
 const PLAYBACK_SPEEDS = [0.5, 0.25, 1, 2, 4];
 
+const LOOPING_WINDOW_SIZE = 15;
+
 export default function Replayer() {
   const [editor] = useLexicalComposerContext();
 
@@ -31,12 +34,14 @@ export default function Replayer() {
   const latestEditorState = useAtomValue(latestEditorStateAtom);
 
   const [replayState, setReplayState] = useAtom(timeTravelReplayerStateAtom);
-  const [sliderValue, setSliderValue] = useState<number>(0);
-  const currentStepRef = useRef<number>(0);
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [pauseFormOpen, setPauseFormOpen] = useState(false);
   const setTimeTravelState = useSetAtom(timeTravelStateAtom);
 
   const blockThresholdInSec = useAtomValue(blockThresholdInSecAtom);
+
+  const loopingWindow = useRef<EditorState[]>([]);
+  const loopingIndex = useRef(0);
 
   const [currentBlockAnnotation, setCurrentBlockAnnotation] =
     useAtom(blockAnnotationAtom);
@@ -51,9 +56,29 @@ export default function Replayer() {
   );
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setInterval> | undefined = undefined;
+    if (replayState === "looping") {
+      timeoutId = setInterval(() => {
+        if (loopingIndex.current === LOOPING_WINDOW_SIZE - 1) {
+          loopingIndex.current = 0;
+        } else {
+          loopingIndex.current += 1;
+        }
+
+        editor.setEditorState(loopingWindow.current[loopingIndex.current]);
+      }, 200);
+    } else {
+      if (timeoutId) clearInterval(timeoutId);
+    }
+
+    return () => {
+      if (timeoutId) clearInterval(timeoutId);
+    };
+  }, [editor, replayState]);
+
+  useEffect(() => {
     editor.setEditorState(firstEditorState);
-    currentStepRef.current = 0;
-    setSliderValue(0);
+    setCurrentStep(0);
   }, [editor, firstEditorState]);
 
   const [playbackSpeedIndex, setPlaybackSpeedIndex] = useState(2);
@@ -62,18 +87,16 @@ export default function Replayer() {
     let timeoutId: ReturnType<typeof setTimeout>;
 
     const timeDiff =
-      currentSession.logs[currentStepRef.current + 1]?.time -
-      currentSession.logs[currentStepRef.current]?.time;
+      currentSession.logs[currentStep + 1]?.time -
+      currentSession.logs[currentStep]?.time;
     const blocks = updatingSession.blocks.filter(
       (block) => block.duration_block > blockThresholdInSec * 1000
     );
 
     if (replayState === "playing") {
-      editor.focus();
+      // editor.focus();
       const play = () => {
-        const currentStep = currentStepRef.current;
-
-        if (currentStepRef.current === totalSteps) {
+        if (currentStep === totalSteps) {
           setReplayState("finished");
           return;
         }
@@ -86,17 +109,20 @@ export default function Replayer() {
           if (block) {
             setCurrentBlockAnnotation(() => block.annotation);
             setPauseFormOpen(true);
-            setReplayState("idle");
+
+            loopingWindow.current = currentSession.logs
+              .slice(currentStep, currentStep + LOOPING_WINDOW_SIZE)
+              .map((log) => log.editorState);
+
+            setReplayState("looping");
           }
         }
 
         timeoutId = setTimeout(() => {
-          currentStepRef.current++;
-          setSliderValue(currentStepRef.current);
-
-          const newStep = currentStepRef.current;
-
-          editor.setEditorState(currentSession.logs[newStep].editorState);
+          setCurrentStep((prev) => {
+            editor.setEditorState(currentSession.logs[prev + 1].editorState);
+            return prev + 1;
+          });
 
           play();
         }, timeDiff / PLAYBACK_SPEEDS[playbackSpeedIndex]);
@@ -119,6 +145,7 @@ export default function Replayer() {
     currentSession.logs,
     currentSession.blocks,
     updatingSession.blocks,
+    currentStep,
   ]);
 
   return (
@@ -129,18 +156,12 @@ export default function Replayer() {
         onSave={async () => {
           setUpdatingSession((prev) => {
             const currentBlock = prev.blocks.find(
-              (b) => b.id === prev.logs[currentStepRef.current].blockId
+              (b) => b.id === prev.logs[currentStep].blockId
             );
 
             if (!currentBlock) {
               return prev;
             }
-
-            // newBlocks.splice(newBlocks.indexOf(currentBlock), 1, {
-            //   ...currentBlock,
-            //   annotated: true,
-            //   annotation: currentBlockAnnotation,
-            // });
 
             const newBlocks = prev.blocks.map((block) => {
               if (block.id === currentBlock.id) {
@@ -164,8 +185,7 @@ export default function Replayer() {
           toast.success("Block annotation saved.");
 
           setPauseFormOpen(false);
-          currentStepRef.current++;
-          setSliderValue(currentStepRef.current);
+          setCurrentStep((prev) => prev + 1);
           setReplayState("playing");
         }}
       />
@@ -180,9 +200,8 @@ export default function Replayer() {
             if (pressed) {
               setReplayState("playing");
 
-              if (currentStepRef.current === totalSteps) {
-                currentStepRef.current = 0;
-                setSliderValue(0);
+              if (currentStep === totalSteps) {
+                setCurrentStep(0);
               }
             } else {
               setReplayState("idle");
@@ -194,11 +213,12 @@ export default function Replayer() {
               idle: <PlayIcon className="w-4 h-4" />,
               playing: <StopIcon className="w-4 h-4" />,
               finished: <ReloadIcon className="w-4 h-4" />,
+              looping: <PlayIcon className="w-4 h-4" />,
             }[replayState]
           }
         </Toggle>
         <Label className="justify-self-center">
-          Step {sliderValue}/{totalSteps}
+          Step {currentStep}/{totalSteps}
         </Label>
         <Button
           variant={"link"}
@@ -216,9 +236,9 @@ export default function Replayer() {
       <Slider
         min={1}
         max={totalSteps}
-        value={[sliderValue]}
+        value={[currentStep]}
         onValueChange={([ind]) => {
-          setSliderValue(ind);
+          setCurrentStep(ind);
           const editorState = currentSession.logs[ind].editorState;
           editor.setEditorState(editorState);
         }}
@@ -234,7 +254,7 @@ export default function Replayer() {
               editor.setEditorState(latestEditorState);
             }
 
-            setSliderValue(index);
+            setCurrentStep(index);
 
             setReplayState("idle");
             setTimeTravelState("recording");
