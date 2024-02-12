@@ -97,11 +97,28 @@ export default function Recorder() {
             annotation: defaultBlockAnnotation,
           });
 
+          // modify the previous log
+          if (currentTimeTravelLogs.current.logs.length > 0) {
+            const lastLog =
+              currentTimeTravelLogs.current.logs[
+                currentTimeTravelLogs.current.logs.length - 1
+              ];
+
+            lastLog.blockId = blockId;
+
+            currentTimeTravelLogs.current.logs = [
+              ...currentTimeTravelLogs.current.logs.slice(
+                0,
+                currentTimeTravelLogs.current.logs.length - 1
+              ),
+              lastLog,
+            ];
+          }
+
           currentTimeTravelLogs.current.logs.push({
             id: uuidv4(),
             time: currentTime,
             editorState,
-            blockId: blockId,
           });
         });
       } else {
