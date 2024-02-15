@@ -1,6 +1,8 @@
 import { atom } from "jotai";
 import { focusAtom } from "jotai-optics";
 
+import { BlockType } from "./time-travel-atom";
+
 export type BlockStagePossibility = {
   planning: {
     generating: number;
@@ -56,6 +58,8 @@ export const isBlockAtom = atom<boolean>(true);
 export const blockAnnotationAtom = atom<BlockAnnotation>(
   defaultBlockAnnotation
 );
+
+export const currentBlockAtom = atom<BlockType | null>(null);
 
 export const blockPossibilityAtom = focusAtom(blockAnnotationAtom, (optic) =>
   optic.prop("blockPossibility")

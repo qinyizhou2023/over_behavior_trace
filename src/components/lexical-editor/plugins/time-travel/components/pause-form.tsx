@@ -1,4 +1,4 @@
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { useState } from "react";
 
 import {
@@ -13,6 +13,7 @@ import {
   blockReviewingEvaluatingStageAnnotationAtom,
   blockReviewingRevisingStageAnnotationAtom,
   blockTranslatingStageAnnotationAtom,
+  currentBlockAtom,
 } from "@/atoms/block-atom";
 import GridSelect from "@/components/grid-select";
 import { Button } from "@/components/ui/button";
@@ -38,9 +39,10 @@ interface PauseFormProps {
 export default function PauseForm({ open, onSave }: PauseFormProps) {
   const [other, setOther] = useAtom(blockAiAssistanceOtherAnnotationAtom);
   const [currentStep, setCurrentStep] = useState("step-1");
+  const currentBlock = useAtomValue(currentBlockAtom);
+
   return (
     <Sheet defaultOpen={false} open={open} modal={false}>
-      {/* <SheetTrigger asChild>{trigger}</SheetTrigger> */}
       <SheetContent
         className="flex flex-col space-y-4 pr-1"
         showCloseButton={false}
@@ -62,7 +64,18 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
               className="flex-1 flex flex-col space-y-10"
             >
               <div className="flex flex-col space-y-4">
-                <Label className="text-xl">Is this a block?</Label>
+                <div className="flex flex-row justify-between items-center">
+                  <Label className="text-xl">Is this a block?</Label>{" "}
+                  {currentBlock && (
+                    <span
+                      className="text-muted-foreground text-sm"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Block duration: {currentBlock?.duration_block} ms
+                    </span>
+                  )}
+                </div>
+
                 <GridSelect atom={blockPossibilityAtom} />
               </div>
 

@@ -3,7 +3,7 @@ import { EditorState } from "lexical";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
-import { blockAnnotationAtom } from "@/atoms/block-atom";
+import { blockAnnotationAtom, currentBlockAtom } from "@/atoms/block-atom";
 import {
   blockThresholdInSecAtom,
   currentSessionAtom,
@@ -45,6 +45,8 @@ export default function Replayer() {
 
   const [currentBlockAnnotation, setCurrentBlockAnnotation] =
     useAtom(blockAnnotationAtom);
+
+  const setCurrentBlock = useSetAtom(currentBlockAtom);
 
   const setSessionList = useSetAtom(sessionListAtom);
 
@@ -108,6 +110,7 @@ export default function Replayer() {
 
           if (block) {
             setCurrentBlockAnnotation(() => block.annotation);
+            setCurrentBlock(() => block);
             setPauseFormOpen(true);
 
             loopingWindow.current = currentSession.logs
@@ -146,6 +149,7 @@ export default function Replayer() {
     currentSession.blocks,
     updatingSession.blocks,
     currentStep,
+    setCurrentBlock,
   ]);
 
   return (
