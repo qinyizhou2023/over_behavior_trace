@@ -48,6 +48,9 @@ export default function GridSelect({ label, tooltip, atom }: GridSelectProps) {
           size={"sm"}
           value={value ? value.toString() : ""}
           onValueChange={(value) => {
+            if (value === null || value === "") {
+              return;
+            }
             setValue(parseInt(value));
           }}
         >

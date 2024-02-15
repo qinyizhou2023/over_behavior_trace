@@ -108,7 +108,6 @@ export default function SessionList() {
 
               toast.success("Log imported successfully.");
             } catch (error) {
-              console.error(error);
               toast.error("Invalid log file, please try again.");
             }
           }}

@@ -189,7 +189,6 @@ export const getUserBehavior = (
     const targetNode = selection.getNodes()[0];
 
     if ($isLogTextNode(targetNode)) {
-      console.log("targetNode", targetNode.getTypingSpeed());
       const typingSpeed = targetNode.getTypingSpeed();
       const revisions = targetNode.getRevisions();
       const mouseActivity = targetNode.getMouseActivity();
@@ -230,6 +229,5 @@ export const getUserBehavior = (
       }
     }
   });
-  console.log("userBehavior", userBehavior);
   return userBehavior;
 };
