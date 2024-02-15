@@ -275,7 +275,7 @@ export default function Replayer() {
             });
           }}
         >
-          Exit
+          Save and finish
         </Button>
       </div>
     </div>
