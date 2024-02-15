@@ -16,6 +16,7 @@ import {
   currentBlockAtom,
 } from "@/atoms/block-atom";
 import GridSelect from "@/components/grid-select";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -67,12 +68,10 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                 <div className="flex flex-row justify-between items-center">
                   <Label className="text-xl">Is this a block?</Label>{" "}
                   {currentBlock && (
-                    <span
-                      className="text-muted-foreground text-sm"
-                      style={{ whiteSpace: "nowrap" }}
-                    >
-                      Block duration: {currentBlock?.duration_block} ms
-                    </span>
+                    <Badge>
+                      Block duration:{" "}
+                      {(currentBlock?.duration_block / 1000).toFixed(2)} s
+                    </Badge>
                   )}
                 </div>
 
