@@ -51,18 +51,8 @@ export default function GridSelect({ label, tooltip, atom }: GridSelectProps) {
             setValue(parseInt(value));
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7].map((option, index) => (
-            <ToggleGroupItem
-              key={index}
-              // pressed={selected === option}
-              value={option.toString()}
-              // onPressedChange={(pressed) => {
-              //   if (pressed) {
-              //     setSelected(option);
-              //     onChange(option);
-              //   }
-              // }}
-            >
+          {[1, 2, 3, 4, 5].map((option, index) => (
+            <ToggleGroupItem key={index} value={option.toString()}>
               {option}
             </ToggleGroupItem>
           ))}
