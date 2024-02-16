@@ -174,6 +174,18 @@ export default function Replayer() {
                   annotated: true,
                   annotation: currentBlockAnnotation,
                   threshold: blockThresholdInSec,
+                  num_blocks: prev.blocks.filter(
+                    (b) => b.duration_block > blockThresholdInSec * 1000
+                  ).length,
+                  avg_block_duration:
+                    prev.blocks
+                      .filter(
+                        (b) => b.duration_block > blockThresholdInSec * 1000
+                      )
+                      .reduce((acc, curr) => acc + curr.duration_block, 0) /
+                    prev.blocks.filter(
+                      (b) => b.duration_block > blockThresholdInSec * 1000
+                    ).length,
                 };
               }
 
