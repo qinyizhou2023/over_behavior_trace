@@ -293,7 +293,8 @@ export class LogTextNode extends TextNode {
     writable.__dwelling_time = __dwelling_time + delta;
 
     writable.__typing_speed =
-      (__update_count + 1) / ((__dwelling_time + delta) / 1000);
+      (((__update_count + 1) / ((__dwelling_time + delta) / 1000)) * 60) /
+      this.__text.split(" ").length;
   }
 
   onDeleting(isRange: boolean, isNew: boolean, amount?: number): void {
