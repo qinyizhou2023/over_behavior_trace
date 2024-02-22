@@ -34,7 +34,7 @@ For each time-window, the following attributes are logged:
 
 | Attribute        | Type                                      | Description                                   |
 | ---------------- | ----------------------------------------- | --------------------------------------------- |
-| `typing_speed`   | number                                    | Typing speed in characters per second         |
+| `typing_speed`   | number                                    | Typing speed in word per minute               |
 | `revisions`      | [RevisionsType](#revision-type)           | User's revisions count within the time-window |
 | `mouse_activity` | [MouseActivityType](#mouse-activity-type) | User's mouse activity within the time-window  |
 
