@@ -60,6 +60,7 @@ export default function Replayer() {
   useEffect(() => {
     let timeoutId: ReturnType<typeof setInterval> | undefined = undefined;
     if (replayState === "looping") {
+      editor.setEditable(false);
       timeoutId = setInterval(() => {
         if (loopingIndex.current === LOOPING_WINDOW_SIZE - 1) {
           loopingIndex.current = 0;
@@ -67,9 +68,10 @@ export default function Replayer() {
           loopingIndex.current += 1;
         }
 
-        editor.setEditorState(loopingWindow.current[loopingIndex.current]);
+        editor.setEditorState(loopingWindow.current[loopingIndex.current], {});
       }, 200);
     } else {
+      editor.setEditable(true);
       if (timeoutId) clearInterval(timeoutId);
     }
 

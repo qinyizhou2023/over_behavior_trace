@@ -180,10 +180,17 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                       </Label>
                       <Textarea
                         id="custom-ai-support"
+                        className="m-[4px] w-full"
                         value={other}
                         onChange={(e) => {
                           setOther(e.currentTarget.value);
                         }}
+                        // onClick={() => {
+                        //   setReplayerState("idle");
+                        // }}
+                        // onBlur={() => {
+                        //   setReplayerState("looping");
+                        // }}
                       />
                     </div>
                   </li>

@@ -143,7 +143,6 @@ export default function SessionList() {
                       setCurrentSessionId(session.id);
                       setLatestEditorState(editor.getEditorState());
                       setTimeTravelState("replaying");
-                      editor.focus();
                     }}
                   >
                     <PlayIcon className="w-4 h-4" />
