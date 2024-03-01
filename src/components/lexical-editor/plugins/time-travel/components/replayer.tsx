@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import {
   Table,
+  TableBody,
   TableCell,
   TableHead,
   TableHeader,
@@ -314,8 +315,8 @@ export default function Replayer() {
           Save and finish
         </Button>
       </div>
-      <Table className="w-full">
-        <TableHeader>
+      <Table className="w-full block max-h-96 overflow-y-auto border border-border rounded-sm">
+        <TableHeader className="sticky top-0 bg-white z-10 shadow">
           <TableRow>
             <TableHead />
             <TableHead>Step</TableHead>
@@ -324,78 +325,80 @@ export default function Replayer() {
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
-        {updatingSession.blocks
-          .filter((b) => b.duration_block > blockThresholdInSec * 1000)
-          .map((block, index) => {
-            const step = updatingSession.logs.findIndex(
-              (log) => log.blockId === block.id
-            );
+        <TableBody>
+          {updatingSession.blocks
+            .filter((b) => b.duration_block > blockThresholdInSec * 1000)
+            .map((block, index) => {
+              const step = updatingSession.logs.findIndex(
+                (log) => log.blockId === block.id
+              );
 
-            if (!step) {
-              return null;
-            }
+              if (!step) {
+                return null;
+              }
 
-            return (
-              <TableRow key={index}>
-                <TableCell>
-                  <TooltipProvider>
-                    <Tooltip delayDuration={0}>
-                      <TooltipTrigger asChild>
-                        <span
-                          className={cn(
-                            "flex h-2 w-2 rounded-full",
-                            block.annotated
-                              ? "bg-green-500"
-                              : "bg-yellow-500 animate-pulse",
-                            {
-                              "bg-blue-500": step === currentStep,
-                            }
-                          )}
-                        />
-                      </TooltipTrigger>
-                      <TooltipContent side="top">
-                        {block.annotated ? "Annotated" : "Not annotated"}
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </TableCell>
-                <TableCell>{step}</TableCell>
+              return (
+                <TableRow key={index}>
+                  <TableCell>
+                    <TooltipProvider>
+                      <Tooltip delayDuration={0}>
+                        <TooltipTrigger asChild>
+                          <span
+                            className={cn(
+                              "flex h-2 w-2 rounded-full",
+                              block.annotated
+                                ? "bg-green-500"
+                                : "bg-yellow-500 animate-pulse",
+                              {
+                                "bg-blue-500": step === currentStep,
+                              }
+                            )}
+                          />
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          {block.annotated ? "Annotated" : "Not annotated"}
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </TableCell>
+                  <TableCell>{step}</TableCell>
 
-                <TableCell>
-                  {(block.duration_block / 1000).toFixed(2)} s
-                </TableCell>
-                <TableCell className="max-w-20 break-all">
-                  {block.block_sentence}
-                </TableCell>
+                  <TableCell>
+                    {(block.duration_block / 1000).toFixed(2)} s
+                  </TableCell>
+                  <TableCell className="max-w-20 break-all">
+                    {block.block_sentence}
+                  </TableCell>
 
-                <TableCell>
-                  <TooltipProvider>
-                    <Tooltip delayDuration={0}>
-                      <TooltipTrigger asChild>
-                        <Button
-                          variant={"link"}
-                          size={"icon"}
-                          onClick={() => {
-                            setCurrentStep(() => step);
-                            setCurrentBlock(() => block);
-                            setReplayState("playing");
-                            editor.setEditorState(
-                              updatingSession.logs[step].editorState
-                            );
-                          }}
-                        >
-                          <EnterIcon className="w-4 h-4" />
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent side="right">
-                        Jump to step {step}
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </TableCell>
-              </TableRow>
-            );
-          })}
+                  <TableCell>
+                    <TooltipProvider>
+                      <Tooltip delayDuration={0}>
+                        <TooltipTrigger asChild>
+                          <Button
+                            variant={"link"}
+                            size={"icon"}
+                            onClick={() => {
+                              setCurrentStep(() => step);
+                              setCurrentBlock(() => block);
+                              setReplayState("playing");
+                              editor.setEditorState(
+                                updatingSession.logs[step].editorState
+                              );
+                            }}
+                          >
+                            <EnterIcon className="w-4 h-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent side="right">
+                          Jump to step {step}
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+        </TableBody>
       </Table>
     </div>
   );
