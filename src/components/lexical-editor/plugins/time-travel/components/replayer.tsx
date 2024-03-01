@@ -15,9 +15,28 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import {
+  Table,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Toggle } from "@/components/ui/toggle";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { PlayIcon, ReloadIcon, StopIcon } from "@radix-ui/react-icons";
+import {
+  EnterIcon,
+  PlayIcon,
+  ReloadIcon,
+  StopIcon,
+} from "@radix-ui/react-icons";
 
 import PauseForm from "./pause-form";
 
@@ -62,7 +81,7 @@ export default function Replayer() {
     if (replayState === "looping") {
       editor.setEditable(false);
       timeoutId = setInterval(() => {
-        if (loopingIndex.current === LOOPING_WINDOW_SIZE - 1) {
+        if (loopingIndex.current === loopingWindow.current.length - 1) {
           loopingIndex.current = 0;
         } else {
           loopingIndex.current += 1;
@@ -91,8 +110,8 @@ export default function Replayer() {
     let timeoutId: ReturnType<typeof setTimeout>;
 
     const timeDiff =
-      currentSession.logs[currentStep + 1]?.time -
-      currentSession.logs[currentStep]?.time;
+      updatingSession.logs[currentStep + 1]?.time -
+      updatingSession.logs[currentStep]?.time;
     const blocks = updatingSession.blocks.filter(
       (block) => block.duration_block > blockThresholdInSec * 1000
     );
@@ -105,9 +124,9 @@ export default function Replayer() {
           return;
         }
 
-        if (currentSession.logs[currentStep].blockId) {
+        if (updatingSession.logs[currentStep].blockId) {
           const block = blocks.find(
-            (b) => b.id === currentSession.logs[currentStep].blockId
+            (b) => b.id === updatingSession.logs[currentStep].blockId
           );
 
           if (block) {
@@ -115,8 +134,11 @@ export default function Replayer() {
             setCurrentBlock(() => block);
             setPauseFormOpen(true);
 
-            loopingWindow.current = currentSession.logs
-              .slice(currentStep, currentStep + LOOPING_WINDOW_SIZE)
+            loopingWindow.current = updatingSession.logs
+              .slice(
+                Math.max(0, currentStep - LOOPING_WINDOW_SIZE),
+                currentStep + LOOPING_WINDOW_SIZE
+              )
               .map((log) => log.editorState);
 
             setReplayState("looping");
@@ -125,7 +147,7 @@ export default function Replayer() {
 
         timeoutId = setTimeout(() => {
           setCurrentStep((prev) => {
-            editor.setEditorState(currentSession.logs[prev + 1].editorState);
+            editor.setEditorState(updatingSession.logs[prev + 1].editorState);
             return prev + 1;
           });
 
@@ -147,8 +169,7 @@ export default function Replayer() {
     blockThresholdInSec,
     setReplayState,
     setCurrentBlockAnnotation,
-    currentSession.logs,
-    currentSession.blocks,
+    updatingSession.logs,
     updatingSession.blocks,
     currentStep,
     setCurrentBlock,
@@ -207,7 +228,6 @@ export default function Replayer() {
           setReplayState("playing");
         }}
       />
-
       <div className="grid grid-cols-3 items-center">
         <Toggle
           className="justify-self-start"
@@ -250,18 +270,16 @@ export default function Replayer() {
           {PLAYBACK_SPEEDS[playbackSpeedIndex]}x
         </Button>
       </div>
-
       <Slider
         min={1}
         max={totalSteps}
         value={[currentStep]}
         onValueChange={([ind]) => {
           setCurrentStep(ind);
-          const editorState = currentSession.logs[ind].editorState;
+          const editorState = updatingSession.logs[ind].editorState;
           editor.setEditorState(editorState);
         }}
       />
-
       <div className="flex justify-between items-center">
         <Button
           variant={"link"}
@@ -272,14 +290,14 @@ export default function Replayer() {
               editor.setEditorState(latestEditorState);
             }
 
-            setCurrentStep(index);
+            setCurrentStep(() => index);
 
             setReplayState("idle");
             setTimeTravelState("recording");
 
             setSessionList((prev) => {
               const newSessionList = prev.map((session) => {
-                if (session.id === currentSession.id) {
+                if (session.id === updatingSession.id) {
                   return {
                     ...session,
                     blocks: updatingSession.blocks,
@@ -296,6 +314,89 @@ export default function Replayer() {
           Save and finish
         </Button>
       </div>
+      <Table className="w-full">
+        <TableHeader>
+          <TableRow>
+            <TableHead />
+            <TableHead>Step</TableHead>
+            <TableHead>Duration</TableHead>
+            <TableHead>Blocking Sentence</TableHead>
+            <TableHead>Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        {updatingSession.blocks
+          .filter((b) => b.duration_block > blockThresholdInSec * 1000)
+          .map((block, index) => {
+            const step = updatingSession.logs.findIndex(
+              (log) => log.blockId === block.id
+            );
+
+            if (!step) {
+              return null;
+            }
+
+            return (
+              <TableRow key={index}>
+                <TableCell>
+                  <TooltipProvider>
+                    <Tooltip delayDuration={0}>
+                      <TooltipTrigger asChild>
+                        <span
+                          className={cn(
+                            "flex h-2 w-2 rounded-full",
+                            block.annotated
+                              ? "bg-green-500"
+                              : "bg-yellow-500 animate-pulse",
+                            {
+                              "bg-blue-500": step === currentStep,
+                            }
+                          )}
+                        />
+                      </TooltipTrigger>
+                      <TooltipContent side="top">
+                        {block.annotated ? "Annotated" : "Not annotated"}
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </TableCell>
+                <TableCell>{step}</TableCell>
+
+                <TableCell>
+                  {(block.duration_block / 1000).toFixed(2)} s
+                </TableCell>
+                <TableCell className="max-w-20 break-all">
+                  {block.block_sentence}
+                </TableCell>
+
+                <TableCell>
+                  <TooltipProvider>
+                    <Tooltip delayDuration={0}>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant={"link"}
+                          size={"icon"}
+                          onClick={() => {
+                            setCurrentStep(() => step);
+                            setCurrentBlock(() => block);
+                            setReplayState("playing");
+                            editor.setEditorState(
+                              updatingSession.logs[step].editorState
+                            );
+                          }}
+                        >
+                          <EnterIcon className="w-4 h-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent side="right">
+                        Jump to step {step}
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+      </Table>
     </div>
   );
 }
