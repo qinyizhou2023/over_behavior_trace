@@ -54,10 +54,15 @@ export default function SessionList() {
       return;
     }
 
+    const date = new Date(session.saveTime);
+    const dateString = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+
     if (detail) {
       downloadFile(
         JSON.stringify(session),
-        `time-travel-log-${id}-detail.json`
+        `watom-session-${dateString}-${session.saveTime.getTime()}-${id}.json`
       );
     } else {
       const preciseLog = session.blocks.filter(
@@ -65,7 +70,7 @@ export default function SessionList() {
       );
       downloadFile(
         JSON.stringify(preciseLog),
-        `time-travel-log-${id}-precise.json`
+        `watom-log-${dateString}-${session.saveTime.getTime()}-${id}-precise.json`
       );
     }
 
