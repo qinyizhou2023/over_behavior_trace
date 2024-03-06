@@ -1,4 +1,5 @@
 import { useAtom, useSetAtom } from "jotai";
+import { $getRoot } from "lexical";
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
@@ -155,15 +156,18 @@ export default function Recorder() {
           variant={"outline"}
           onClick={async () => {
             setTimeTravelRecorderState("idle");
-            setSessionList((prev) => [
-              ...prev,
-              {
-                id: uuidv4(),
-                saveTime: new Date(),
-                logs: currentTimeTravelLogs.current.logs,
-                blocks: currentTimeTravelLogs.current.blocks,
-              },
-            ]);
+            editor.getEditorState().read(() => {
+              setSessionList((prev) => [
+                ...prev,
+                {
+                  id: uuidv4(),
+                  save_time: new Date(),
+                  logs: currentTimeTravelLogs.current.logs,
+                  blocks: currentTimeTravelLogs.current.blocks,
+                  written_text: $getRoot().getTextContent(),
+                },
+              ]);
+            });
 
             toast.success("Recording saved.");
           }}

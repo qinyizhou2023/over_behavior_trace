@@ -54,7 +54,7 @@ export default function SessionList() {
       return;
     }
 
-    const date = new Date(session.saveTime);
+    const date = new Date(session.save_time);
     const dateString = `${date.getFullYear()}-${
       date.getMonth() + 1
     }-${date.getDate()}`;
@@ -62,15 +62,16 @@ export default function SessionList() {
     if (detail) {
       downloadFile(
         JSON.stringify(session),
-        `watom-session-${dateString}-${session.saveTime.getTime()}-${id}.json`
+        `watom-session-${dateString}-${session.save_time.getTime()}-${id}.json`
       );
     } else {
-      const preciseLog = session.blocks.filter(
-        (block) => block.annotated === true
-      );
+      const preciseLog = {
+        written_text: session.written_text,
+        blocks: session.blocks.filter((block) => block.annotated === true),
+      };
       downloadFile(
         JSON.stringify(preciseLog),
-        `watom-log-${dateString}-${session.saveTime.getTime()}-${id}-precise.json`
+        `watom-log-${dateString}-${session.save_time.getTime()}-${id}-precise.json`
       );
     }
 
@@ -108,7 +109,7 @@ export default function SessionList() {
               const session = JSON.parse(data) as Session;
 
               session.id = uuidv4();
-              session.saveTime = new Date();
+              session.save_time = new Date();
               setSessionList([...sessionList, session]);
 
               toast.success("Log imported successfully.");
@@ -137,7 +138,7 @@ export default function SessionList() {
             {sessionList.map((session, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  {new Date(session.saveTime).toLocaleString()}
+                  {new Date(session.save_time).toLocaleString()}
                 </TableCell>
                 <TableCell>{session.logs.length} Actions</TableCell>
                 <TableCell className="flex space-x-2">

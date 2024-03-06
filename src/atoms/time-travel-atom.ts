@@ -80,9 +80,10 @@ export type LogItem = {
 
 export type Session = {
   id: string;
-  saveTime: Date;
+  save_time: Date;
   logs: LogItem[];
   blocks: BlockType[];
+  written_text: string;
 };
 
 export type BlockType = {
@@ -159,9 +160,10 @@ export const currentSessionAtom = atom<Session>((get) => {
   return (
     sessionList.find((session) => session.id === currentSessionId) ?? {
       id: "",
-      saveTime: new Date(),
+      save_time: new Date(),
       logs: [],
       blocks: [],
+      written_text: "",
     }
   );
 });
