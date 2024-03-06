@@ -199,14 +199,22 @@ export default function Replayer() {
                   annotation: currentBlockAnnotation,
                   threshold: blockThresholdInSec,
                   num_blocks: prev.blocks.filter(
-                    (b) => b.duration > blockThresholdInSec * 1000
+                    (b) =>
+                      b.duration > blockThresholdInSec * 1000 &&
+                      b.start_time < block.start_time
                   ).length,
                   avg_block_duration:
                     prev.blocks
-                      .filter((b) => b.duration > blockThresholdInSec * 1000)
+                      .filter(
+                        (b) =>
+                          b.duration > blockThresholdInSec * 1000 &&
+                          b.start_time < block.start_time
+                      )
                       .reduce((acc, curr) => acc + curr.duration, 0) /
                     prev.blocks.filter(
-                      (b) => b.duration > blockThresholdInSec * 1000
+                      (b) =>
+                        b.duration > blockThresholdInSec * 1000 &&
+                        b.start_time < block.start_time
                     ).length,
                 };
               }
