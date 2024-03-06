@@ -47,22 +47,22 @@ export class LogParagraphNode extends ParagraphNode {
         if (!$isLogTextNode(child)) return acc;
         const childRevisions = child.getRevisions();
         return {
-          character_deletings: [
-            ...acc.character_deletings,
-            ...childRevisions.character_deletings,
+          character_deletions: [
+            ...acc.character_deletions,
+            ...childRevisions.character_deletions,
           ],
-          range_deletings: [
-            ...acc.range_deletings,
-            ...childRevisions.range_deletings,
+          range_deletions: [
+            ...acc.range_deletions,
+            ...childRevisions.range_deletions,
           ],
-          insertings: [...acc.insertings, ...childRevisions.insertings],
+          insertions: [...acc.insertions, ...childRevisions.insertions],
           pastings: [...acc.pastings, ...childRevisions.pastings],
         };
       },
       {
-        character_deletings: [] as number[],
-        range_deletings: [] as number[],
-        insertings: [] as number[],
+        character_deletions: [] as number[],
+        range_deletions: [] as number[],
+        insertions: [] as number[],
         pastings: [] as number[],
       }
     );
@@ -80,7 +80,7 @@ export class LogParagraphNode extends ParagraphNode {
         const activity = child.getMouseActivity();
         return {
           totalActivity: {
-            click: acc.totalActivity.click + activity.click,
+            num_clicks: acc.totalActivity.num_clicks + activity.num_clicks,
             move_distance:
               acc.totalActivity.move_distance + activity.move_distance,
             drag_distance:
@@ -92,7 +92,7 @@ export class LogParagraphNode extends ParagraphNode {
       },
       {
         totalActivity: {
-          click: 0,
+          num_clicks: 0,
           move_distance: 0,
           drag_distance: 0,
           scroll_distance: 0,

@@ -12,9 +12,9 @@ export const MIN_THRESHOLD_IN_SEC = 1;
 export type UserBehaviorItem = {
   typing_speed: number;
   revisions: {
-    character_deletings: number[];
-    range_deletings: number[];
-    insertings: number[];
+    character_deletions: number[];
+    range_deletions: number[];
+    insertions: number[];
     pastings: number[];
   };
   mouse_activity: MouseActivityType;
@@ -24,16 +24,16 @@ export type UserBehaviorType = {
   sentence: UserBehaviorItem;
   paragraph: UserBehaviorItem;
   document: UserBehaviorItem;
-  since_block: UserBehaviorItem;
+  since_last_block: UserBehaviorItem;
 };
 
 export const defaultUserBehavior: UserBehaviorType = {
   sentence: {
     typing_speed: 0,
     revisions: {
-      character_deletings: [],
-      range_deletings: [],
-      insertings: [],
+      character_deletions: [],
+      range_deletions: [],
+      insertions: [],
       pastings: [],
     },
     mouse_activity: DEFAULT_MOUSE_ACTIVITY,
@@ -41,9 +41,9 @@ export const defaultUserBehavior: UserBehaviorType = {
   paragraph: {
     typing_speed: 0,
     revisions: {
-      character_deletings: [],
-      range_deletings: [],
-      insertings: [],
+      character_deletions: [],
+      range_deletions: [],
+      insertions: [],
       pastings: [],
     },
     mouse_activity: DEFAULT_MOUSE_ACTIVITY,
@@ -51,19 +51,19 @@ export const defaultUserBehavior: UserBehaviorType = {
   document: {
     typing_speed: 0,
     revisions: {
-      character_deletings: [],
-      range_deletings: [],
-      insertings: [],
+      character_deletions: [],
+      range_deletions: [],
+      insertions: [],
       pastings: [],
     },
     mouse_activity: DEFAULT_MOUSE_ACTIVITY,
   },
-  since_block: {
+  since_last_block: {
     typing_speed: 0,
     revisions: {
-      character_deletings: [],
-      range_deletings: [],
-      insertings: [],
+      character_deletions: [],
+      range_deletions: [],
+      insertions: [],
       pastings: [],
     },
     mouse_activity: DEFAULT_MOUSE_ACTIVITY,
@@ -88,7 +88,7 @@ export type Session = {
 export type BlockType = {
   id: string;
   start_time: number;
-  duration_block: number;
+  duration: number;
   threshold: number;
 
   relative_start_time: number;

@@ -6,13 +6,13 @@ import {
   blockAiAssistanceFeedbackAnnotationAtom,
   blockAiAssistanceIdeasAnnotationAtom,
   blockAiAssistanceOtherAnnotationAtom,
-  blockPlanningGeneratingStageAnnotationAtom,
-  blockPlanningOrganizingStageAnnotationAtom,
-  blockPlanningSettingStageAnnotationAtom,
-  blockPossibilityAtom,
-  blockReviewingEvaluatingStageAnnotationAtom,
-  blockReviewingRevisingStageAnnotationAtom,
-  blockTranslatingStageAnnotationAtom,
+  blockLikelihoodAtom,
+  blockPlanningGeneratingStateAnnotationAtom,
+  blockPlanningOrganizingStateAnnotationAtom,
+  blockPlanningSettingStateAnnotationAtom,
+  blockReviewingEvaluatingStateAnnotationAtom,
+  blockReviewingRevisingStateAnnotationAtom,
+  blockTranslatingStateAnnotationAtom,
   currentBlockAtom,
 } from "@/atoms/block-atom";
 import GridSelect from "@/components/grid-select";
@@ -70,12 +70,12 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                   {currentBlock && (
                     <Badge>
                       Block duration:{" "}
-                      {(currentBlock?.duration_block / 1000).toFixed(2)} s
+                      {(currentBlock?.duration / 1000).toFixed(2)} s
                     </Badge>
                   )}
                 </div>
 
-                <GridSelect atom={blockPossibilityAtom} />
+                <GridSelect atom={blockLikelihoodAtom} />
               </div>
 
               <div className="flex flex-col space-y-4">
@@ -83,19 +83,19 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                 <ul className="space-y-4">
                   <li>
                     <GridSelect
-                      atom={blockPlanningGeneratingStageAnnotationAtom}
+                      atom={blockPlanningGeneratingStateAnnotationAtom}
                       label="Generating ideas to write about"
                     />
                   </li>
                   <li>
                     <GridSelect
-                      atom={blockPlanningOrganizingStageAnnotationAtom}
+                      atom={blockPlanningOrganizingStateAnnotationAtom}
                       label="Organizing ideas to write about"
                     />
                   </li>
                   <li>
                     <GridSelect
-                      atom={blockPlanningSettingStageAnnotationAtom}
+                      atom={blockPlanningSettingStateAnnotationAtom}
                       label="Setting the writing goal"
                     />
                   </li>
@@ -121,7 +121,7 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                   </TooltipProvider>
                 </div>
                 <ul className="space-y-4">
-                  <GridSelect atom={blockTranslatingStageAnnotationAtom} />
+                  <GridSelect atom={blockTranslatingStateAnnotationAtom} />
                 </ul>
               </div>
 
@@ -132,14 +132,14 @@ export default function PauseForm({ open, onSave }: PauseFormProps) {
                     <GridSelect
                       label="Evaluating written text"
                       tooltip="Evaluate the quality of the written text, e.g., whether the text is clear, concise, and coherent"
-                      atom={blockReviewingEvaluatingStageAnnotationAtom}
+                      atom={blockReviewingEvaluatingStateAnnotationAtom}
                     />
                   </li>
                   <li>
                     <GridSelect
                       label="Revising written text"
                       tooltip="Reading and revising written text, e.g., have the idea of adding, deleting, or reorganizing sentences"
-                      atom={blockReviewingRevisingStageAnnotationAtom}
+                      atom={blockReviewingRevisingStateAnnotationAtom}
                     />
                   </li>
                 </ul>

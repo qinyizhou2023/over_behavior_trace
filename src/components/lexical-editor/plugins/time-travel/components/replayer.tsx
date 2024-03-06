@@ -114,7 +114,7 @@ export default function Replayer() {
       updatingSession.logs[currentStep + 1]?.time -
       updatingSession.logs[currentStep]?.time;
     const blocks = updatingSession.blocks.filter(
-      (block) => block.duration_block > blockThresholdInSec * 1000
+      (block) => block.duration > blockThresholdInSec * 1000
     );
 
     if (replayState === "playing") {
@@ -199,16 +199,14 @@ export default function Replayer() {
                   annotation: currentBlockAnnotation,
                   threshold: blockThresholdInSec,
                   num_blocks: prev.blocks.filter(
-                    (b) => b.duration_block > blockThresholdInSec * 1000
+                    (b) => b.duration > blockThresholdInSec * 1000
                   ).length,
                   avg_block_duration:
                     prev.blocks
-                      .filter(
-                        (b) => b.duration_block > blockThresholdInSec * 1000
-                      )
-                      .reduce((acc, curr) => acc + curr.duration_block, 0) /
+                      .filter((b) => b.duration > blockThresholdInSec * 1000)
+                      .reduce((acc, curr) => acc + curr.duration, 0) /
                     prev.blocks.filter(
-                      (b) => b.duration_block > blockThresholdInSec * 1000
+                      (b) => b.duration > blockThresholdInSec * 1000
                     ).length,
                 };
               }
@@ -327,7 +325,7 @@ export default function Replayer() {
         </TableHeader>
         <TableBody>
           {updatingSession.blocks
-            .filter((b) => b.duration_block > blockThresholdInSec * 1000)
+            .filter((b) => b.duration > blockThresholdInSec * 1000)
             .map((block, index) => {
               const step = updatingSession.logs.findIndex(
                 (log) => log.blockId === block.id
@@ -363,9 +361,7 @@ export default function Replayer() {
                   </TableCell>
                   <TableCell>{step}</TableCell>
 
-                  <TableCell>
-                    {(block.duration_block / 1000).toFixed(2)} s
-                  </TableCell>
+                  <TableCell>{(block.duration / 1000).toFixed(2)} s</TableCell>
                   <TableCell className="max-w-20 break-all">
                     {block.block_sentence}
                   </TableCell>

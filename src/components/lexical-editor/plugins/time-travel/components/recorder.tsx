@@ -75,7 +75,7 @@ export default function Recorder() {
           currentTimeTravelLogs.current.blocks.push({
             id: blockId,
             start_time: Date.now(),
-            duration_block: timeDiff,
+            duration: timeDiff,
             threshold: MIN_THRESHOLD_IN_SEC * 1000,
 
             sentence_completion,
@@ -88,7 +88,7 @@ export default function Recorder() {
             num_blocks: currentTimeTravelLogs.current.blocks.length,
             avg_block_duration:
               currentTimeTravelLogs.current.blocks.reduce(
-                (acc, curr) => acc + curr.duration_block,
+                (acc, curr) => acc + curr.duration,
                 0
               ) / currentTimeTravelLogs.current.blocks.length,
 

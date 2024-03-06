@@ -12,9 +12,9 @@ import { DEFAULT_MOUSE_ACTIVITY } from "@/lib/constants";
 import { MouseActivityType } from "../mouse-activity";
 
 export type Revisions = {
-  character_deletings: number[];
-  range_deletings: number[];
-  insertings: number[];
+  character_deletions: number[];
+  range_deletions: number[];
+  insertions: number[];
   pastings: number[];
 };
 
@@ -56,9 +56,9 @@ export class LogTextNode extends TextNode {
     this.__dwelling_time = dwelling_time ?? 0;
     this.__update_count = update_count ?? 0;
     this.__revisions = revisions ?? {
-      character_deletings: [],
-      range_deletings: [],
-      insertings: [],
+      character_deletions: [],
+      range_deletions: [],
+      insertions: [],
       pastings: [],
     };
 
@@ -103,11 +103,11 @@ export class LogTextNode extends TextNode {
     }
 
     if (
-      this.__revisions.character_deletings !==
-        prevNode.__revisions.character_deletings ||
-      this.__revisions.range_deletings !==
-        prevNode.__revisions.range_deletings ||
-      this.__revisions.insertings !== prevNode.__revisions.insertings ||
+      this.__revisions.character_deletions !==
+        prevNode.__revisions.character_deletions ||
+      this.__revisions.range_deletions !==
+        prevNode.__revisions.range_deletions ||
+      this.__revisions.insertions !== prevNode.__revisions.insertions ||
       this.__revisions.pastings !== prevNode.__revisions.pastings
     ) {
       dom.setAttribute("data-revisions", JSON.stringify(this.__revisions));
@@ -162,17 +162,17 @@ export class LogTextNode extends TextNode {
       Math.max(target.__last_update_timestamp, this.__last_update_timestamp),
       target.__update_count + this.__update_count,
       {
-        character_deletings: [
-          ...target.__revisions.character_deletings,
-          ...this.__revisions.character_deletings,
+        character_deletions: [
+          ...target.__revisions.character_deletions,
+          ...this.__revisions.character_deletions,
         ],
-        range_deletings: [
-          ...target.__revisions.range_deletings,
-          ...this.__revisions.range_deletings,
+        range_deletions: [
+          ...target.__revisions.range_deletions,
+          ...this.__revisions.range_deletions,
         ],
-        insertings: [
-          ...target.__revisions.insertings,
-          ...this.__revisions.insertings,
+        insertions: [
+          ...target.__revisions.insertions,
+          ...this.__revisions.insertions,
         ],
         pastings: [
           ...target.__revisions.pastings,
@@ -180,7 +180,8 @@ export class LogTextNode extends TextNode {
         ],
       },
       {
-        click: target.__mouse_activity.click + this.__mouse_activity.click,
+        num_clicks:
+          target.__mouse_activity.num_clicks + this.__mouse_activity.num_clicks,
         move_distance:
           target.__mouse_activity.move_distance +
           this.__mouse_activity.move_distance,
@@ -211,19 +212,19 @@ export class LogTextNode extends TextNode {
             this.__last_update_timestamp,
             this.__update_count / nodes.length,
             {
-              character_deletings: this.__revisions.character_deletings.map(
+              character_deletions: this.__revisions.character_deletions.map(
                 (x) => x / nodes.length
               ),
-              range_deletings: this.__revisions.range_deletings.map(
+              range_deletions: this.__revisions.range_deletions.map(
                 (x) => x / nodes.length
               ),
-              insertings: this.__revisions.insertings.map(
+              insertions: this.__revisions.insertions.map(
                 (x) => x / nodes.length
               ),
               pastings: this.__revisions.pastings.map((x) => x / nodes.length),
             },
             {
-              click: this.__mouse_activity.click / nodes.length,
+              num_clicks: this.__mouse_activity.num_clicks / nodes.length,
               move_distance: this.__mouse_activity.move_distance / nodes.length,
               drag_distance: this.__mouse_activity.drag_distance / nodes.length,
               scroll_distance:
@@ -303,13 +304,13 @@ export class LogTextNode extends TextNode {
     if (isRange) {
       writable.__revisions = {
         ...writable.__revisions,
-        range_deletings: this.getNewRevision("range_deletings", isNew, amount),
+        range_deletions: this.getNewRevision("range_deletions", isNew, amount),
       };
     } else {
       writable.__revisions = {
         ...writable.__revisions,
-        character_deletings: this.getNewRevision(
-          "character_deletings",
+        character_deletions: this.getNewRevision(
+          "character_deletions",
           isNew,
           1
         ),
@@ -321,7 +322,7 @@ export class LogTextNode extends TextNode {
     const writable = this.getWritable();
     writable.__revisions = {
       ...writable.__revisions,
-      insertings: this.getNewRevision("insertings", isNew, amount),
+      insertions: this.getNewRevision("insertions", isNew, amount),
     };
   }
 

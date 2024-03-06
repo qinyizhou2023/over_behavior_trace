@@ -4,31 +4,31 @@
 
 ### Global data
 
-| Attribute              | Type                                 | Description                                                   |
-| ---------------------- | ------------------------------------ | ------------------------------------------------------------- |
-| `id`                   | string                               | Unique identifier for the block                               |
-| `start_time`           | number                               | Unix timestamp of the start time of the block                 |
-| `duration_block`       | number                               | Duration of the block in milliseconds                         |
-| `threshold`            | number                               | User's setting for the minimum duration of a block            |
-| `relative_start_time`  | number                               | Block's start time relative to the start of the session       |
-| `num_blocks`           | number                               | Current count of blocks since the start of the session        |
-| `avg_block_duration`   | number                               | Average of current blocks' duration (milliseconds)            |
-| `sentence_completion`  | number within 0-1                    | Percentage of sentence completion                             |
-| `overall_word_cnt`     | number                               | Total word count of the article when the block was logged     |
-| `overall_sentence_cnt` | number                               | Total sentence count of the article when the block was logged |
-| `block_sentence`       | string                               | Sentence that the user was blocking at                        |
-| `user_behavior`        | [UserBehaviorType](#user-behavior)   | User's behavior when the block was logged                     |
-| `annotated`            | boolean                              | Whether the block has been annotated                          |
-| `annotation`           | [BlockAnnotation](#block-annotation) | Annotation of the block                                       |
+| Attribute              | Type                                 | Description                                                                                                                                                                                                                                                                          |
+| ---------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                   | string                               | Unique identifier for the block                                                                                                                                                                                                                                                      |
+| `start_time`           | number                               | Unix timestamp of the start time of the block                                                                                                                                                                                                                                        |
+| `duration`             | number                               | Duration of the block in milliseconds                                                                                                                                                                                                                                                |
+| `threshold`            | number                               | User's setting for the minimum duration of a block                                                                                                                                                                                                                                   |
+| `relative_start_time`  | number                               | Block's start time relative to the start of the session                                                                                                                                                                                                                              |
+| `num_blocks`           | number                               | Current count of blocks since the start of the session                                                                                                                                                                                                                               |
+| `avg_block_duration`   | number                               | Average of current blocks' duration (milliseconds)                                                                                                                                                                                                                                   |
+| `sentence_completion`  | number within 0-1                    | if the user has completed the sentence, the value is 1; otherwise, the value is calculated by the division of the number of words in the sentence that the user was blocked at and the number of words the user has written in the article. The value is sigmoided to be within 0-1. |
+| `overall_word_cnt`     | number                               | Total word count of the article when the block was logged                                                                                                                                                                                                                            |
+| `overall_sentence_cnt` | number                               | Total sentence count of the article when the block was logged                                                                                                                                                                                                                        |
+| `block_sentence`       | string                               | Sentence that the user was blocked at                                                                                                                                                                                                                                                |
+| `user_behavior`        | [UserBehaviorType](#user-behavior)   | User's behavior when the block was logged                                                                                                                                                                                                                                            |
+| `annotated`            | boolean                              | Whether the block has been annotated                                                                                                                                                                                                                                                 |
+| `annotation`           | [BlockAnnotation](#block-annotation) | Annotation of the block                                                                                                                                                                                                                                                              |
 
 ### User behavior
 
 Each block is logged within 4 different time-windows:
 
-- `sentence`: Within the sentence that the user was blocking at
-- `paragraph`: Within the paragraph that the user was blocking at
+- `sentence`: Within the sentence that the user was blocked at
+- `paragraph`: Within the paragraph that the user was blocked at
 - `document`: Since the start of the session
-- `since_block`: Since the last block
+- `since_last_block`: Since the last block
 
 For each time-window, the following attributes are logged:
 
@@ -42,12 +42,12 @@ For each time-window, the following attributes are logged:
 
 #### Revision type
 
-| Attribute             | Type     | Description                                      |
-| --------------------- | -------- | ------------------------------------------------ |
-| `character_deletings` | number[] | Array of character deletings                     |
-| `range_deletings`     | number[] | Array of range deletings (select and delete)     |
-| `insertings`          | number[] | Array of insertings in the previous written text |
-| `pastings`            | number[] | Array of pastings                                |
+| Attribute             | Type     | Description                                                       |
+| --------------------- | -------- | ----------------------------------------------------------------- |
+| `character_deletions` | number[] | Array of character deletions (`Backspace` and `Delete` key press) |
+| `range_deletions`     | number[] | Array of range deletions (select and delete)                      |
+| `insertions`          | number[] | Array of insertions in the previous written text                  |
+| `pastings`            | number[] | Array of pastings                                                 |
 
 For each attribute, the array contains the number of **sequential operations** that the user has performed. For example, if the user has deleted 3 characters in a row, and then does some other operations, and then deletes 2 characters in a row, the array would be `[3, 2]`.
 
@@ -57,43 +57,43 @@ For each attribute, the array contains the number of **sequential operations** t
 
 | Attribute         | Type   | Description                     |
 | ----------------- | ------ | ------------------------------- |
-| `click`           | number | Number of clicks                |
+| `num_clicks`      | number | Number of clicks                |
 | `move_distance`   | number | Total pixels of mouse movement  |
 | `drag_distance`   | number | Total pixels of mouse dragging  |
 | `scroll_distance` | number | Total pixels of mouse scrolling |
 
 ### Block annotation
 
-| Attribute           | Type                                                             | Description                                                          |
-| ------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `blockPossibility`  | number                                                           | The possibility that this stalk is a blocking in the writing process |
-| `blockStage`        | [BlockStagePossibility](#block-stage-possibility)                | The possibility of the block stage                                   |
-| `blockAiAssistance` | [BlockAiAssistancePossibility](#block-ai-assistance-possibility) | The requirement of AI assistance during the block                    |
+| Attribute            | Type                                                           | Description                                                      |
+| -------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `block_likelihood`   | number                                                         | The likelihood that this stalk is a block in the writing process |
+| `block_state`        | [BlockStateLikelihood](#block-state-likelihood)                | The likelihood of the block state                                |
+| `block_ai_asistance` | [BlockAiAssistanceLikelihood](#block-ai-assistance-likelihood) | The requirement of AI assistance during the block                |
 
-#### Block stage possibility
+#### Block state likelihood
 
-| Attribute     | Type                                                      | Description                                                               |
-| ------------- | --------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `planning`    | [PlanningStagePossibility](#planning-stage-possibility)   | The possibility of the block happening in planning stage                  |
-| `translating` | number                                                    | The possibility of translating the ideas into written words and sentences |
-| `reviewing`   | [ReviewingStagePossibility](#reviewing-stage-possibility) | The possibility of the block happening in reviewing stage                 |
+| Attribute     | Type                                                    | Description                                                              |
+| ------------- | ------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `planning`    | [PlanningStateLikelihood](#planning-state-likelihood)   | The likelihood of the block happening in planning state                  |
+| `translating` | number                                                  | The likelihood of translating the ideas into written words and sentences |
+| `reviewing`   | [ReviewingStateLikelihood](#reviewing-state-likelihood) | The likelihood of the block happening in reviewing state                 |
 
-##### Planning stage possibility
+##### Planning state likelihood
 
-| Attribute    | Type   | Description                                        |
-| ------------ | ------ | -------------------------------------------------- |
-| `generating` | number | The possibility of generating ideas to write about |
-| `organizing` | number | The possibility of organizing the ideas            |
-| `setting`    | number | The possibility of setting the writing goals       |
+| Attribute    | Type   | Description                                       |
+| ------------ | ------ | ------------------------------------------------- |
+| `generating` | number | The likelihood of generating ideas to write about |
+| `organizing` | number | The likelihood of organizing the ideas            |
+| `setting`    | number | The likelihood of setting the writing goals       |
 
-##### Reviewing stage possibility
+##### Reviewing state likelihood
 
-| Attribute    | Type   | Description                                                                                                               |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `evaluating` | number | The possibility of evaluating the quality of the written text, e.g., whether the text is clear, concise, and coherent     |
-| `revising`   | number | The possibility of reading and revising written text, e.g., have the idea of adding, deleting, or reorganizing sentences" |
+| Attribute    | Type   | Description                                                                                                              |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `evaluating` | number | The likelihood of evaluating the quality of the written text, e.g., whether the text is clear, concise, and coherent     |
+| `revising`   | number | The likelihood of reading and revising written text, e.g., have the idea of adding, deleting, or reorganizing sentences" |
 
-#### Block AI assistance possibility
+#### Block AI assistance likelihood
 
 | Attribute    | Type   | Description                                                                                                                            |
 | ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |

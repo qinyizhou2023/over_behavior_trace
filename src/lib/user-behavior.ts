@@ -30,24 +30,25 @@ const $getRootBehavior = (): UserBehaviorItem => {
           totalSpeed: acc.totalSpeed + typingSpeed,
           totalChildrenNum: acc.totalChildrenNum + 1,
           totalRevisions: {
-            character_deletings: [
-              ...acc.totalRevisions.character_deletings,
-              ...revisions.character_deletings,
+            character_deletions: [
+              ...acc.totalRevisions.character_deletions,
+              ...revisions.character_deletions,
             ],
-            range_deletings: [
-              ...acc.totalRevisions.range_deletings,
-              ...revisions.range_deletings,
+            range_deletions: [
+              ...acc.totalRevisions.range_deletions,
+              ...revisions.range_deletions,
             ],
 
-            insertings: [
-              ...acc.totalRevisions.insertings,
-              ...revisions.insertings,
+            insertions: [
+              ...acc.totalRevisions.insertions,
+              ...revisions.insertions,
             ],
             pastings: [...acc.totalRevisions.pastings, ...revisions.pastings],
           },
 
           totalMouseActivity: {
-            click: acc.totalMouseActivity.click + mouseActivity.click,
+            num_clicks:
+              acc.totalMouseActivity.num_clicks + mouseActivity.num_clicks,
             move_distance:
               acc.totalMouseActivity.move_distance +
               mouseActivity.move_distance,
@@ -64,9 +65,9 @@ const $getRootBehavior = (): UserBehaviorItem => {
         totalSpeed: 0,
         totalChildrenNum: 0,
         totalRevisions: {
-          character_deletings: [] as number[],
-          range_deletings: [] as number[],
-          insertings: [] as number[],
+          character_deletions: [] as number[],
+          range_deletions: [] as number[],
+          insertions: [] as number[],
           pastings: [] as number[],
         },
         totalMouseActivity: DEFAULT_MOUSE_ACTIVITY,
@@ -132,21 +133,22 @@ const getUserBehaviorDiff = (
 ): UserBehaviorItem => {
   const typingSpeed = (current.typing_speed + last.typing_speed) / 2;
   const revisions = {
-    character_deletings: current.revisions.character_deletings.slice(
-      last.revisions.character_deletings.length
+    character_deletions: current.revisions.character_deletions.slice(
+      last.revisions.character_deletions.length
     ),
 
-    range_deletings: current.revisions.range_deletings.slice(
-      last.revisions.range_deletings.length
+    range_deletions: current.revisions.range_deletions.slice(
+      last.revisions.range_deletions.length
     ),
-    insertings: current.revisions.insertings.slice(
-      last.revisions.insertings.length
+    insertions: current.revisions.insertions.slice(
+      last.revisions.insertions.length
     ),
     pastings: current.revisions.pastings.slice(last.revisions.pastings.length),
   };
 
   const mouseActivity: MouseActivityType = {
-    click: current.mouse_activity.click - last.mouse_activity.click,
+    num_clicks:
+      current.mouse_activity.num_clicks - last.mouse_activity.num_clicks,
     move_distance:
       current.mouse_activity.move_distance - last.mouse_activity.move_distance,
     drag_distance:
@@ -178,7 +180,7 @@ export const getUserBehavior = (
 
     userBehavior = {
       ...userBehavior,
-      since_block: lastBlockUserBehavior
+      since_last_block: lastBlockUserBehavior
         ? getUserBehaviorDiff(rootBehavior, lastBlockUserBehavior.document)
         : rootBehavior,
     };

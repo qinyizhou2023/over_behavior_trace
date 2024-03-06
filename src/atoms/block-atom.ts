@@ -3,7 +3,7 @@ import { focusAtom } from "jotai-optics";
 
 import { BlockType } from "./time-travel-atom";
 
-export type BlockStagePossibility = {
+export type BlockStateLikelihood = {
   planning: {
     generating: number;
     organizing: number;
@@ -16,7 +16,7 @@ export type BlockStagePossibility = {
   };
 };
 
-export type BlockAiAssistancePossibility = {
+export type BlockAiAssistanceLikelihood = {
   ideas: number;
   completion: number;
   feedback: number;
@@ -24,16 +24,16 @@ export type BlockAiAssistancePossibility = {
 };
 
 export type BlockAnnotation = {
-  blockPossibility: number;
-  blockStage: BlockStagePossibility;
-  blockAiAssistance: BlockAiAssistancePossibility;
+  block_likelihood: number;
+  block_state: BlockStateLikelihood;
+  block_ai_asistance: BlockAiAssistanceLikelihood;
 };
 
 const DEFAULT_BLOCK_ANNOTATION_LEVEL = 1;
 
 export const defaultBlockAnnotation: BlockAnnotation = {
-  blockPossibility: DEFAULT_BLOCK_ANNOTATION_LEVEL,
-  blockStage: {
+  block_likelihood: DEFAULT_BLOCK_ANNOTATION_LEVEL,
+  block_state: {
     planning: {
       generating: DEFAULT_BLOCK_ANNOTATION_LEVEL,
       organizing: DEFAULT_BLOCK_ANNOTATION_LEVEL,
@@ -45,7 +45,7 @@ export const defaultBlockAnnotation: BlockAnnotation = {
       revising: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     },
   },
-  blockAiAssistance: {
+  block_ai_asistance: {
     ideas: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     completion: DEFAULT_BLOCK_ANNOTATION_LEVEL,
     feedback: DEFAULT_BLOCK_ANNOTATION_LEVEL,
@@ -61,58 +61,58 @@ export const blockAnnotationAtom = atom<BlockAnnotation>(
 
 export const currentBlockAtom = atom<BlockType | null>(null);
 
-export const blockPossibilityAtom = focusAtom(blockAnnotationAtom, (optic) =>
-  optic.prop("blockPossibility")
+export const blockLikelihoodAtom = focusAtom(blockAnnotationAtom, (optic) =>
+  optic.prop("block_likelihood")
 );
 
-export const blockStageAnnotationAtom = focusAtom(
+export const blockStateAnnotationAtom = focusAtom(
   blockAnnotationAtom,
-  (optic) => optic.prop("blockStage")
+  (optic) => optic.prop("block_state")
 );
 
-const blockPlanningStageAnnotationAtom = focusAtom(
-  blockStageAnnotationAtom,
+const blockPlanningStateAnnotationAtom = focusAtom(
+  blockStateAnnotationAtom,
   (optic) => optic.prop("planning")
 );
 
-export const blockPlanningGeneratingStageAnnotationAtom = focusAtom(
-  blockPlanningStageAnnotationAtom,
+export const blockPlanningGeneratingStateAnnotationAtom = focusAtom(
+  blockPlanningStateAnnotationAtom,
   (optic) => optic.prop("generating")
 );
 
-export const blockPlanningOrganizingStageAnnotationAtom = focusAtom(
-  blockPlanningStageAnnotationAtom,
+export const blockPlanningOrganizingStateAnnotationAtom = focusAtom(
+  blockPlanningStateAnnotationAtom,
   (optic) => optic.prop("organizing")
 );
 
-export const blockPlanningSettingStageAnnotationAtom = focusAtom(
-  blockPlanningStageAnnotationAtom,
+export const blockPlanningSettingStateAnnotationAtom = focusAtom(
+  blockPlanningStateAnnotationAtom,
   (optic) => optic.prop("setting")
 );
 
-export const blockTranslatingStageAnnotationAtom = focusAtom(
-  blockStageAnnotationAtom,
+export const blockTranslatingStateAnnotationAtom = focusAtom(
+  blockStateAnnotationAtom,
   (optic) => optic.prop("translating")
 );
 
-const blockReviewingStageAnnotationAtom = focusAtom(
-  blockStageAnnotationAtom,
+const blockReviewingStateAnnotationAtom = focusAtom(
+  blockStateAnnotationAtom,
   (optic) => optic.prop("reviewing")
 );
 
-export const blockReviewingEvaluatingStageAnnotationAtom = focusAtom(
-  blockReviewingStageAnnotationAtom,
+export const blockReviewingEvaluatingStateAnnotationAtom = focusAtom(
+  blockReviewingStateAnnotationAtom,
   (optic) => optic.prop("evaluating")
 );
 
-export const blockReviewingRevisingStageAnnotationAtom = focusAtom(
-  blockReviewingStageAnnotationAtom,
+export const blockReviewingRevisingStateAnnotationAtom = focusAtom(
+  blockReviewingStateAnnotationAtom,
   (optic) => optic.prop("revising")
 );
 
 const blockAiAssistanceAnnotationAtom = focusAtom(
   blockAnnotationAtom,
-  (optic) => optic.prop("blockAiAssistance")
+  (optic) => optic.prop("block_ai_asistance")
 );
 
 export const blockAiAssistanceIdeasAnnotationAtom = focusAtom(

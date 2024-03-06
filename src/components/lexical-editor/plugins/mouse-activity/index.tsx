@@ -7,7 +7,7 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { $isLogTextNode, LogTextNode } from "../log-text/node";
 
 export type MouseActivityType = {
-  click: number;
+  num_clicks: number;
   move_distance: number;
   drag_distance: number;
   scroll_distance: number;
@@ -83,7 +83,7 @@ export function MouseActivityPlugin() {
 
       node.setMouseActivity({
         ...activity,
-        click: activity.click + 1,
+        num_clicks: activity.num_clicks + 1,
       });
     });
   }, 100);
