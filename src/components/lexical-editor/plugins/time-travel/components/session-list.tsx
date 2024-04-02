@@ -110,11 +110,16 @@ export default function SessionList() {
 
               session.id = uuidv4();
               session.save_time = new Date();
+              session.logs = session.logs.map((log) => ({
+                ...log,
+                editorState: editor.parseEditorState(log.editorState),
+              }));
+
               setSessionList([...sessionList, session]);
 
               toast.success("Log imported successfully.");
             } catch (error) {
-              toast.error("Invalid log file, please try again.");
+              toast.error("Invalid log file, please try again." + error);
             }
           }}
         >
