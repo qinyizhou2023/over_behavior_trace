@@ -112,7 +112,7 @@ export default function SessionList() {
               session.save_time = new Date();
               session.logs = session.logs.map((log) => ({
                 ...log,
-                editorState: editor.parseEditorState(log.editorState),
+                editorState: editor.parseEditorState(log.editorState as any),
               }));
 
               setSessionList([...sessionList, session]);
