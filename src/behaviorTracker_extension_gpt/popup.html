@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Behavior Tracker</title>
+    <style>
+        body {
+            width: 200px;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Behavior Tracker</h1>
+    <button id="injectScript">Start Tracking</button>
+
+    <script>
+        document.getElementById('injectScript').addEventListener('click', function() {
+            chrome.runtime.sendMessage({ action: "injectScript" });
+        });
+    </script>
+</body>
+</html>
