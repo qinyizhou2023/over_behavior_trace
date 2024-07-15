@@ -29,7 +29,8 @@ In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logg
 |               | `total_idle_duration`      | number          | The total duration of all pauses.                                                                                                       |
 |               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                                          |
 |               | `average_idle_duration`    | number                | The average duration of each pause.                                                                                                     |
-| keyboardinput |                            |                | The time between the user starting to type in the textarea and clicking the send button.                                                |
+| windowSwitch  | `windowswitch_count`       | number                | The total times of window switches.                                                                                                     |
+| keyboardInput |                            |                | The time between the user starting to type in the textarea and clicking the send button.                                                |
 |               | `time_before_input`        | number                  | The time elapsed between two input prompt actions.                                                                                      |
 |               | `keyboard_input_count`     | number                  | The total number of input prompts.                                                                                                      |
 |               | `med_input_length`         | number                  | The median length of the input prompts.                                                                                                 |

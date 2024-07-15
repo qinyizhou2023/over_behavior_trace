@@ -4,6 +4,27 @@
 let behaviorData =[];
 let copyCount = 0;
 
+// 添加 windowswitch 监听器
+
+// 监听 focus 和 blur 事件
+window.addEventListener('focus', function() {
+    let focusData = {
+        type: 'focus',
+        status: 1  // 1 页面获得焦点
+    };
+    behaviorData.push(focusData);
+    console.log('Focus event:', focusData);
+});
+
+window.addEventListener('blur', function() {
+    let blurData = {
+        type: 'blur',
+        status: 0  // 0 页面失去焦点
+    };
+    behaviorData.push(blurData);
+    console.log('Blur event:', blurData);
+});
+
 // 添加点击监听器
 document.addEventListener('click', function(event) {
     let clickData = {
