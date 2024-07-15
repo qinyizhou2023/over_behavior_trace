@@ -1,50 +1,85 @@
 ## Score Counting 
 
 ## Logged Data
-### BehaviorTracker_extension_gpt
-We logged many users' behaviors, including mousemovement, copy-paste, and 
+### Behaviors Within GPT Interface
+In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logged many users' behaviors, including mousemovement, copy-paste, click...   
 
-| Behavior      | Attribute                 | Type                           | Description                                                                                                     |
-|---------------|---------------------------| ------------------------------ |-----------------------------------------------------------------------------------------------------------------|
-|               |                           |                                |                                                                                                                 |
-| click         | `click_count`             |                                | The number of of click actions                                                                                  |
-| Mousemovement | `mouseMovenment`          | string                         | The distance of each mouse movement                                                                             |
-|               | `total_mouse_Movenment`   |                                | The total distance the mouse moves                                                                              |
-| scroll        | `scroll_count`            | number                         | The number of of scroll actions                                                                                 |
-|               | `Total_Scroll_Distance `  |                                | The total distance scroll                                                                                       |
-|               | `mouseMovement`           | number                         | Duration of the block in milliseconds                                                                           |
-|               | `med_scroll_distance`     |                                | The median diatance of scroll actions.                                                                          |
-| copy          | `copy_count`              |                                | The total times of copy                                                                                         |
-|               | `med_copy_length`         |                                | The median length of copy actions.                                                                              |
-|               | `average_scroll_distance` |                                | The average of all rolling distances                                                                            |
-| paste         | `paste_count`             | number                         | The number of paste actions.                                                                                    |
-|               | `med_paste_length`        | number                         | The median length of paste actions.                                                                             |
-|               | `average_paste_length`    | number                         | The average length of each paste action.                                                                        |
-|deleteAction     | `delet_count`             | number                         | The number of delet actions. (delet, backspace, ctrl+z included.)                                               |
-|keypress         | `keypress_count`          | number within 0-1              | The number of keypress actions.                                                                                 |
-|highlight            | `highlight_count`        | number                         | The number of highlight actions.                                                                                |
-|               | `total_highlight_length`    | number                         | The total length of all highlights.                                                                             |
-|               | `med_highlight_length`          | string                         | The median length of highlights.                                                                                |
-|               | `average_highlight_length`           | [UserBehaviorType](#user-behavior) | The average length of each highlight.                                                                           |
-| idle              | `annotated`               | boolean                        | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.) |
-|               | `annotation`              | [BlockAnnotation](#block-annotation) | Annotation of the block                                                                                         |
+| Behavior      | Attribute                  | Type            | Description                                                                                                                             |
+|---------------|----------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| click         | `click_count`              | number          | The number of of click actions                                                                                                          |
+| Mousemovement | `mouseMovenment`           | number          | The distance of each mouse movement                                                                                                     |
+|               | `total_mouse_Movenment`    | number                | The total distance the mouse moves                                                                                                      |
+| scroll        | `scroll_count`             | number          | The number of of scroll actions                                                                                                         |
+|               | `Total_Scroll_Distance `   | number                | The total distance scroll                                                                                                               |
+|               | `average_scroll_distance`  | number          | The average diatance of scroll actions.                                                                                                 |
+|               | `med_scroll_distance`      | number                | The median diatance of scroll actions.                                                                                                  |
+| copy          | `copy_count`               | number                | The total times of copy                                                                                                                 |
+|               | `med_copy_length`          | number                | The median length of copy actions.                                                                                                      |
+|               | `average_scroll_distance`  | number                | The average of all rolling distances                                                                                                    |
+| paste         | `paste_count`              | number          | The number of paste actions.                                                                                                            |
+|               | `med_paste_length`         | number          | The median length of paste actions.                                                                                                     |
+|               | `average_paste_length`     | number          | The average length of each paste action.                                                                                                |
+| deleteAction  | `delet_count`              | number          | The number of delet actions. (delet, backspace, ctrl+z included.)                                                                       |
+| keypress      | `keypress_count`           | number          | The number of keypress actions.                                                                                                         |
+| highlight     | `highlight_count`          | number          | The number of highlight actions.                                                                                                        |
+|               | `total_highlight_length`   | number          | The total length of all highlights.                                                                                                     |
+|               | `med_highlight_length`     | number          | The median length of highlights.                                                                                                        |
+|               | `average_highlight_length` | number          | The average length of each highlight.                                                                                                   |
+| idle          | `idle_count`               | number          | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.)                         |
+|               | `total_idle_duration`      | number          | The total duration of all pauses.                                                                                                       |
+|               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                                          |
+|               | `average_idle_duration`    | number                | The average duration of each pause.                                                                                                     |
+| keyboardinput |                            |                | The time between the user starting to type in the textarea and clicking the send button.                                                |
+|               | `time_before_input`        | number                  | The time elapsed between two input prompt actions.                                                                                      |
+|               | `keyboard_input_count`     | number                  | The total number of input prompts.                                                                                                      |
+|               | `med_input_length`         | number                  | The median length of the input prompts.                                                                                                 |
+|               | `average_input_length`     |number                   | The average length of each input prompt.                                                                                                |
+|               | `med_input_duration`       | number                  | The median time taken to write an input prompt.                                                                                         |
+|               | `average_input_duration`   | number                  | The average time taken to write each input prompt.                                                                                      |
+|               | `total_input_duration`     | number                  | The total time spent by the user writing input prompts.                                                                                 |
+|               | `input_proportion`         | number   | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
+### Time Sequence Logs
+Each block is logged within 2 different time-windows:
 
-### BehaviorTracker_extension_notion
+- `answerGenerate`: While GPT is generating the answer. The time between the user click the send button to the send button become actived.
+- `keyboardInput`: While user is writing the prompt. The time between the user starting to type in the textarea and clicking the send button.
 
-Each block is logged within 4 different time-windows:
 
-- `sentence`: Within the sentence that the user was blocked at
-- `paragraph`: Within the paragraph that the user was blocked at
-- `document`: Since the start of the session
-- `since_last_block`: Since the last block
+| TimeSlot       | Attribute             | Type   | Description                              |
+|----------------|-----------------------|--------|------------------------------------------|
+| answerGenerate | `ag_startTime`        |        | Timestamp when user send a query to GPT. |
+|                | `ag_duration`         | number | Time spent on generating an answer.      |
 
-For each time-window, the following attributes are logged:
+### Behavior Within Writing Interface
+ In [`behaviorTracker_extension_notion`](src/behaviorTracker_extension_notion), we collected users' behavior when they editting in writing interface.
 
-| Attribute        | Type                                      | Description                                   |
-| ---------------- | ----------------------------------------- | --------------------------------------------- |
-| `typing_speed`   | number                                    | Typing speed in word per minute               |
-| `revisions`      | [RevisionsType](#revision-type)           | User's revisions count within the time-window |
-| `mouse_activity` | [MouseActivityType](#mouse-activity-type) | User's mouse activity within the time-window  |
+
+| Behavior      | Attribute                  | Type            | Description                                                                                                     |
+|---------------|----------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------|
+| click         | `click_count`              | number          | The number of of click actions                                                                                  |
+| Mousemovement | `mouseMovenment`           | number          | The distance of each mouse movement                                                                             |
+|               | `total_mouse_Movenment`    | number                | The total distance the mouse moves                                                                              |
+| scroll        | `scroll_count`             | number          | The number of of scroll actions                                                                                 |
+|               | `Total_Scroll_Distance `   | number                | The total distance scroll                                                                                       |
+|               | `average_scroll_distance`  | number          | The average diatance of scroll actions.                                                                         |
+|               | `med_scroll_distance`      | number                | The median diatance of scroll actions.                                                                          |
+| copy          | `copy_count`               | number                | The total times of copy                                                                                         |
+|               | `med_copy_length`          | number                | The median length of copy actions.                                                                              |
+|               | `average_scroll_distance`  | number                | The average of all rolling distances                                                                            |
+| paste         | `paste_count`              | number          | The number of paste actions.                                                                                    |
+|               | `med_paste_length`         | number          | The median length of paste actions.                                                                             |
+|               | `average_paste_length`     | number          | The average length of each paste action.                                                                        |
+| deleteAction  | `delet_count`              | number          | The number of delet actions. (delet, backspace, ctrl+z included.)                                               |
+| keypress      | `keypress_count`           | number          | The number of keypress actions.                                                                                 |
+| highlight     | `highlight_count`          | number          | The number of highlight actions.                                                                                |
+|               | `total_highlight_length`   | number          | The total length of all highlights.                                                                             |
+|               | `med_highlight_length`     | number          | The median length of highlights.                                                                                |
+|               | `average_highlight_length` | number          | The average length of each highlight.                                                                           |
+| idle          | `idle_count`               | number          | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.) |
+|               | `total_idle_duration`      | number          | The total duration of all pauses.                                                                               |
+|               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                  |
+|               | `average_idle_duration`    | number                | The average duration of each pause.                                                                             |
+
 
 <!-- Revision type -->
 
