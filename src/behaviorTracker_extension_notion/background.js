@@ -3,9 +3,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
             chrome.scripting.executeScript({
                 target: { tabId: tabs[0].id },
-                files: ["behaviorTracker_gpt.js"]
+                files: ["behaviorTracker_notion.js"]
             }, () => {
-                console.log("Injected behaviorTracker_gpt.js successfully.");
+                console.log("Injected behaviorTracker_notion.js successfully.");
             });
         });
     }

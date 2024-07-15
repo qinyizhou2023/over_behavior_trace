@@ -1,13 +1,14 @@
 
-// behaviorTracker_gpt.js
+// behaviorTracker_notion.js
 (function() {
-let behaviorData =[];
+
+let behaviorData = [];
 let copyCount = 0;
 
 // 添加点击监听器
 document.addEventListener('click', function(event) {
     let clickData = {
-        type: 'click',
+        type: 'click', e: 'click',
         timestamp: new Date().toISOString(),
         target: event.target.tagName,
         x: event.clientX,
@@ -59,6 +60,8 @@ function handleWheelEvent(event) {
 
 // 添加一个事件监听器，监听document上的wheel事件
 document.addEventListener('wheel', handleWheelEvent);
+
+
 
 
 // 添加复制监听器
@@ -125,7 +128,7 @@ document.addEventListener('paste', function(event) {
 
 // 监听删除动作（Delete和Backspace）
 document.addEventListener('keydown', function(event) {
-     if ((event.key === 'Delete' || event.key === 'Backspace' || (event.ctrlKey && event.key === 'x'))) {
+    if (event.key === 'Delete' || event.key === 'Backspace') {
         // 记录删除动作
         let deleteEventData = {
             type: 'deleteAction',
@@ -205,123 +208,6 @@ document.addEventListener('scroll', handleUserAction);
 
 // 初始化页面时开始计时
 resetIdleTimer();
-
-
-// 添加prompt监听器
-let startTime = null;
-let endTime = null;
-let userInput = '';
-let textLength = 0;
-
-// 监听输入框的键盘事件
-// 会同时有多个相同监听事件
-// 获取文本框元素
-const inputBox = document.querySelector("#prompt-textarea"); // 替换成你的输入框元素的ID
-inputBox.addEventListener('keydown', function(event) {
-    // 按下键盘时开始计时（仅当 startTime 为 null 时，表示首次开始输入）
-    if (startTime === null)
-    {
-        startTime = new Date();
-        console.log('开始输入时间:', startTime.toLocaleString());
-    }
-    }
-);
-
-// 添加输入事件监听器
-inputBox.addEventListener('input', function() {
-    // 每次输入内容变化时执行的操作
-    // var inputValue = inputBox.value;
-    // console.log('输入内容变化为: ' + inputValue);
-    userInput = inputBox.value;
-});
-
-
-// 监听回车键发送情况
-// document.addEventListener('keypress', function(event) {
-//     if (event.key === 'Enter')
-//     {
-//         recordAndExportData();
-//     }
-// });
-
-
-// 监听点击发送按钮事件
-const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
-sendButtonParent.addEventListener('click', function(event) {
-     console.log('click event target:', event.target);
-    if(event.target.matches('svg') || event.target.matches('path')) {
-        recordAndExportData();
-    }
-});
-// 记录并导出数据的函数
-function recordAndExportData() {
-    if (startTime !== null) {
-        endTime = new Date();
-        console.log('结束输入时间:', endTime.toLocaleString());
-        const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
-        textLength = userInput.length;
-        console.log('输入时长（毫秒）:', duration);
-        console.log('输入字数长度:', textLength);
-        console.log('用户输入内容:', userInput);
-        // 记录输入数据到行为数据数组中
-        const inputData = {
-            type: 'keyboardInput',
-            startTime: startTime.toLocaleString(),
-            endTime: endTime.toLocaleString(),
-            duration: duration,
-            userInputLength: textLength,
-            userInputContent: userInput
-        };
-         behaviorData.push(inputData);
-        // 重置变量，准备下一次输入
-        startTime = null;
-        endTime = null;
-        userInput = '';
-        textLength = 0;
-    }
-}
-
-
-// 计算回答生成时间(通过监听按钮变化)
-const targetNode = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div > div > button");
-const config = { // // 配置观察选项
-  attributes: true, // 监听属性变化
-  childList: true, // 监听子节点变化
-  subtree: true // 监听整个子树
-};
-let answerStartTime = null;
-const callback = (mutationsList, observer) => { // 当观察到变化时执行的回调函数
-    for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-testid') {
-            // console.log('A child node has been added or removed.');
-            console.log(targetNode.firstChild.firstChild);
-            if(targetNode.firstChild.firstChild.matches('rect')){
-            // if(answerStartTime === null){
-                answerStartTime = performance.now();
-                console.log("start generate timestamp",answerStartTime);
-            }else{
-                const answerEndTime = performance.now();
-                console.log("generate time: ",answerEndTime - answerStartTime);
-                let answerData = {
-                    type: 'answerGenerate',
-                    timestamp: new Date().toISOString(),
-                    startTime: answerStartTime,
-                    duration: answerEndTime - answerStartTime
-                };
-                behaviorData.push(answerData);
-                answerStartTime = null;
-            }
-        }
-    }
-};
-// 创建一个观察者实例并传入回调函数
-const observer = new MutationObserver(callback);
-// 开始观察目标节点
-observer.observe(targetNode, config);
-// 可以在适当的时候停止观察
-// observer.disconnect();
-
-
 
 // 分割：下面是导出设置
 
