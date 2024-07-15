@@ -10,7 +10,7 @@ In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logg
 | Mousemovement | `mouseMovenment`           | number          | The distance of each mouse movement                                                                                                     |
 |               | `total_mouse_Movenment`    | number                | The total distance the mouse moves                                                                                                      |
 | scroll        | `scroll_count`             | number          | The number of of scroll actions                                                                                                         |
-|               | `Total_Scroll_Distance `   | number                | The total distance scroll                                                                                                               |
+|               | `total_scroll_distance `   | number                | The total distance scroll                                                                                                               |
 |               | `average_scroll_distance`  | number          | The average diatance of scroll actions.                                                                                                 |
 |               | `med_scroll_distance`      | number                | The median diatance of scroll actions.                                                                                                  |
 | copy          | `copy_count`               | number                | The total times of copy                                                                                                                 |
@@ -40,7 +40,7 @@ In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logg
 |               | `input_proportion`         | number   | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
 ### Time Sequence Logs
 Each block is logged within 2 different time-windows:
-
+- `totaltime`: Total time spent in finishing the task.
 - `answerGenerate`: While GPT is generating the answer. The time between the user click the send button to the send button become actived.
 - `keyboardInput`: While user is writing the prompt. The time between the user starting to type in the textarea and clicking the send button.
 
