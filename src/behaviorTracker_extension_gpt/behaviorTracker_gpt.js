@@ -5,12 +5,16 @@ let behaviorData =[];
 let copyCount = 0;
 
 // 添加 windowswitch 监听器
+function formatTimestamp(timestamp) {
+    return new Date(timestamp).toISOString();
+}
 
-// 监听 focus 和 blur 事件
+// Now add event listeners to detect focus and blur events
 window.addEventListener('focus', function() {
     let focusData = {
         type: 'focus',
-        status: 1  // 1 页面获得焦点
+        timestamp: formatTimestamp(Date.now()),
+        status: 1  // 1 represents page focus
     };
     behaviorData.push(focusData);
     console.log('Focus event:', focusData);
@@ -19,7 +23,8 @@ window.addEventListener('focus', function() {
 window.addEventListener('blur', function() {
     let blurData = {
         type: 'blur',
-        status: 0  // 0 页面失去焦点
+        timestamp: formatTimestamp(Date.now()),
+        status: 0  // 0 represents page blur
     };
     behaviorData.push(blurData);
     console.log('Blur event:', blurData);

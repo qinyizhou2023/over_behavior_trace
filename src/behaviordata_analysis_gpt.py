@@ -22,6 +22,7 @@ for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
 
         # 初始化统计变量
+        windowswitch_count = 0
         first_timestamp = None
         last_timestamp = None
         click_count = 0
@@ -82,6 +83,8 @@ for filename in os.listdir(directory):
 
         # 遍历 JSON 数据，计算指标
         for event in data:
+            if event["type"] == "blur":
+                windowswitch_count += 1
             if event["type"] == "click":
                 click_count += 1
             elif event["type"] == "mouseMovement":
@@ -119,6 +122,7 @@ for filename in os.listdir(directory):
                 input_duration.append(event["duration"])
 
         # 计算平均值和中位数
+        windowswitch_speed = windowswitch_count / totaltime if windowswitch_count >0 else 0
         average_scroll_distance = total_scroll_distance / scroll_count if scroll_count > 0 else 0
         average_scroll_speed = total_scroll_distance / scroll_count if scroll_count > 0 else 0
         average_copy_length = total_copy_length / copy_count if copy_count > 0 else 0
@@ -136,6 +140,9 @@ for filename in os.listdir(directory):
 
         # 构建当前文件的结果字典
         current_result = {
+            "windowswitch_count":windowswitch_count,
+            "windowswitch_speed": windowswitch_speed,
+
             "filename": filename,
             "totaltime": totaltime,
             "click_count": click_count,
