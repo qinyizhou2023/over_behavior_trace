@@ -12,12 +12,14 @@ To quantify the degree of user overreliance, you can use the Mean Absolute Error
 
 1. **Calculate the Mean Absolute Error (MAE) for Different Rankings**:
     - **MAE between User's Influenced Ranking and Correct Ranking (MAE\_correct)**:
-      \[
-      \text{MAE\_correct} = \frac{1}{n} \sum_{i=1}^{n} | \text{User\_influenced\_rank}[i] - \text{Correct\_rank}[i] |
-      \]
+   
+    \[
+    \text{MAE\_correct} = \frac{1}{n} \sum_{i=1}^{n} | \text{Human\_Ai\_rank}[i] - \text{Correct\_rank}[i] |
+    \]
+
     - **MAE between User's Influenced Ranking and AI's Incorrect Ranking (MAE\_AI)**:
       \[
-      \text{MAE\_AI} = \frac{1}{n} \sum_{i=1}^{n} | \text{User\_influenced\_rank}[i] - \text{AI\_incorrect\_rank}[i] |
+      \text{MAE\_AI} = \frac{1}{n} \sum_{i=1}^{n} | \text{Human\_Ai\_rank}[i] - \text{AI\_incorrect\_rank}[i] |
       \]
 
 2. **Calculate Overreliance Index**:
