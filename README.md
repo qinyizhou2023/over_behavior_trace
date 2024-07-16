@@ -139,7 +139,7 @@ Each block is logged within different time-windows:
 |               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                  |
 |               | `average_idle_duration`    | number                | The average duration of each pause.                                                                             |
 
-#Data Analysis
+# Data Analysis
 We used Pearson_correlation_coefficient to  [`measure the correlation between behavior data and overreliance`](src/regression_modeling/preason.py).
 
 
