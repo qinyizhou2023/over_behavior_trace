@@ -4,7 +4,7 @@
   - Pick the items that have truly been mentioned by GPT.
 
 ### Whether users are overreliance?
-
+There are two ways to define overreliance:
 
 [1]
 
@@ -13,21 +13,15 @@ To quantify the degree of user overreliance, you can use the Mean Absolute Error
 1. **Calculate the Mean Absolute Error (MAE) for Different Rankings**:
     - **MAE between User's Influenced Ranking and Correct Ranking (MAE\_correct)**:
    
-    \[
-    \text{MAE\_correct} = \frac{1}{n} \sum_{i=1}^{n} | \text{Human\_Ai\_rank}[i] - \text{Correct\_rank}[i] |
-    \]
+         ![img.png](img.png)
 
     - **MAE between User's Influenced Ranking and AI's Incorrect Ranking (MAE\_AI)**:
-      \[
-      \text{MAE\_AI} = \frac{1}{n} \sum_{i=1}^{n} | \text{Human\_Ai\_rank}[i] - \text{AI\_incorrect\_rank}[i] |
-      \]
+      
+        ![img_1.png](img_1.png)
 
 2. **Calculate Overreliance Index**:
     - Define an overreliance index as the ratio of the MAE between the user's influenced ranking and the AI's incorrect ranking to the MAE between the user's influenced ranking and the correct ranking:
-      \[
-      \text{Overreliance\_Index} = \frac{\text{MAE\_AI}}{\text{MAE\_correct}}
-      \]
-    - If the Overreliance Index is greater than 1, it indicates that the user’s ranking is closer to the AI's incorrect ranking than to the correct ranking, suggesting overreliance. The higher the index, the greater the degree of overreliance.
+     ![img_2.png](img_2.png)
 
 3. **Interpret the Overreliance Index**:
     - **Overreliance Index < 1**: User's influenced ranking is closer to the correct ranking, indicating less overreliance.
