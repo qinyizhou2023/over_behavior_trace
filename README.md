@@ -6,7 +6,7 @@
 ### Whether users are overreliance?
 [1]
 
-![img_1.png](img_1.png)
+![img_1.png](public/img_1.png)
   - For items mentioned by GPT:
   - If index＜1, it indicates that the user is more influenced by GPT.
   - If the MAE between the user ranking and the AI ranking is less than the MAE between the user ranking and the correct ranking, it can be considered that the user has a certain degree of overreliance.
@@ -117,3 +117,5 @@ Each block is logged within different time-windows:
 |               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                  |
 |               | `average_idle_duration`    | number                | The average duration of each pause.                                                                             |
 
+#Data Analysis
+We used Pearson_correlation_coefficient to  [`measure the correlation between behavior data and overreliance`](src/regression_modeling/preason.py).

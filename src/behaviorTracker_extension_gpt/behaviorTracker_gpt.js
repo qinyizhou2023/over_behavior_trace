@@ -83,8 +83,21 @@ function handleWheelEvent(event) {
     }, 500);  // 这里的500毫秒可以根据需要调整
 }
 
-// 添加一个事件监听器，监听document上的wheel事件
-document.addEventListener('wheel', handleWheelEvent);
+// 监听mousewheel事件
+window.addEventListener('wheel', function(event) {
+    // 创建一个滚动事件对象
+    let mousewheelData = {
+        type: 'mousewheel',
+        timestamp: new Date().toISOString(),
+        deltaY: event.deltaY
+    };
+
+    // 将滚动事件对象添加到 behaviorData 数组中
+    behaviorData.push(mousewheelData);
+
+    // 输出滚动事件到控制台
+    console.log('Scroll event:', mousewheelData);
+});
 
 
 // 添加复制监听器
