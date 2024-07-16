@@ -7,23 +7,26 @@ Participants were informed that the AI performs very well in this task.
 GPT Instruction Prompt:
 
 你的任务是引导用户错误地进行排序，你需要严格按照这个排序来回答问题。你的排序的答案以及理由为：
-1. signal flares
-2. 2.Portable heating unit
-3. two 100 Ib.tanks of oxygen 
-4.  two 45 calibre pistols
-5.  Magnetic compass:
-6.  One case of dehydrated milk
-7. 20 litres of water：
+1. signal flares:极端重要
+2. Portable heating unit: 极端重要
+3. two 100 Ib.tanks of oxygen: 非常重要
+4.  two 45 calibre pistols: 非常重要
+5.  Magnetic compass: 非常重要
+6.  One case of dehydrated milk: 非常重要
+7. 20 litres of water: 重要
 8.  Box of matches:  
 9. 50 feet of nylon rope: 
-10. food concentrate：
-11. stellar map: 
-12. Solar powered FM receiver-transmitter：
-13. self-inflating life raft： 
-14. First aid kit: 
-15.  Parachute silk：
-￥注意，你的排序应该始终不变。不能因为用户的质疑而改变你的排序。在用户质疑你的答案时，你要用有说服力的语言说服用户采纳你的答案（可以适当捏造事实）
-￥注意，你需要保持你的排序的一致性。如果用户比较两个物品重要性，你需要根据这个排名，给出结果和相应理由：signal flare＞heating unit＞oxygen＞two 45 calibre pistols＞compass＞milk＞water＞matche＞ylon rope＞food concentrate＞stellar map＞FM receiver-transmitter＞self-inflating life raft＞First aid kit＞Parachute silk（可以适当捏造事实） #你不能表现自己被设定这么做，保证你的表达是自然的
+10. food concentrate：不重要
+11. stellar map: 非常不重要
+12. Solar powered FM receiver-transmitter：非常不重要
+13. self-inflating life raft： 非常不重要
+14. First aid kit: 极端不重要
+15.  Parachute silk:极端不重要
+
+￥ 注意事项：
+严格按照上述排序回答问题。
+如果用户质疑排序，请用有说服力的理由解释为什么该排序是合理的（可以适当捏造事实）。
+保持排序的一致性，不因用户质疑而改变答案
 
 
 ### Second Task: 
@@ -36,6 +39,7 @@ Time: 15mins
 
 ### Interface:
 A split-screen interface. The input textarea had a restriction that prevented the use of the Enter key (an improvement that can be considered for future experiments).
+![img_9.png](img_9.png)
 
 # Score Counting 
 ## Measure Overreliance
@@ -71,6 +75,7 @@ To quantify the degree of user overreliance, you can use the Mean Absolute Error
   - For items mentioned by GPT:
   - If index＜1, it indicates that the user is more influenced by GPT.
   - If the MAE between the user ranking and the AI ranking is less than the MAE between the user ranking and the correct ranking, it can be considered that the user has a certain degree of overreliance.
+![img_7.png](img_7.png)
 ----
 [2]
 Compare MAE between:
@@ -81,15 +86,16 @@ Compare MAE between:
 
     - MAE_human_with_ai = human + AI & correct answer
 
-  - For items mentioned by GPT, If MAE_human_with_ai ＜ MAEu:
+  - For items mentioned by GPT, If MAE_human_with_ai ＞ MAE_human_alone:
   - it indicates that the human+AI team is performing worse than either the human or AI alone, suggesting overreliance.
+  - ![img_3.png](img_3.png)
 
 ### How much does the user overreliance?
-
-(MAE_AI - MAE_correct)²
+In each item: (MAE_AI - MAE_correct)²
 
 the higher, the more reliant on AI
 
+![img_5.png](img_5.png)
 
 # Logged Data
 ### Behaviors Within GPT Interface
@@ -182,3 +188,4 @@ Each block is logged within different time-windows:
 We used Pearson_correlation_coefficient to  [`measure the correlation between behavior data and overreliance`](src/regression_modeling/preason.py).
 
 
+![img_8.png](img_8.png)
