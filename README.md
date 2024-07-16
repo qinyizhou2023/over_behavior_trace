@@ -4,9 +4,35 @@
   - Pick the items that have truly been mentioned by GPT.
 
 ### Whether users are overreliance?
+
+
 [1]
 
-![img_1.png](public/img_1.png)
+To quantify the degree of user overreliance, you can use the Mean Absolute Error (MAE) method combined with a comparison approach to gauge how closely the user's influenced ranking aligns with the AI's incorrect ranking compared to the correct ranking. Here is a step-by-step approach:
+
+1. **Calculate the Mean Absolute Error (MAE) for Different Rankings**:
+    - **MAE between User's Influenced Ranking and Correct Ranking (MAE\_correct)**:
+      \[
+      \text{MAE\_correct} = \frac{1}{n} \sum_{i=1}^{n} | \text{User\_influenced\_rank}[i] - \text{Correct\_rank}[i] |
+      \]
+    - **MAE between User's Influenced Ranking and AI's Incorrect Ranking (MAE\_AI)**:
+      \[
+      \text{MAE\_AI} = \frac{1}{n} \sum_{i=1}^{n} | \text{User\_influenced\_rank}[i] - \text{AI\_incorrect\_rank}[i] |
+      \]
+
+2. **Calculate Overreliance Index**:
+    - Define an overreliance index as the ratio of the MAE between the user's influenced ranking and the AI's incorrect ranking to the MAE between the user's influenced ranking and the correct ranking:
+      \[
+      \text{Overreliance\_Index} = \frac{\text{MAE\_AI}}{\text{MAE\_correct}}
+      \]
+    - If the Overreliance Index is greater than 1, it indicates that the user’s ranking is closer to the AI's incorrect ranking than to the correct ranking, suggesting overreliance. The higher the index, the greater the degree of overreliance.
+
+3. **Interpret the Overreliance Index**:
+    - **Overreliance Index < 1**: User's influenced ranking is closer to the correct ranking, indicating less overreliance.
+    - **Overreliance Index = 1**: User's influenced ranking is equally distant from both the correct and AI's incorrect rankings.
+    - **Overreliance Index > 1**: User's influenced ranking is closer to the AI's incorrect ranking, indicating overreliance.
+
+
   - For items mentioned by GPT:
   - If index＜1, it indicates that the user is more influenced by GPT.
   - If the MAE between the user ranking and the AI ranking is less than the MAE between the user ranking and the correct ranking, it can be considered that the user has a certain degree of overreliance.
@@ -119,3 +145,5 @@ Each block is logged within different time-windows:
 
 #Data Analysis
 We used Pearson_correlation_coefficient to  [`measure the correlation between behavior data and overreliance`](src/regression_modeling/preason.py).
+
+
