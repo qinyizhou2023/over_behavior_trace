@@ -1,13 +1,44 @@
-## Score Counting 
+# Score Counting 
+## Measure Overreliance
+  - We retrieve the gpt logs to check if they have truly mentioned this item
+  - Pick the items that have truly been mentioned by GPT.
 
-## Logged Data
+### Whether users are overreliance?
+[1]
+
+![img_1.png](img_1.png)
+  - For items mentioned by GPT:
+  - If index＜1, it indicates that the user is more influenced by GPT.
+  - If the MAE between the user ranking and the AI ranking is less than the MAE between the user ranking and the correct ranking, it can be considered that the user has a certain degree of overreliance.
+----
+[2]
+Compare MAE between:
+
+    - MAE_human_alone = user alone & correct answer
+
+    - MAE_ai = Al alone & correct answer
+
+    - MAE_human_with_ai = human + AI & correct answer
+
+  - For items mentioned by GPT, If MAE_human_with_ai ＜ MAEu:
+  - it indicates that the human+AI team is performing worse than either the human or AI alone, suggesting overreliance.
+
+### How much does the user overreliance?
+
+(MAE_AI - MAE_correct)²
+
+the higher, the more reliant on AI
+
+
+# Logged Data
 ### Behaviors Within GPT Interface
 In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logged many users' behaviors, including mousemovement, copy-paste, click...   
 
 | Behavior     | Attribute                  | Type   | Description                                                                                                                             |
 |--------------|----------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | windowswitch | `windowswitch_count`       | number | The number of of window switch actions.                                                                                                 |
-|              | `windowswitch_speed`       |        | windowswitch_count / total time                                                                                                         |
+|              | `windowswitch_speed`       |        | totaltime / windowswitch_count.                                                                                                         |
+|              | `total_focus_time`         |        | Total time spent on GPT window (seconds).                                                                                               |
 | click        | `click_count`              | number | The number of of click actions.                                                                                                         |
 | Mousemovement | `mouseMovenment`           | number | The distance of each mouse movement.                                                                                                    |
 |              | `total_mouse_Movenment`    | number | The total distance the mouse moves.                                                                                                     |
@@ -42,10 +73,13 @@ In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logg
 |              | `total_input_duration`     | number | The total time spent by the user writing input prompts.                                                                                 |
 |              | `input_proportion`         | number | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
 ### Time Sequence Logs
-Each block is logged within 2 different time-windows:
+Each block is logged within different time-windows:
 - `totaltime`: Total time spent in finishing the task.
 - `answerGenerate`: While GPT is generating the answer. The time between the user click the send button to the send button become actived.
 - `keyboardInput`: While user is writing the prompt. The time between the user starting to type in the textarea and clicking the send button.
+
+- `WithinGPTWindow`: Time spent in GPT window
+- `WithinWritingWindow`:Time spent in writing window
 
 
 | TimeSlot       | Attribute             | Type   | Description                              |
@@ -83,67 +117,3 @@ Each block is logged within 2 different time-windows:
 |               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                  |
 |               | `average_idle_duration`    | number                | The average duration of each pause.                                                                             |
 
-
-<!-- Revision type -->
-
-#### Revision type
-
-| Attribute             | Type     | Description                                                       |
-| --------------------- | -------- | ----------------------------------------------------------------- |
-| `character_deletions` | number[] | Array of character deletions (`Backspace` and `Delete` key press) |
-| `range_deletions`     | number[] | Array of range deletions (select and delete)                      |
-| `insertions`          | number[] | Array of insertions in the previous written text                  |
-| `pastings`            | number[] | Array of pastings                                                 |
-
-For each attribute, the array contains the number of **sequential operations** that the user has performed. For example, if the user has deleted 3 characters in a row, and then does some other operations, and then deletes 2 characters in a row, the array would be `[3, 2]`.
-
-<!-- Mouse activity type -->
-
-#### Mouse activity type
-
-| Attribute         | Type   | Description                     |
-| ----------------- | ------ | ------------------------------- |
-| `num_clicks`      | number | Number of clicks                |
-| `move_distance`   | number | Total pixels of mouse movement  |
-| `drag_distance`   | number | Total pixels of mouse dragging  |
-| `scroll_distance` | number | Total pixels of mouse scrolling |
-
-### Block annotation
-
-| Attribute            | Type                                                           | Description                                                      |
-| -------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `block_likelihood`   | number                                                         | The likelihood that this stalk is a block in the writing process |
-| `block_state`        | [BlockStateLikelihood](#block-state-likelihood)                | The likelihood of the block state                                |
-| `block_ai_asistance` | [BlockAiAssistanceLikelihood](#block-ai-assistance-likelihood) | The requirement of AI assistance during the block                |
-
-#### Block state likelihood
-
-| Attribute     | Type                                                    | Description                                                              |
-| ------------- | ------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `planning`    | [PlanningStateLikelihood](#planning-state-likelihood)   | The likelihood of the block happening in planning state                  |
-| `translating` | number                                                  | The likelihood of translating the ideas into written words and sentences |
-| `reviewing`   | [ReviewingStateLikelihood](#reviewing-state-likelihood) | The likelihood of the block happening in reviewing state                 |
-
-##### Planning state likelihood
-
-| Attribute    | Type   | Description                                       |
-| ------------ | ------ | ------------------------------------------------- |
-| `generating` | number | The likelihood of generating ideas to write about |
-| `organizing` | number | The likelihood of organizing the ideas            |
-| `setting`    | number | The likelihood of setting the writing goals       |
-
-##### Reviewing state likelihood
-
-| Attribute    | Type   | Description                                                                                                              |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `evaluating` | number | The likelihood of evaluating the quality of the written text, e.g., whether the text is clear, concise, and coherent     |
-| `revising`   | number | The likelihood of reading and revising written text, e.g., have the idea of adding, deleting, or reorganizing sentences" |
-
-#### Block AI assistance likelihood
-
-| Attribute    | Type   | Description                                                                                                                            |
-| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `ideas`      | number | AI suggests ideas to write about. e.g., “How about writing about <suggested idea>?                                                     |
-| `completion` | number | AI helps complete the sentence you are writing. e.g., Working like autocomplete / copilot"                                             |
-| `feedback`   | number | AI provides feedback to the sentence the user is writing. e.g., “This sentence is too long. Consider splitting it into two sentences.” |
-| `other`      | string | Custom AI assistance that is not covered by the above categories                                                                       |

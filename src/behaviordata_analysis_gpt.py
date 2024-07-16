@@ -14,7 +14,7 @@ import json
 from datetime import datetime
 import statistics
 
-directory = 'src/user_behavior_small/gpt'  # 实际目录路径
+directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\user_behavior_small\\gpt'  # 实际目录路径
 
 # 遍历目录中的每个文件
 for filename in os.listdir(directory):
@@ -22,7 +22,11 @@ for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
 
         # 初始化统计变量
+        all_results = []
         windowswitch_count = 0
+        focus_time = []
+        blur_time = []
+
         first_timestamp = None
         last_timestamp = None
         click_count = 0
@@ -51,35 +55,43 @@ for filename in os.listdir(directory):
         total_idle_duration = 0
         idle_duration = []
 
+
         # 打开并读取 JSON 文件
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
         # 计算totaltime
-        for event in data:
-            if 'timestamp' in event:
-                current_timestamp = event['timestamp']
-                if first_timestamp is None or current_timestamp < first_timestamp:
-                    first_timestamp = current_timestamp
+        if data:
+            first_timestamp = data[0]['timestamp']
+            last_timestamp = data[-1]['timestamp']
 
-        # 如果找到了有效的 timestamp，计算时间差
-        if first_timestamp:
-            # 寻找最后一个 timestamp
-            last_timestamp = None
-            for event in reversed(data):
-                if 'timestamp' in event:
-                    last_timestamp = event['timestamp']
-                    break
-
-            if last_timestamp is None:
-                last_timestamp = first_timestamp  # 如果没有找到最后一个 timestamp，则将 first_timestamp 设为 last_timestamp
-
-            time1 = datetime.strptime(first_timestamp, "%Y-%m-%dT%H:%M:%S.%fZ")
-            time2 = datetime.strptime(last_timestamp, "%Y-%m-%dT%H:%M:%S.%fZ")
+        if first_timestamp and last_timestamp:
+            time1 = datetime.fromisoformat(first_timestamp)
+            time2 = datetime.fromisoformat(last_timestamp)
             time_difference = time2 - time1
             totaltime = time_difference.total_seconds()
         else:
-            totaltime = 0  # 如果没有找到有效的 timestamp，则默认为 0
+            totaltime = 0
+
+        #计算blur和focus之间的时间
+        i = 0
+        while i < len(data):
+            if data[i]['type'] == 'focus':
+                focus_start = datetime.fromisoformat(data[i]['timestamp'])
+                i += 1
+                while i < len(data) and data[i]['type'] != 'blur':
+                    i += 1
+                if i < len(data) and data[i]['type'] == 'blur':
+                    blur_end = datetime.fromisoformat(data[i]['timestamp'])
+                    duration = (blur_end - focus_start).total_seconds()
+                    focus_time.append(duration)
+                    blur_time.append({
+                        'focus_start': data[i - 1]['timestamp'],
+                        'blur_end': data[i]['timestamp'],
+                        'duration': duration
+                    })
+                    i += 1
+
 
         # 遍历 JSON 数据，计算指标
         for event in data:
@@ -122,7 +134,8 @@ for filename in os.listdir(directory):
                 input_duration.append(event["duration"])
 
         # 计算平均值和中位数
-        windowswitch_speed = windowswitch_count / totaltime if windowswitch_count >0 else 0
+        total_focus_time = sum(focus_time)
+        windowswitch_speed = totaltime / windowswitch_count  if windowswitch_count >0 else 0
         average_scroll_distance = total_scroll_distance / scroll_count if scroll_count > 0 else 0
         average_scroll_speed = total_scroll_distance / scroll_count if scroll_count > 0 else 0
         average_copy_length = total_copy_length / copy_count if copy_count > 0 else 0
@@ -140,6 +153,7 @@ for filename in os.listdir(directory):
 
         # 构建当前文件的结果字典
         current_result = {
+            "total_focus_time": total_focus_time,
             "windowswitch_count":windowswitch_count,
             "windowswitch_speed": windowswitch_speed,
 
@@ -177,6 +191,7 @@ for filename in os.listdir(directory):
             "med_input_length": med_input_length,
             "med_input_duration": med_input_duration
         }
+
 
         # 将当前文件结果添加到所有结果列表中
         all_results.append(current_result)
