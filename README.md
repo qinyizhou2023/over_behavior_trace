@@ -3,7 +3,7 @@
   - We retrieve the gpt logs to check if they have truly mentioned this item
   - Pick the items that have truly been mentioned by GPT.
 
-### Whether users are overreliance?
+### Whether users are overreliance on LLMs?
 There are two ways to define overreliance:
 
 [1]
