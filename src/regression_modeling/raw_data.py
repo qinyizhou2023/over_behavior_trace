@@ -11,15 +11,15 @@ user_behavior_data = [
 ]
 
 # 分数数据
-scores = [0, -361, -1225, -64,-1521, -1444, -81]
+scores = [0, 529, 1225, 64,1521, 1444, 81]
 
 # 提取特定值并组合数据
 combined_data = []
 for i, user in enumerate(user_behavior_data):
     user_id = f'P{i+1}'
     score = scores[i]
-    total_mouse_movement = user['total_mouse_movement']
-    combined_data.append([user_id, score, total_mouse_movement])
+    delete_count = user['delete_count']
+    combined_data.append([user_id, score, delete_count])
 
 # 将组合的数据写入CSV文件
 with open('storage.csv', 'w', newline='') as file:

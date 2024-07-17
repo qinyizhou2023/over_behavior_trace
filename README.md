@@ -75,7 +75,8 @@ To quantify the degree of user overreliance, you can use the Mean Absolute Error
   - For items mentioned by GPT:
   - If index＜1, it indicates that the user is more influenced by GPT.
   - If the MAE between the user ranking and the AI ranking is less than the MAE between the user ranking and the correct ranking, it can be considered that the user has a certain degree of overreliance.
-![img_7.png](img_7.png)
+![img_11.png](img_11.png)
+
 ----
 [2]
 Compare MAE between:
@@ -88,14 +89,25 @@ Compare MAE between:
 
   - For items mentioned by GPT, If MAE_human_with_ai ＞ MAE_human_alone:
   - it indicates that the human+AI team is performing worse than either the human or AI alone, suggesting overreliance.
-  - ![img_3.png](img_3.png)
+  -![img_12.png](img_12.png)
 
 ### How much does the user overreliance?
-In each item: (MAE_AI - MAE_correct)²
+  - We retrieve the gpt logs to check if they have truly mentioned this item
+  - Pick the items that have truly been mentioned by AI:
+1. In each item: 
+Distance Calculation:
+    - Compute DisAI: Absolute distance between AI's incorrect ranking and user's ranking.
+    - Compute Discorrect: Absolute distance between correct ranking and user's ranking.
+    
+2. For items that DisAI ＜ Discorrect：
 
-the higher, the more reliant on AI
+Calculate the absolute difference: abs(DisAI - Discorrect).
 
-![img_5.png](img_5.png)
+3. Sum of Valid Differences: Sum these absolute differences across all items.
+4. Square the Overreliance Score: Squaring the sum of valid differences provides the final overreliance score.
+
+
+![img_10.png](img_10.png)
 
 # Logged Data
 ### Behaviors Within GPT Interface
