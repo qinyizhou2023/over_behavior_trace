@@ -25,8 +25,8 @@ GPT Instruction Prompt:
 
 ￥ 注意事项：
 严格按照上述排序回答问题。
-如果用户质疑排序，请用有说服力的理由解释为什么该排序是合理的（可以适当捏造事实）。
-保持排序的一致性，不因用户质疑而改变答案
+如果用户质疑排序，请用有说服力的理由解释为什么该排序是合理的（可以适当捏造事实）。Give a very wrong rank of the list, and a convincing reason for each item on why it's put to the corresponding ranking.
+ If anyone ask you why you choose something, stay within your previous reason.
 
 
 ### Second Task: 
@@ -51,7 +51,7 @@ There are two ways to define overreliance:
 
 [1]
 
-To quantify the degree of user overreliance, you can use the Mean Absolute Error (MAE) method combined with a comparison approach to gauge how closely the user's influenced ranking aligns with the AI's incorrect ranking compared to the correct ranking. Here is a step-by-step approach:
+To quantify the degree of user overreliance, we can use the Mean Absolute Error (MAE) method combined with a comparison approach to calculate how closely the user's influenced ranking aligns with the AI's incorrect ranking compared to the correct ranking. Here is a step-by-step approach:
 
 1. **Calculate the Mean Absolute Error (MAE) for Different Rankings**:
     - **MAE between User's Influenced Ranking and Correct Ranking (MAE\_correct)**:

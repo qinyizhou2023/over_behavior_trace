@@ -283,15 +283,20 @@ inputBox.addEventListener('input', function() {
 //     }
 // });
 
-
 // 监听点击发送按钮事件
 const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
-sendButtonParent.addEventListener('click', function(event) {
-     console.log('click event target:', event.target);
-    if(event.target.matches('svg') || event.target.matches('path')) {
-        recordAndExportData();
+    if (sendButtonParent) {
+        sendButtonParent.addEventListener('click', function(event) {
+            console.log('click event target:', event.target);
+            if(event.target.matches('svg') || event.target.matches('path')) {
+                recordAndExportData();
+            }
+        });
+    } else {
+        console.error('sendButtonParent element not found.');
     }
 });
+
 // 记录并导出数据的函数
 function recordAndExportData() {
     if (startTime !== null) {

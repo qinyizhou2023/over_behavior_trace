@@ -18,6 +18,22 @@ document.addEventListener('click', function(event) {
     console.log('Click event:', clickData);
 });
 
+// 监听mousewheel事件
+window.addEventListener('wheel', function(event) {
+    // 创建一个滚动事件对象
+    let mousewheelData = {
+        type: 'mousewheel',
+        timestamp: new Date().toISOString(),
+        deltaY: event.deltaY
+    };
+
+    // 将滚动事件对象添加到 behaviorData 数组中
+    behaviorData.push(mousewheelData);
+
+    // 输出滚动事件到控制台
+    console.log('Scroll event:', mousewheelData);
+});
+
 // 添加鼠标移动监听器
 let totalMouseMovement = 0;
 document.addEventListener('mousemove', function(event) {
