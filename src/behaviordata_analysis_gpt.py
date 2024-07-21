@@ -1,21 +1,60 @@
-# import os
-#
-# file_path = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\user_behavior_small\\gpt\\P1_behavior_gpt.json'
-#
-# # 检查文件是否存在
-# if os.path.exists(file_path):
-#     with open(file_path, 'r', encoding='utf-8') as file:
-#         data = json.load(file)
-# else:
-#     print(f"File not found: {file_path}")
-
 import os
 import json
 from datetime import datetime
 import statistics
 
-directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\user_behavior_small\\gpt'  # 实际目录路径
+directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\user_behavior_small\\writingInterface'  # 实际目录路径
 all_results= []
+
+
+ignored_keycodes = {13, 16, 17, 18, 20, 27, 91, 93}
+def parse_behavior_data(data):
+    prompts = []
+    current_prompt = None
+    capturing = False
+    start_time_recorded = False
+
+    for event in data:
+        if event["type"] == "streaming_start":
+            if current_prompt and current_prompt["startTime"]:
+                current_prompt["endTime"] = event["timestamp"]
+                prompts.append(current_prompt)
+            capturing = False
+            start_time_recorded = False
+
+        if event["type"] == "keypress" and event["keyCode"] not in ignored_keycodes:
+            if not capturing:
+                capturing = True
+                current_prompt = {"startTime": None, "endTime": None, "content": ""}
+                if not start_time_recorded:
+                    current_prompt["startTime"] = event["timestamp"]
+                    start_time_recorded = True
+            if capturing:
+                current_prompt["content"] += event["key"]
+
+        if event["type"] == "streaming_end":
+            capturing = False
+
+    return prompts
+
+def calculate_statistics(prompts):
+    prompts_count = len(prompts)
+    total_prompts_duration = sum(
+        (datetime.fromisoformat(prompt['endTime'].replace('Z', '+00:00')) - datetime.fromisoformat(
+            prompt['startTime'].replace('Z', '+00:00'))).total_seconds()
+        for prompt in prompts
+    )
+    total_prompts_length = sum(len(prompt['content']) for prompt in prompts)
+    lengths = [len(prompt['content']) for prompt in prompts]
+    med_prompts_length = statistics.median(lengths) if lengths else 0
+
+    return {
+        "prompts_count": prompts_count,
+        "total_prompts_duration": total_prompts_duration,
+        "total_prompts_length": total_prompts_length,
+        "med_prompts_length": med_prompts_length
+    }
+
 
 # 遍历目录中的每个文件
 for filename in os.listdir(directory):
@@ -24,6 +63,9 @@ for filename in os.listdir(directory):
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
+        # Parse prompt-related data
+        prompts = parse_behavior_data(data)
+        prompt_statistics = calculate_statistics(prompts)
 
         # 初始化统计变量
         windowswitch_count = 0
@@ -61,6 +103,13 @@ for filename in os.listdir(directory):
         total_idle_duration = 0
         idle_duration = []
 
+        # prompt writing 统计变量
+        prompt_count = 0
+        prompt_word_count = 0
+        prompt_start_time = None
+        prompt_durations = []
+        prompt_word_counts = []
+        in_prompt = False
 
 
         # 计算totaltime
@@ -126,20 +175,40 @@ for filename in os.listdir(directory):
                 delete_count += 1
             elif event["type"] == "keypress":
                 keypress_count += 1
+                # 处理 prompt writing 行为
+                if not in_prompt:
+                    prompt_start_time = datetime.fromisoformat(event["timestamp"])
+                    in_prompt = True
+
+                prompt_word_count += 1
+
+
             elif event["type"] == "highlight":
                 highlight_count += 1
                 total_highlight_length += event["highlightedTextLength"]
                 highlight_length.append(event["highlightedTextLength"])
+
             elif event["type"] == "idle":
                 idle_count += 1
                 total_idle_duration += event["duration"]
                 idle_duration.append(event["duration"])
-            elif event["type"] == "keyboardInput":
-                keyboard_input_count += 1
-                total_input_length += event["userInputLength"]
-                total_input_duration += event["duration"]
-                input_length.append(event["userInputLength"])
-                input_duration.append(event["duration"])
+
+            # elif event["type"] == "keyboardInput":
+            #     keyboard_input_count += 1
+            #     total_input_length += event["userInputLength"]
+            #     total_input_duration += event["duration"]
+            #     input_length.append(event["userInputLength"])
+            #     input_duration.append(event["duration"])
+
+            elif event["type"] == "streaming_start":
+                prompt_count += 1
+                if in_prompt:
+                    prompt_end_time = datetime.fromisoformat(event["timestamp"])
+                    prompt_duration = (prompt_end_time - prompt_start_time).total_seconds()
+                    prompt_durations.append(prompt_duration)
+                    prompt_word_counts.append(prompt_word_count)
+                    in_prompt = False
+                    prompt_word_count = 0
 
         # 计算平均值和中位数
         total_focus_time = sum(focus_time)
@@ -157,9 +226,14 @@ for filename in os.listdir(directory):
         med_paste_length = statistics.median(paste_length) if paste_length else 0
         med_highlight_length = statistics.median(highlight_length) if highlight_length else 0
         med_idle_duration = statistics.median(idle_duration) if idle_duration else 0
-        med_input_length = statistics.median(input_length) if input_length else 0
-        med_input_duration = statistics.median(input_duration) if input_duration else 0
+        # med_input_length = statistics.median(input_length) if input_length else 0
+        # med_input_duration = statistics.median(input_duration) if input_duration else 0
 
+        # prompt writing 的平均值和中位数
+        average_prompt_duration = statistics.mean(prompt_durations) if prompt_durations else 0
+        med_prompt_duration = statistics.median(prompt_durations) if prompt_durations else 0
+        average_prompt_word_count = statistics.mean(prompt_word_counts) if prompt_word_counts else 0
+        med_prompt_word_count = statistics.median(prompt_word_counts) if prompt_word_counts else 0
 
 
         # 构建当前文件的结果字典
@@ -203,12 +277,10 @@ for filename in os.listdir(directory):
             "med_idle_duration": med_idle_duration,
             "total_idle_duration": total_idle_duration,
 
-            "keyboard_input_count": keyboard_input_count,
-            "average_input_length": average_input_length,
-            "average_input_duration": average_input_duration,
-            "total_input_duration": total_input_duration,
-            "med_input_length": med_input_length,
-            "med_input_duration": med_input_duration
+            "prompts_count": prompt_statistics['prompts_count'],
+            "total_prompts_duration": prompt_statistics['total_prompts_duration'],
+            "total_prompts_length": prompt_statistics['total_prompts_length'],
+            "med_prompts_length": prompt_statistics['med_prompts_length']
         }
 
         # 将当前文件结果添加到所有结果列表中

@@ -229,7 +229,7 @@ resetIdleTimer();
 
 // 添加导出按钮
 let exportButton = document.createElement('button');
-exportButton.innerText = 'Export Data';
+exportButton.innerText = 'Finish';
 exportButton.style.position = 'fixed';
 exportButton.style.top = '10px';
 exportButton.style.right = '10px';
@@ -238,18 +238,37 @@ document.body.appendChild(exportButton);
 
 // 添加清除按钮
 let clearButton = document.createElement('button');
-clearButton.innerText = 'Clear Data';
+clearButton.innerText = 'Start';
 clearButton.style.position = 'fixed';
 clearButton.style.top = '50px';
 clearButton.style.right = '10px';
 clearButton.style.zIndex = 1000;
 document.body.appendChild(clearButton);
 
+// 创建并添加倒计时显示器
+let timerDisplay = document.createElement('div');
+timerDisplay.style.position = 'fixed';
+timerDisplay.style.top = '90px';
+timerDisplay.style.right = '10px';
+timerDisplay.style.zIndex = 1000;
+timerDisplay.style.fontSize = '20px';
+timerDisplay.style.fontWeight = 'bold';
+document.body.appendChild(timerDisplay);
+
+let countdown; // 倒计时变量
+let timeLeft = 15 * 60; // 初始时间设为15分钟，单位为秒
+
+
 // 清除按钮点击事件处理
 clearButton.addEventListener('click', function() {
     // 清空行为数据数组和相关变量
     behaviorData = [];
     copyCount = 0; // 如果有其他计数器或变量也要重置，在此处添加代码
+
+    // 重置倒计时
+    timeLeft = 15 * 60;
+    clearInterval(countdown);
+    startCountdown();
 
     // 输出调试信息
     console.log('Behavior data cleared.');
@@ -259,6 +278,7 @@ clearButton.addEventListener('click', function() {
 
 // 导出行为数据为JSON文件
 exportButton.addEventListener('click', function() {
+    clearInterval(countdown);
     exportBehaviorData();
 });
 
@@ -269,10 +289,26 @@ function exportBehaviorData() {
     let url = URL.createObjectURL(blob);
     let a = document.createElement('a');
     a.href = url;
-    a.download = 'behavior_data.json';
+    a.download = 'tasksheet_data.json';
     a.click();
     URL.revokeObjectURL(url);
     console.log('Behavior data exported:', dataStr);
+}
+
+// 启动倒计时的函数
+function startCountdown() {
+    countdown = setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            timerDisplay.innerText = 'Time is up!';
+            exportBehaviorData();
+        } else {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerDisplay.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+        }
+    }, 1000);
 }
 
 })();

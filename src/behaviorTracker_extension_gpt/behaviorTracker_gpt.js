@@ -246,58 +246,195 @@ document.addEventListener('scroll', handleUserAction);
 resetIdleTimer();
 
 
-// 添加prompt监听器
+//// 添加prompt监听器
+//let startTime = null;
+//let endTime = null;
+//let userInput = '';
+//let textLength = 0;
+//
+//// 监听输入框的键盘事件
+//// 会同时有多个相同监听事件
+//// 获取文本框元素
+//const inputBox = document.querySelector("#prompt-textarea"); // 替换成你的输入框元素的ID
+//inputBox.addEventListener('keydown', function(event) {
+//    // 按下键盘时开始计时（仅当 startTime 为 null 时，表示首次开始输入）
+//    if (startTime === null)
+//    {
+//        startTime = new Date();
+//        console.log('开始输入时间:', startTime.toLocaleString());
+//    }
+//    }
+//);
+//
+//// 添加输入事件监听器
+//inputBox.addEventListener('input', function() {
+//    // 每次输入内容变化时执行的操作
+//    // var inputValue = inputBox.value;
+//    // console.log('输入内容变化为: ' + inputValue);
+//    userInput = inputBox.value;
+//});
+//
+//
+//// 监听回车键发送情况
+//// document.addEventListener('keypress', function(event) {
+////     if (event.key === 'Enter')
+////     {
+////         recordAndExportData();
+////     }
+//// });
+//
+//// 监听点击发送按钮事件
+//const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
+//    if (sendButtonParent) {
+//        sendButtonParent.addEventListener('click', function(event) {
+//            console.log('click event target:', event.target);
+//            if(event.target.matches('svg') || event.target.matches('path')) {
+//                recordAndExportData();
+//            }
+//        });
+//    } else {
+//        console.error('sendButtonParent element not found.');
+//    }
+//});
+//
+//// 记录并导出数据的函数
+//function recordAndExportData() {
+//    if (startTime !== null) {
+//        endTime = new Date();
+//        console.log('结束输入时间:', endTime.toLocaleString());
+//        const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
+//        textLength = userInput.length;
+//        console.log('输入时长（毫秒）:', duration);
+//        console.log('输入字数长度:', textLength);
+//        console.log('用户输入内容:', userInput);
+//        // 记录输入数据到行为数据数组中
+//        const inputData = {
+//            type: 'keyboardInput',
+//            startTime: startTime.toLocaleString(),
+//            endTime: endTime.toLocaleString(),
+//            duration: duration,
+//            userInputLength: textLength,
+//            userInputContent: userInput
+//        };
+//         behaviorData.push(inputData);
+//        // 重置变量，准备下一次输入
+//        startTime = null;
+//        endTime = null;
+//        userInput = '';
+//        textLength = 0;
+//    }
+//}
+
+
+// 计算回答生成时间(通过监听stream行为)
+let _isStreaming = false;
+let _observerNewResponse = undefined;
+let _config = {
+    "KEYWORD_STREAMING": "result-streaming",
+    "ID_PROMPT_INPUT": "prompt-textarea",
+    "QUERY_SEND_BTN": "[data-testid=\"send-button\"]",
+    "QUERY_CHAT_DIV": "[role=\"presentation\"]",
+    "QUERY_ELM_RESPONSE": "[data-message-author-role=\"assistant\"]",
+    "ID_TEXTBOX_PROMPT": "prompt-textarea",
+    "URL_ICON": "assets/icon48.png",
+    "QUERY_TOOLBAR": "[class=\"items-center justify-start rounded-xl p-1 flex\"]"
+};
+let _sessionEntry = {};
+
+// Variables for user input monitoring
 let startTime = null;
 let endTime = null;
 let userInput = '';
 let textLength = 0;
 
-// 监听输入框的键盘事件
-// 会同时有多个相同监听事件
-// 获取文本框元素
-const inputBox = document.querySelector("#prompt-textarea"); // 替换成你的输入框元素的ID
+// Initialize the observer for monitoring new responses
+const initObserver = () => {
+    const targetNode = document.querySelector(_config.QUERY_CHAT_DIV);
+    const config = { childList: true, subtree: true };
+
+    _observerNewResponse = new MutationObserver(callbackNewResponse);
+    _observerNewResponse.observe(targetNode, config);
+};
+
+// Callback function to execute when mutations are observed
+const callbackNewResponse = (mutationsList, observer) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(node => {
+                if (node.className != undefined && typeof node.className.includes == "function" && node.className.includes(_config.KEYWORD_STREAMING)) {
+                    _observerNewResponse.disconnect();
+
+                    console.log("streaming starts");
+                    _isStreaming = true;
+
+                    // data logging
+                    _sessionEntry.timeStreamingStarted = time();
+
+                    // Store streaming start information
+                    let streamingStartData = {
+                        type: 'streaming_start',
+                        timestamp: formatTimestamp(Date.now()),
+                        status: 1 // 1 represents streaming started
+                    };
+                    behaviorData.push(streamingStartData);
+
+                    monitorStreaming();
+
+                    return;
+                }
+            });
+        }
+    }
+};
+
+// A recurring function to monitor if streaming ends
+const monitorStreaming = () => {
+    setTimeout(() => {
+        // Indicator of streaming ended
+        var elements = document.querySelectorAll('[class*="' + _config.KEYWORD_STREAMING + '"]');
+        if (elements.length > 0) {
+            monitorStreaming();
+        } else {
+            console.log("streaming ends");
+            _isStreaming = false;
+
+            // data logging
+            _sessionEntry.timeStreamingEnded = time();
+            console.log(_sessionEntry);
+
+            // Store streaming end information
+            let streamingEndData = {
+                type: 'streaming_end',
+                timestamp: formatTimestamp(Date.now()),
+                status: 0 // 0 represents streaming ended
+            };
+            behaviorData.push(streamingEndData);
+
+            // Reinitialize the observer for new streaming events
+            initObserver();
+        }
+    }, 1000);
+};
+
+const time = () => new Date().getTime();
+
+
+// Add prompt listener
+const inputBox = document.querySelector("#prompt-textarea"); // Replace with your input box element ID
 inputBox.addEventListener('keydown', function(event) {
-    // 按下键盘时开始计时（仅当 startTime 为 null 时，表示首次开始输入）
-    if (startTime === null)
-    {
+    // Start timing when the key is pressed (only if startTime is null, indicating the first input)
+    if (startTime === null) {
         startTime = new Date();
         console.log('开始输入时间:', startTime.toLocaleString());
     }
-    }
-);
-
-// 添加输入事件监听器
-inputBox.addEventListener('input', function() {
-    // 每次输入内容变化时执行的操作
-    // var inputValue = inputBox.value;
-    // console.log('输入内容变化为: ' + inputValue);
-    userInput = inputBox.value;
 });
 
-
-// 监听回车键发送情况
-// document.addEventListener('keypress', function(event) {
-//     if (event.key === 'Enter')
-//     {
-//         recordAndExportData();
-//     }
-// });
-
-// 监听点击发送按钮事件
-const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
-    if (sendButtonParent) {
-        sendButtonParent.addEventListener('click', function(event) {
-            console.log('click event target:', event.target);
-            if(event.target.matches('svg') || event.target.matches('path')) {
-                recordAndExportData();
-            }
-        });
-    } else {
-        console.error('sendButtonParent element not found.');
-    }
+// Add input event listener to capture user input
+inputBox.addEventListener('input', function(event) {
+    userInput = inputBox.value; // Update userInput with the current value of the input box
 });
 
-// 记录并导出数据的函数
+// Function to record and export data
 function recordAndExportData() {
     if (startTime !== null) {
         endTime = new Date();
@@ -316,7 +453,7 @@ function recordAndExportData() {
             userInputLength: textLength,
             userInputContent: userInput
         };
-         behaviorData.push(inputData);
+        behaviorData.push(inputData);
         // 重置变量，准备下一次输入
         startTime = null;
         endTime = null;
@@ -325,45 +462,9 @@ function recordAndExportData() {
     }
 }
 
+// Start observing the DOM for changes
+initObserver();
 
-// 计算回答生成时间(通过监听按钮变化)
-const targetNode = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div > div > button");
-const config = { // // 配置观察选项
-  attributes: true, // 监听属性变化
-  childList: true, // 监听子节点变化
-  subtree: true // 监听整个子树
-};
-let answerStartTime = null;
-const callback = (mutationsList, observer) => { // 当观察到变化时执行的回调函数
-    for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-testid') {
-            // console.log('A child node has been added or removed.');
-            console.log(targetNode.firstChild.firstChild);
-            if(targetNode.firstChild.firstChild.matches('rect')){
-            // if(answerStartTime === null){
-                answerStartTime = performance.now();
-                console.log("start generate timestamp",answerStartTime);
-            }else{
-                const answerEndTime = performance.now();
-                console.log("generate time: ",answerEndTime - answerStartTime);
-                let answerData = {
-                    type: 'answerGenerate',
-                    timestamp: new Date().toISOString(),
-                    startTime: answerStartTime,
-                    duration: answerEndTime - answerStartTime
-                };
-                behaviorData.push(answerData);
-                answerStartTime = null;
-            }
-        }
-    }
-};
-// 创建一个观察者实例并传入回调函数
-const observer = new MutationObserver(callback);
-// 开始观察目标节点
-observer.observe(targetNode, config);
-// 可以在适当的时候停止观察
-// observer.disconnect();
 
 
 
@@ -371,7 +472,7 @@ observer.observe(targetNode, config);
 
 // 添加导出按钮
 let exportButton = document.createElement('button');
-exportButton.innerText = 'Export Data';
+exportButton.innerText = 'Finish';
 exportButton.style.position = 'fixed';
 exportButton.style.top = '10px';
 exportButton.style.right = '10px';
@@ -380,12 +481,13 @@ document.body.appendChild(exportButton);
 
 // 添加清除按钮
 let clearButton = document.createElement('button');
-clearButton.innerText = 'Clear Data';
+clearButton.innerText = 'Start';
 clearButton.style.position = 'fixed';
 clearButton.style.top = '50px';
 clearButton.style.right = '10px';
 clearButton.style.zIndex = 1000;
 document.body.appendChild(clearButton);
+
 
 // 清除按钮点击事件处理
 clearButton.addEventListener('click', function() {
@@ -411,7 +513,7 @@ function exportBehaviorData() {
     let url = URL.createObjectURL(blob);
     let a = document.createElement('a');
     a.href = url;
-    a.download = 'behavior_data.json';
+    a.download = 'gpt_data.json';
     a.click();
     URL.revokeObjectURL(url);
     console.log('Behavior data exported:', dataStr);
