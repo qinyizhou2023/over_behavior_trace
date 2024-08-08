@@ -5,7 +5,7 @@ import pandas as pd
 
 
 # 读取CSV文件
-df = pd.read_csv('storage.csv', header=None, names=['P', 'Value1', 'Value2'])
+df = pd.read_csv('C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\scorecounting_30ppl\\merge_data.json', header=None, names=['P', 'Value1', 'Value2'])
 
 # 转换为numpy数组
 X = np.array(df['Value2'])  # 使用df['Value2']作为X

@@ -2,8 +2,12 @@ import os
 import json
 from datetime import datetime
 import statistics
-# 改1： gpt/tasksheet
+# # 改1： gpt
+# directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_30ppl\\gpt'  # 实际目录路径
+
+# 改1： tasksheet
 directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_30ppl\\tasksheet'  # 实际目录路径
+
 all_results= []
 
 

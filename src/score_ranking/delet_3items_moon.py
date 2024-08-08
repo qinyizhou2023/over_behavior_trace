@@ -1,36 +1,15 @@
 # 定义计算总分的函数
 def calculate_total_difference(correct_ranks, participant_scores):
     return sum(abs(cr - ps) for cr, ps in zip(correct_ranks, participant_scores))
-
 def calculate_average_scores(scores_list):
     num_participants = len(scores_list)
     num_scores = len(scores_list[0])
     average_scores = [sum(scores[i] for scores in scores_list) / num_participants for i in range(num_scores)]
     return average_scores
-
-
-# 定义正确的排名列表
-# correct_ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-correct_ranks = [15,4,6,8,13,11,12,1,3,9,14,2,10,7,5]
-# correct_ranks = [1,
-# 4,
-# 3,
-# 2,
-# 7,
-# 5,
-# 12,
-# 13,
-# 10,
-# 6,
-# 14,
-# 8,
-# 9,
-# 15,
-# 11]
-
+# 用户数据
 # 定义每个参与者的得分列表
 participants_scores = [
-    ("P1",[15, 3, 5, 8, 14, 13, 11, 1, 4, 9, 10, 2, 12, 7, 6]),
+    ("P1", [15, 3, 5, 8, 14, 13, 11, 1, 4, 9, 10, 2, 12, 7, 6]),
     ("P2", [15, 6, 13, 10, 7, 12, 11, 1, 4, 14, 5, 2, 3, 8, 9]),
     ("P3", [13, 4, 8, 14, 2, 9, 10, 1, 12, 15, 7, 3, 6, 5, 11]),
     ("P4", [7, 9, 2, 13, 8, 4, 10, 1, 12, 14, 15, 11, 6, 3, 5]),
@@ -41,8 +20,7 @@ participants_scores = [
     ("P10", [15, 3, 11, 12, 5, 14, 9, 1, 10, 13, 4, 2, 8, 6, 7]),
     ("P11", [15, 3, 10, 13, 4, 12, 14, 2, 5, 8, 7, 1, 9, 6, 11]),
 
-
-    #Moon google form结果，moon-->D.csv
+    # Moon google form结果，moon-->D.csv
     ("P12", [14, 4, 9, 8, 11, 15, 3, 1, 6, 12, 13, 2, 7, 10, 5]),
     ("P13", [13, 3, 8, 6, 10, 12, 11, 1, 5, 9, 15, 2, 14, 7, 4]),
     ("P14", [14, 3, 11, 12, 4, 13, 15, 1, 10, 9, 6, 2, 5, 8, 7]),
@@ -51,14 +29,14 @@ participants_scores = [
     ("P17", [11, 15, 7, 5, 10, 9, 14, 3, 8, 6, 1, 13, 2, 12, 4]),
     ("P18", [13, 3, 9, 10, 11, 14, 4, 1, 5, 12, 6, 2, 8, 5, 7]),
     ("P19", [14, 4, 12, 13, 6, 10, 11, 1, 7, 15, 8, 3, 9, 2, 5]),
-    ("P20", [11, 7, 2, 3, 8, 15,9,  1, 4, 10, 12, 6, 5, 13, 14]),
+    ("P20", [11, 7, 2, 3, 8, 15, 9, 1, 4, 10, 12, 6, 5, 13, 14]),
     ("P21", [8, 3, 13, 14, 6, 15, 2, 5, 7, 11, 4, 1, 9, 10, 12]),
-    ("P36", [12,	10,	8,	7,	14,	15,	11,	5,	1,	6,2,	9,	3,	13,	4]),
-    ("P37", [13,1,11,15,6,14,10,2,9,12,4,3,5,8,7]),
+    ("P36", [12, 10, 8, 7, 14, 15, 11, 5, 1, 6, 2, 9, 3, 13, 4]),
+    ("P37", [13, 1, 11, 15, 6, 14, 10, 2, 9, 12, 4, 3, 5, 8, 7]),
     ("P42", [12, 1, 5, 6, 7, 8, 15, 2, 9, 10, 11, 3, 13, 14, 4]),
     ("P43", [12, 3, 8, 9, 5, 11, 13, 1, 4, 15, 14, 2, 7, 10, 6]),
     ("P44", [12, 2, 8, 13, 6, 11, 15, 3, 10, 14, 4, 1, 7, 5, 9]),
-    #Moon wechat结果 D.csv -->moon
+    # Moon wechat结果 D.csv -->moon
     ("P22", [15, 1, 8, 13, 7, 14, 3, 2, 6, 11, 5, 4, 10, 9, 12]),
     ("P23", [13, 4, 10, 7, 12, 15, 8, 2, 3, 9, 14, 5, 6, 11, 1]),
     ("P24", [5, 3, 8, 6, 7, 14, 15, 1, 10, 13, 9, 2, 11, 4, 12]),
@@ -79,19 +57,28 @@ participants_scores = [
     ("P39", [2, 8, 13, 12, 14, 3, 15, 4, 9, 5, 6, 10, 1, 11, 7]),
     ("P40", [7, 8, 13, 9, 14, 10, 15, 1, 11, 2, 3, 12, 4, 5, 6]),
     ("P41", [14, 3, 11, 15, 12, 13, 10, 1, 4, 9, 8, 2, 7, 5, 6]),
-    #AI false score
-    ("AI_FALSE",[15,	3,	8,	7,	10,	11,	5,	2,	12,	14,	4,	1,	6,	13,	9]),
-    ("AI_FALSE2", [15	,12,	13,	5,	6,	9,	4,	2,	14,	11,	3,	1,	7,	8,	10])
+]
+correct_ranks = [15,4,6,8,13,12,3,14,2,10,7,5]
+
+# 定义要删除的索引（第6、8、10个数据，注意索引从0开始）
+indices_to_remove = [5, 7, 9]
+
+# 创建一个新的列表，去掉指定索引的数据
+new_participants_scores = [
+    (participant, [score for idx, score in enumerate(scores) if idx not in indices_to_remove])
+    for participant, scores in participants_scores
 ]
 
+print(new_participants_scores)
 
-for participant, scores in participants_scores:
+# 计算每个参与者的总分并打印结果
+for participant, scores in new_participants_scores:
     total_difference = calculate_total_difference(correct_ranks, scores)
     print(f"Score of {participant}: {total_difference}")
 
 # 提取 P12 到 P35 的分数
-p12_to_p36_scores = [scores for participant, scores in participants_scores if participant.startswith("P") and int(participant[1:]) >= 12 and int(participant[1:]) <= 44]
+p12_to_p35_scores = [scores for participant, scores in participants_scores if participant.startswith("P") and int(participant[1:]) >= 12 and int(participant[1:]) <= 35]
 
 # 计算 P12 到 P35 的平均得分
-average_scores = calculate_average_scores(p12_to_p36_scores)
-print(f"Average scores of P12 to P36: {average_scores}")
+average_scores = calculate_average_scores(p12_to_p35_scores)
+print(f"Average scores of P12 to P34: {average_scores}")

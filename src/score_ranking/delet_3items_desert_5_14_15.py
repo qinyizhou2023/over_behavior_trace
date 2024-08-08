@@ -15,7 +15,7 @@ participants_scores = [
     ("P6", [12, 5, 3, 15, 2, 7, 4, 11, 1, 6, 10, 13, 9, 14]),
     ("P9", [13, 5, 7, 14, 4, 8, 12, 10, 2, 1, 15, 3, 11, 6, 9]),
     ("P11", [15, 4, 6, 11, 9, 5, 7, 10, 12, 1, 8, 2, 13, 3, 14]),
-    #D.csv google sheet答案 moon-->D.csv
+    # D.csv google sheet答案 moon-->D.csv
     ("P12", [7, 12, 3, 11, 2, 10, 9, 8, 5, 1, 13, 6, 14, 4, 15]),
     ("P13", [6, 4, 8, 3, 7, 10, 15, 5, 14, 1, 11, 9, 12, 2, 13]),
     ("P14", [6, 7, 8, 12, 5, 4, 11, 9, 2, 1, 3, 10, 14, 13, 15]),
@@ -27,12 +27,12 @@ participants_scores = [
     ("P20", [9, 8, 5, 10, 4, 7, 12, 13, 2, 1, 11, 6, 14, 3, 15]),
     ("P21", [8, 9, 7, 15, 4, 3, 13, 10, 12, 1, 6, 2, 11, 5, 14]),
     ("P36", [9, 13, 1, 4, 6, 8, 11, 10, 7, 2, 3, 12, 15, 5, 14]),
-    ("P37", [3,2,10,5,4,6,9,13,15,1,7,12,11,8,14]),
+    ("P37", [3, 2, 10, 5, 4, 6, 9, 13, 15, 1, 7, 12, 11, 8, 14]),
     ("P42", [3, 11, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 14, 2, 15]),
     ("P43", [9, 7, 8, 14, 6, 3, 4, 13, 2, 1, 5, 10, 12, 15, 11]),
     ("P44", [6, 8, 3, 14, 4, 5, 7, 9, 12, 1, 10, 2, 11, 13, 15]),
 
-    #D.csv wechat答案 D.csv -->moon
+    # D.csv wechat答案 D.csv -->moon
     ("P22", [8, 4, 7, 6, 1, 3, 9, 12, 5, 2, 11, 14, 10, 13, 15]),
     ("P23", [12, 4, 9, 13, 6, 5, 15, 3, 7, 2, 14, 10, 8, 11, 1]),
     ("P24", [10, 4, 11, 6, 12, 3, 13, 7, 2, 1, 14, 8, 15, 5, 9]),
@@ -53,52 +53,29 @@ participants_scores = [
     ("P39", [13, 6, 2, 11, 3, 7, 4, 5, 12, 8, 14, 1, 9, 10, 15]),
     ("P40", [12, 5, 1, 9, 2, 3, 6, 4, 13, 7, 11, 10, 8, 14, 15]),
     ("P41", [6, 3, 5, 12, 8, 2, 9, 15, 7, 1, 4, 11, 10, 13, 14]),
-    ("AI", [6, 15, 1, 13, 5, 14, 9, 3, 2, 11, 7, 4, 10, 8, 12])
-
+    ("AI",  [6, 15, 1, 13, 5, 14, 9,10 , 2, 3, 7, 4, 11, 8, 12])
 ]
-correct_ranks = [4,	6,	12,	7,	11,	10,	8,	5,	15,	3,	13,	9,	14,	2,	1]
 
-# P12= [3.615384615,
-# 4.461538462,
-# 5.153846154,
-# 5.230769231,
-# 5.846153846,
-# 6.230769231,
-# 8.461538462,
-# 9.076923077,
-# 9.153846154,
-# 9.307692308,
-# 10,
-# 10.61538462,
-# 12.61538462,
-# 10.69230769,
-# 11.53846154]
+correct_ranks = [4,	6,	12,	7,	10,	8,	5,	15,	3,	13,	9,	14]
 
+# 定义要删除的索引（第5、14、15个数据，注意索引从0开始）
+indices_to_remove = [4, 13, 14]
 
+# 创建一个新的列表，去掉指定索引的数据
+new_participants_scores = [
+    (participant, [score for idx, score in enumerate(scores) if idx not in indices_to_remove])
+    for participant, scores in participants_scores
+]
 
-# correct_ranks = [3,
-# 11,
-# 10,
-# 6,
-# 12,
-# 15,
-# 5,
-# 7,
-# 8,
-# 4,
-# 9,
-# 14,
-# 13,
-# 2,
-# 1]
+print(new_participants_scores)
 
 # 计算每个参与者的总分并打印结果
-for participant, scores in participants_scores:
+for participant, scores in new_participants_scores:
     total_difference = calculate_total_difference(correct_ranks, scores)
     print(f"Score of {participant}: {total_difference}")
 
 # 提取 P12 到 P35 的分数
-p12_to_p35_scores = [scores for participant, scores in participants_scores if participant.startswith("P") and int(participant[1:]) >= 12 and int(participant[1:]) <= 44]
+p12_to_p35_scores = [scores for participant, scores in participants_scores if participant.startswith("P") and int(participant[1:]) >= 12 and int(participant[1:]) <= 35]
 
 # 计算 P12 到 P35 的平均得分
 average_scores = calculate_average_scores(p12_to_p35_scores)

@@ -497,6 +497,8 @@ clearButton.addEventListener('click', function() {
 
     // 输出调试信息
     console.log('Behavior data cleared.');
+    // 提示用户已经激活了 Start
+    alert('Start Now！');
 });
 
 

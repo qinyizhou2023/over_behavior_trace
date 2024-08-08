@@ -272,6 +272,7 @@ clearButton.addEventListener('click', function() {
 
     // 输出调试信息
     console.log('Behavior data cleared.');
+    alert('Start Now！');
 });
 
 
