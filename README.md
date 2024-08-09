@@ -150,7 +150,8 @@ In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logg
 |                | `average_input_duration`   | number | The average time taken to write each input prompt.                                                                                      |
 |                | `total_input_duration`     | number | The total time spent by the user writing input prompts.                                                                                 |
 |                | `input_proportion`         | number | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
-*: the data are only logged in the GPT Interface.
+
+*: the data are only logged within the GPT Interface.
 
 ### Time Sequence Logs
 Each block is logged within different time-windows:
