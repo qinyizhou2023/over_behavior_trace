@@ -1,4 +1,5 @@
 import csv
+import numpy as np
 
 # Provided scores for task alone moon and task with AI desert
 task_alone_moon = {'B1': 37, 'B2': 48, 'B3': 47, 'B4': 41, 'B5': 47, 'B6': 49, 'C1': 57, 'C2': 54, 'C3': 40, 'C4': 39, 'C5': 37, 'C6': 40, 'C7': 24}
@@ -18,6 +19,18 @@ minus_withAI_alone_AD = {key: task_with_AI_moon[key] - value for key, value in t
 
 # Print the resulting dictionary
 print(minus_withAI_alone_AD)
+
+
+# calculate SD
+
+# 提取值
+values = list(task_alone_moon.values())
+
+# 计算方差
+variance = np.var(task_alone_moon)
+
+print(f"The variance of the task_alone_moon is: {variance}")
+
 
 
 
