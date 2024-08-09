@@ -110,47 +110,48 @@ Calculate the absolute difference: abs(DisAI - Discorrect).
 ![img_10.png](img_10.png)
 
 # Logged Data
-### Behaviors Within GPT Interface
+### Behaviors Within GPT Interface and Tasksheet Interface
 In [`behaviorTracker_extension_gpt`](src/behaviorTracker_extension_gpt), We logged many users' behaviors, including mousemovement, copy-paste, click...   
 
-| Behavior     | Attribute                  | Type   | Description                                                                                                                             |
-|--------------|----------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| windowswitch | `windowswitch_count`       | number | The number of of window switch actions.                                                                                                 |
-|              | `windowswitch_speed`       |        | totaltime / windowswitch_count.                                                                                                         |
-|              | `total_focus_time`         |        | Total time spent on GPT window (seconds).                                                                                               |
-| click        | `click_count`              | number | The number of of click actions.                                                                                                         |
-| Mousemovement | `mouseMovenment`           | number | The distance of each mouse movement.                                                                                                    |
-|              | `total_mouse_Movenment`    | number | The total distance the mouse moves.                                                                                                     |
-| scroll       | `scroll_count`             | number | The number of of scroll actions.                                                                                                        |
-|              | `total_scroll_distance `   | number | The total distance scroll.                                                                                                              |
-|              | `average_scroll_distance`  | number | The average diatance of scroll actions.                                                                                                 |
-|              | `med_scroll_distance`      | number | The median diatance of scroll actions.                                                                                                  |
-| copy         | `copy_count`               | number | The total times of copy.                                                                                                                |
-|              | `med_copy_length`          | number | The median length of copy actions.                                                                                                      |
-|              | `average_scroll_distance`  | number | The average of all rolling distances                                                                                                    |
-| paste        | `paste_count`              | number | The number of paste actions.                                                                                                            |
-|              | `med_paste_length`         | number | The median length of paste actions.                                                                                                     |
-|              | `average_paste_length`     | number | The average length of each paste action.                                                                                                |
-| deleteAction | `delet_count`              | number | The number of delet actions. (delet, backspace, ctrl+z included.)                                                                       |
-| keypress     | `keypress_count`           | number | The number of keypress actions.                                                                                                         |
-| highlight    | `highlight_count`          | number | The number of highlight actions.                                                                                                        |
-|              | `total_highlight_length`   | number | The total length of all highlights.                                                                                                     |
-|              | `med_highlight_length`     | number | The median length of highlights.                                                                                                        |
-|              | `average_highlight_length` | number | The average length of each highlight.                                                                                                   |
-| idle         | `idle_count`               | number | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.)                         |
-|              | `total_idle_duration`      | number | The total duration of all pauses.                                                                                                       |
-|              | `med_idle_duration`        | number | The median duration of pauses.                                                                                                          |
-|              | `average_idle_duration`    | number | The average duration of each pause.                                                                                                     |
-| windowSwitch | `windowswitch_count`       | number | The total times of window switches.                                                                                                     |
-| keyboardInput |                            |        | The time between the user starting to type in the textarea and clicking the send button.                                                |
-|              | `time_before_input`        | number | The time elapsed between two input prompt actions.                                                                                      |
-|              | `keyboard_input_count`     | number | The total number of input prompts.                                                                                                      |
-|              | `med_input_length`         | number | The median length of the input prompts.                                                                                                 |
-|              | `average_input_length`     | number | The average length of each input prompt.                                                                                                |
-|              | `med_input_duration`       | number | The median time taken to write an input prompt.                                                                                         |
-|              | `average_input_duration`   | number | The average time taken to write each input prompt.                                                                                      |
-|              | `total_input_duration`     | number | The total time spent by the user writing input prompts.                                                                                 |
-|              | `input_proportion`         | number | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
+| Behavior       | Attribute                  | Type   | Description                                                                                                                             |
+|----------------|----------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| windowswitch*  | `windowswitch_count`       | number | The number of of window switch actions.                                                                                                 |
+|                | `windowswitch_speed`       |        | totaltime / windowswitch_count.                                                                                                         |
+|                | `total_focus_time`         |        | Total time spent on GPT window (seconds).                                                                                               |
+| click          | `click_count`              | number | The number of of click actions.                                                                                                         |
+| Mousemovement  | `mouseMovenment`           | number | The distance of each mouse movement.                                                                                                    |
+|                | `total_mouse_Movenment`    | number | The total distance the mouse moves.                                                                                                     |
+| scroll         | `scroll_count`             | number | The number of of scroll actions.                                                                                                        |
+|                | `total_scroll_distance `   | number | The total distance scroll.                                                                                                              |
+|                | `average_scroll_distance`  | number | The average diatance of scroll actions.                                                                                                 |
+|                | `med_scroll_distance`      | number | The median diatance of scroll actions.                                                                                                  |
+| copy           | `copy_count`               | number | The total times of copy.                                                                                                                |
+|                | `med_copy_length`          | number | The median length of copy actions.                                                                                                      |
+|                | `average_scroll_distance`  | number | The average of all rolling distances                                                                                                    |
+| paste          | `paste_count`              | number | The number of paste actions.                                                                                                            |
+|                | `med_paste_length`         | number | The median length of paste actions.                                                                                                     |
+|                | `average_paste_length`     | number | The average length of each paste action.                                                                                                |
+| deleteAction   | `delet_count`              | number | The number of delet actions. (delet, backspace, ctrl+z included.)                                                                       |
+| keypress       | `keypress_count`           | number | The number of keypress actions.                                                                                                         |
+| highlight      | `highlight_count`          | number | The number of highlight actions.                                                                                                        |
+|                | `total_highlight_length`   | number | The total length of all highlights.                                                                                                     |
+|                | `med_highlight_length`     | number | The median length of highlights.                                                                                                        |
+|                | `average_highlight_length` | number | The average length of each highlight.                                                                                                   |
+| idle           | `idle_count`               | number | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.)                         |
+|                | `total_idle_duration`      | number | The total duration of all pauses.                                                                                                       |
+|                | `med_idle_duration`        | number | The median duration of pauses.                                                                                                          |
+|                | `average_idle_duration`    | number | The average duration of each pause.                                                                                                     |
+| keyboardInput* |                            |        | The time between the user starting to type in the textarea and clicking the send button.                                                |
+|                | `time_before_input`        | number | The time elapsed between two input prompt actions.                                                                                      |
+|                | `keyboard_input_count`     | number | The total number of input prompts.                                                                                                      |
+|                | `med_input_length`         | number | The median length of the input prompts.                                                                                                 |
+|                | `average_input_length`     | number | The average length of each input prompt.                                                                                                |
+|                | `med_input_duration`       | number | The median time taken to write an input prompt.                                                                                         |
+|                | `average_input_duration`   | number | The average time taken to write each input prompt.                                                                                      |
+|                | `total_input_duration`     | number | The total time spent by the user writing input prompts.                                                                                 |
+|                | `input_proportion`         | number | The proportion of time the user spends writing prompts compared to the total task completion time: `total_input_duration / total_time`. |
+*: the data are only logged in the GPT Interface.
+
 ### Time Sequence Logs
 Each block is logged within different time-windows:
 - `totaltime`: Total time spent in finishing the task.
@@ -166,35 +167,6 @@ Each block is logged within different time-windows:
 | answerGenerate | `ag_startTime`        |        | Timestamp when user send a query to GPT. |
 |                | `ag_duration`         | number | Time spent on generating an answer.      |
 
-### Behavior Within Writing Interface
- In [`behaviorTracker_extension_notion`](src/behaviorTracker_extension_notion), we collected users' behavior when they editting in writing interface.
-
-
-| Behavior      | Attribute                  | Type            | Description                                                                                                     |
-|---------------|----------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------|
-| click         | `click_count`              | number          | The number of of click actions                                                                                  |
-| Mousemovement | `mouseMovenment`           | number          | The distance of each mouse movement                                                                             |
-|               | `total_mouse_Movenment`    | number                | The total distance the mouse moves                                                                              |
-| scroll        | `scroll_count`             | number          | The number of of scroll actions                                                                                 |
-|               | `Total_Scroll_Distance `   | number                | The total distance scroll                                                                                       |
-|               | `average_scroll_distance`  | number          | The average diatance of scroll actions.                                                                         |
-|               | `med_scroll_distance`      | number                | The median diatance of scroll actions.                                                                          |
-| copy          | `copy_count`               | number                | The total times of copy                                                                                         |
-|               | `med_copy_length`          | number                | The median length of copy actions.                                                                              |
-|               | `average_scroll_distance`  | number                | The average of all rolling distances                                                                            |
-| paste         | `paste_count`              | number          | The number of paste actions.                                                                                    |
-|               | `med_paste_length`         | number          | The median length of paste actions.                                                                             |
-|               | `average_paste_length`     | number          | The average length of each paste action.                                                                        |
-| deleteAction  | `delet_count`              | number          | The number of delet actions. (delet, backspace, ctrl+z included.)                                               |
-| keypress      | `keypress_count`           | number          | The number of keypress actions.                                                                                 |
-| highlight     | `highlight_count`          | number          | The number of highlight actions.                                                                                |
-|               | `total_highlight_length`   | number          | The total length of all highlights.                                                                             |
-|               | `med_highlight_length`     | number          | The median length of highlights.                                                                                |
-|               | `average_highlight_length` | number          | The average length of each highlight.                                                                           |
-| idle          | `idle_count`               | number          | The number of pauses detected.(Idle records a pause time when there is no activity for over 2000 milliseconds.) |
-|               | `total_idle_duration`      | number          | The total duration of all pauses.                                                                               |
-|               | `med_idle_duration`        | number                | The median duration of pauses.                                                                                  |
-|               | `average_idle_duration`    | number                | The average duration of each pause.                                                                             |
 
 # Data Analysis
 We used Pearson_correlation_coefficient to  [`measure the correlation between behavior data and overreliance`](src/regression_modeling/preason.py).

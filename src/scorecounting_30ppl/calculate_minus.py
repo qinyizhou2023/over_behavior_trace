@@ -21,15 +21,7 @@ minus_withAI_alone_AD = {key: task_with_AI_moon[key] - value for key, value in t
 print(minus_withAI_alone_AD)
 
 
-# calculate SD
 
-# 提取值
-values = list(task_alone_moon.values())
-
-# 计算方差
-variance = np.var(task_alone_moon)
-
-print(f"The variance of the task_alone_moon is: {variance}")
 
 
 
