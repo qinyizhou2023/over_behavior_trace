@@ -2,33 +2,12 @@ import math
 # 定义计算总分的函数
 def calculate_total_difference(correct_ranks, participant_scores):
     return sum(abs(cr - ps) for cr, ps in zip(correct_ranks, participant_scores))
-
 def calculate_average_scores(scores_list):
     num_participants = len(scores_list)
     num_scores = len(scores_list[0])
     average_scores = [sum(scores[i] for scores in scores_list) / num_participants for i in range(num_scores)]
     return average_scores
-
-
-# 定义正确的排名列表
-# correct_ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-correct_ranks = [15,4,6,8,13,11,12,1,3,9,14,2,10,7,5]
-# correct_ranks = [1,
-# 4,
-# 3,
-# 2,
-# 7,
-# 5,
-# 12,
-# 13,
-# 10,
-# 6,
-# 14,
-# 8,
-# 9,
-# 15,
-# 11]
-
+# 用户数据
 # 定义每个参与者的得分列表
 participants_scores = [
     ("A1", [14, 4, 9, 8, 11, 15, 3, 1, 6, 12, 13, 2, 7, 10, 5]),
@@ -49,36 +28,45 @@ participants_scores = [
     ("A16", [12, 3, 8, 9, 5, 11, 13, 1, 4, 15, 14, 2, 7, 10, 6]),
     ("A17", [12, 2, 8, 13, 6, 11, 15, 3, 10, 14, 4, 1, 7, 5, 9]),
     # B desert --moon
-    ("B1", [15, 1, 8, 13, 7, 14, 3, 2, 6, 11, 5, 4, 10, 9, 12]),
-    ("B2", [13, 4, 10, 7, 12, 15, 8, 2, 3, 9, 14, 5, 6, 11, 1]),
-    ("B3", [5, 3, 8, 6, 7, 14, 15, 1, 10, 13, 9, 2, 11, 4, 12]),
-    ("B4", [12, 4, 9, 10, 11, 15, 3, 1, 6, 14, 13, 2, 8, 7, 5]),
-    ("B5", [9, 3, 2, 8, 7, 10, 4, 5, 6, 11, 12, 13, 14, 1, 15]),
-    ("B6", [13, 6, 9, 10, 7, 14, 11, 1, 12, 8, 15, 2, 5, 3, 4]),
-    ("B7", [13, 1, 10, 9, 12, 14, 15, 2, 3, 4, 5, 8, 6, 7, 11]),
-    ("B8", [15, 6, 11, 12, 10, 14, 3, 1, 5, 13, 7, 8, 4, 9, 2]),
-    ("B9", [12, 1, 13, 2, 10, 3, 4, 5, 6, 15, 9, 14, 11, 7, 8]),
-    ("B10", [12, 10, 14, 15, 7, 9, 6, 2, 5, 13, 3, 8, 4, 11, 1]),
-    ("B11", [1, 2, 3, 13, 4, 14, 15, 5, 6, 7, 8, 9, 10, 11, 12]),
-    ("B12", [9, 3, 13, 15, 6, 8, 7, 10, 1, 14, 12, 2, 11, 5, 4]),
-    ("B13", [14, 12, 6, 5, 9, 15, 11, 1, 3, 10, 4, 2, 13, 7, 8]),
-    ("B14", [14, 4, 15, 12, 11, 13, 10, 5, 3, 6, 7, 8, 2, 9, 1]),
-    ("B15", [12, 10, 8, 7, 14, 15, 11, 5, 1, 6, 2, 9, 3, 13, 4]),
-    ("B16", [1, 2, 5, 13, 12, 4, 3, 6, 15, 10, 11, 7, 8, 9, 14]),
-    ("B17", [13, 5, 2, 12, 9, 14, 15, 1, 3, 10, 6, 4, 7, 11, 8]),
-    ("B18", [2, 8, 13, 12, 14, 3, 15, 4, 9, 5, 6, 10, 1, 11, 7]),
-    ("B19", [7, 8, 13, 9, 14, 10, 15, 1, 11, 2, 3, 12, 4, 5, 6]),
-    ("B20", [14, 3, 11, 15, 12, 13, 10, 1, 4, 9, 8, 2, 7, 5, 6]),
-    ("B21", [15, 5, 4, 2, 14, 12, 13, 3, 1, 10, 7, 11, 6, 9, 8]),
-    ("B22", [9, 5, 11, 12, 13, 14, 10, 4, 15, 3, 6, 8, 1, 7, 2]),
-    ("B23", [6, 3, 4, 5, 7, 15, 8, 1, 10, 12, 14, 2, 13, 9, 11]),
-    ("B24", [13, 8, 14, 2, 9, 6, 15, 5, 7, 3, 10, 1, 11, 12, 4]),
-    ("B25", [6, 3, 7, 8, 4, 9, 2, 10, 11, 12, 13, 1, 14, 5, 15]),
-    ("B26", [2, 7, 10, 9, 8, 6, 13, 11, 3, 14, 4, 1, 5, 12, 15]),
-    ("B27", [15, 11, 4, 7, 3, 14, 13, 5, 6, 1, 8, 12, 9, 10, 2]),
-    # ("AI", [15,	12,	13,	5,	6,	9,	4,	2,	14,	11,	3,	1,	7,	8,	10])
+     ("B1", [15, 1, 8, 13, 7, 14, 3, 2, 6, 11, 5, 4, 10, 9, 12]),
+     ("B2", [13, 4, 10, 7, 12, 15, 8, 2, 3, 9, 14, 5, 6, 11, 1]),
+     ("B3", [5, 3, 8, 6, 7, 14, 15, 1, 10, 13, 9, 2, 11, 4, 12]),
+     ("B4", [12, 4, 9, 10, 11, 15, 3, 1, 6, 14, 13, 2, 8, 7, 5]),
+     ("B5", [9, 3, 2, 8, 7, 10, 4, 5, 6, 11, 12, 13, 14, 1, 15]),
+     ("B6", [13, 6, 9, 10, 7, 14, 11, 1, 12, 8, 15, 2, 5, 3, 4]),
+     ("B7", [13, 1, 10, 9, 12, 14, 15, 2, 3, 4, 5, 8, 6, 7, 11]),
+     ("B8", [15, 6, 11, 12, 10, 14, 3, 1, 5, 13, 7, 8, 4, 9, 2]),
+     ("B9", [12, 1, 13, 2, 10, 3, 4, 5, 6, 15, 9, 14, 11, 7, 8]),
+     ("B10", [12, 10, 14, 15, 7, 9, 6, 2, 5, 13, 3, 8, 4, 11, 1]),
+     ("B11", [1, 2, 3, 13, 4, 14, 15, 5, 6, 7, 8, 9, 10, 11, 12]),
+     ("B12", [9, 3, 13, 15, 6, 8, 7, 10, 1, 14, 12, 2, 11, 5, 4]),
+     ("B13", [14, 12, 6, 5, 9, 15, 11, 1, 3, 10, 4, 2, 13, 7, 8]),
+     ("B14", [14, 4, 15, 12, 11, 13, 10, 5, 3, 6, 7, 8, 2, 9, 1]),
+     ("B15", [12, 10, 8, 7, 14, 15, 11, 5, 1, 6, 2, 9, 3, 13, 4]),
+     ("B16", [1, 2, 5, 13, 12, 4, 3, 6, 15, 10, 11, 7, 8, 9, 14]),
+     ("B17", [13, 5, 2, 12, 9, 14, 15, 1, 3, 10, 6, 4, 7, 11, 8]),
+     ("B18", [2, 8, 13, 12, 14, 3, 15, 4, 9, 5, 6, 10, 1, 11, 7]),
+     ("B19", [7, 8, 13, 9, 14, 10, 15, 1, 11, 2, 3, 12, 4, 5, 6]),
+     ("B20", [14, 3, 11, 15, 12, 13, 10, 1, 4, 9, 8, 2, 7, 5, 6]),
+     ("B21", [15, 5, 4, 2, 14, 12, 13, 3, 1, 10, 7, 11, 6, 9, 8]),
+     ("B22", [9, 5, 11, 12, 13, 14, 10, 4, 15, 3, 6, 8, 1, 7, 2]),
+     ("B23", [6, 3, 4, 5, 7, 15, 8, 1, 10, 12, 14, 2, 13, 9, 11]),
+     ("B24", [13, 8, 14, 2, 9, 6, 15, 5, 7, 3, 10, 1, 11, 12, 4]),
+     ("B25", [6, 3, 7, 8, 4, 9, 2, 10, 11, 12, 13, 1, 14, 5, 15]),
+     ("B26", [2, 7, 10, 9, 8, 6, 13, 11, 3, 14, 4, 1, 5, 12, 15]),
+     ("B27", [15, 11, 4, 7, 3, 14, 13, 5, 6, 1, 8, 12, 9, 10, 2]),
+     ("AI", [15, 12, 13, 5, 6, 9, 4, 2, 14, 11, 3, 1, 7, 8, 10])
 ]
+correct_ranks = [15,4,6,8,13,12,3,14,2,10,7,5]
 
+# 定义要删除的索引（第6、8、10个数据，注意索引从0开始）
+indices_to_remove = [5, 7, 9]
+
+# 创建一个新的列表，去掉指定索引的数据
+new_participants_scores = [
+    (participant, [score for idx, score in enumerate(scores) if idx not in indices_to_remove])
+    for participant, scores in participants_scores
+]
 
 
 def calculate_group_stats(group_scores, group_name):
@@ -101,9 +89,9 @@ def calculate_group_stats(group_scores, group_name):
 
 
 # 分组并计算
-group_a_scores = [(p, s) for p, s in participants_scores if p.startswith('A')]
-group_b_scores = [(p, s) for p, s in participants_scores if p.startswith('B')]
-all_scores = participants_scores
+group_a_scores = [(p, s) for p, s in new_participants_scores if p.startswith('A')]
+group_b_scores = [(p, s) for p, s in new_participants_scores if p.startswith('B')]
+all_scores = new_participants_scores
 
 # 计算 A 组统计
 group_a_stats, group_a_avg, group_a_sd = calculate_group_stats(group_a_scores, "A")
@@ -124,34 +112,9 @@ print(f"所有用户平均总分: {all_avg}, 标准差: {all_sd}")
 
 # 创建合并的总分差异列表
 merged_total_differences = [(participant, total_difference) for participant, total_difference in all_stats]
-
+#
 # # 排序合并的列表（可选，如果你想按照用户ID排序）
 # merged_total_differences.sort(key=lambda x: x[0])
 
 print("\n合并的总分差异列表：")
 print("new_participants_score_moon =", merged_total_differences)
-
-
-def calculate_average_ranks(participants_scores):
-    num_items = len(participants_scores[0][1])
-    sum_ranks = [0] * num_items
-    for _, scores in participants_scores:
-        for i, rank in enumerate(scores):
-            sum_ranks[i] += rank
-    average_ranks = [round(sum_rank / len(participants_scores), 2) for sum_rank in sum_ranks]
-    return average_ranks
-
-
-
-# 计算每个物品的平均排名
-average_each_item = calculate_average_ranks(participants_scores)
-
-# 打印总结
-print("\n总结：")
-print(f"A 组平均总分: {group_a_avg}, 标准差: {group_a_sd}")
-print(f"B 组平均总分 {group_b_avg}, 标准差: {group_b_sd}")
-print(f"所有用户平均总分: {all_avg}, 标准差: {all_sd}")
-
-# 打印每个物品的平均排名
-print("\n每个物品的平均排名：")
-print(f"average_each_item = {average_each_item}")

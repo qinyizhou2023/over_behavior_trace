@@ -4,8 +4,6 @@ data_str = """
 9	7	8	14	6	3	4	13	2	1	5	10	12	15	11
 6	8	3	14	4	5	7	9	12	1	10	2	11	13	15
 
-
-
 """
 
 # 将字符串按行分割，并去掉首尾的空白字符
@@ -17,7 +15,7 @@ data = [list(map(int, line.split())) for line in data_lines]
 # 将数据整理成所需格式
 participants_scores = []
 for i, scores in enumerate(data):
-    participant_id = f"P{i+22}"
+    participant_id = f"A{i+15}"
     participants_scores.append((participant_id, scores))
 
 # 输出结果

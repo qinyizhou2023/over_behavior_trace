@@ -158,15 +158,17 @@ Each block is logged within different time-windows:
 - `totaltime`: Total time spent in finishing the task.
 - `answerGenerate`: While GPT is generating the answer. The time between the user click the send button to the send button become actived.
 - `keyboardInput`: While user is writing the prompt. The time between the user starting to type in the textarea and clicking the send button.
-
+![Frame 7.png](Frame 7.png)
+- 
+| TimeSlot        | Attribute       | Type   | Description                                                              |
+|-----------------|-----------------|--------|--------------------------------------------------------------------------|
+| PromptWriting   | `ag_PromptTime` |        | Time spend between the user start wirting the prompt and the next stream |
+| WhileGeneration | `ag_WhileGeneration` | number | Time spent between each stream_start and stream_end                      |
+|                 |                 |        |                                                                          |
 - `WithinGPTWindow`: Time spent in GPT window
 - `WithinWritingWindow`:Time spent in writing window
 
 
-| TimeSlot       | Attribute             | Type   | Description                              |
-|----------------|-----------------------|--------|------------------------------------------|
-| answerGenerate | `ag_startTime`        |        | Timestamp when user send a query to GPT. |
-|                | `ag_duration`         | number | Time spent on generating an answer.      |
 
 
 # Data Analysis
