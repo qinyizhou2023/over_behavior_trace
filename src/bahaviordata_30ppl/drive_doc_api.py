@@ -13,24 +13,24 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.
 # 改1：修改要查找的位置（注意第一个为下面的form名称）
 SAMPLE_SPREADSHEET_ID = '1_EGcwlFPrtT2xt7WKWKfuRgIllJZ4AQDePzVlnDYjJQ'
 # # A GPT
-# SAMPLE_RANGE_NAME = 'A!R2:R9'
+# SAMPLE_RANGE_NAME = 'A!R2:R'
 # # A tasksheet
-# SAMPLE_RANGE_NAME = 'A!S2:S9'
+# SAMPLE_RANGE_NAME = 'A!S2:S'
 
 ## B GPT
-# SAMPLE_RANGE_NAME = 'B!R2:R7'
+# SAMPLE_RANGE_NAME = 'B!R2:R'
 ## B tasksheet
-# SAMPLE_RANGE_NAME = 'B!S2:S7'
+# SAMPLE_RANGE_NAME = 'B!S2:S'
 
 ## C GPT
-# SAMPLE_RANGE_NAME = 'C!V2:V8'
+# SAMPLE_RANGE_NAME = 'C!V2:V'
 ## C tasksheet
-# SAMPLE_RANGE_NAME = 'C!W2:W8'
+# SAMPLE_RANGE_NAME = 'C!W2:W'
 
 # D GPT
-# SAMPLE_RANGE_NAME = 'D!V2:V7'
+# SAMPLE_RANGE_NAME = 'D!V2:V'
 # # D tasksheet
-SAMPLE_RANGE_NAME = 'D!W2:W7'
+SAMPLE_RANGE_NAME = 'D!W2:W'
 
 
 def download_file_from_google_drive(file_id, destination):
