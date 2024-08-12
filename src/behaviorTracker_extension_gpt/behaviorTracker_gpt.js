@@ -1,524 +1,1026 @@
+//
+//// behaviorTracker_gpt.js
+//(function() {
+//     // Function to check if the current page is valid
+//    function checkValidPage() {
+//        const currentUrl = window.location.href;
+//        if (!currentUrl.includes('chatgpt.com')) {
+//            if (currentUrl.includes('docs.google.com/forms')) {
+//                alert("Reminder: This extension should not be activated on the gpt (Google Form) website. Please activate it on the GPT website!");
+//            } else {
+//                alert("Reminder: You should activate the extension on the GPT website!");
+//            }
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    // Check if the page is valid before proceeding
+//    if (!checkValidPage()) {
+//        return; // Stop execution if the page is not valid
+//    }
+//     // Timer variables
+//    let countdownTimer;
+//    let timeLeft = 18 * 60; // 18 minutes in seconds
+//    let timerDisplay;
+//    let warningDisplay;
+//    // Timer functions
+//    function startTimer() {
+//        timerDisplay = document.createElement('div');
+//        timerDisplay.style.position = 'fixed';
+//        timerDisplay.style.top = '90px';
+//        timerDisplay.style.right = '10px';
+//        timerDisplay.style.zIndex = 1000;
+//        document.body.appendChild(timerDisplay);
+//
+//        warningDisplay = document.createElement('div');
+//        warningDisplay.style.position = 'fixed';
+//        warningDisplay.style.top = '110px';
+//        warningDisplay.style.right = '10px';
+//        warningDisplay.style.zIndex = 1000;
+//        warningDisplay.style.color = 'red';
+//        document.body.appendChild(warningDisplay);
+//
+//        countdownTimer = setInterval(updateTimer, 1000);
+//    }
+//
+//    function updateTimer() {
+//        let minutes = Math.floor(timeLeft / 60);
+//        let seconds = timeLeft % 60;
+//        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+//
+//        if (timeLeft <= 120 && timeLeft > 0) {
+//            warningDisplay.textContent = "Warning: Time is almost up.";
+//        } else if (timeLeft <= 0) {
+//            clearInterval(countdownTimer);
+//            warningDisplay.textContent = "Your task is finished, click 'Finish' button to upload your file before going to next page.";
+//        }
+//
+//        timeLeft--;
+//    }
+//
+//
+//    let behaviorData =[];
+//    let copyCount = 0;
+//
+//    // 添加 windowswitch 监听器
+//    function formatTimestamp(timestamp) {
+//        return new Date(timestamp).toISOString();
+//    }
+//
+//    // Now add event listeners to detect focus and blur events
+//    window.addEventListener('focus', function() {
+//        let focusData = {
+//            type: 'focus',
+//            timestamp: formatTimestamp(Date.now()),
+//            status: 1  // 1 represents page focus
+//        };
+//        behaviorData.push(focusData);
+//        console.log('Focus event:', focusData);
+//    });
+//
+//    window.addEventListener('blur', function() {
+//        let blurData = {
+//            type: 'blur',
+//            timestamp: formatTimestamp(Date.now()),
+//            status: 0  // 0 represents page blur
+//        };
+//        behaviorData.push(blurData);
+//        console.log('Blur event:', blurData);
+//    });
+//
+//    // 添加点击监听器
+//    document.addEventListener('click', function(event) {
+//        let clickData = {
+//            type: 'click',
+//            timestamp: new Date().toISOString(),
+//            target: event.target.tagName,
+//            x: event.clientX,
+//            y: event.clientY
+//        };
+//        behaviorData.push(clickData);
+//        console.log('Click event:', clickData);
+//    });
+//
+//    // 添加鼠标移动监听器
+//    let totalMouseMovement = 0;
+//    document.addEventListener('mousemove', function(event) {
+//        if (event.movementX || event.movementY) {
+//            totalMouseMovement += Math.sqrt(event.movementX ** 2 + event.movementY ** 2);
+//            let mouseMovementData = {
+//                type: 'mouseMovement',
+//                timestamp: new Date().toISOString(),
+//                totalMouseMovement: totalMouseMovement
+//            };
+//            behaviorData.push(mouseMovementData);
+//            console.log('Total Mouse Movement:', totalMouseMovement);
+//        }
+//    });
+//
+//
+//    // 添加滚动监听器
+//    let timer;  // 定义一个计时器变量
+//
+//    // 创建一个函数来处理滚轮事件
+//    function handleWheelEvent(event) {
+//        // 取消之前设置的计时器
+//        clearTimeout(timer);
+//
+//        // 设置一个新的计时器，在500毫秒后执行滚轮事件处理函数
+//        timer = setTimeout(() => {
+//            let scrollEventData = {
+//                type: 'scroll',
+//                timestamp: new Date().toISOString(),
+//                deltaY: event.deltaY,
+//            };
+//
+//            // 将滚动事件数据存入行为数据数组
+//            behaviorData.push(scrollEventData);
+//
+//            // 输出调试信息
+//            console.log('Scroll event data:', scrollEventData);
+//        }, 500);  // 这里的500毫秒可以根据需要调整
+//    }
+//
+//    // 监听mousewheel事件
+//    window.addEventListener('wheel', function(event) {
+//        // 创建一个滚动事件对象
+//        let mousewheelData = {
+//            type: 'mousewheel',
+//            timestamp: new Date().toISOString(),
+//            deltaY: event.deltaY
+//        };
+//
+//        // 将滚动事件对象添加到 behaviorData 数组中
+//        behaviorData.push(mousewheelData);
+//
+//        // 输出滚动事件到控制台
+//        console.log('Scroll event:', mousewheelData);
+//    });
+//
+//
+//    // 添加复制监听器
+//    let lastCopiedText = ''; // 用于存储上次复制的文本，以便判断是否是重复复制
+//    let totalCopyCount = 0;
+//
+//    document.addEventListener('copy', function(event) {
+//        // 获取复制的文本内容
+//        let copiedText = window.getSelection().toString().trim();
+//
+//        // 只有当复制的文本不为空且与上次复制的不同才增加计数
+//        if (copiedText && copiedText !== lastCopiedText) {
+//            totalCopyCount++;
+//            lastCopiedText = copiedText; // 更新上次复制的文本内容
+//
+//            // 创建复制事件数据
+//            let copyData = {
+//                type: 'copy',
+//                timestamp: new Date().toISOString(),
+//                text: copiedText,
+//                textLength: copiedText.length
+//            };
+//
+//            // 将复制事件数据存入行为数据数组
+//            behaviorData.push(copyData);
+//
+//            // 输出调试信息
+//            console.log('Copy event:', copyData);
+//            console.log('Total copy count:', totalCopyCount);
+//            console.log('Copied text length:', copiedText.length);
+//        }
+//    });
+//
+//    // 添加粘贴监听器
+//    let lastPastedText = ''; // 用于存储上次粘贴的文本，以便判断是否是重复粘贴
+//    let totalPasteCount = 0;
+//
+//    document.addEventListener('paste', function(event) {
+//        // 获取粘贴的文本内容
+//        let pastedText = (event.clipboardData || window.clipboardData).getData('text').trim();
+//
+//        // 只有当粘贴的文本不为空且与上次粘贴的不同才增加计数
+//        if (pastedText && pastedText !== lastPastedText) {
+//            totalPasteCount++;
+//            lastPastedText = pastedText; // 更新上次粘贴的文本内容
+//
+//            // 创建粘贴事件数据对象
+//            let pasteData = {
+//                type: 'paste',
+//                timestamp: new Date().toISOString(),
+//                text: pastedText,
+//                textLength: pastedText.length
+//            };
+//
+//            // 将粘贴事件数据存入行为数据数组
+//            behaviorData.push(pasteData);
+//
+//            // 输出调试信息
+//            console.log('Paste event:', pasteData);
+//            console.log('Total paste count:', totalPasteCount);
+//            console.log('Pasted text length:', pastedText.length);
+//        }
+//    });
+//
+//    // 监听删除动作（Delete和Backspace）
+//    document.addEventListener('keydown', function(event) {
+//         if ((event.key === 'Delete' || event.key === 'Backspace' || (event.ctrlKey && event.key === 'x'))) {
+//            // 记录删除动作
+//            let deleteEventData = {
+//                type: 'deleteAction',
+//                timestamp: new Date().toISOString(),
+//                key: event.key
+//            };
+//            behaviorData.push(deleteEventData);
+//            console.log('Delete action event:', deleteEventData);
+//        }
+//    });
+//
+//    // 添加键盘按键监听器
+//    document.addEventListener('keypress', function(event) {
+//        // 记录键盘按键行为
+//        let keyPressData = {
+//            type: 'keypress',
+//            timestamp: new Date().toISOString(),
+//            key: event.key,
+//            keyCode: event.keyCode,
+//            target: event.target.tagName
+//        };
+//        behaviorData.push(keyPressData);
+//        console.log('Keypress event:', keyPressData);
+//    });
+//
+//    // 添加高亮监听器
+//    document.addEventListener('mouseup', function(event) {
+//        let highlightedText = window.getSelection().toString().trim();
+//        if (highlightedText) {
+//            let highlightEventData = {
+//                type: 'highlight',
+//                timestamp: new Date().toISOString(),
+//                highlightedText: highlightedText,
+//                highlightedTextLength: highlightedText.length
+//            };
+//            behaviorData.push(highlightEventData);
+//            console.log('Highlight event:', highlightEventData);
+//            resetIdleTimer();
+//        }
+//    });
+//
+//    // 添加发呆监听器
+//    let idleTimer; // 定义一个变量用于存放计时器
+//    let lastActionTime = Date.now(); // 记录上一次用户操作的时间戳
+//
+//    // 初始化存储空闲时间的数组
+//    let idleTimes = [];
+//
+//    function resetIdleTimer() {
+//        clearTimeout(idleTimer); // 清除之前的计时器
+//        idleTimer = setTimeout(function() {
+//            // 这里是超过2000毫秒没有操作的处理逻辑
+//            let currentTime = Date.now();
+//            let idleDuration = currentTime - lastActionTime;
+//
+//            // 记录空闲时间，并包含类型信息
+//            let idleData = {
+//                type: 'idle',
+//                timestamp: new Date().toISOString(),
+//                duration: idleDuration
+//            };
+//            idleTimes.push(idleData); // 将空闲时间记录存入数组
+//            console.log(`距离上次操作已经过去 ${idleDuration} 毫秒`);
+//            behaviorData.push(idleData);
+//        }, 2000); // 设置超过2000毫秒触发
+//    }
+//
+//    // 监听用户的鼠标移动、键盘输入和滚动等操作
+//    function handleUserAction() {
+//        lastActionTime = Date.now(); // 更新最后一次操作时间
+//        resetIdleTimer();
+//    }
+//
+//    document.addEventListener('mousemove', handleUserAction);
+//    document.addEventListener('keypress', handleUserAction);
+//    document.addEventListener('scroll', handleUserAction);
+//
+//    // 初始化页面时开始计时
+//    resetIdleTimer();
+//
+//
+//    //// 添加prompt监听器
+//    //let startTime = null;
+//    //let endTime = null;
+//    //let userInput = '';
+//    //let textLength = 0;
+//    //
+//    //// 监听输入框的键盘事件
+//    //// 会同时有多个相同监听事件
+//    //// 获取文本框元素
+//    //const inputBox = document.querySelector("#prompt-textarea"); // 替换成你的输入框元素的ID
+//    //inputBox.addEventListener('keydown', function(event) {
+//    //    // 按下键盘时开始计时（仅当 startTime 为 null 时，表示首次开始输入）
+//    //    if (startTime === null)
+//    //    {
+//    //        startTime = new Date();
+//    //        console.log('开始输入时间:', startTime.toLocaleString());
+//    //    }
+//    //    }
+//    //);
+//    //
+//    //// 添加输入事件监听器
+//    //inputBox.addEventListener('input', function() {
+//    //    // 每次输入内容变化时执行的操作
+//    //    // var inputValue = inputBox.value;
+//    //    // console.log('输入内容变化为: ' + inputValue);
+//    //    userInput = inputBox.value;
+//    //});
+//    //
+//    //
+//    //// 监听回车键发送情况
+//    //// document.addEventListener('keypress', function(event) {
+//    ////     if (event.key === 'Enter')
+//    ////     {
+//    ////         recordAndExportData();
+//    ////     }
+//    //// });
+//    //
+//    //// 监听点击发送按钮事件
+//    //const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
+//    //    if (sendButtonParent) {
+//    //        sendButtonParent.addEventListener('click', function(event) {
+//    //            console.log('click event target:', event.target);
+//    //            if(event.target.matches('svg') || event.target.matches('path')) {
+//    //                recordAndExportData();
+//    //            }
+//    //        });
+//    //    } else {
+//    //        console.error('sendButtonParent element not found.');
+//    //    }
+//    //});
+//    //
+//    //// 记录并导出数据的函数
+//    //function recordAndExportData() {
+//    //    if (startTime !== null) {
+//    //        endTime = new Date();
+//    //        console.log('结束输入时间:', endTime.toLocaleString());
+//    //        const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
+//    //        textLength = userInput.length;
+//    //        console.log('输入时长（毫秒）:', duration);
+//    //        console.log('输入字数长度:', textLength);
+//    //        console.log('用户输入内容:', userInput);
+//    //        // 记录输入数据到行为数据数组中
+//    //        const inputData = {
+//    //            type: 'keyboardInput',
+//    //            startTime: startTime.toLocaleString(),
+//    //            endTime: endTime.toLocaleString(),
+//    //            duration: duration,
+//    //            userInputLength: textLength,
+//    //            userInputContent: userInput
+//    //        };
+//    //         behaviorData.push(inputData);
+//    //        // 重置变量，准备下一次输入
+//    //        startTime = null;
+//    //        endTime = null;
+//    //        userInput = '';
+//    //        textLength = 0;
+//    //    }
+//    //}
+//
+//
+//    // 计算回答生成时间(通过监听stream行为)
+//    let _isStreaming = false;
+//    let _observerNewResponse = undefined;
+//    let _config = {
+//        "KEYWORD_STREAMING": "result-streaming",
+//        "ID_PROMPT_INPUT": "prompt-textarea",
+//        "QUERY_SEND_BTN": "[data-testid=\"send-button\"]",
+//        "QUERY_CHAT_DIV": "[role=\"presentation\"]",
+//        "QUERY_ELM_RESPONSE": "[data-message-author-role=\"assistant\"]",
+//        "ID_TEXTBOX_PROMPT": "prompt-textarea",
+//        "URL_ICON": "assets/icon48.png",
+//        "QUERY_TOOLBAR": "[class=\"items-center justify-start rounded-xl p-1 flex\"]"
+//    };
+//    let _sessionEntry = {};
+//
+//    // Variables for user input monitoring
+//    let startTime = null;
+//    let endTime = null;
+//    let userInput = '';
+//    let textLength = 0;
+//
+//    // Initialize the observer for monitoring new responses
+//    const initObserver = () => {
+//        const targetNode = document.querySelector(_config.QUERY_CHAT_DIV);
+//        const config = { childList: true, subtree: true };
+//
+//        _observerNewResponse = new MutationObserver(callbackNewResponse);
+//        _observerNewResponse.observe(targetNode, config);
+//    };
+//
+//    // Callback function to execute when mutations are observed
+//    const callbackNewResponse = (mutationsList, observer) => {
+//        for (const mutation of mutationsList) {
+//            if (mutation.type === 'childList') {
+//                mutation.addedNodes.forEach(node => {
+//                    if (node.className != undefined && typeof node.className.includes == "function" && node.className.includes(_config.KEYWORD_STREAMING)) {
+//                        _observerNewResponse.disconnect();
+//
+//                        console.log("streaming starts");
+//                        _isStreaming = true;
+//
+//                        // data logging
+//                        _sessionEntry.timeStreamingStarted = time();
+//
+//                        // Store streaming start information
+//                        let streamingStartData = {
+//                            type: 'streaming_start',
+//                            timestamp: formatTimestamp(Date.now()),
+//                            status: 1 // 1 represents streaming started
+//                        };
+//                        behaviorData.push(streamingStartData);
+//
+//                        monitorStreaming();
+//
+//                        return;
+//                    }
+//                });
+//            }
+//        }
+//    };
+//
+//    // A recurring function to monitor if streaming ends
+//    const monitorStreaming = () => {
+//        setTimeout(() => {
+//            // Indicator of streaming ended
+//            var elements = document.querySelectorAll('[class*="' + _config.KEYWORD_STREAMING + '"]');
+//            if (elements.length > 0) {
+//                monitorStreaming();
+//            } else {
+//                console.log("streaming ends");
+//                _isStreaming = false;
+//
+//                // data logging
+//                _sessionEntry.timeStreamingEnded = time();
+//                console.log(_sessionEntry);
+//
+//                // Store streaming end information
+//                let streamingEndData = {
+//                    type: 'streaming_end',
+//                    timestamp: formatTimestamp(Date.now()),
+//                    status: 0 // 0 represents streaming ended
+//                };
+//                behaviorData.push(streamingEndData);
+//
+//                // Reinitialize the observer for new streaming events
+//                initObserver();
+//            }
+//        }, 1000);
+//    };
+//
+//    const time = () => new Date().getTime();
+//
+//
+//    // Add prompt listener
+//    const inputBox = document.querySelector("#prompt-textarea"); // Replace with your input box element ID
+//    inputBox.addEventListener('keydown', function(event) {
+//        // Start timing when the key is pressed (only if startTime is null, indicating the first input)
+//        if (startTime === null) {
+//            startTime = new Date();
+//            console.log('开始输入时间:', startTime.toLocaleString());
+//        }
+//    });
+//
+//    // Add input event listener to capture user input
+//    inputBox.addEventListener('input', function(event) {
+//        userInput = inputBox.value; // Update userInput with the current value of the input box
+//    });
+//
+//    // Function to record and export data
+//    function recordAndExportData() {
+//        if (startTime !== null) {
+//            endTime = new Date();
+//            console.log('结束输入时间:', endTime.toLocaleString());
+//            const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
+//            textLength = userInput.length;
+//            console.log('输入时长（毫秒）:', duration);
+//            console.log('输入字数长度:', textLength);
+//            console.log('用户输入内容:', userInput);
+//            // 记录输入数据到行为数据数组中
+//            const inputData = {
+//                type: 'keyboardInput',
+//                startTime: startTime.toLocaleString(),
+//                endTime: endTime.toLocaleString(),
+//                duration: duration,
+//                userInputLength: textLength,
+//                userInputContent: userInput
+//            };
+//            behaviorData.push(inputData);
+//            // 重置变量，准备下一次输入
+//            startTime = null;
+//            endTime = null;
+//            userInput = '';
+//            textLength = 0;
+//        }
+//    }
+//
+//    // Start observing the DOM for changes
+//    initObserver();
+//
+//
+//
+//
+//// 分割：下面是导出设置
+//
+//// 添加UI    let container = document.createElement('div');
+//    container.style.position = 'fixed';
+//    container.style.top = '10px';
+//    container.style.right = '10px';
+//    container.style.zIndex = 1000;
+//    container.style.backgroundColor = '#f0f0f0';
+//    container.style.border = '1px solid #ccc';
+//    container.style.borderRadius = '5px';
+//    container.style.padding = '5px';
+//    container.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+//    container.style.display = 'flex';
+//    container.style.flexDirection = 'column';
+//    container.style.gap = '5px';
+//    document.body.appendChild(container);
+//
+//
+//// UI elements
+//    let exportButton = document.createElement('button');
+//    exportButton.innerText = 'Finish';
+//    exportButton.style.position = 'fixed';
+//    exportButton.style.top = '10px';
+//    exportButton.style.right = '10px';
+//    exportButton.style.zIndex = 1000;
+//    container.appendChild(exportButton);
+//
+//    let clearButton = document.createElement('button');
+//    clearButton.innerText = 'Start';
+//    clearButton.style.position = 'fixed';
+//    clearButton.style.top = '50px';
+//    clearButton.style.right = '10px';
+//    clearButton.style.zIndex = 1000;
+//    container.appendChild(clearButton);
+//
+//    clearButton.addEventListener('click', function() {
+//        behaviorData = [];
+//        copyCount = 0;
+//        console.log('Behavior data cleared.');
+//        alert('Start Now！');
+//        startTimer();
+//    });
+//
+//    exportButton.addEventListener('click', function() {
+//        clearInterval(countdownTimer);
+//        exportBehaviorData();
+//    });
+//
+//   function exportBehaviorData() {
+//        let dataStr = JSON.stringify(behaviorData, null, 2);
+//        let blob = new Blob([dataStr], { type: 'application/json' });
+//        let url = URL.createObjectURL(blob);
+//        let a = document.createElement('a');
+//        a.href = url;
+//        a.download = 'gpt_data.json';
+//        a.click();
+//        URL.revokeObjectURL(url);
+//        console.log('Behavior data exported:', dataStr);
+//    }
+//
+//})();
+
 
 // behaviorTracker_gpt.js
 (function() {
-let behaviorData =[];
-let copyCount = 0;
-
-// 添加 windowswitch 监听器
-function formatTimestamp(timestamp) {
-    return new Date(timestamp).toISOString();
-}
-
-// Now add event listeners to detect focus and blur events
-window.addEventListener('focus', function() {
-    let focusData = {
-        type: 'focus',
-        timestamp: formatTimestamp(Date.now()),
-        status: 1  // 1 represents page focus
+    // Constants
+    const CONFIG = {
+        KEYWORD_STREAMING: "result-streaming",
+        ID_PROMPT_INPUT: "prompt-textarea",
+        QUERY_SEND_BTN: "[data-testid=\"send-button\"]",
+        QUERY_CHAT_DIV: "[role=\"presentation\"]",
+        QUERY_ELM_RESPONSE: "[data-message-author-role=\"assistant\"]",
+        ID_TEXTBOX_PROMPT: "prompt-textarea",
+        URL_ICON: "assets/icon48.png",
+        QUERY_TOOLBAR: "[class=\"items-center justify-start rounded-xl p-1 flex\"]"
     };
-    behaviorData.push(focusData);
-    console.log('Focus event:', focusData);
-});
 
-window.addEventListener('blur', function() {
-    let blurData = {
-        type: 'blur',
-        timestamp: formatTimestamp(Date.now()),
-        status: 0  // 0 represents page blur
-    };
-    behaviorData.push(blurData);
-    console.log('Blur event:', blurData);
-});
+    // Variables
+    let behaviorData = [];
+    let copyCount = 0;
+    let totalMouseMovement = 0;
+    let idleTimer;
+    let lastActionTime = Date.now();
+    let idleTimes = [];
+    let lastCopiedText = '';
+    let totalCopyCount = 0;
+    let lastPastedText = '';
+    let totalPasteCount = 0;
+    let _isStreaming = false;
+    let _observerNewResponse;
+    let _sessionEntry = {};
+    let startTime = null;
+    let endTime = null;
+    let userInput = '';
+    let textLength = 0;
+    let countdownTimer;
+    let timeLeft = 18 * 60; // 18 minutes in seconds
+    let timerDisplay;
+    let warningDisplay;
 
-// 添加点击监听器
-document.addEventListener('click', function(event) {
-    let clickData = {
-        type: 'click',
-        timestamp: new Date().toISOString(),
-        target: event.target.tagName,
-        x: event.clientX,
-        y: event.clientY
-    };
-    behaviorData.push(clickData);
-    console.log('Click event:', clickData);
-});
-
-// 添加鼠标移动监听器
-let totalMouseMovement = 0;
-document.addEventListener('mousemove', function(event) {
-    if (event.movementX || event.movementY) {
-        totalMouseMovement += Math.sqrt(event.movementX ** 2 + event.movementY ** 2);
-        let mouseMovementData = {
-            type: 'mouseMovement',
-            timestamp: new Date().toISOString(),
-            totalMouseMovement: totalMouseMovement
-        };
-        behaviorData.push(mouseMovementData);
-        console.log('Total Mouse Movement:', totalMouseMovement);
+    // Helper functions
+    function checkValidPage() {
+        const currentUrl = window.location.href;
+        if (!currentUrl.includes('chatgpt.com')) {
+            if (currentUrl.includes('docs.google.com/forms')) {
+                alert("Reminder: This extension should not be activated on the gpt (Google Form) website. Please activate it on the GPT website!");
+            } else {
+                alert("Reminder: You should activate the extension on the GPT website!");
+            }
+            return false;
+        }
+        return true;
     }
-});
 
-
-// 添加滚动监听器
-let timer;  // 定义一个计时器变量
-
-// 创建一个函数来处理滚轮事件
-function handleWheelEvent(event) {
-    // 取消之前设置的计时器
-    clearTimeout(timer);
-
-    // 设置一个新的计时器，在500毫秒后执行滚轮事件处理函数
-    timer = setTimeout(() => {
-        let scrollEventData = {
-            type: 'scroll',
-            timestamp: new Date().toISOString(),
-            deltaY: event.deltaY,
-        };
-
-        // 将滚动事件数据存入行为数据数组
-        behaviorData.push(scrollEventData);
-
-        // 输出调试信息
-        console.log('Scroll event data:', scrollEventData);
-    }, 500);  // 这里的500毫秒可以根据需要调整
-}
-
-// 监听mousewheel事件
-window.addEventListener('wheel', function(event) {
-    // 创建一个滚动事件对象
-    let mousewheelData = {
-        type: 'mousewheel',
-        timestamp: new Date().toISOString(),
-        deltaY: event.deltaY
-    };
-
-    // 将滚动事件对象添加到 behaviorData 数组中
-    behaviorData.push(mousewheelData);
-
-    // 输出滚动事件到控制台
-    console.log('Scroll event:', mousewheelData);
-});
-
-
-// 添加复制监听器
-let lastCopiedText = ''; // 用于存储上次复制的文本，以便判断是否是重复复制
-let totalCopyCount = 0;
-
-document.addEventListener('copy', function(event) {
-    // 获取复制的文本内容
-    let copiedText = window.getSelection().toString().trim();
-
-    // 只有当复制的文本不为空且与上次复制的不同才增加计数
-    if (copiedText && copiedText !== lastCopiedText) {
-        totalCopyCount++;
-        lastCopiedText = copiedText; // 更新上次复制的文本内容
-
-        // 创建复制事件数据
-        let copyData = {
-            type: 'copy',
-            timestamp: new Date().toISOString(),
-            text: copiedText,
-            textLength: copiedText.length
-        };
-
-        // 将复制事件数据存入行为数据数组
-        behaviorData.push(copyData);
-
-        // 输出调试信息
-        console.log('Copy event:', copyData);
-        console.log('Total copy count:', totalCopyCount);
-        console.log('Copied text length:', copiedText.length);
+    function formatTimestamp(timestamp) {
+        return new Date(timestamp).toISOString();
     }
-});
 
-// 添加粘贴监听器
-let lastPastedText = ''; // 用于存储上次粘贴的文本，以便判断是否是重复粘贴
-let totalPasteCount = 0;
-
-document.addEventListener('paste', function(event) {
-    // 获取粘贴的文本内容
-    let pastedText = (event.clipboardData || window.clipboardData).getData('text').trim();
-
-    // 只有当粘贴的文本不为空且与上次粘贴的不同才增加计数
-    if (pastedText && pastedText !== lastPastedText) {
-        totalPasteCount++;
-        lastPastedText = pastedText; // 更新上次粘贴的文本内容
-
-        // 创建粘贴事件数据对象
-        let pasteData = {
-            type: 'paste',
-            timestamp: new Date().toISOString(),
-            text: pastedText,
-            textLength: pastedText.length
-        };
-
-        // 将粘贴事件数据存入行为数据数组
-        behaviorData.push(pasteData);
-
-        // 输出调试信息
-        console.log('Paste event:', pasteData);
-        console.log('Total paste count:', totalPasteCount);
-        console.log('Pasted text length:', pastedText.length);
+    function time() {
+        return new Date().getTime();
     }
-});
 
-// 监听删除动作（Delete和Backspace）
-document.addEventListener('keydown', function(event) {
-     if ((event.key === 'Delete' || event.key === 'Backspace' || (event.ctrlKey && event.key === 'x'))) {
-        // 记录删除动作
-        let deleteEventData = {
-            type: 'deleteAction',
-            timestamp: new Date().toISOString(),
-            key: event.key
-        };
-        behaviorData.push(deleteEventData);
-        console.log('Delete action event:', deleteEventData);
+    // Timer functions
+    function startTimer() {
+        createTimerDisplay();
+        countdownTimer = setInterval(updateTimer, 1000);
     }
-});
 
-// 添加键盘按键监听器
-document.addEventListener('keypress', function(event) {
-    // 记录键盘按键行为
-    let keyPressData = {
-        type: 'keypress',
-        timestamp: new Date().toISOString(),
-        key: event.key,
-        keyCode: event.keyCode,
-        target: event.target.tagName
-    };
-    behaviorData.push(keyPressData);
-    console.log('Keypress event:', keyPressData);
-});
+    function createTimerDisplay() {
+        timerDisplay = document.createElement('div');
+        timerDisplay.style.position = 'fixed';
+        timerDisplay.style.top = '90px';
+        timerDisplay.style.right = '10px';
+        timerDisplay.style.zIndex = 1000;
+        document.body.appendChild(timerDisplay);
 
-// 添加高亮监听器
-document.addEventListener('mouseup', function(event) {
-    let highlightedText = window.getSelection().toString().trim();
-    if (highlightedText) {
-        let highlightEventData = {
-            type: 'highlight',
-            timestamp: new Date().toISOString(),
-            highlightedText: highlightedText,
-            highlightedTextLength: highlightedText.length
+        warningDisplay = document.createElement('div');
+        warningDisplay.style.position = 'fixed';
+        warningDisplay.style.top = '110px';
+        warningDisplay.style.right = '10px';
+        warningDisplay.style.zIndex = 1000;
+        warningDisplay.style.color = 'red';
+        document.body.appendChild(warningDisplay);
+    }
+
+    function updateTimer() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        if (timeLeft <= 120 && timeLeft > 0) {
+            warningDisplay.textContent = "Warning: Time is almost up.";
+        } else if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            warningDisplay.textContent = "Your task is finished, click 'Finish' button to upload your file before going to next page.";
+        }
+
+        timeLeft--;
+    }
+
+    // Event listeners
+    function addEventListeners() {
+        window.addEventListener('focus', handleFocusEvent);
+        window.addEventListener('blur', handleBlurEvent);
+        document.addEventListener('click', handleClickEvent);
+        document.addEventListener('mousemove', handleMouseMoveEvent);
+        window.addEventListener('wheel', handleWheelEvent);
+        document.addEventListener('copy', handleCopyEvent);
+        document.addEventListener('paste', handlePasteEvent);
+        document.addEventListener('keydown', handleKeydownEvent);
+        document.addEventListener('keypress', handleKeyPressEvent);
+        document.addEventListener('mouseup', handleHighlightEvent);
+        document.addEventListener('mousemove', handleUserAction);
+        document.addEventListener('keypress', handleUserAction);
+        document.addEventListener('scroll', handleUserAction);
+    }
+
+    // Event handlers
+    function handleFocusEvent() {
+        let focusData = {
+            type: 'focus',
+            timestamp: formatTimestamp(Date.now()),
+            status: 1
         };
-        behaviorData.push(highlightEventData);
-        console.log('Highlight event:', highlightEventData);
+        behaviorData.push(focusData);
+        console.log('Focus event:', focusData);
+    }
+
+    function handleBlurEvent() {
+        let blurData = {
+            type: 'blur',
+            timestamp: formatTimestamp(Date.now()),
+            status: 0
+        };
+        behaviorData.push(blurData);
+        console.log('Blur event:', blurData);
+    }
+
+    function handleClickEvent(event) {
+        let clickData = {
+            type: 'click',
+            timestamp: new Date().toISOString(),
+            target: event.target.tagName,
+            x: event.clientX,
+            y: event.clientY
+        };
+        behaviorData.push(clickData);
+        console.log('Click event:', clickData);
+    }
+
+    function handleMouseMoveEvent(event) {
+        if (event.movementX || event.movementY) {
+            totalMouseMovement += Math.sqrt(event.movementX ** 2 + event.movementY ** 2);
+            let mouseMovementData = {
+                type: 'mouseMovement',
+                timestamp: new Date().toISOString(),
+                totalMouseMovement: totalMouseMovement
+            };
+            behaviorData.push(mouseMovementData);
+            console.log('Total Mouse Movement:', totalMouseMovement);
+        }
+    }
+
+    function handleWheelEvent(event) {
+        let mousewheelData = {
+            type: 'mousewheel',
+            timestamp: new Date().toISOString(),
+            deltaY: event.deltaY
+        };
+        behaviorData.push(mousewheelData);
+        console.log('Scroll event:', mousewheelData);
+    }
+
+    function handleCopyEvent(event) {
+        let copiedText = window.getSelection().toString().trim();
+        if (copiedText && copiedText !== lastCopiedText) {
+            totalCopyCount++;
+            lastCopiedText = copiedText;
+            let copyData = {
+                type: 'copy',
+                timestamp: new Date().toISOString(),
+                text: copiedText,
+                textLength: copiedText.length
+            };
+            behaviorData.push(copyData);
+            console.log('Copy event:', copyData);
+            console.log('Total copy count:', totalCopyCount);
+            console.log('Copied text length:', copiedText.length);
+        }
+    }
+
+    function handlePasteEvent(event) {
+        let pastedText = (event.clipboardData || window.clipboardData).getData('text').trim();
+        if (pastedText && pastedText !== lastPastedText) {
+            totalPasteCount++;
+            lastPastedText = pastedText;
+            let pasteData = {
+                type: 'paste',
+                timestamp: new Date().toISOString(),
+                text: pastedText,
+                textLength: pastedText.length
+            };
+            behaviorData.push(pasteData);
+            console.log('Paste event:', pasteData);
+            console.log('Total paste count:', totalPasteCount);
+            console.log('Pasted text length:', pastedText.length);
+        }
+    }
+
+    function handleKeydownEvent(event) {
+        if ((event.key === 'Delete' || event.key === 'Backspace' || (event.ctrlKey && event.key === 'x'))) {
+            let deleteEventData = {
+                type: 'deleteAction',
+                timestamp: new Date().toISOString(),
+                key: event.key
+            };
+            behaviorData.push(deleteEventData);
+            console.log('Delete action event:', deleteEventData);
+        }
+    }
+
+    function handleKeyPressEvent(event) {
+        let keyPressData = {
+            type: 'keypress',
+            timestamp: new Date().toISOString(),
+            key: event.key,
+            keyCode: event.keyCode,
+            target: event.target.tagName
+        };
+        behaviorData.push(keyPressData);
+        console.log('Keypress event:', keyPressData);
+    }
+
+    function handleHighlightEvent(event) {
+        let highlightedText = window.getSelection().toString().trim();
+        if (highlightedText) {
+            let highlightEventData = {
+                type: 'highlight',
+                timestamp: new Date().toISOString(),
+                highlightedText: highlightedText,
+                highlightedTextLength: highlightedText.length
+            };
+            behaviorData.push(highlightEventData);
+            console.log('Highlight event:', highlightEventData);
+            resetIdleTimer();
+        }
+    }
+
+    function handleUserAction() {
+        lastActionTime = Date.now();
         resetIdleTimer();
     }
-});
 
-// 添加发呆监听器
-let idleTimer; // 定义一个变量用于存放计时器
-let lastActionTime = Date.now(); // 记录上一次用户操作的时间戳
-
-// 初始化存储空闲时间的数组
-let idleTimes = [];
-
-function resetIdleTimer() {
-    clearTimeout(idleTimer); // 清除之前的计时器
-    idleTimer = setTimeout(function() {
-        // 这里是超过2000毫秒没有操作的处理逻辑
-        let currentTime = Date.now();
-        let idleDuration = currentTime - lastActionTime;
-
-        // 记录空闲时间，并包含类型信息
-        let idleData = {
-            type: 'idle',
-            timestamp: new Date().toISOString(),
-            duration: idleDuration
-        };
-        idleTimes.push(idleData); // 将空闲时间记录存入数组
-        console.log(`距离上次操作已经过去 ${idleDuration} 毫秒`);
-        behaviorData.push(idleData);
-    }, 2000); // 设置超过2000毫秒触发
-}
-
-// 监听用户的鼠标移动、键盘输入和滚动等操作
-function handleUserAction() {
-    lastActionTime = Date.now(); // 更新最后一次操作时间
-    resetIdleTimer();
-}
-
-document.addEventListener('mousemove', handleUserAction);
-document.addEventListener('keypress', handleUserAction);
-document.addEventListener('scroll', handleUserAction);
-
-// 初始化页面时开始计时
-resetIdleTimer();
-
-
-//// 添加prompt监听器
-//let startTime = null;
-//let endTime = null;
-//let userInput = '';
-//let textLength = 0;
-//
-//// 监听输入框的键盘事件
-//// 会同时有多个相同监听事件
-//// 获取文本框元素
-//const inputBox = document.querySelector("#prompt-textarea"); // 替换成你的输入框元素的ID
-//inputBox.addEventListener('keydown', function(event) {
-//    // 按下键盘时开始计时（仅当 startTime 为 null 时，表示首次开始输入）
-//    if (startTime === null)
-//    {
-//        startTime = new Date();
-//        console.log('开始输入时间:', startTime.toLocaleString());
-//    }
-//    }
-//);
-//
-//// 添加输入事件监听器
-//inputBox.addEventListener('input', function() {
-//    // 每次输入内容变化时执行的操作
-//    // var inputValue = inputBox.value;
-//    // console.log('输入内容变化为: ' + inputValue);
-//    userInput = inputBox.value;
-//});
-//
-//
-//// 监听回车键发送情况
-//// document.addEventListener('keypress', function(event) {
-////     if (event.key === 'Enter')
-////     {
-////         recordAndExportData();
-////     }
-//// });
-//
-//// 监听点击发送按钮事件
-//const sendButtonParent = document.querySelector("#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div > main > div.flex.h-full.flex-col.focus-visible\\:outline-0 > div.w-full.md\\:pt-0.dark\\:border-white\\/20.md\\:border-transparent.md\\:dark\\:border-transparent.md\\:w-\\[calc\\(100\\%-\\.5rem\\)\\].juice\\:w-full > div.px-3.text-base.md\\:px-4.m-auto.md\\:px-5.lg\\:px-1.xl\\:px-5 > div > form > div > div.flex.w-full.items-center > div")
-//    if (sendButtonParent) {
-//        sendButtonParent.addEventListener('click', function(event) {
-//            console.log('click event target:', event.target);
-//            if(event.target.matches('svg') || event.target.matches('path')) {
-//                recordAndExportData();
-//            }
-//        });
-//    } else {
-//        console.error('sendButtonParent element not found.');
-//    }
-//});
-//
-//// 记录并导出数据的函数
-//function recordAndExportData() {
-//    if (startTime !== null) {
-//        endTime = new Date();
-//        console.log('结束输入时间:', endTime.toLocaleString());
-//        const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
-//        textLength = userInput.length;
-//        console.log('输入时长（毫秒）:', duration);
-//        console.log('输入字数长度:', textLength);
-//        console.log('用户输入内容:', userInput);
-//        // 记录输入数据到行为数据数组中
-//        const inputData = {
-//            type: 'keyboardInput',
-//            startTime: startTime.toLocaleString(),
-//            endTime: endTime.toLocaleString(),
-//            duration: duration,
-//            userInputLength: textLength,
-//            userInputContent: userInput
-//        };
-//         behaviorData.push(inputData);
-//        // 重置变量，准备下一次输入
-//        startTime = null;
-//        endTime = null;
-//        userInput = '';
-//        textLength = 0;
-//    }
-//}
-
-
-// 计算回答生成时间(通过监听stream行为)
-let _isStreaming = false;
-let _observerNewResponse = undefined;
-let _config = {
-    "KEYWORD_STREAMING": "result-streaming",
-    "ID_PROMPT_INPUT": "prompt-textarea",
-    "QUERY_SEND_BTN": "[data-testid=\"send-button\"]",
-    "QUERY_CHAT_DIV": "[role=\"presentation\"]",
-    "QUERY_ELM_RESPONSE": "[data-message-author-role=\"assistant\"]",
-    "ID_TEXTBOX_PROMPT": "prompt-textarea",
-    "URL_ICON": "assets/icon48.png",
-    "QUERY_TOOLBAR": "[class=\"items-center justify-start rounded-xl p-1 flex\"]"
-};
-let _sessionEntry = {};
-
-// Variables for user input monitoring
-let startTime = null;
-let endTime = null;
-let userInput = '';
-let textLength = 0;
-
-// Initialize the observer for monitoring new responses
-const initObserver = () => {
-    const targetNode = document.querySelector(_config.QUERY_CHAT_DIV);
-    const config = { childList: true, subtree: true };
-
-    _observerNewResponse = new MutationObserver(callbackNewResponse);
-    _observerNewResponse.observe(targetNode, config);
-};
-
-// Callback function to execute when mutations are observed
-const callbackNewResponse = (mutationsList, observer) => {
-    for (const mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            mutation.addedNodes.forEach(node => {
-                if (node.className != undefined && typeof node.className.includes == "function" && node.className.includes(_config.KEYWORD_STREAMING)) {
-                    _observerNewResponse.disconnect();
-
-                    console.log("streaming starts");
-                    _isStreaming = true;
-
-                    // data logging
-                    _sessionEntry.timeStreamingStarted = time();
-
-                    // Store streaming start information
-                    let streamingStartData = {
-                        type: 'streaming_start',
-                        timestamp: formatTimestamp(Date.now()),
-                        status: 1 // 1 represents streaming started
-                    };
-                    behaviorData.push(streamingStartData);
-
-                    monitorStreaming();
-
-                    return;
-                }
-            });
-        }
-    }
-};
-
-// A recurring function to monitor if streaming ends
-const monitorStreaming = () => {
-    setTimeout(() => {
-        // Indicator of streaming ended
-        var elements = document.querySelectorAll('[class*="' + _config.KEYWORD_STREAMING + '"]');
-        if (elements.length > 0) {
-            monitorStreaming();
-        } else {
-            console.log("streaming ends");
-            _isStreaming = false;
-
-            // data logging
-            _sessionEntry.timeStreamingEnded = time();
-            console.log(_sessionEntry);
-
-            // Store streaming end information
-            let streamingEndData = {
-                type: 'streaming_end',
-                timestamp: formatTimestamp(Date.now()),
-                status: 0 // 0 represents streaming ended
+    // Idle timer
+    function resetIdleTimer() {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(function() {
+            let currentTime = Date.now();
+            let idleDuration = currentTime - lastActionTime;
+            let idleData = {
+                type: 'idle',
+                timestamp: new Date().toISOString(),
+                duration: idleDuration
             };
-            behaviorData.push(streamingEndData);
+            idleTimes.push(idleData);
+            console.log(`距离上次操作已经过去 ${idleDuration} 毫秒`);
+            behaviorData.push(idleData);
+        }, 2000);
+    }
 
-            // Reinitialize the observer for new streaming events
-            initObserver();
+    // Streaming observer
+    function initObserver() {
+        const targetNode = document.querySelector(CONFIG.QUERY_CHAT_DIV);
+        const config = { childList: true, subtree: true };
+        _observerNewResponse = new MutationObserver(callbackNewResponse);
+        _observerNewResponse.observe(targetNode, config);
+    }
+
+    function callbackNewResponse(mutationsList, observer) {
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(node => {
+                    if (node.className != undefined && typeof node.className.includes == "function" && node.className.includes(CONFIG.KEYWORD_STREAMING)) {
+                        _observerNewResponse.disconnect();
+                        console.log("streaming starts");
+                        _isStreaming = true;
+                        _sessionEntry.timeStreamingStarted = time();
+                        let streamingStartData = {
+                            type: 'streaming_start',
+                            timestamp: formatTimestamp(Date.now()),
+                            status: 1
+                        };
+                        behaviorData.push(streamingStartData);
+                        monitorStreaming();
+                        return;
+                    }
+                });
+            }
         }
-    }, 1000);
-};
-
-const time = () => new Date().getTime();
-
-
-// Add prompt listener
-const inputBox = document.querySelector("#prompt-textarea"); // Replace with your input box element ID
-inputBox.addEventListener('keydown', function(event) {
-    // Start timing when the key is pressed (only if startTime is null, indicating the first input)
-    if (startTime === null) {
-        startTime = new Date();
-        console.log('开始输入时间:', startTime.toLocaleString());
     }
-});
 
-// Add input event listener to capture user input
-inputBox.addEventListener('input', function(event) {
-    userInput = inputBox.value; // Update userInput with the current value of the input box
-});
-
-// Function to record and export data
-function recordAndExportData() {
-    if (startTime !== null) {
-        endTime = new Date();
-        console.log('结束输入时间:', endTime.toLocaleString());
-        const duration = endTime - startTime; // 计算输入时长（单位：毫秒）
-        textLength = userInput.length;
-        console.log('输入时长（毫秒）:', duration);
-        console.log('输入字数长度:', textLength);
-        console.log('用户输入内容:', userInput);
-        // 记录输入数据到行为数据数组中
-        const inputData = {
-            type: 'keyboardInput',
-            startTime: startTime.toLocaleString(),
-            endTime: endTime.toLocaleString(),
-            duration: duration,
-            userInputLength: textLength,
-            userInputContent: userInput
-        };
-        behaviorData.push(inputData);
-        // 重置变量，准备下一次输入
-        startTime = null;
-        endTime = null;
-        userInput = '';
-        textLength = 0;
+    function monitorStreaming() {
+        setTimeout(() => {
+            var elements = document.querySelectorAll('[class*="' + CONFIG.KEYWORD_STREAMING + '"]');
+            if (elements.length > 0) {
+                monitorStreaming();
+            } else {
+                console.log("streaming ends");
+                _isStreaming = false;
+                _sessionEntry.timeStreamingEnded = time();
+                console.log(_sessionEntry);
+                let streamingEndData = {
+                    type: 'streaming_end',
+                    timestamp: formatTimestamp(Date.now()),
+                    status: 0
+                };
+                behaviorData.push(streamingEndData);
+                initObserver();
+            }
+        }, 1000);
     }
-}
 
-// Start observing the DOM for changes
-initObserver();
+    // Input monitoring
+    function setupInputMonitoring() {
+        const inputBox = document.querySelector("#prompt-textarea");
+        inputBox.addEventListener('keydown', function(event) {
+            if (startTime === null) {
+                startTime = new Date();
+                console.log('开始输入时间:', startTime.toLocaleString());
+            }
+        });
 
+        inputBox.addEventListener('input', function(event) {
+            userInput = inputBox.value;
+        });
+    }
 
+    function recordAndExportData() {
+        if (startTime !== null) {
+            endTime = new Date();
+            console.log('结束输入时间:', endTime.toLocaleString());
+            const duration = endTime - startTime;
+            textLength = userInput.length;
+            console.log('输入时长（毫秒）:', duration);
+            console.log('输入字数长度:', textLength);
+            console.log('用户输入内容:', userInput);
+            const inputData = {
+                type: 'keyboardInput',
+                startTime: startTime.toLocaleString(),
+                endTime: endTime.toLocaleString(),
+                duration: duration,
+                userInputLength: textLength,
+                userInputContent: userInput
+            };
+            behaviorData.push(inputData);
+            startTime = null;
+            endTime = null;
+            userInput = '';
+            textLength = 0;
+        }
+    }
 
+    // UI setup
+    function setupUI() {
+        let container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.top = '10px';
+        container.style.right = '10px';
+        container.style.zIndex = 1000;
+        container.style.backgroundColor = '#f0f0f0';
+        container.style.border = '1px solid #ccc';
+        container.style.borderRadius = '5px';
+        container.style.padding = '5px';
+        container.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.gap = '5px';
+        document.body.appendChild(container);
 
-// 分割：下面是导出设置
+        let exportButton = document.createElement('button');
+        exportButton.innerText = 'Finish';
+        exportButton.style.position = 'fixed';
+        exportButton.style.top = '10px';
+        exportButton.style.right = '10px';
+        exportButton.style.zIndex = 1000;
+        container.appendChild(exportButton);
 
-// 添加导出按钮
-let exportButton = document.createElement('button');
-exportButton.innerText = 'Finish';
-exportButton.style.position = 'fixed';
-exportButton.style.top = '10px';
-exportButton.style.right = '10px';
-exportButton.style.zIndex = 1000;
-document.body.appendChild(exportButton);
+        let clearButton = document.createElement('button');
+        clearButton.innerText = 'Start';
+        clearButton.style.position = 'fixed';
+        clearButton.style.top = '50px';
+        clearButton.style.right = '10px';
+        clearButton.style.zIndex = 1000;
+        container.appendChild(clearButton);
 
-// 添加清除按钮
-let clearButton = document.createElement('button');
-clearButton.innerText = 'Start';
-clearButton.style.position = 'fixed';
-clearButton.style.top = '50px';
-clearButton.style.right = '10px';
-clearButton.style.zIndex = 1000;
-document.body.appendChild(clearButton);
+        clearButton.addEventListener('click', function() {
+            behaviorData = [];
+            copyCount = 0;
+            console.log('Behavior data cleared.');
+            alert('Start Now！');
+            startTimer();
+        });
 
+        exportButton.addEventListener('click', function() {
+            clearInterval(countdownTimer);
+            exportBehaviorData();
+        });
+    }
 
-// 清除按钮点击事件处理
-clearButton.addEventListener('click', function() {
-    // 清空行为数据数组和相关变量
-    behaviorData = [];
-    copyCount = 0; // 如果有其他计数器或变量也要重置，在此处添加代码
+    function exportBehaviorData() {
+        let dataStr = JSON.stringify(behaviorData, null, 2);
+        let blob = new Blob([dataStr], { type: 'application/json' });
+        let url = URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = 'gpt_data.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        console.log('Behavior data exported:', dataStr);
+    }
 
-    // 输出调试信息
-    console.log('Behavior data cleared.');
-    // 提示用户已经激活了 Start
-    alert('Start Now！');
-});
+    // Main initialization function
+    function init() {
+        if (!checkValidPage()) {
+            return;
+        }
 
+        addEventListeners();
+        initObserver();
+        setupInputMonitoring();
+        setupUI();
+        resetIdleTimer();
+    }
 
-
-// 导出行为数据为JSON文件
-exportButton.addEventListener('click', function() {
-    exportBehaviorData();
-});
-
-// 导出行为数据的函数
-function exportBehaviorData() {
-    let dataStr = JSON.stringify(behaviorData, null, 2);
-    let blob = new Blob([dataStr], { type: 'application/json' });
-    let url = URL.createObjectURL(blob);
-    let a = document.createElement('a');
-    a.href = url;
-    a.download = 'gpt_data.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    console.log('Behavior data exported:', dataStr);
-}
-
+    // Start the script
+    init();
 })();
