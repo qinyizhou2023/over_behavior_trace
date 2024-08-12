@@ -1,0 +1,82 @@
+[
+  {
+    "filename": "A1.json",
+    "TRUST1_deceptive": 1,
+    "TRUST2_underhanded": 7,
+    "TRUST3_ suspicious": 4,
+    "TRUST4_wary": 3,
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "A2.json",
+    "TRUST1_deceptive": 3,
+    "TRUST2_underhanded": 5,
+    "TRUST3_ suspicious": 6,
+    "TRUST4_wary": 6,
+    "TRUST5_harmful": 4,
+    "TRUST6_confident": 6,
+    "TRUST7_security": 3
+  },
+  {
+    "filename": "A3.json",
+    "TRUST1_deceptive": 3,
+    "TRUST2_underhanded": 3,
+    "TRUST3_ suspicious": 4,
+    "TRUST4_wary": 4,
+    "TRUST5_harmful": 3,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 4
+  },
+  {
+    "filename": "A4.json",
+    "TRUST1_deceptive": 7,
+    "TRUST2_underhanded": 7,
+    "TRUST3_ suspicious": 7,
+    "TRUST4_wary": 7,
+    "TRUST5_harmful": 7,
+    "TRUST6_confident": 1,
+    "TRUST7_security": 1
+  },
+  {
+    "filename": "A5.json",
+    "TRUST1_deceptive": 4,
+    "TRUST2_underhanded": 7,
+    "TRUST3_ suspicious": 6,
+    "TRUST4_wary": 4,
+    "TRUST5_harmful": 5,
+    "TRUST6_confident": 2,
+    "TRUST7_security": 1
+  },
+  {
+    "filename": "A6.json",
+    "TRUST1_deceptive": 2,
+    "TRUST2_underhanded": 2,
+    "TRUST3_ suspicious": 2,
+    "TRUST4_wary": 6,
+    "TRUST5_harmful": 3,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "A7.json",
+    "TRUST1_deceptive": 2,
+    "TRUST2_underhanded": 1,
+    "TRUST3_ suspicious": 2,
+    "TRUST4_wary": 3,
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 6,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "A8.json",
+    "TRUST1_deceptive": 1,
+    "TRUST2_underhanded": 1,
+    "TRUST3_ suspicious": 2,
+    "TRUST4_wary": 3,
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 6,
+    "TRUST7_security": 5
+  }
+]

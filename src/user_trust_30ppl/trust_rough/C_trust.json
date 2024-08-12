@@ -1,0 +1,72 @@
+[
+  {
+    "filename": "C1.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1qjdRWrSntWHinnn_DNdlqOM8nGokbxLt",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1Vw88owyAzxAUVD38zMTlGr-RC4YyUGsm",
+    "TRUST4_wary": "https://chatgpt.com/share/b60d9f58-d1e5-4cb6-97f6-787f3ebd74ca",
+    "TRUST5_harmful": 4,
+    "TRUST6_confident": 2,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "C2.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1ZWVUv95iv52Z_uPqUNKOG88ul3PswPmd",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=15FnpT4qxIAkLWjsbY277rYjJ5M7dVyza",
+    "TRUST4_wary": "https://chatgpt.com/share/e6b80cd3-bf77-4328-b684-2b058054b72d",
+    "TRUST5_harmful": 6,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 3
+  },
+  {
+    "filename": "C3.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1YIAD7pNLhWYf1jojpuvJDyJBVrZRzf2R",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1oKmc2xP6IWH8XVj_lzOcy3ZSJiBxHaxU",
+    "TRUST4_wary": "https://chatgpt.com/share/53db34e3-16a0-4776-8408-5ceea2efdae7",
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 2,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "C4.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1htWJTD8w5idh2ow8yZyV9TzMl-Uh6RCh",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1_aHr5nwNL4eblc5-BNigRsF28MyOPMME",
+    "TRUST4_wary": "https://chatgpt.com/share/c37a52d2-fc49-4acd-af9e-2ebd829f1d5a",
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 1,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "C5.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=12VhzTsmTvDnkrUEDd2M1ZBzVrwgY4soF",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1mGv5cbHeOux6gWOUTqmRBrZJ_c09ZnBd",
+    "TRUST4_wary": "https://chatgpt.com/share/577e9832-cc60-46cb-8908-2d7f61600056",
+    "TRUST5_harmful": 5,
+    "TRUST6_confident": 4,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "C6.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1AqGGx8nSs4yoD7yMJW-rQdmvASzSmkib",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1DRHZwtWNW5uWuG0wNBcqR6XIwe3fD6LX",
+    "TRUST4_wary": "https://chatgpt.com/share/09f01296-5db6-4515-b1f3-38a2efb6fd73",
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 1,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "C7.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download 2 files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=10Y283oKnaCUPYEqthMYpCdpxLkedHWY_",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1D18LpuGo9oK_J47RPa53lWwsb4FBAUB2",
+    "TRUST4_wary": "https://chatgpt.com/share/68b0393d-61c3-40cd-88fb-7d0e4fd163ec",
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 1,
+    "TRUST7_security": 4
+  }
+]

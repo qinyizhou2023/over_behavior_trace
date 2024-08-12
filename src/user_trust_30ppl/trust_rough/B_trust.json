@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "B1.json",
+    "TRUST1_deceptive": 4,
+    "TRUST2_underhanded": 1,
+    "TRUST3_ suspicious": 1,
+    "TRUST4_wary": 5,
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 3
+  },
+  {
+    "filename": "B2.json",
+    "TRUST1_deceptive": 5,
+    "TRUST2_underhanded": 2,
+    "TRUST3_ suspicious": 3,
+    "TRUST4_wary": 6,
+    "TRUST5_harmful": 3,
+    "TRUST6_confident": 4,
+    "TRUST7_security": 6
+  },
+  {
+    "filename": "B3.json",
+    "TRUST1_deceptive": 2,
+    "TRUST2_underhanded": 3,
+    "TRUST3_ suspicious": 3,
+    "TRUST4_wary": 4,
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 5,
+    "TRUST7_security": 6
+  },
+  {
+    "filename": "B4.json",
+    "TRUST1_deceptive": 1,
+    "TRUST2_underhanded": 3,
+    "TRUST3_ suspicious": 2,
+    "TRUST4_wary": 4,
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 4,
+    "TRUST7_security": 6
+  },
+  {
+    "filename": "B5.json",
+    "TRUST1_deceptive": 1,
+    "TRUST2_underhanded": 1,
+    "TRUST3_ suspicious": 2,
+    "TRUST4_wary": 2,
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 6,
+    "TRUST7_security": 6
+  },
+  {
+    "filename": "B6.json",
+    "TRUST1_deceptive": 3,
+    "TRUST2_underhanded": 2,
+    "TRUST3_ suspicious": 1,
+    "TRUST4_wary": 5,
+    "TRUST5_harmful": 1,
+    "TRUST6_confident": 7,
+    "TRUST7_security": 6
+  }
+]

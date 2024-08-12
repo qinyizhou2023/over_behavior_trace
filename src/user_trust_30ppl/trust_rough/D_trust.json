@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "D1.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1JoEdApYok11aNq9OUs361aXGp-LqfsoJ",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1xm7oY7qkMyMz8GJXK9kxtx0RE5B_hnVo",
+    "TRUST4_wary": "https://chatgpt.com/share/de23b363-6908-4093-95f2-74c64ada3a16",
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 2,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "D2.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1IJAOVQ5V-IPWQ_3DWd1yV-0KJqTt0b0X",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=13-ckBxf6mSOuzE1aUG-31rVdD6eP8k0i",
+    "TRUST4_wary": "https://chatgpt.com/share/cabe23be-e3f5-44e5-890d-766c5e18c1c5",
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 1,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "D3.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1bSWKjITichf9PmV16rxdvUZ_1Cn4VlgY",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=18x7wvckQZJchssghkhsFVy7si3KoaNRK",
+    "TRUST4_wary": "https://chatgpt.com/g/g-9xy6pvvAw-over-project-gpt",
+    "TRUST5_harmful": 5,
+    "TRUST6_confident": 3,
+    "TRUST7_security": 5
+  },
+  {
+    "filename": "D4.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1TPtcfgYR1jFIsMj1-NkmywO1wCYBp409",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1CHvK50R-QXDgncjko3_vjccYzqrE5689",
+    "TRUST4_wary": "https://chatgpt.com/share/fca12c9a-e534-499a-be96-ddffe1f4eff9",
+    "TRUST5_harmful": 2,
+    "TRUST6_confident": 2,
+    "TRUST7_security": 2
+  },
+  {
+    "filename": "D5.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1etLo-qMSPOeVrpihEZ8gQRxTWRd1EJdM",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1BXldrUC4FnZaLUs-ltXBr_LS5TJxz2ua",
+    "TRUST4_wary": "https://chatgpt.com/share/eface522-d5db-4398-8a7e-af372dfe31bf",
+    "TRUST5_harmful": 6,
+    "TRUST6_confident": 6,
+    "TRUST7_security": 7
+  },
+  {
+    "filename": "D6.json",
+    "TRUST1_deceptive": "Yes, I have clicked \"finish\"  and download the files",
+    "TRUST2_underhanded": "https://drive.google.com/open?id=1zHCfBEdorTjbDff-fhu8sdQM8r1A5-yC",
+    "TRUST3_ suspicious": "https://drive.google.com/open?id=1Mj4Xaf_j7EcHYtOM49p9w76PIrvDZb7f",
+    "TRUST4_wary": "https://chatgpt.com/share/681f65b1-bcf3-42ed-94a8-f405e372e5a9",
+    "TRUST5_harmful": 4,
+    "TRUST6_confident": 4,
+    "TRUST7_security": 3
+  }
+]
