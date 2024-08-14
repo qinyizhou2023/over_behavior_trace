@@ -1,7 +1,7 @@
 import math
 # 定义计算总分的函数
-def calculate_total_difference(correct_ranks, participant_scores):
-    return sum(abs(cr - ps) for cr, ps in zip(correct_ranks, participant_scores))
+def calculate_total_difference(correct_ranks_new, participant_scores):
+    return sum(abs(cr - ps) for cr, ps in zip(correct_ranks_new, participant_scores))
 def calculate_average_scores(scores_list):
     num_participants = len(scores_list)
     num_scores = len(scores_list[0])
@@ -30,13 +30,13 @@ participants_scores = [
     ("A18", [10, 4, 6, 12, 11, 8, 3, 13, 5, 1, 14, 9, 7, 2, 15]),
     ("A19", [10, 12, 2, 14, 5, 9, 8, 11, 6, 1, 7, 4, 13, 3, 15]),
     ("A20", [5, 6, 14, 7, 10, 4, 11, 15, 12, 1, 8, 3, 2, 13, 9]),
-    ("A21", [1, 9, 6, 12, 8, 2, 10, 7, 5, 3, 14, 11, 4, 13, 15]),
+    # ("A21", [1, 9, 6, 12, 8, 2, 10, 7, 5, 3, 14, 11, 4, 13, 15]),
     ("A22", [3, 4, 6, 5, 7, 8, 10, 11, 2, 1, 9, 13, 14, 12, 15]),
     ("A23", [2, 11, 3, 10, 4, 8, 12, 5, 6, 1, 13, 7, 9, 15, 14]),
     ("A24", [10, 1, 2, 5, 4, 3, 9, 6, 7, 8, 14, 11, 12, 15, 13]),
     ("A25", [5, 4, 10, 11, 6, 3, 13, 7, 2, 1, 15, 8, 9, 12, 14]),
     ("A26", [4, 15, 2, 3, 7, 9, 5, 10, 6, 11, 8, 1, 12, 13, 14]),
-    ("A27", [3, 4, 6, 14, 7, 5, 9, 11, 8, 1, 2, 12, 13, 10, 15]),
+    # ("A27", [3, 4, 6, 14, 7, 5, 9, 11, 8, 1, 2, 12, 13, 10, 15]),
     # B desert -- moon
     ("B1", [8, 4, 7, 6, 1, 3, 9, 12, 5, 2, 11, 14, 10, 13, 15]),
     ("B2", [12, 4, 9, 13, 6, 5, 15, 3, 7, 2, 14, 10, 8, 11, 1]),
@@ -54,25 +54,30 @@ participants_scores = [
     ("B14", [9, 6, 1, 12, 5, 8, 11, 2, 10, 3, 7, 4, 14, 13, 15]),
     ("B15", [9, 13, 1, 4, 6, 8, 11, 10, 7, 2, 3, 12, 15, 5, 14]),
     ("B16", [6, 9, 7, 4, 3, 1, 5, 12, 2, 8, 14, 13, 10, 11, 15]),
-    ("B17", [6, 7, 3, 14, 10, 9, 5, 11, 2, 1, 4, 15, 13, 8, 12]),
+    # ("B17", [6, 7, 3, 14, 10, 9, 5, 11, 2, 1, 4, 15, 13, 8, 12]),
     ("B18", [13, 6, 2, 11, 3, 7, 4, 5, 12, 8, 14, 1, 9, 10, 15]),
-    ("B19", [12, 5, 1, 9, 2, 3, 6, 4, 13, 7, 11, 10, 8, 14, 15]),
+    # ("B19", [12, 5, 1, 9, 2, 3, 6, 4, 13, 7, 11, 10, 8, 14, 15]),
     ("B20", [6, 3, 5, 12, 8, 2, 9, 15, 7, 1, 4, 11, 10, 13, 14]),
     ("B21", [6, 8, 4, 13, 5, 9, 12, 1, 3, 2, 7, 10, 11, 14, 15]),
     ("B22", [5, 8, 3, 6, 2, 4, 7, 1, 9, 10, 11, 13, 14, 12, 15]),
     ("B23", [14, 1, 11, 2, 8, 5, 4, 10, 3, 12, 7, 9, 13, 15, 6]),
-    ("B24", [6, 2, 7, 11, 3, 4, 5, 10, 9, 1, 8, 12, 13, 14, 15]),
+    # ("B24", [6, 2, 7, 11, 3, 4, 5, 10, 9, 1, 8, 12, 13, 14, 15]),
     ("B25", [5, 4, 6, 9, 8, 2, 10, 7, 11, 1, 3, 12, 13, 14, 15]),
     ("B26", [4, 3, 9, 5, 10, 8, 2, 13, 14, 1, 15, 7, 12, 6, 11]),
     ("B27", [1, 5, 4, 10, 3, 2, 13, 8, 12, 6, 7, 11, 9, 14, 15]),
-
+    ("B28",[11,	4,	1,	15,	2,	5,	6,	14,	10,	3,	8,	9,	13,	7,	12])
     # ("AI", [6, 15, 1, 14, 5, 13, 9, 10, 2, 3, 7, 4, 11, 8, 12])
 ]
 
-correct_ranks = [4,	6,	12,	7,	10,	8,	5,	15,	3,	13,	9,	14]
+correct_ranks = [4,	6,	12,	7,	11,	10,	8,	5,	15,	3,	13,	9,	14,	2,	1]
 
-# 定义要删除的索引（第5、14、15个数据，注意索引从0开始）
-indices_to_remove = [4, 13, 14]
+#
+# 定义要删除的索引（第9、14、15个数据，注意索引从0开始）
+indices_to_remove = [8, 13, 14]
+
+#
+# # 定义要删除的索引（第5、14、15个数据，注意索引从0开始）
+# indices_to_remove = [4, 13, 14]
 
 # 创建一个新的列表，去掉指定索引的数据
 new_participants_scores = [
@@ -80,12 +85,12 @@ new_participants_scores = [
     for participant, scores in participants_scores
 ]
 
-
+correct_ranks_new = [rank for idx, rank in enumerate(correct_ranks) if idx not in indices_to_remove]
 
 def calculate_group_stats(group_scores, group_name):
     total_differences = []
     for participant, scores in group_scores:
-        total_difference = calculate_total_difference(correct_ranks, scores)
+        total_difference = calculate_total_difference(correct_ranks_new, scores)
         total_differences.append((participant, total_difference))
 
     average = sum(diff for _, diff in total_differences) / len(total_differences)
