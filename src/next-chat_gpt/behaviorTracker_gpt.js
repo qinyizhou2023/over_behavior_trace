@@ -1,3 +1,4 @@
+// behaviorTracker_nextChat.js
 (function() {
     // Constants and configurations
     const CONFIG = {
@@ -30,7 +31,7 @@
     // Helper functions
     function checkValidPage() {
         const currentUrl = window.location.href;
-        if (!currentUrl.includes('chat-next-xi.vercel.app')) {
+        if (!currentUrl.includes('nextchat.com')) {
             alert("Reminder: You should activate the extension on the NextChat website!");
             return false;
         }
@@ -100,10 +101,53 @@
         window.addEventListener('blur', handleBlurEvent);
         document.addEventListener('click', handleClickEvent);
         document.addEventListener('mousemove', handleMouseMoveEvent);
+        window.addEventListener('wheel', handleWheelEvent);
         document.addEventListener('copy', handleCopyEvent);
         document.addEventListener('paste', handlePasteEvent);
         document.addEventListener('keydown', handleKeydownEvent);
         document.addEventListener('keypress', handleKeyPressEvent);
+        document.addEventListener('mouseup', handleHighlightEvent);
+        document.addEventListener('mousemove', handleUserAction);
+        document.addEventListener('keypress', handleUserAction);
+        document.addEventListener('scroll', handleUserAction);
+    }
+
+    // Event handlers
+    function handleWheelEvent(event) {
+        let wheelData = {
+            type: 'wheel',
+            timestamp: new Date().toISOString(),
+            deltaX: event.deltaX,
+            deltaY: event.deltaY
+        };
+        behaviorData.push(wheelData);
+        console.log('Wheel event:', wheelData);
+    }
+
+    function handleHighlightEvent(event) {
+        let selectedText = window.getSelection().toString().trim();
+        if (selectedText) {
+            let highlightData = {
+                type: 'highlight',
+                timestamp: new Date().toISOString(),
+                text: selectedText
+            };
+            behaviorData.push(highlightData);
+            console.log('Highlight event:', highlightData);
+        }
+    }
+
+    function handleUserAction(event) {
+        lastActionTime = Date.now();
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+            idleTimes.push({
+                type: 'idle',
+                timestamp: new Date().toISOString(),
+                duration: Date.now() - lastActionTime
+            });
+            console.log('User is idle:', idleTimes[idleTimes.length - 1]);
+        }, 5000); // 5 seconds of inactivity
     }
 
     // Event handlers
@@ -260,6 +304,7 @@
             console.log('Behavior data cleared.');
             alert('Start Now!');
             startTimer();
+            recordAndExportData(); // Ensure data recording is triggered
         });
     }
 
