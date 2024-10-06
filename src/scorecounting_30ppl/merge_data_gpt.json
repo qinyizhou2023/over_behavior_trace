@@ -29,7 +29,7 @@
         "total_prompts_duration": 34.885,
         "total_prompts_length": 69,
         "med_prompts_length": 9,
-        "overreliance_score": 13
+        "overreliance_score": 1
     },
     {
         "filename": "A2.json",
@@ -61,7 +61,7 @@
         "total_prompts_duration": 207.537,
         "total_prompts_length": 563,
         "med_prompts_length": 71.0,
-        "overreliance_score": -29
+        "overreliance_score": -20
     },
     {
         "filename": "A3.json",
@@ -93,7 +93,7 @@
         "total_prompts_duration": 174.366,
         "total_prompts_length": 528,
         "med_prompts_length": 40,
-        "overreliance_score": 19
+        "overreliance_score": -37
     },
     {
         "filename": "A4.json",
@@ -125,7 +125,7 @@
         "total_prompts_duration": 28.060000000000002,
         "total_prompts_length": 108,
         "med_prompts_length": 54.0,
-        "overreliance_score": 6
+        "overreliance_score": 20
     },
     {
         "filename": "A5.json",
@@ -157,7 +157,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": 10
+        "overreliance_score": 20
     },
     {
         "filename": "A6.json",
@@ -189,7 +189,7 @@
         "total_prompts_duration": 2569.754,
         "total_prompts_length": 118,
         "med_prompts_length": 5,
-        "overreliance_score": -10
+        "overreliance_score": 8
     },
     {
         "filename": "A7.json",
@@ -221,7 +221,7 @@
         "total_prompts_duration": 293.824,
         "total_prompts_length": 468,
         "med_prompts_length": 62,
-        "overreliance_score": -47
+        "overreliance_score": 20
     },
     {
         "filename": "A8.json",
@@ -285,7 +285,7 @@
         "total_prompts_duration": 688.0409999999999,
         "total_prompts_length": 709,
         "med_prompts_length": 70.0,
-        "overreliance_score": 0
+        "overreliance_score": 34
     },
     {
         "filename": "B2.json",
@@ -317,7 +317,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": -11
+        "overreliance_score": -1
     },
     {
         "filename": "B3.json",
@@ -349,7 +349,7 @@
         "total_prompts_duration": 293.444,
         "total_prompts_length": 846,
         "med_prompts_length": 41,
-        "overreliance_score": 7
+        "overreliance_score": 8
     },
     {
         "filename": "B4.json",
@@ -381,7 +381,7 @@
         "total_prompts_duration": 150.396,
         "total_prompts_length": 397,
         "med_prompts_length": 37.5,
-        "overreliance_score": 22
+        "overreliance_score": 36
     },
     {
         "filename": "B5.json",
@@ -413,7 +413,7 @@
         "total_prompts_duration": 321.466,
         "total_prompts_length": 274,
         "med_prompts_length": 32,
-        "overreliance_score": -9
+        "overreliance_score": 15
     },
     {
         "filename": "B6.json",
@@ -445,7 +445,7 @@
         "total_prompts_duration": 164.235,
         "total_prompts_length": 228,
         "med_prompts_length": 30.5,
-        "overreliance_score": 6
+        "overreliance_score": -5
     },
     {
         "filename": "C1.json",
@@ -477,7 +477,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": 2
+        "overreliance_score": 51
     },
     {
         "filename": "C2.json",
@@ -509,7 +509,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": -2
+        "overreliance_score": 18
     },
     {
         "filename": "C3.json",
@@ -541,7 +541,7 @@
         "total_prompts_duration": 23.309,
         "total_prompts_length": 36,
         "med_prompts_length": 36,
-        "overreliance_score": 23
+        "overreliance_score": -7
     },
     {
         "filename": "C4.json",
@@ -573,7 +573,7 @@
         "total_prompts_duration": 55.251000000000005,
         "total_prompts_length": 12,
         "med_prompts_length": 6.0,
-        "overreliance_score": 26
+        "overreliance_score": 47
     },
     {
         "filename": "C5.json",
@@ -605,7 +605,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": 32
+        "overreliance_score": 37
     },
     {
         "filename": "C6.json",
@@ -637,7 +637,7 @@
         "total_prompts_duration": 1219.5140000000001,
         "total_prompts_length": 1239,
         "med_prompts_length": 82.0,
-        "overreliance_score": 24
+        "overreliance_score": 32
     },
     {
         "filename": "C7.json",
@@ -669,7 +669,7 @@
         "total_prompts_duration": 65.076,
         "total_prompts_length": 214,
         "med_prompts_length": 107.0,
-        "overreliance_score": 41
+        "overreliance_score": 26
     },
     {
         "filename": "D1.json",
@@ -701,7 +701,7 @@
         "total_prompts_duration": 422.951,
         "total_prompts_length": 1015,
         "med_prompts_length": 181.5,
-        "overreliance_score": -23
+        "overreliance_score": 3
     },
     {
         "filename": "D2.json",
@@ -733,7 +733,7 @@
         "total_prompts_duration": 0,
         "total_prompts_length": 0,
         "med_prompts_length": 0,
-        "overreliance_score": 1
+        "overreliance_score": -10
     },
     {
         "filename": "D3.json",
@@ -765,7 +765,7 @@
         "total_prompts_duration": 435.134,
         "total_prompts_length": 586,
         "med_prompts_length": 43,
-        "overreliance_score": -24
+        "overreliance_score": -34
     },
     {
         "filename": "D4.json",
@@ -797,7 +797,7 @@
         "total_prompts_duration": 80.82,
         "total_prompts_length": 8,
         "med_prompts_length": 4.0,
-        "overreliance_score": -40
+        "overreliance_score": 4
     },
     {
         "filename": "D5.json",
@@ -829,7 +829,7 @@
         "total_prompts_duration": 233.262,
         "total_prompts_length": 391,
         "med_prompts_length": 67,
-        "overreliance_score": -24
+        "overreliance_score": 9
     },
     {
         "filename": "D6.json",
@@ -861,6 +861,6 @@
         "total_prompts_duration": 84.692,
         "total_prompts_length": 280,
         "med_prompts_length": 280,
-        "overreliance_score": -1
+        "overreliance_score": 20
     }
 ]

@@ -5,7 +5,7 @@ from datetime import datetime
 import statistics
 
 # 改1： tasksheet
-directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_30ppl\\gpt'  # 实际目录路径
+directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_40ppl\\gpt'  # 实际目录路径
 
 all_results = []
 
@@ -170,5 +170,5 @@ for filename in os.listdir(directory):
 print(json.dumps(all_results, indent=4))
 
 # 改2： 将所有文件的结果写入新的JSON文件中
-with open('behavior_result_gpt.json', 'w') as f:
+with open('behavior_result_gpt_4.json', 'w') as f:
     json.dump(all_results, f, indent=4)

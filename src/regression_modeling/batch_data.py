@@ -5,13 +5,13 @@ from scipy.stats import pearsonr
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import StandardScaler
 import statsmodels.api as sm
-
+import json
 # 读取CSV文件
-file_path = r"C:\Users\zqy\Documents\over regression\over_behavior_trace\src\regression_modeling\behavior_transformed_features.csv"
+file_path = r"C:\Users\zqy\Documents\over regression\git_behavior_trace\merge_alldata.csv"
 df = pd.read_csv(file_path)
 
 # 将 'overreliance_score' 设置为目标变量
-target_variable = 'overreliance_score'
+target_variable = 'score_overreliance'
 scores_series = df[target_variable]
 
 # 删除不需要的列

@@ -6,7 +6,7 @@ from scipy import stats
 from sklearn.preprocessing import StandardScaler
 
 # Load the data
-df = pd.read_csv('behavior_result.csv')
+df = pd.read_csv('C:\\Users\\zqy\\Documents\\over regression\\git_behavior_trace\\merge_alldata.csv')
 
 # Identify numeric columns
 numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()
@@ -17,51 +17,15 @@ features = [col for col in numeric_columns if col not in ['score_AI', 'score_alo
 # Preprocessing steps
 transformed_features = []
 
-for feature in features:
-    stat, p = stats.shapiro(df[feature])
-    print(f'{feature}: p-value = {p}')
-    if p < 0.005:
-        transformed_features.append(feature)
-
-# Log transform the features
-for feature in transformed_features:
-    df[feature] = np.log(df[feature] + 1e-10)  # Adding small constant to avoid log(0)
-
-# Replace infinities with NaN
-df = df.replace([np.inf, -np.inf], np.nan)
-
-# Fill NaN values with the mean of the column (only for numeric columns)
-df[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
-
-# Standardize the features
-scaler = StandardScaler()
-df[features] = scaler.fit_transform(df[features])
-
-# Check for multicollinearity
-corr = df[features].corr()
-highly_correlated_features = []
-for i in range(len(corr.columns)):
-    for j in range(i):
-        if abs(corr.iloc[i, j]) > 0.8:
-            highly_correlated_features.append((corr.columns[i], corr.columns[j]))
-
-# Randomly select one feature from each pair of highly correlated features
-features_to_drop = []
-for feature1, feature2 in highly_correlated_features:
-    if feature1 not in features_to_drop:
-        features_to_drop.append(feature2)
-
-# Drop the highly correlated features
-df = df.drop(features_to_drop, axis=1)
-
-print(f'Features dropped due to high correlation: {features_to_drop}')
 
 # List of variables to visualize
+# variables = [
+#     'average_copy_length','average_highlight_length','average_mousewheel_distance','average_paste_length','average_prompt_duration','average_prompt_length','click_count','copy_count','delete_count','highlight_count','idle_count','keypress_count','med_copy_length','med_highlight_length','med_idle_duration','med_mousewheel_distance','med_paste_length','median_prompt_duration','median_prompt_length','mousewheel_count','paste_count','prompt_count','total_focus_time','total_idle_duration','total_mouse_movement','total_mousewheel_distance','total_prompt_duration','total_prompt_length','totaltime','windowswitch_count','windowswitch_speed'
+# ]
+
 variables = [
-    'total_mouse_movement_gpt', 'mousewheel_count_gpt', 'total_mousewheel_distance_gpt',
-    'med_highlight_length_gpt', 'med_idle_duration_gpt', 'prompts_count_gpt',
-    'delete_count_tasksheet', 'keypress_count_tasksheet', 'med_highlight_length_tasksheet',
-    'med_idle_duration_tasksheet'
+    'windowswitch_count_gpt',	'windowswitch_speed_gpt',	'totaltime_gpt',	'click_count_gpt',	'total_mouse_movement_gpt',	'mousewheel_count_gpt',	'total_mousewheel_distance_gpt',	'average_mousewheel_distance_gpt',	'med_mousewheel_distance_gpt',	'copy_count_gpt',	'average_copy_length_gpt',	'med_copy_length_gpt',	'paste_count_gpt',	'average_paste_length_gpt',	'med_paste_length_gpt',	'delete_count_gpt',	'keypress_count_gpt',	'highlight_count_gpt',	'average_highlight_length_gpt',	'med_highlight_length_gpt',	'idle_count_gpt',	'med_idle_duration_gpt',	'total_idle_duration_gpt',	'prompts_count_gpt',	'total_prompts_duration_gpt',	'total_prompts_length_gpt',	'med_prompts_length_gpt',	'totaltime_tasksheet',	'click_count_tasksheet',	'total_mouse_movement_tasksheet',	'mousewheel_count_tasksheet',	'total_mousewheel_distance_tasksheet',	'average_mousewheel_distance_tasksheet',	'med_mousewheel_distance_tasksheet',	'copy_count_tasksheet',	'average_copy_length_tasksheet',	'med_copy_length_tasksheet',	'paste_count_tasksheet',	'average_paste_length_tasksheet',	'med_paste_length_tasksheet',	'delete_count_tasksheet',	'keypress_count_tasksheet',	'highlight_count_tasksheet',	'average_highlight_length_tasksheet',	'med_highlight_length_tasksheet',	'idle_count_tasksheet',	'med_idle_duration_tasksheet',	'total_idle_duration_tasksheet'
+
 ]
 
 # Function to create and save a plot

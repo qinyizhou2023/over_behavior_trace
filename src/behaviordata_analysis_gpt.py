@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 import statistics
 # 改1： gpt/tasksheet
-directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_30ppl\\tasksheet'  # 实际目录路径
+directory = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_40ppl\\gpt'  # 实际目录路径
 all_results= []
 
 

@@ -1,23 +1,16 @@
-
-
-
-// behaviorTracker_gpt.js
+// behaviorTracker_nextChat.js
 (function() {
-    // Constants
+    // Constants and configurations
     const CONFIG = {
         KEYWORD_STREAMING: "result-streaming",
-        ID_PROMPT_INPUT: "prompt-textarea",
-        QUERY_SEND_BTN: "[data-testid=\"send-button\"]",
-        QUERY_CHAT_DIV: "[role=\"presentation\"]",
-        QUERY_ELM_RESPONSE: "[data-message-author-role=\"assistant\"]",
-        ID_TEXTBOX_PROMPT: "prompt-textarea",
-        URL_ICON: "assets/icon48.png",
-        QUERY_TOOLBAR: "[class=\"items-center justify-start rounded-xl p-1 flex\"]"
+        ID_PROMPT_INPUT: "#chat-input",
+        QUERY_SEND_BTN: ".button_icon-button__VwAMf[role='button']",
+        QUERY_CHAT_DIV: ".chat_chat__ZebHg",
+        QUERY_ELM_RESPONSE: ".chat_chat-message__dg8rL",
     };
 
     // Variables
     let behaviorData = [];
-    let copyCount = 0;
     let totalMouseMovement = 0;
     let idleTimer;
     let lastActionTime = Date.now();
@@ -28,9 +21,7 @@
     let totalPasteCount = 0;
     let _isStreaming = false;
     let _observerNewResponse;
-    let _sessionEntry = {};
     let startTime = null;
-    let endTime = null;
     let userInput = '';
     let textLength = 0;
     let countdownTimer;
@@ -41,12 +32,8 @@
     // Helper functions
     function checkValidPage() {
         const currentUrl = window.location.href;
-        if (!currentUrl.includes('chatgpt.com')) {
-            if (currentUrl.includes('docs.google.com/forms')) {
-                alert("Reminder: This extension should not be activated on the gpt (Google Form) website. Please activate it on the GPT website!");
-            } else {
-                alert("Reminder: You should activate the extension on the GPT website!");
-            }
+        if (!currentUrl.includes('vercel.app')) {
+            alert("Reminder: You should activate the extension on the NextChat website!");
             return false;
         }
         return true;
@@ -73,34 +60,6 @@
         warningDisplay.textContent = "";
     }
 
-    let centerMessageDisplay;
-
-    function createCenterMessageDisplay() {
-        centerMessageDisplay = document.createElement('div');
-        centerMessageDisplay.style.position = 'fixed';
-        centerMessageDisplay.style.top = '50%';
-        centerMessageDisplay.style.left = '50%';
-        centerMessageDisplay.style.transform = 'translate(-50%, -50%)';
-        centerMessageDisplay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        centerMessageDisplay.style.color = 'white';
-        centerMessageDisplay.style.padding = '20px';
-        centerMessageDisplay.style.borderRadius = '10px';
-        centerMessageDisplay.style.fontSize = '24px';
-        centerMessageDisplay.style.fontWeight = 'bold';
-        centerMessageDisplay.style.zIndex = '10000';
-        centerMessageDisplay.style.display = 'none';
-        document.body.appendChild(centerMessageDisplay);
-    }
-
-    function showCenterMessage(message) {
-        centerMessageDisplay.textContent = message;
-        centerMessageDisplay.style.display = 'block';
-    }
-
-    function hideCenterMessage() {
-        centerMessageDisplay.style.display = 'none';
-    }
-
     function updateTimer() {
         timeLeft--;
         updateTimerDisplay();
@@ -119,6 +78,8 @@
         let seconds = timeLeft % 60;
         timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
+
+
 
     function createTimerDisplay() {
         timerDisplay = document.createElement('div');
@@ -143,7 +104,7 @@
         window.addEventListener('blur', handleBlurEvent);
         document.addEventListener('click', handleClickEvent);
         document.addEventListener('mousemove', handleMouseMoveEvent);
-        window.addEventListener('wheel', handleWheelEvent);
+        window.addEventListener('mousewheel', handleWheelEvent);
         document.addEventListener('copy', handleCopyEvent);
         document.addEventListener('paste', handlePasteEvent);
         document.addEventListener('keydown', handleKeydownEvent);
@@ -152,6 +113,45 @@
         document.addEventListener('mousemove', handleUserAction);
         document.addEventListener('keypress', handleUserAction);
         document.addEventListener('scroll', handleUserAction);
+    }
+
+    // Event handlers
+   function handleWheelEvent(event) {
+        let mousewheelData = {
+            type: 'mousewheel',
+            timestamp: new Date().toISOString(),
+            deltaY: event.deltaY
+        };
+        behaviorData.push(mousewheelData);
+        console.log('Scroll event:', mousewheelData);
+    }
+
+    function handleHighlightEvent(event) {
+        let selectedText = window.getSelection().toString().trim();
+        if (selectedText) {
+            let highlightData = {
+                type: 'highlight',
+                timestamp: new Date().toISOString(),
+                text: selectedText
+            };
+            behaviorData.push(highlightData);
+            console.log('Highlight event:', highlightData);
+        }
+    }
+
+    function handleUserAction(event) {
+        lastActionTime = Date.now();
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+             idleData = {
+                type: 'idle',
+                timestamp: new Date().toISOString(),
+                duration: Date.now() - lastActionTime
+            }
+            idleTimes.push(idleData);
+            behaviorData.push(idleData);
+            console.log('User is idle:', idleTimes[idleTimes.length - 1]);
+        }, 2000); // 2 seconds of inactivity
     }
 
     // Event handlers
@@ -198,16 +198,6 @@
             behaviorData.push(mouseMovementData);
             console.log('Total Mouse Movement:', totalMouseMovement);
         }
-    }
-
-    function handleWheelEvent(event) {
-        let mousewheelData = {
-            type: 'mousewheel',
-            timestamp: new Date().toISOString(),
-            deltaY: event.deltaY
-        };
-        behaviorData.push(mousewheelData);
-        console.log('Scroll event:', mousewheelData);
     }
 
     function handleCopyEvent(event) {
@@ -270,44 +260,7 @@
         console.log('Keypress event:', keyPressData);
     }
 
-    function handleHighlightEvent(event) {
-        let highlightedText = window.getSelection().toString().trim();
-        if (highlightedText) {
-            let highlightEventData = {
-                type: 'highlight',
-                timestamp: new Date().toISOString(),
-                highlightedText: highlightedText,
-                highlightedTextLength: highlightedText.length
-            };
-            behaviorData.push(highlightEventData);
-            console.log('Highlight event:', highlightEventData);
-            resetIdleTimer();
-        }
-    }
-
-    function handleUserAction() {
-        lastActionTime = Date.now();
-        resetIdleTimer();
-    }
-
-    // Idle timer
-    function resetIdleTimer() {
-        clearTimeout(idleTimer);
-        idleTimer = setTimeout(function() {
-            let currentTime = Date.now();
-            let idleDuration = currentTime - lastActionTime;
-            let idleData = {
-                type: 'idle',
-                timestamp: new Date().toISOString(),
-                duration: idleDuration
-            };
-            idleTimes.push(idleData);
-            console.log(`距离上次操作已经过去 ${idleDuration} 毫秒`);
-            behaviorData.push(idleData);
-        }, 2000);
-    }
-
-    // Streaming observer
+ // Streaming observer
     function initObserver() {
         const targetNode = document.querySelector(CONFIG.QUERY_CHAT_DIV);
         const config = { childList: true, subtree: true };
@@ -359,13 +312,14 @@
         }, 1000);
     }
 
+
     // Input monitoring
     function setupInputMonitoring() {
-        const inputBox = document.querySelector("#prompt-textarea");
+        const inputBox = document.querySelector(CONFIG.ID_PROMPT_INPUT);
         inputBox.addEventListener('keydown', function(event) {
             if (startTime === null) {
                 startTime = new Date();
-                console.log('开始输入时间:', startTime.toLocaleString());
+                console.log('Start typing at:', startTime.toLocaleString());
             }
         });
 
@@ -376,13 +330,13 @@
 
     function recordAndExportData() {
         if (startTime !== null) {
-            endTime = new Date();
-            console.log('结束输入时间:', endTime.toLocaleString());
+            const endTime = new Date();
+            console.log('End typing at:', endTime.toLocaleString());
             const duration = endTime - startTime;
             textLength = userInput.length;
-            console.log('输入时长（毫秒）:', duration);
-            console.log('输入字数长度:', textLength);
-            console.log('用户输入内容:', userInput);
+            console.log('Typing duration (ms):', duration);
+            console.log('Input text length:', textLength);
+            console.log('User input:', userInput);
             const inputData = {
                 type: 'keyboardInput',
                 startTime: startTime.toLocaleString(),
@@ -393,12 +347,12 @@
             };
             behaviorData.push(inputData);
             startTime = null;
-            endTime = null;
             userInput = '';
             textLength = 0;
         }
     }
 
+    // UI setup
     function setupUI() {
         // Start button container
         let startContainer = document.createElement('div');
@@ -426,15 +380,15 @@
         finishContainer.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
         document.body.appendChild(finishContainer);
 
-        let startButton = document.createElement('button');
-        startButton.innerText = 'Start';
-        startContainer.appendChild(startButton);
+        let startButton1 = document.createElement('button');
+        startButton1.innerText = 'Start';
+        startContainer.appendChild(startButton1);
 
         let finishButton = document.createElement('button');
         finishButton.innerText = 'Finish';
         finishContainer.appendChild(finishButton);
 
-        startButton.addEventListener('click', function() {
+        startButton1.addEventListener('click', function() {
             behaviorData = [];
             copyCount = 0;
             console.log('Behavior data cleared.');
@@ -448,9 +402,20 @@
             exportBehaviorData();
             startContainer.style.display = 'block';
         });
+
+    // shen
+        createTimerDisplay();
+        const startButton = document.querySelector(CONFIG.QUERY_SEND_BTN);
+        startButton.addEventListener('click', function() {
+            behaviorData = [];
+            console.log('Behavior data cleared.');
+            alert('Start Now!');
+            startTimer();
+            recordAndExportData(); // Ensure data recording is triggered
+        });
     }
 
-    function exportBehaviorData() {
+function exportBehaviorData() {
         let dataStr = JSON.stringify(behaviorData, null, 2);
         let blob = new Blob([dataStr], { type: 'application/json' });
         let url = URL.createObjectURL(blob);
@@ -462,18 +427,17 @@
         console.log('Behavior data exported:', dataStr);
     }
 
-    // Initialize the script
+    // Main initialization function
     function init() {
-        if (checkValidPage()) {
-            createCenterMessageDisplay();
-            createTimerDisplay();
-            setupUI();
-            addEventListeners();
-            setupInputMonitoring();
-            initObserver();
+        if (!checkValidPage()) {
+            return;
         }
+        addEventListeners();
+        setupInputMonitoring();
+        setupUI();
     }
 
-    // Run the initialization
+    // Start the script
     init();
+
 })();

@@ -11,26 +11,26 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.
 
 
 # 改1：修改要查找的位置（注意第一个为下面的form名称）
-SAMPLE_SPREADSHEET_ID = '1_EGcwlFPrtT2xt7WKWKfuRgIllJZ4AQDePzVlnDYjJQ'
+SAMPLE_SPREADSHEET_ID = '1ZG7qG4TM18bryfju3t-kPsgM9j4hppVtc5czHhDG0t0'
 # # A GPT
-# SAMPLE_RANGE_NAME = 'A!R2:R'
-# # A tasksheet
 # SAMPLE_RANGE_NAME = 'A!S2:S'
+# # A tasksheet
+# SAMPLE_RANGE_NAME = 'A!T2:T'
 
 ## B GPT
-# SAMPLE_RANGE_NAME = 'B!R2:R'
-## B tasksheet
 # SAMPLE_RANGE_NAME = 'B!S2:S'
+## B tasksheet
+# SAMPLE_RANGE_NAME = 'B!T2:T'
 
 ## C GPT
-# SAMPLE_RANGE_NAME = 'C!V2:V'
-## C tasksheet
 # SAMPLE_RANGE_NAME = 'C!W2:W'
+## C tasksheet
+# SAMPLE_RANGE_NAME = 'C!X2:X'
 
 # D GPT
-SAMPLE_RANGE_NAME = 'D!V2:V'
-# # D tasksheet
 # SAMPLE_RANGE_NAME = 'D!W2:W'
+# # D tasksheet
+SAMPLE_RANGE_NAME = 'D!X2:X'
 
 
 def download_file_from_google_drive(file_id, destination):
@@ -45,7 +45,7 @@ def download_file_from_google_drive(file_id, destination):
                 f.write(chunk)
 
 #改2：下载的文件位置
-DOWNLOAD_FOLDER = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_30ppl\\gpt'
+DOWNLOAD_FOLDER = 'C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\bahaviordata_40ppl\\tasksheet'
 def main():
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
