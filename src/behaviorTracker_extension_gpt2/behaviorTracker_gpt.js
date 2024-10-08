@@ -1,4 +1,3 @@
-// behaviorTracker_nextChat.js
 (function() {
     // Constants and configurations
     const CONFIG = {
@@ -11,6 +10,7 @@
 
     // Variables
     let behaviorData = [];
+    let lastMessageSentTime = null;
     let totalMouseMovement = 0;
     let idleTimer;
     let lastActionTime = Date.now();
@@ -311,6 +311,22 @@
             }
         }, 1000);
     }
+    
+    function recordMessageSentTime() {
+        const currentTime = new Date();
+        if (lastMessageSentTime !== null) {
+            const timeInterval = currentTime - lastMessageSentTime;
+            const messageIntervalData = {
+                type: 'messageInterval',
+                startTime: lastMessageSentTime.toLocaleString(),
+                endTime: currentTime.toLocaleString(),
+                duration: timeInterval
+            };
+            behaviorData.push(messageIntervalData);
+            console.log('Message interval (ms):', timeInterval);
+        }
+        lastMessageSentTime = currentTime;
+    }
 
 
     // Input monitoring
@@ -321,12 +337,31 @@
                 startTime = new Date();
                 console.log('Start typing at:', startTime.toLocaleString());
             }
+            // Check if user pressed ctrl+enter
+            if (event.ctrlKey && event.key === 'Enter') {
+                recordMessageSentTime();
+            }
         });
 
         inputBox.addEventListener('input', function(event) {
             userInput = inputBox.value;
         });
+
+        let button = document.querySelector('.button_icon-button__VwAMf.undefined.undefined.chat_chat-input-send__GFQZo.clickable.button_primary__dwYZ6');
+        let lastClickTime = null;
+
+        button.addEventListener('click', function() {
+            let currentTime = new Date();
+            if (lastClickTime !== null) {
+                let interval = currentTime - lastClickTime;
+                console.log(`Interval between clicks: ${interval} ms`);
+            }
+            lastClickTime = currentTime;
+            recordMessageSentTime(); // Ensure data recording is triggered
+        });
     }
+
+
 
     function recordAndExportData() {
         if (startTime !== null) {
@@ -350,7 +385,10 @@
             userInput = '';
             textLength = 0;
         }
+        // Record the time of the last message sent
+        recordMessageSentTime();
     }
+
 
     // UI setup
     function setupUI() {
