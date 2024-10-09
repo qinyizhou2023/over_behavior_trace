@@ -312,9 +312,20 @@
         }, 1000);
     }
     
+    let firstTimeNotNull = null;
+    
     function recordMessageSentTime() {
         const currentTime = new Date();
         if (lastMessageSentTime !== null) {
+            if (firstTimeNotNull === null) {
+                firstTimeNotNull = currentTime;
+                const firstNotNullData = {
+                    type: 'firstNotNull',
+                    time: firstTimeNotNull.toLocaleString()
+                };
+                behaviorData.push(firstNotNullData);
+                console.log('First time that lastMessageSentTime becomes not null:', firstTimeNotNull.toLocaleString());
+            }
             const timeInterval = currentTime - lastMessageSentTime;
             const messageIntervalData = {
                 type: 'messageInterval',
@@ -324,7 +335,8 @@
             };
             behaviorData.push(messageIntervalData);
             console.log('Message interval (ms):', timeInterval);
-        }
+        } 
+            
         lastMessageSentTime = currentTime;
     }
 
