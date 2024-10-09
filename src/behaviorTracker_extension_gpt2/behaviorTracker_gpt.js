@@ -113,9 +113,20 @@
         document.addEventListener('mousemove', handleUserAction);
         document.addEventListener('keypress', handleUserAction);
         document.addEventListener('scroll', handleUserAction);
+        document.addEventListener('visibilitychange', handleVisibilityChangeEvent);
     }
 
     // Event handlers
+
+    function handleVisibilityChangeEvent() {
+        let visibilityData = {
+            type: 'visibilityChange',
+            timestamp: formatTimestamp(Date.now()),
+            isHidden: document.hidden
+        };
+        behaviorData.push(visibilityData);
+        console.log('Visibility change event:', visibilityData);
+    }
    function handleWheelEvent(event) {
         let mousewheelData = {
             type: 'mousewheel',
