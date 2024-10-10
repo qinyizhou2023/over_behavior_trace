@@ -25,7 +25,7 @@
     let userInput = '';
     let textLength = 0;
     let countdownTimer;
-    let timeLeft = 18 * 60; // 18 minutes in seconds
+    let timeLeft = 15 * 60; // 15 minutes in seconds
     let timerDisplay;
     let warningDisplay;
 
@@ -49,7 +49,7 @@
 
     // Timer functions
     function startTimer() {
-        timeLeft = 18 * 60; // Reset time to 18 minutes
+        timeLeft = 15 * 60; // Reset time to 15 minutes
         updateTimerDisplay();
         countdownTimer = setInterval(updateTimer, 1000);
     }

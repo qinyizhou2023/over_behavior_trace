@@ -2,7 +2,7 @@
 // behaviorTracker_notion.js
 (function() {
     // Constants and variables
-    const TIMER_DURATION = 18 * 60; // 18 minutes in seconds
+    const TIMER_DURATION = 15 * 60; // 15 minutes in seconds
     let countdownTimer;
     let timeLeft = TIMER_DURATION;
     let timerDisplay;
