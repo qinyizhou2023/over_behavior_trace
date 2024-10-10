@@ -482,7 +482,7 @@ function exportBehaviorData() {
         let url = URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = 'gpt_data.json';
+        a.download = 'gpt_data.txt';
         a.click();
         URL.revokeObjectURL(url);
         console.log('Behavior data exported:', dataStr);
