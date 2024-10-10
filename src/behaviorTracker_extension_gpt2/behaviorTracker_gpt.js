@@ -162,7 +162,7 @@
             idleTimes.push(idleData);
             behaviorData.push(idleData);
             console.log('User is idle:', idleTimes[idleTimes.length - 1]);
-        }, 2000); // 2 seconds of inactivity
+        }, 3000); // 3 seconds of inactivity
     }
 
     // Event handlers
