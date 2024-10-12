@@ -57,9 +57,9 @@
         timeLeft--;
         updateTimerDisplay();
 
-        if (timeLeft <= 100 && timeLeft > 60) {
+        if (timeLeft <= 450 && timeLeft > 180) {
         warningDisplay.textContent = "Warning: Half of the time has passed.";
-    } else if (timeLeft <= 60 && timeLeft > 0) {
+    } else if (timeLeft <= 180 && timeLeft > 0) {
         warningDisplay.textContent = "Warning: Time is almost up.";
     } else if (timeLeft <= 0) {
         stopTimer();
