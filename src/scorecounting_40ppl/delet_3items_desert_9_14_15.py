@@ -15,7 +15,7 @@ group_withAI = ['B', 'C']
 
 # 定义A组和D组
 group_alone = ['A', 'D']
-correct_ranks = [4,	6,	12,	7,	11,	10,	8,	5,	15,	3,	13,	9,	14]
+correct_ranks = [4,	6,	12,	7,	11,	10,	8,	5,	3,	13,	9,	14]
 
 # 从CSV文件中读取数据
 with open(file_path, mode='r', encoding='utf-8') as file:

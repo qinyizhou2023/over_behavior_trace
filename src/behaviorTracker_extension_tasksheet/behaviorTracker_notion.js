@@ -57,7 +57,9 @@
         timeLeft--;
         updateTimerDisplay();
 
-        if (timeLeft <= 120 && timeLeft > 0) {
+        if (timeLeft <= 60 && timeLeft > 0) {
+            warningDisplay.textContent = "Warning: Half of the time has passed.";
+        if (timeLeft <= 100 && timeLeft > 0) {
             warningDisplay.textContent = "Warning: Time is almost up.";
         } else if (timeLeft <= 0) {
             stopTimer();
@@ -307,7 +309,7 @@
         let url = URL.createObjectURL(blob);
         let a = document.createElement('a');
         a.href = url;
-        a.download = 'tasksheet_data.json';
+        a.download = 'tasksheet_data.txt';
         a.click();
         URL.revokeObjectURL(url);
         console.log('Behavior data exported:', dataStr);
