@@ -57,16 +57,16 @@
         timeLeft--;
         updateTimerDisplay();
 
-        if (timeLeft <= 60 && timeLeft > 0) {
-            warningDisplay.textContent = "Warning: Half of the time has passed.";
-        if (timeLeft <= 100 && timeLeft > 0) {
-            warningDisplay.textContent = "Warning: Time is almost up.";
-        } else if (timeLeft <= 0) {
-            stopTimer();
-            warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
-            showCenterMessage("Time is out, click 'Finish' and download the file");
-        }
+        if (timeLeft <= 100 && timeLeft > 60) {
+        warningDisplay.textContent = "Warning: Half of the time has passed.";
+    } else if (timeLeft <= 60 && timeLeft > 0) {
+        warningDisplay.textContent = "Warning: Time is almost up.";
+    } else if (timeLeft <= 0) {
+        stopTimer();
+        warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
+        showCenterMessage("Time is out, click 'Finish' and download the file");
     }
+}
 
     function stopTimer() {
         clearInterval(countdownTimer);
