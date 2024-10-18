@@ -1,14 +1,15 @@
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 import statistics
 import numpy as np
 import pytz
 import pandas as pd
 
 # 改1： gpt/tasksheet
-directory = './'
+directory = './task1_1_10.16'
 all_results = []
+timezone_fix = timedelta(hours=7)
 
 ignored_keycodes = {13, 16, 17, 18, 20, 27, 91, 93}
 
@@ -23,6 +24,9 @@ def process_prompt_data(data):
         if event["type"] == "firstNotNull":
             first_message_time = datetime.strptime(event['time'],
                                                    '%m/%d/%Y, %I:%M:%S %p')
+            # add 9 hours to match the timezone
+            first_message_time = first_message_time.replace(
+                tzinfo=pytz.timezone('UTC')) + timezone_fix
             send_count += 1
 
         if event["type"] == "messageInterval":
@@ -34,7 +38,6 @@ def process_prompt_data(data):
             message_sent_interval = end_time - start_time
             message_sent_interval = message_sent_interval.total_seconds()
             prompts_duration_time.append(message_sent_interval)
-
     return {
         "first_time_send_message": first_message_time,
         "prompts_count": send_count,
@@ -69,7 +72,7 @@ def process_tab_switch_data(data):
 
 # 遍历目录中的每个文件
 for filename in os.listdir(directory):
-    if filename.endswith(".json"):
+    if 'GPT_gpt_data' in filename:
         file_path = os.path.join(directory, filename)
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
@@ -194,9 +197,11 @@ for filename in os.listdir(directory):
         med_idle_duration = statistics.median(
             idle_duration) if idle_duration else 0
 
+        # only calculate time difference on minutes and seconds, ignore hours and bigger units
+        # print(prompt_statistics['first_time_send_message'])
+        # print(prompt_start_time)
         first_prompt_time = prompt_statistics[
-            'first_time_send_message'].replace(
-                tzinfo=pytz.timezone('UTC')) - prompt_start_time
+            'first_time_send_message'] - prompt_start_time
         first_prompt_time = first_prompt_time.total_seconds()
         prompt_durations = prompt_statistics['prompts_duration_time'] + [
             first_prompt_time
@@ -207,7 +212,7 @@ for filename in os.listdir(directory):
         # 构建当前文件的结果字典
         current_result = {
             "filename":
-            filename,
+            filename.split('_')[0][2:],
             "total_focus_time":
             total_focus_time,
             "windowswitch_count":
