@@ -1,0 +1,5 @@
+filename_gpt,average_copy_length_gpt,average_highlight_length_gpt,average_mousewheel_distance_gpt,average_paste_length_gpt,average_prompt_duration_gpt,click_count_gpt,copy_count_gpt,delete_count_gpt,highlight_count_gpt,idle_count_gpt,keypress_count_gpt,med_copy_length_gpt,med_highlight_length_gpt,med_idle_duration_gpt,med_mousewheel_distance_gpt,med_paste_length_gpt,med_prompt_duration_gpt,mousewheel_count_gpt,paste_count_gpt,total_idle_duration_gpt,total_mouse_movement_gpt,total_mousewheel_distance_gpt,total_working_time_gpt,totaltime_gpt,windowswitch_count_gpt,windowswitch_speed_gpt
+B8.json,24.06666667,21.94736842,100,1887,22.95666667,35,15,37,19,31,309,25,23,2008,100,1887,10.141,26,1,62280,28943.68711,2600,382.106,382.106,25,15.28424
+B9.json,0,0,0,37,1.787714286,11,0,0,0,9,0,0,0,2003,0,33,1.529,0,7,18041,25959.32131,0,261.719,261.719,9,29.07988889
+C10.json,24.06666667,22.64705882,100,0,37.944,31,15,37,17,34,353,25,23,2009,100,0,24.6685,59,0,68292,25005.95405,5900,381.519,381.519,21,18.16757143
+C9.json,0,447,102.8089888,425.5714286,12.439,17,0,6,2,52,2,0,447,2006.5,100,368,5.294,356,7,104381,34184.06653,36600,748.042,748.042,16,46.752625
