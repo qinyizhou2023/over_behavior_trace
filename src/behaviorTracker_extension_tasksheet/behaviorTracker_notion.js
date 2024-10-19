@@ -57,16 +57,16 @@
         timeLeft--;
         updateTimerDisplay();
 
-        if (timeLeft <= 60 && timeLeft > 0) {
-            warningDisplay.textContent = "Warning: Half of the time has passed.";
-        if (timeLeft <= 100 && timeLeft > 0) {
-            warningDisplay.textContent = "Warning: Time is almost up.";
-        } else if (timeLeft <= 0) {
-            stopTimer();
-            warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
-            showCenterMessage("Time is out, click 'Finish' and download the file");
-        }
+        if (timeLeft <= 450 && timeLeft > 180) {
+        warningDisplay.textContent = "Warning: Half of the time has passed.";
+    } else if (timeLeft <= 180 && timeLeft > 0) {
+        warningDisplay.textContent = "Warning: Time is almost up.";
+    } else if (timeLeft <= 0) {
+        stopTimer();
+        warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
+        showCenterMessage("Time is out, click 'Finish' and download the file");
     }
+}
 
     function stopTimer() {
         clearInterval(countdownTimer);
@@ -135,6 +135,8 @@
         warningDisplay.style.right = '10px';
         warningDisplay.style.zIndex = 1000;
         warningDisplay.style.color = 'red';
+        warningDisplay.style.fontSize = '24px';  // 增大字体
+        warningDisplay.style.fontWeight = 'bold';  // 加粗字体
         document.body.appendChild(warningDisplay);
 
         startButton.addEventListener('click', function() {

@@ -142,7 +142,6 @@ merged_total_differences = [(participant, total_difference) for participant, tot
 print("\n合并的总分差异列表：")
 print("new_participants_score_moon =", merged_total_differences)
 
-
 def calculate_average_ranks(participants_scores):
     num_items = len(participants_scores[0][1])
     sum_ranks = [0] * num_items
@@ -152,8 +151,7 @@ def calculate_average_ranks(participants_scores):
     average_ranks = [round(sum_rank / len(participants_scores), 2) for sum_rank in sum_ranks]
     return average_ranks
 
-
-def calculate_rank_variances(participants_scores):
+def calculate_rank_sd(participants_scores):
     num_items = len(participants_scores[0][1])
     average_ranks = calculate_average_ranks(participants_scores)
 
@@ -162,23 +160,24 @@ def calculate_rank_variances(participants_scores):
         for i, rank in enumerate(scores):
             sum_squared_diff[i] += (rank - average_ranks[i]) ** 2
 
-    variances = [round(sum_diff / len(participants_scores), 2) for sum_diff in sum_squared_diff]
-    return variances
+    variances = [sum_diff / len(participants_scores) for sum_diff in sum_squared_diff]
+    sds = [round(math.sqrt(variance), 2) for variance in variances]
+    return sds
 
-
-# 计算每个物品的平均排名
+# Calculate average ranks and standard deviations
 average_each_item = calculate_average_ranks(participants_scores)
-# 计算每个物品排名的方差
-variance_each_item = calculate_rank_variances(participants_scores)
+sd_each_item = calculate_rank_sd(participants_scores)
 
-# 打印总结
+# Print summary
 print("\n总结：")
 print(f"A 组平均总分: {group_a_avg}, 标准差: {group_a_sd}")
 print(f"B 组平均总分 {group_b_avg}, 标准差: {group_b_sd}")
 print(f"所有用户平均总分: {all_avg}, 标准差: {all_sd}")
 
-# 打印每个物品的平均排名
+# Print average ranks for each item
 print("\n每个物品的平均排名：")
 print(f"average_each_item = {average_each_item}")
-print("\n每个物品的排名方差：")
-print(f"SD_each_item= {variance_each_item}")
+
+# Print standard deviations for each item's ranking
+print("\n每个物品排名的标准差：")
+print(f"SD_each_item = {sd_each_item}")

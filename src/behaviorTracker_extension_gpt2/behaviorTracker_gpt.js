@@ -1,4 +1,4 @@
-(function () {
+(function() {
     // Constants and configurations
     const CONFIG = {
         KEYWORD_STREAMING: "result-streaming",
@@ -64,17 +64,16 @@
         timeLeft--;
         updateTimerDisplay();
 
-        if (timeLeft <= 60 && timeLeft > 0) {
-            warningDisplay.textContent = "Warning: Half of the time has passed.";
-            if (timeLeft <= 100 && timeLeft > 0) {
-                warningDisplay.textContent = "Warning: Time is almost up.";
-            } else if (timeLeft <= 0) {
-                stopTimer();
-                warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
-                showCenterMessage("Time is out, click 'Finish' and download the file");
-            }
-        }
+       if (timeLeft <= 450 && timeLeft > 180) {
+        warningDisplay.textContent = "Warning: Half of the time has passed.";
+    } else if (timeLeft <= 180 && timeLeft > 0) {
+        warningDisplay.textContent = "Warning: Time is almost up.";
+    } else if (timeLeft <= 0) {
+        stopTimer();
+        warningDisplay.textContent = "Time's up! Click 'Finish' to save your data.";
+        showCenterMessage("Time is out, click 'Finish' and download the file");
     }
+}
 
     function updateTimerDisplay() {
         let minutes = Math.floor(timeLeft / 60);
@@ -98,6 +97,8 @@
         warningDisplay.style.right = '10px';
         warningDisplay.style.zIndex = 1000;
         warningDisplay.style.color = 'red';
+        warningDisplay.style.fontSize = '24px';  // 增大字体
+        warningDisplay.style.fontWeight = 'bold';  // 加粗字体
         document.body.appendChild(warningDisplay);
     }
 
@@ -130,7 +131,7 @@
         behaviorData.push(visibilityData);
         console.log('Visibility change event:', visibilityData);
     }
-    function handleWheelEvent(event) {
+   function handleWheelEvent(event) {
         let mousewheelData = {
             type: 'mousewheel',
             timestamp: new Date().toISOString(),
@@ -157,7 +158,7 @@
         lastActionTime = Date.now();
         clearTimeout(idleTimer);
         idleTimer = setTimeout(() => {
-            idleData = {
+             idleData = {
                 type: 'idle',
                 timestamp: new Date().toISOString(),
                 duration: Date.now() - lastActionTime
@@ -274,7 +275,7 @@
         console.log('Keypress event:', keyPressData);
     }
 
-    // Streaming observer
+ // Streaming observer
     function initObserver() {
         const targetNode = document.querySelector(CONFIG.QUERY_CHAT_DIV);
         const config = { childList: true, subtree: true };
@@ -325,9 +326,9 @@
             }
         }, 1000);
     }
-
+    
     let firstTimeNotNull = null;
-
+    
     function recordMessageSentTime() {
         const currentTime = new Date();
         if (firstTimeNotNull === null) {
@@ -349,8 +350,8 @@
             };
             behaviorData.push(messageIntervalData);
             console.log('Message interval (ms):', timeInterval);
-        }
-
+        } 
+            
         lastMessageSentTime = currentTime;
     }
 
@@ -358,7 +359,7 @@
     // Input monitoring
     function setupInputMonitoring() {
         const inputBox = document.querySelector(CONFIG.ID_PROMPT_INPUT);
-        inputBox.addEventListener('keydown', function (event) {
+        inputBox.addEventListener('keydown', function(event) {
             if (startTime === null) {
                 startTime = new Date();
                 console.log('Start typing at:', startTime.toLocaleString());
@@ -369,14 +370,14 @@
             }
         });
 
-        inputBox.addEventListener('input', function (event) {
+        inputBox.addEventListener('input', function(event) {
             userInput = inputBox.value;
         });
 
         let button = document.querySelector('.button_icon-button__VwAMf.undefined.undefined.chat_chat-input-send__GFQZo.clickable.button_primary__dwYZ6');
         let lastClickTime = null;
 
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function() {
             let currentTime = new Date();
             if (lastClickTime !== null) {
                 let interval = currentTime - lastClickTime;
@@ -452,7 +453,7 @@
         finishButton.innerText = 'Finish';
         finishContainer.appendChild(finishButton);
 
-        startButton1.addEventListener('click', function () {
+        startButton1.addEventListener('click', function() {
             behaviorData = [];
             copyCount = 0;
             console.log('Behavior data cleared.');
@@ -461,16 +462,16 @@
             startContainer.style.display = 'none';
         });
 
-        finishButton.addEventListener('click', function () {
+        finishButton.addEventListener('click', function() {
             clearInterval(countdownTimer);
             exportBehaviorData();
             startContainer.style.display = 'block';
         });
 
-        // shen
+    // shen
         createTimerDisplay();
         const startButton = document.querySelector(CONFIG.QUERY_SEND_BTN);
-        startButton.addEventListener('click', function () {
+        startButton.addEventListener('click', function() {
             behaviorData = [];
             console.log('Behavior data cleared.');
             alert('Start Now!');
@@ -479,7 +480,7 @@
         });
     }
 
-    function exportBehaviorData() {
+function exportBehaviorData() {
         let dataStr = JSON.stringify(behaviorData, null, 2);
         let blob = new Blob([dataStr], { type: 'application/json' });
         let url = URL.createObjectURL(blob);
