@@ -1,30 +1,5 @@
-# import csv
-# import ast
-# import numpy as np
-# import pandas as pd
-#
-# # 读取CSV文件
-# data = []
-# with open('C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\scorecounting_30ppl\\rank_desert.csv', 'r') as file:
-#     reader = csv.reader(file)
-#     next(reader)  # Skip the header
-#     for row in reader:
-#         participant = row[0]
-#         scores = ast.literal_eval(row[1])  # Convert string representation of list to actual list
-#         data.append((participant, scores))
-#
-# # 将数据转换为DataFrame
-# df = pd.DataFrame(data, columns=['Participant', 'Scores'])
-#
-# # 将每个用户的Scores列展开成独立的列
-# scores_df = pd.DataFrame(df['Scores'].tolist(), index=df['Participant'])
-# scores_df.columns = [f'Item_{i+1}' for i in range(scores_df.shape[1])]
-#
-# # 计算每个物品的平均rank值
-# average_ranks = scores_df.mean()
-#
-# # 打印结果
-# print(average_ranks)
+
+
 
 import csv
 import ast

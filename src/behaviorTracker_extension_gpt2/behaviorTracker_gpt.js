@@ -97,6 +97,8 @@
         warningDisplay.style.right = '10px';
         warningDisplay.style.zIndex = 1000;
         warningDisplay.style.color = 'red';
+        warningDisplay.style.fontSize = '24px';  // 增大字体
+        warningDisplay.style.fontWeight = 'bold';  // 加粗字体
         document.body.appendChild(warningDisplay);
     }
 

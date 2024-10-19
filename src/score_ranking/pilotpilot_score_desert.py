@@ -145,3 +145,35 @@ print(f"所有用户平均总分: {all_avg}, 标准差: {all_sd}")
 # 打印每个物品的平均排名
 print("\n每个物品的平均排名：")
 print(f"average_each_item = {average_each_item}")
+
+
+#计算方差
+def calculate_item_ranking_sd(participants_scores):
+    num_items = len(participants_scores[0][1])
+    num_participants = len(participants_scores)
+
+    # Calculate mean ranking for each item
+    item_sums = [sum(participant[1][i] for participant in participants_scores) for i in range(num_items)]
+    item_means = [item_sum / num_participants for item_sum in item_sums]
+
+    # Calculate squared differences from the mean
+    squared_diffs = [[0] * num_items for _ in range(num_participants)]
+    for i, (_, scores) in enumerate(participants_scores):
+        for j, score in enumerate(scores):
+            squared_diffs[i][j] = (score - item_means[j]) ** 2
+
+    # Calculate variance and then standard deviation
+    item_variances = [sum(row[i] for row in squared_diffs) / num_participants for i in range(num_items)]
+    item_sds = [math.sqrt(variance) for variance in item_variances]
+
+    return item_sds
+
+
+# Use the existing participants_scores data
+item_sds = calculate_item_ranking_sd(participants_scores)
+
+print("\nStandard Deviations for each item's ranking:")
+for i, sd in enumerate(item_sds, 1):
+    print(f"Item {i}: {sd:.2f}")
+
+print("\nitem_ranking_sds =", [round(sd, 2) for sd in item_sds])
