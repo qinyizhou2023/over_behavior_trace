@@ -60,7 +60,7 @@ def main():
                                       range='D!U2:U').execute().get('values', [])
 
     if not values:
-        print('No data found.')
+        print('No rawdata found.')
     else:
         for i, (row, user_number) in enumerate(zip(values, user_numbers), start=1):
             if len(row) >= 2:  # 确保行至少有两列

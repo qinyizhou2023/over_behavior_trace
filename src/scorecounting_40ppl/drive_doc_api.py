@@ -83,12 +83,12 @@ def main():
     values = result.get('values', [])
 
     if not values:
-        print('No data found.')
+        print('No rawdata found.')
     else:
         # Open the CSV file for writing
         with open(OUTPUT_FILE, mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            # Write the data
+            # Write the rawdata
             for i, row in enumerate(values, start=1):
                 if row:  # Check if the row has any values
                     print(f'{row[0]}')

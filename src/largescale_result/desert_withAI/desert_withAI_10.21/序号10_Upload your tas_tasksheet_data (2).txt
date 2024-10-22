@@ -1,0 +1,5183 @@
+[
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:32:32.081Z",
+    "target": "BUTTON",
+    "x": 588,
+    "y": 23
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.832Z",
+    "totalMouseMovement": 6125.126337160434
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.849Z",
+    "totalMouseMovement": 6126.540550722807
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.899Z",
+    "totalMouseMovement": 6142.571770264688
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.915Z",
+    "totalMouseMovement": 6164.571770264688
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.933Z",
+    "totalMouseMovement": 6198.6305429965405
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:33.949Z",
+    "totalMouseMovement": 6256.708077379467
+  },
+  {
+    "type": "idle",
+    "timestamp": "2024-10-19T12:32:36.957Z",
+    "duration": 3008
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.214Z",
+    "totalMouseMovement": 6266.194910359972
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.231Z",
+    "totalMouseMovement": 6280.337045983702
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.245Z",
+    "totalMouseMovement": 6295.469791934124
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.262Z",
+    "totalMouseMovement": 6321.546601554935
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.279Z",
+    "totalMouseMovement": 6345.546601554935
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.295Z",
+    "totalMouseMovement": 6366.641624664663
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.312Z",
+    "totalMouseMovement": 6399.883164941853
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.328Z",
+    "totalMouseMovement": 6427.342225377344
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.345Z",
+    "totalMouseMovement": 6451.673275498537
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.362Z",
+    "totalMouseMovement": 6477.634785470032
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.379Z",
+    "totalMouseMovement": 6488.451439296424
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.395Z",
+    "totalMouseMovement": 6494.854563533857
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.412Z",
+    "totalMouseMovement": 6498.016841194025
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.428Z",
+    "totalMouseMovement": 6500.845268318771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.445Z",
+    "totalMouseMovement": 6503.845268318771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.462Z",
+    "totalMouseMovement": 6510.248392556204
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.478Z",
+    "totalMouseMovement": 6513.8539438316675
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.495Z",
+    "totalMouseMovement": 6520.257068069101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.512Z",
+    "totalMouseMovement": 6524.7292040241
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.528Z",
+    "totalMouseMovement": 6528.852309649717
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.545Z",
+    "totalMouseMovement": 6529.852309649717
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.561Z",
+    "totalMouseMovement": 6530.852309649717
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.578Z",
+    "totalMouseMovement": 6533.088377627218
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.595Z",
+    "totalMouseMovement": 6538.473542434352
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.612Z",
+    "totalMouseMovement": 6545.753652323632
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.628Z",
+    "totalMouseMovement": 6553.999863574868
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.645Z",
+    "totalMouseMovement": 6560.082626105166
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.662Z",
+    "totalMouseMovement": 6569.082626105166
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.678Z",
+    "totalMouseMovement": 6580.127987122353
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.695Z",
+    "totalMouseMovement": 6593.280933560319
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.712Z",
+    "totalMouseMovement": 6607.598754623595
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.728Z",
+    "totalMouseMovement": 6618.369084237864
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.745Z",
+    "totalMouseMovement": 6622.841220192863
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.762Z",
+    "totalMouseMovement": 6624.2554337552365
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.778Z",
+    "totalMouseMovement": 6626.2554337552365
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.795Z",
+    "totalMouseMovement": 6627.2554337552365
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.811Z",
+    "totalMouseMovement": 6628.2554337552365
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.828Z",
+    "totalMouseMovement": 6630.491501732737
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.845Z",
+    "totalMouseMovement": 6631.491501732737
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.862Z",
+    "totalMouseMovement": 6635.0970530082
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.878Z",
+    "totalMouseMovement": 6638.702604283664
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.895Z",
+    "totalMouseMovement": 6642.945244970783
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.912Z",
+    "totalMouseMovement": 6650.75549464669
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.928Z",
+    "totalMouseMovement": 6655.75549464669
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.944Z",
+    "totalMouseMovement": 6664.357819913733
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.961Z",
+    "totalMouseMovement": 6670.188771808578
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.978Z",
+    "totalMouseMovement": 6685.841247651077
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:38.995Z",
+    "totalMouseMovement": 6693.45702075694
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.011Z",
+    "totalMouseMovement": 6708.721358279414
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.028Z",
+    "totalMouseMovement": 6711.54978540416
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.044Z",
+    "totalMouseMovement": 6718.760887955087
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.066Z",
+    "totalMouseMovement": 6720.996955932587
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.290Z",
+    "totalMouseMovement": 6721.996955932587
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.302Z",
+    "totalMouseMovement": 6722.996955932587
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.311Z",
+    "totalMouseMovement": 6723.996955932587
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.328Z",
+    "totalMouseMovement": 6727.159233592755
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.344Z",
+    "totalMouseMovement": 6730.321511252923
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.361Z",
+    "totalMouseMovement": 6733.321511252923
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.378Z",
+    "totalMouseMovement": 6735.5575792304235
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:39.394Z",
+    "totalMouseMovement": 6736.5575792304235
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:40.308Z",
+    "totalMouseMovement": 6737.971792792797
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:40.322Z",
+    "totalMouseMovement": 6738.971792792797
+  },
+  {
+    "type": "idle",
+    "timestamp": "2024-10-19T12:32:43.336Z",
+    "duration": 3013
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:44.163Z",
+    "totalMouseMovement": 6740.971792792797
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:44.174Z",
+    "totalMouseMovement": 6741.971792792797
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:44.224Z",
+    "totalMouseMovement": 6742.971792792797
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:44.240Z",
+    "totalMouseMovement": 6744.971792792797
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:46.805Z",
+    "totalMouseMovement": 6747.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.219Z",
+    "totalMouseMovement": 6748.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.221Z",
+    "totalMouseMovement": 6749.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.238Z",
+    "totalMouseMovement": 6750.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.258Z",
+    "totalMouseMovement": 6752.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.492Z",
+    "totalMouseMovement": 6754.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.504Z",
+    "totalMouseMovement": 6758.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.521Z",
+    "totalMouseMovement": 6760.207860770297
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:47.737Z",
+    "totalMouseMovement": 6762.207860770297
+  },
+  {
+    "type": "idle",
+    "timestamp": "2024-10-19T12:32:50.748Z",
+    "duration": 3011
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:55.465Z",
+    "totalMouseMovement": 6770.81018603734
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:55.481Z",
+    "totalMouseMovement": 6776.195350844474
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:55.499Z",
+    "totalMouseMovement": 6777.195350844474
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:55.515Z",
+    "totalMouseMovement": 6778.195350844474
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:55.531Z",
+    "totalMouseMovement": 6779.195350844474
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.643Z",
+    "totalMouseMovement": 6780.195350844474
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.647Z",
+    "totalMouseMovement": 6782.431418821974
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.664Z",
+    "totalMouseMovement": 6785.431418821974
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.681Z",
+    "totalMouseMovement": 6786.431418821974
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.731Z",
+    "totalMouseMovement": 6787.8456323843475
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.747Z",
+    "totalMouseMovement": 6791.0079100445155
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.764Z",
+    "totalMouseMovement": 6793.0079100445155
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.781Z",
+    "totalMouseMovement": 6797.0079100445155
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.797Z",
+    "totalMouseMovement": 6805.070167792814
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.814Z",
+    "totalMouseMovement": 6822.534416989387
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.831Z",
+    "totalMouseMovement": 6853.063092034335
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.847Z",
+    "totalMouseMovement": 6868.8744803351765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.864Z",
+    "totalMouseMovement": 6881.0810359509105
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.880Z",
+    "totalMouseMovement": 6893.730146591584
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.897Z",
+    "totalMouseMovement": 6902.274150336902
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.914Z",
+    "totalMouseMovement": 6911.7609833174065
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.931Z",
+    "totalMouseMovement": 6921.660478254018
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.947Z",
+    "totalMouseMovement": 6935.978299317294
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.964Z",
+    "totalMouseMovement": 6946.418605826205
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.980Z",
+    "totalMouseMovement": 6965.418605826205
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:56.997Z",
+    "totalMouseMovement": 6976.418605826205
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.014Z",
+    "totalMouseMovement": 6996.642354242362
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.030Z",
+    "totalMouseMovement": 7008.044108493353
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.047Z",
+    "totalMouseMovement": 7021.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.064Z",
+    "totalMouseMovement": 7025.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.081Z",
+    "totalMouseMovement": 7026.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.147Z",
+    "totalMouseMovement": 7029.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.164Z",
+    "totalMouseMovement": 7031.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.181Z",
+    "totalMouseMovement": 7035.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.197Z",
+    "totalMouseMovement": 7036.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.214Z",
+    "totalMouseMovement": 7037.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.231Z",
+    "totalMouseMovement": 7038.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.247Z",
+    "totalMouseMovement": 7040.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:57.280Z",
+    "totalMouseMovement": 7042.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:58.735Z",
+    "totalMouseMovement": 7043.197054931318
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:58.937Z",
+    "totalMouseMovement": 7044.611268493692
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:58.947Z",
+    "totalMouseMovement": 7045.611268493692
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:32:58.962Z",
+    "totalMouseMovement": 7046.611268493692
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:01.546Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.644Z",
+    "totalMouseMovement": 7048.025482056065
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.661Z",
+    "totalMouseMovement": 7049.025482056065
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.764Z",
+    "totalMouseMovement": 7050.025482056065
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.777Z",
+    "totalMouseMovement": 7051.439695618438
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.835Z",
+    "totalMouseMovement": 7052.439695618438
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.843Z",
+    "totalMouseMovement": 7053.853909180812
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:01.860Z",
+    "totalMouseMovement": 7054.853909180812
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:33:02.057Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:02.143Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.421Z",
+    "totalMouseMovement": 7057.853909180812
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.426Z",
+    "totalMouseMovement": 7060.853909180812
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.443Z",
+    "totalMouseMovement": 7065.853909180812
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.460Z",
+    "totalMouseMovement": 7069.01618684098
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.476Z",
+    "totalMouseMovement": 7072.01618684098
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:33:02.653Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.727Z",
+    "totalMouseMovement": 7074.01618684098
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.742Z",
+    "totalMouseMovement": 7076.01618684098
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.759Z",
+    "totalMouseMovement": 7081.115206354572
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.776Z",
+    "totalMouseMovement": 7085.23831198019
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.792Z",
+    "totalMouseMovement": 7089.710447935189
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.809Z",
+    "totalMouseMovement": 7092.538875059935
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.826Z",
+    "totalMouseMovement": 7096.144426335399
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.843Z",
+    "totalMouseMovement": 7100.616562290398
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.859Z",
+    "totalMouseMovement": 7105.088698245398
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:02.876Z",
+    "totalMouseMovement": 7108.250975905566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.043Z",
+    "totalMouseMovement": 7109.250975905566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.059Z",
+    "totalMouseMovement": 7114.6361407127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.075Z",
+    "totalMouseMovement": 7140.131238280664
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.093Z",
+    "totalMouseMovement": 7156.255753777261
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.109Z",
+    "totalMouseMovement": 7179.255753777261
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.126Z",
+    "totalMouseMovement": 7211.255753777261
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.142Z",
+    "totalMouseMovement": 7232.255753777261
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.159Z",
+    "totalMouseMovement": 7252.255753777261
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.176Z",
+    "totalMouseMovement": 7259.535863666541
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.193Z",
+    "totalMouseMovement": 7266.746966217469
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.209Z",
+    "totalMouseMovement": 7270.352517492933
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.225Z",
+    "totalMouseMovement": 7273.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.242Z",
+    "totalMouseMovement": 7279.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.259Z",
+    "totalMouseMovement": 7282.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.276Z",
+    "totalMouseMovement": 7283.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.397Z",
+    "totalMouseMovement": 7285.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.409Z",
+    "totalMouseMovement": 7287.514795153101
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.425Z",
+    "totalMouseMovement": 7289.750863130601
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.475Z",
+    "totalMouseMovement": 7291.165076692974
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.492Z",
+    "totalMouseMovement": 7293.165076692974
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:03.542Z",
+    "totalMouseMovement": 7294.165076692974
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:03.718Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:03.725Z",
+    "target": "LI",
+    "x": 161,
+    "y": 227
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.059Z",
+    "totalMouseMovement": 7296.165076692974
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:04.099Z",
+    "deltaY": -100
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:04.174Z",
+    "deltaY": -100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.475Z",
+    "totalMouseMovement": 7297.579290255348
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.491Z",
+    "totalMouseMovement": 7298.579290255348
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.508Z",
+    "totalMouseMovement": 7299.579290255348
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.643Z",
+    "totalMouseMovement": 7301.815358232848
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:33:04.678Z",
+    "deltaY": -100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.691Z",
+    "totalMouseMovement": 7303.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:04.708Z",
+    "totalMouseMovement": 7304.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.092Z",
+    "totalMouseMovement": 7305.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.107Z",
+    "totalMouseMovement": 7307.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.124Z",
+    "totalMouseMovement": 7309.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.141Z",
+    "totalMouseMovement": 7310.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.157Z",
+    "totalMouseMovement": 7312.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.174Z",
+    "totalMouseMovement": 7313.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.191Z",
+    "totalMouseMovement": 7314.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.241Z",
+    "totalMouseMovement": 7315.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.267Z",
+    "totalMouseMovement": 7316.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.307Z",
+    "totalMouseMovement": 7317.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.340Z",
+    "totalMouseMovement": 7318.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.363Z",
+    "totalMouseMovement": 7320.815358232848
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.380Z",
+    "totalMouseMovement": 7323.051426210348
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.396Z",
+    "totalMouseMovement": 7324.465639772721
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.407Z",
+    "totalMouseMovement": 7325.465639772721
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.424Z",
+    "totalMouseMovement": 7326.879853335095
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.441Z",
+    "totalMouseMovement": 7328.294066897468
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.457Z",
+    "totalMouseMovement": 7329.294066897468
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.475Z",
+    "totalMouseMovement": 7330.708280459841
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.531Z",
+    "totalMouseMovement": 7331.708280459841
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.540Z",
+    "totalMouseMovement": 7332.708280459841
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.563Z",
+    "totalMouseMovement": 7333.708280459841
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.573Z",
+    "totalMouseMovement": 7335.944348437341
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.595Z",
+    "totalMouseMovement": 7337.358561999715
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.607Z",
+    "totalMouseMovement": 7338.358561999715
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.623Z",
+    "totalMouseMovement": 7339.358561999715
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.640Z",
+    "totalMouseMovement": 7340.358561999715
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.690Z",
+    "totalMouseMovement": 7341.772775562088
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.740Z",
+    "totalMouseMovement": 7342.772775562088
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.774Z",
+    "totalMouseMovement": 7344.186989124461
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.790Z",
+    "totalMouseMovement": 7347.792540399925
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.807Z",
+    "totalMouseMovement": 7350.620967524671
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.823Z",
+    "totalMouseMovement": 7353.449394649417
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.840Z",
+    "totalMouseMovement": 7355.685462626917
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.857Z",
+    "totalMouseMovement": 7357.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.874Z",
+    "totalMouseMovement": 7358.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.891Z",
+    "totalMouseMovement": 7360.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.907Z",
+    "totalMouseMovement": 7361.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.924Z",
+    "totalMouseMovement": 7362.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.940Z",
+    "totalMouseMovement": 7363.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.956Z",
+    "totalMouseMovement": 7365.09967618929
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.974Z",
+    "totalMouseMovement": 7369.222781814908
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:05.990Z",
+    "totalMouseMovement": 7372.385059475076
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.007Z",
+    "totalMouseMovement": 7376.508165100693
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.023Z",
+    "totalMouseMovement": 7378.744233078193
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.040Z",
+    "totalMouseMovement": 7380.744233078193
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.057Z",
+    "totalMouseMovement": 7383.906510738361
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.073Z",
+    "totalMouseMovement": 7386.142578715861
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.090Z",
+    "totalMouseMovement": 7390.142578715861
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.107Z",
+    "totalMouseMovement": 7394.142578715861
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.123Z",
+    "totalMouseMovement": 7399.241598229454
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.140Z",
+    "totalMouseMovement": 7403.241598229454
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.211Z",
+    "totalMouseMovement": 7404.241598229454
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.235Z",
+    "totalMouseMovement": 7405.241598229454
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.251Z",
+    "totalMouseMovement": 7407.241598229454
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.268Z",
+    "totalMouseMovement": 7410.403875889622
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.276Z",
+    "totalMouseMovement": 7411.818089451996
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.290Z",
+    "totalMouseMovement": 7413.232303014369
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.306Z",
+    "totalMouseMovement": 7414.232303014369
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.323Z",
+    "totalMouseMovement": 7416.468370991869
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.340Z",
+    "totalMouseMovement": 7417.468370991869
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.390Z",
+    "totalMouseMovement": 7418.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.406Z",
+    "totalMouseMovement": 7419.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.423Z",
+    "totalMouseMovement": 7420.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.475Z",
+    "totalMouseMovement": 7421.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.548Z",
+    "totalMouseMovement": 7422.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.590Z",
+    "totalMouseMovement": 7423.882584554242
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:06.667Z",
+    "totalMouseMovement": 7426.118652531743
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:07.779Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:07.783Z",
+    "target": "SPAN",
+    "x": 173,
+    "y": 119
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.121Z",
+    "totalMouseMovement": 7428.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.138Z",
+    "totalMouseMovement": 7430.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.155Z",
+    "totalMouseMovement": 7431.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.172Z",
+    "totalMouseMovement": 7433.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.188Z",
+    "totalMouseMovement": 7434.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.205Z",
+    "totalMouseMovement": 7436.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:08.227Z",
+    "totalMouseMovement": 7437.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.449Z",
+    "totalMouseMovement": 7438.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.635Z",
+    "totalMouseMovement": 7439.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.640Z",
+    "totalMouseMovement": 7440.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.723Z",
+    "totalMouseMovement": 7441.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.770Z",
+    "totalMouseMovement": 7442.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.787Z",
+    "totalMouseMovement": 7443.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.803Z",
+    "totalMouseMovement": 7444.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.820Z",
+    "totalMouseMovement": 7445.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.836Z",
+    "totalMouseMovement": 7446.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.867Z",
+    "totalMouseMovement": 7447.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:09.883Z",
+    "totalMouseMovement": 7448.118652531743
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.136Z",
+    "totalMouseMovement": 7450.354720509243
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.153Z",
+    "totalMouseMovement": 7453.516998169411
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.170Z",
+    "totalMouseMovement": 7456.3454252941565
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.186Z",
+    "totalMouseMovement": 7460.588065981276
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.203Z",
+    "totalMouseMovement": 7466.9126213016125
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.219Z",
+    "totalMouseMovement": 7470.0748989617805
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.236Z",
+    "totalMouseMovement": 7471.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.403Z",
+    "totalMouseMovement": 7472.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.419Z",
+    "totalMouseMovement": 7476.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.436Z",
+    "totalMouseMovement": 7481.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.453Z",
+    "totalMouseMovement": 7486.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.470Z",
+    "totalMouseMovement": 7490.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.486Z",
+    "totalMouseMovement": 7492.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.503Z",
+    "totalMouseMovement": 7494.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:10.523Z",
+    "totalMouseMovement": 7495.489112524154
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:10.842Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:10.847Z",
+    "target": "SPAN",
+    "x": 161,
+    "y": 146
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.051Z",
+    "totalMouseMovement": 7496.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.059Z",
+    "totalMouseMovement": 7500.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.069Z",
+    "totalMouseMovement": 7505.489112524154
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.086Z",
+    "totalMouseMovement": 7506.903326086527
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.102Z",
+    "totalMouseMovement": 7511.026431712145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.119Z",
+    "totalMouseMovement": 7515.149537337762
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.135Z",
+    "totalMouseMovement": 7517.149537337762
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.152Z",
+    "totalMouseMovement": 7518.563750900135
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.169Z",
+    "totalMouseMovement": 7519.563750900135
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.185Z",
+    "totalMouseMovement": 7522.726028560303
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.203Z",
+    "totalMouseMovement": 7526.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.219Z",
+    "totalMouseMovement": 7527.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.235Z",
+    "totalMouseMovement": 7528.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:11.252Z",
+    "totalMouseMovement": 7529.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.735Z",
+    "totalMouseMovement": 7530.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.751Z",
+    "totalMouseMovement": 7531.849134185921
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.805Z",
+    "totalMouseMovement": 7533.263347748294
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.901Z",
+    "totalMouseMovement": 7534.677561310667
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.917Z",
+    "totalMouseMovement": 7537.677561310667
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:12.967Z",
+    "totalMouseMovement": 7539.091774873041
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.019Z",
+    "totalMouseMovement": 7540.091774873041
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.034Z",
+    "totalMouseMovement": 7541.505988435414
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.051Z",
+    "totalMouseMovement": 7543.505988435414
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.067Z",
+    "totalMouseMovement": 7546.668266095582
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.084Z",
+    "totalMouseMovement": 7548.668266095582
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.227Z",
+    "totalMouseMovement": 7549.668266095582
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.235Z",
+    "totalMouseMovement": 7550.668266095582
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:13.825Z",
+    "totalMouseMovement": 7551.668266095582
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:14.529Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:14.533Z",
+    "target": "SPAN",
+    "x": 173,
+    "y": 196
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:15.065Z",
+    "deltaY": 100
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:33:15.575Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.435Z",
+    "totalMouseMovement": 7553.904334073082
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.448Z",
+    "totalMouseMovement": 7555.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.464Z",
+    "totalMouseMovement": 7556.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.688Z",
+    "totalMouseMovement": 7557.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.697Z",
+    "totalMouseMovement": 7559.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.714Z",
+    "totalMouseMovement": 7561.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.859Z",
+    "totalMouseMovement": 7563.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.881Z",
+    "totalMouseMovement": 7565.318547635456
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.931Z",
+    "totalMouseMovement": 7569.790683590455
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.947Z",
+    "totalMouseMovement": 7570.790683590455
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.964Z",
+    "totalMouseMovement": 7573.790683590455
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.981Z",
+    "totalMouseMovement": 7577.9137892160725
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:16.997Z",
+    "totalMouseMovement": 7582.9137892160725
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.014Z",
+    "totalMouseMovement": 7587.9137892160725
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.031Z",
+    "totalMouseMovement": 7593.012808729665
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.047Z",
+    "totalMouseMovement": 7598.397973536799
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.064Z",
+    "totalMouseMovement": 7599.397973536799
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:17.335Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:17.339Z",
+    "target": "SPAN",
+    "x": 162,
+    "y": 164
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.499Z",
+    "totalMouseMovement": 7608.397973536799
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.516Z",
+    "totalMouseMovement": 7614.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.532Z",
+    "totalMouseMovement": 7619.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.549Z",
+    "totalMouseMovement": 7620.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.566Z",
+    "totalMouseMovement": 7623.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.583Z",
+    "totalMouseMovement": 7624.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.599Z",
+    "totalMouseMovement": 7625.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.616Z",
+    "totalMouseMovement": 7626.4807360670975
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.632Z",
+    "totalMouseMovement": 7628.716804044598
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.732Z",
+    "totalMouseMovement": 7630.716804044598
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.771Z",
+    "totalMouseMovement": 7631.716804044598
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.797Z",
+    "totalMouseMovement": 7632.716804044598
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.819Z",
+    "totalMouseMovement": 7633.716804044598
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.835Z",
+    "totalMouseMovement": 7635.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:17.998Z",
+    "totalMouseMovement": 7636.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:18.013Z",
+    "totalMouseMovement": 7637.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:19.844Z",
+    "totalMouseMovement": 7638.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:19.851Z",
+    "totalMouseMovement": 7639.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:19.862Z",
+    "totalMouseMovement": 7640.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:19.879Z",
+    "totalMouseMovement": 7642.131017606971
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:20.417Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:20.421Z",
+    "target": "SPAN",
+    "x": 158,
+    "y": 205
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.085Z",
+    "totalMouseMovement": 7643.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.096Z",
+    "totalMouseMovement": 7644.131017606971
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.111Z",
+    "totalMouseMovement": 7646.367085584471
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.128Z",
+    "totalMouseMovement": 7648.367085584471
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.144Z",
+    "totalMouseMovement": 7649.7812991468445
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.161Z",
+    "totalMouseMovement": 7652.017367124345
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.177Z",
+    "totalMouseMovement": 7654.253435101845
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.194Z",
+    "totalMouseMovement": 7655.253435101845
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.211Z",
+    "totalMouseMovement": 7656.667648664218
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.307Z",
+    "totalMouseMovement": 7657.667648664218
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.323Z",
+    "totalMouseMovement": 7658.667648664218
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.331Z",
+    "totalMouseMovement": 7660.0818622265915
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.377Z",
+    "totalMouseMovement": 7661.0818622265915
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.394Z",
+    "totalMouseMovement": 7662.0818622265915
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.411Z",
+    "totalMouseMovement": 7665.0818622265915
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.427Z",
+    "totalMouseMovement": 7671.484986464025
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.444Z",
+    "totalMouseMovement": 7677.141840713517
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.460Z",
+    "totalMouseMovement": 7681.613976668516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.478Z",
+    "totalMouseMovement": 7687.270830918009
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.494Z",
+    "totalMouseMovement": 7690.876382193473
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.511Z",
+    "totalMouseMovement": 7693.112450170973
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.527Z",
+    "totalMouseMovement": 7696.274727831141
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.544Z",
+    "totalMouseMovement": 7699.274727831141
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.561Z",
+    "totalMouseMovement": 7703.397833456758
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.577Z",
+    "totalMouseMovement": 7706.560111116926
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.594Z",
+    "totalMouseMovement": 7710.683216742544
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.611Z",
+    "totalMouseMovement": 7712.919284720044
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.627Z",
+    "totalMouseMovement": 7717.919284720044
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.644Z",
+    "totalMouseMovement": 7720.155352697544
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.660Z",
+    "totalMouseMovement": 7722.98377982229
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.892Z",
+    "totalMouseMovement": 7723.98377982229
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.899Z",
+    "totalMouseMovement": 7726.21984779979
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.910Z",
+    "totalMouseMovement": 7732.622972037223
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:21.927Z",
+    "totalMouseMovement": 7737.622972037223
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.053Z",
+    "totalMouseMovement": 7738.622972037223
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.060Z",
+    "totalMouseMovement": 7740.622972037223
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.077Z",
+    "totalMouseMovement": 7741.622972037223
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.094Z",
+    "totalMouseMovement": 7744.451399161969
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.127Z",
+    "totalMouseMovement": 7745.451399161969
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.204Z",
+    "totalMouseMovement": 7746.451399161969
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.213Z",
+    "totalMouseMovement": 7748.687467139469
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.227Z",
+    "totalMouseMovement": 7750.101680701842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.243Z",
+    "totalMouseMovement": 7752.101680701842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.260Z",
+    "totalMouseMovement": 7756.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.276Z",
+    "totalMouseMovement": 7758.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.293Z",
+    "totalMouseMovement": 7759.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.310Z",
+    "totalMouseMovement": 7761.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.327Z",
+    "totalMouseMovement": 7762.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.343Z",
+    "totalMouseMovement": 7763.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.427Z",
+    "totalMouseMovement": 7764.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.443Z",
+    "totalMouseMovement": 7765.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:22.510Z",
+    "totalMouseMovement": 7767.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:23.610Z",
+    "totalMouseMovement": 7771.573816656842
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:23.626Z",
+    "totalMouseMovement": 7779.63607440514
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:23.642Z",
+    "totalMouseMovement": 7782.798352065308
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:23.659Z",
+    "totalMouseMovement": 7785.960629725476
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:23.675Z",
+    "totalMouseMovement": 7786.960629725476
+  },
+  {
+    "type": "idle",
+    "timestamp": "2024-10-19T12:33:26.691Z",
+    "duration": 3016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.618Z",
+    "totalMouseMovement": 7820.931205228402
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.628Z",
+    "totalMouseMovement": 7823.167273205902
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.638Z",
+    "totalMouseMovement": 7824.581486768276
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.652Z",
+    "totalMouseMovement": 7825.995700330649
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.669Z",
+    "totalMouseMovement": 7827.409913893022
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.764Z",
+    "totalMouseMovement": 7828.409913893022
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.884Z",
+    "totalMouseMovement": 7829.409913893022
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.924Z",
+    "totalMouseMovement": 7830.409913893022
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.936Z",
+    "totalMouseMovement": 7832.6459818705225
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.952Z",
+    "totalMouseMovement": 7834.882049848023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.969Z",
+    "totalMouseMovement": 7835.882049848023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:31.985Z",
+    "totalMouseMovement": 7836.882049848023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.002Z",
+    "totalMouseMovement": 7837.882049848023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.019Z",
+    "totalMouseMovement": 7838.882049848023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.036Z",
+    "totalMouseMovement": 7841.118117825523
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.052Z",
+    "totalMouseMovement": 7843.354185803023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.069Z",
+    "totalMouseMovement": 7844.354185803023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.085Z",
+    "totalMouseMovement": 7845.354185803023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.267Z",
+    "totalMouseMovement": 7847.354185803023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.269Z",
+    "totalMouseMovement": 7849.354185803023
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.287Z",
+    "totalMouseMovement": 7853.8263217580225
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.302Z",
+    "totalMouseMovement": 7858.298457713022
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.318Z",
+    "totalMouseMovement": 7862.541098400141
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.335Z",
+    "totalMouseMovement": 7865.369525524887
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.352Z",
+    "totalMouseMovement": 7866.78373908726
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:32.368Z",
+    "totalMouseMovement": 7868.197952649633
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:32.723Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:32.727Z",
+    "target": "SPAN",
+    "x": 244,
+    "y": 246
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:33.570Z",
+    "totalMouseMovement": 7869.197952649633
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:33.651Z",
+    "totalMouseMovement": 7870.197952649633
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:33.684Z",
+    "totalMouseMovement": 7871.612166212007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.452Z",
+    "totalMouseMovement": 7872.612166212007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.525Z",
+    "totalMouseMovement": 7873.612166212007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.539Z",
+    "totalMouseMovement": 7874.612166212007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.550Z",
+    "totalMouseMovement": 7875.612166212007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.600Z",
+    "totalMouseMovement": 7877.02637977438
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.821Z",
+    "totalMouseMovement": 7878.02637977438
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.833Z",
+    "totalMouseMovement": 7879.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.850Z",
+    "totalMouseMovement": 7880.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.866Z",
+    "totalMouseMovement": 7882.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.883Z",
+    "totalMouseMovement": 7883.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.900Z",
+    "totalMouseMovement": 7886.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.932Z",
+    "totalMouseMovement": 7887.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.950Z",
+    "totalMouseMovement": 7888.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.967Z",
+    "totalMouseMovement": 7889.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:34.983Z",
+    "totalMouseMovement": 7890.440593336753
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.012Z",
+    "totalMouseMovement": 7891.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.027Z",
+    "totalMouseMovement": 7892.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.066Z",
+    "totalMouseMovement": 7893.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.084Z",
+    "totalMouseMovement": 7894.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.100Z",
+    "totalMouseMovement": 7895.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.116Z",
+    "totalMouseMovement": 7896.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.133Z",
+    "totalMouseMovement": 7897.854806899127
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.150Z",
+    "totalMouseMovement": 7899.2690204615
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.166Z",
+    "totalMouseMovement": 7900.683234023873
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.383Z",
+    "totalMouseMovement": 7901.683234023873
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:35.476Z",
+    "totalMouseMovement": 7902.683234023873
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.260Z",
+    "totalMouseMovement": 7904.919302001374
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.281Z",
+    "totalMouseMovement": 7906.333515563747
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.298Z",
+    "totalMouseMovement": 7907.333515563747
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.331Z",
+    "totalMouseMovement": 7908.74772912612
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.348Z",
+    "totalMouseMovement": 7910.98379710362
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.364Z",
+    "totalMouseMovement": 7913.219865081121
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.381Z",
+    "totalMouseMovement": 7914.634078643494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.398Z",
+    "totalMouseMovement": 7916.870146620994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.415Z",
+    "totalMouseMovement": 7919.106214598494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.431Z",
+    "totalMouseMovement": 7920.106214598494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.448Z",
+    "totalMouseMovement": 7921.106214598494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.464Z",
+    "totalMouseMovement": 7923.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.481Z",
+    "totalMouseMovement": 7924.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.500Z",
+    "totalMouseMovement": 7925.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.515Z",
+    "totalMouseMovement": 7926.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.564Z",
+    "totalMouseMovement": 7928.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.581Z",
+    "totalMouseMovement": 7930.342282575994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.604Z",
+    "totalMouseMovement": 7931.756496138368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:37.780Z",
+    "totalMouseMovement": 7932.756496138368
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:33:38.072Z",
+    "deltaY": 100
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:33:38.573Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.653Z",
+    "totalMouseMovement": 7933.756496138368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.664Z",
+    "totalMouseMovement": 7934.756496138368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.680Z",
+    "totalMouseMovement": 7936.756496138368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.697Z",
+    "totalMouseMovement": 7938.756496138368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.714Z",
+    "totalMouseMovement": 7940.992564115868
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.730Z",
+    "totalMouseMovement": 7942.992564115868
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.747Z",
+    "totalMouseMovement": 7946.992564115868
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.764Z",
+    "totalMouseMovement": 7949.228632093368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.780Z",
+    "totalMouseMovement": 7953.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.804Z",
+    "totalMouseMovement": 7954.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.813Z",
+    "totalMouseMovement": 7955.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.830Z",
+    "totalMouseMovement": 7957.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.847Z",
+    "totalMouseMovement": 7959.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.863Z",
+    "totalMouseMovement": 7960.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.880Z",
+    "totalMouseMovement": 7961.3517377189855
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.956Z",
+    "totalMouseMovement": 7963.587805696486
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.963Z",
+    "totalMouseMovement": 7965.823873673986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.980Z",
+    "totalMouseMovement": 7970.823873673986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:38.996Z",
+    "totalMouseMovement": 7971.823873673986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.013Z",
+    "totalMouseMovement": 7974.652300798732
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.035Z",
+    "totalMouseMovement": 7976.888368776232
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.047Z",
+    "totalMouseMovement": 7977.888368776232
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.063Z",
+    "totalMouseMovement": 7980.124436753732
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.080Z",
+    "totalMouseMovement": 7983.729988029196
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.116Z",
+    "totalMouseMovement": 7984.729988029196
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.130Z",
+    "totalMouseMovement": 7989.729988029196
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.147Z",
+    "totalMouseMovement": 7993.3355393046595
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.163Z",
+    "totalMouseMovement": 8000.951312410523
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.180Z",
+    "totalMouseMovement": 8010.800170212319
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.196Z",
+    "totalMouseMovement": 8023.169487089172
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.213Z",
+    "totalMouseMovement": 8029.877691021672
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.230Z",
+    "totalMouseMovement": 8032.877691021672
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.246Z",
+    "totalMouseMovement": 8034.291904584045
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.284Z",
+    "totalMouseMovement": 8036.5279725615455
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.313Z",
+    "totalMouseMovement": 8037.942186123919
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.330Z",
+    "totalMouseMovement": 8038.942186123919
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:39.594Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:39.598Z",
+    "target": "SPAN",
+    "x": 165,
+    "y": 326
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.830Z",
+    "totalMouseMovement": 8048.1617305812115
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.847Z",
+    "totalMouseMovement": 8062.721950359773
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.863Z",
+    "totalMouseMovement": 8083.6025633775935
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.881Z",
+    "totalMouseMovement": 8102.04165229218
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.896Z",
+    "totalMouseMovement": 8116.18378791591
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.913Z",
+    "totalMouseMovement": 8123.463897805191
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.930Z",
+    "totalMouseMovement": 8129.463897805191
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.946Z",
+    "totalMouseMovement": 8134.562917318784
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.962Z",
+    "totalMouseMovement": 8139.661936832376
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.979Z",
+    "totalMouseMovement": 8144.661936832376
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:39.996Z",
+    "totalMouseMovement": 8149.661936832376
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.013Z",
+    "totalMouseMovement": 8151.661936832376
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.029Z",
+    "totalMouseMovement": 8153.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.046Z",
+    "totalMouseMovement": 8154.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.063Z",
+    "totalMouseMovement": 8155.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.098Z",
+    "totalMouseMovement": 8156.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.124Z",
+    "totalMouseMovement": 8158.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.162Z",
+    "totalMouseMovement": 8161.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.179Z",
+    "totalMouseMovement": 8163.8980048098765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.196Z",
+    "totalMouseMovement": 8168.021110435494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.212Z",
+    "totalMouseMovement": 8170.021110435494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.236Z",
+    "totalMouseMovement": 8171.021110435494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.245Z",
+    "totalMouseMovement": 8172.021110435494
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.296Z",
+    "totalMouseMovement": 8174.257178412994
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.329Z",
+    "totalMouseMovement": 8175.671391975367
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.345Z",
+    "totalMouseMovement": 8176.671391975367
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.395Z",
+    "totalMouseMovement": 8177.671391975367
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.412Z",
+    "totalMouseMovement": 8178.671391975367
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.436Z",
+    "totalMouseMovement": 8180.085605537741
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.646Z",
+    "totalMouseMovement": 8181.085605537741
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.662Z",
+    "totalMouseMovement": 8182.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:40.852Z",
+    "totalMouseMovement": 8183.499819100114
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:43.751Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:43.756Z",
+    "target": "LI",
+    "x": 151,
+    "y": 190
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.162Z",
+    "totalMouseMovement": 8184.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.176Z",
+    "totalMouseMovement": 8185.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.193Z",
+    "totalMouseMovement": 8186.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.210Z",
+    "totalMouseMovement": 8187.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.242Z",
+    "totalMouseMovement": 8188.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.324Z",
+    "totalMouseMovement": 8189.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.332Z",
+    "totalMouseMovement": 8190.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.376Z",
+    "totalMouseMovement": 8191.499819100114
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.392Z",
+    "totalMouseMovement": 8193.735887077613
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.410Z",
+    "totalMouseMovement": 8195.971955055113
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.426Z",
+    "totalMouseMovement": 8198.208023032612
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.443Z",
+    "totalMouseMovement": 8199.208023032612
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.459Z",
+    "totalMouseMovement": 8200.208023032612
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.476Z",
+    "totalMouseMovement": 8201.622236594985
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.492Z",
+    "totalMouseMovement": 8204.622236594985
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.509Z",
+    "totalMouseMovement": 8209.622236594985
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.526Z",
+    "totalMouseMovement": 8214.094372549986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.542Z",
+    "totalMouseMovement": 8216.330440527485
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.559Z",
+    "totalMouseMovement": 8219.492718187654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.578Z",
+    "totalMouseMovement": 8220.492718187654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.594Z",
+    "totalMouseMovement": 8221.492718187654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:44.609Z",
+    "totalMouseMovement": 8222.492718187654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.032Z",
+    "totalMouseMovement": 8224.728786165153
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.042Z",
+    "totalMouseMovement": 8228.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.059Z",
+    "totalMouseMovement": 8235.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.075Z",
+    "totalMouseMovement": 8242.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.092Z",
+    "totalMouseMovement": 8250.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.108Z",
+    "totalMouseMovement": 8253.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.125Z",
+    "totalMouseMovement": 8256.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.142Z",
+    "totalMouseMovement": 8258.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.159Z",
+    "totalMouseMovement": 8259.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.212Z",
+    "totalMouseMovement": 8260.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.225Z",
+    "totalMouseMovement": 8261.851891790771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.242Z",
+    "totalMouseMovement": 8263.266105353145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.259Z",
+    "totalMouseMovement": 8266.428383013314
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.275Z",
+    "totalMouseMovement": 8269.590660673482
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.292Z",
+    "totalMouseMovement": 8277.836871924717
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.308Z",
+    "totalMouseMovement": 8283.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.325Z",
+    "totalMouseMovement": 8285.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.342Z",
+    "totalMouseMovement": 8289.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.359Z",
+    "totalMouseMovement": 8293.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.375Z",
+    "totalMouseMovement": 8295.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.392Z",
+    "totalMouseMovement": 8299.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.408Z",
+    "totalMouseMovement": 8300.919634455016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.425Z",
+    "totalMouseMovement": 8303.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.442Z",
+    "totalMouseMovement": 8304.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.458Z",
+    "totalMouseMovement": 8305.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:45.484Z",
+    "totalMouseMovement": 8306.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.052Z",
+    "totalMouseMovement": 8307.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.066Z",
+    "totalMouseMovement": 8308.155702432516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.093Z",
+    "totalMouseMovement": 8309.569915994889
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:46.553Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:46.557Z",
+    "target": "SPAN",
+    "x": 180,
+    "y": 187
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.791Z",
+    "totalMouseMovement": 8311.569915994889
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.807Z",
+    "totalMouseMovement": 8315.693021620507
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.824Z",
+    "totalMouseMovement": 8317.693021620507
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.841Z",
+    "totalMouseMovement": 8319.693021620507
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.857Z",
+    "totalMouseMovement": 8323.298572895972
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.874Z",
+    "totalMouseMovement": 8326.298572895972
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.890Z",
+    "totalMouseMovement": 8330.770708850972
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.907Z",
+    "totalMouseMovement": 8333.599135975719
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.924Z",
+    "totalMouseMovement": 8339.430087870564
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.940Z",
+    "totalMouseMovement": 8347.915369244802
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.958Z",
+    "totalMouseMovement": 8352.915369244802
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.974Z",
+    "totalMouseMovement": 8354.329582807175
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:46.990Z",
+    "totalMouseMovement": 8356.565650784674
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.007Z",
+    "totalMouseMovement": 8360.171202060139
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.024Z",
+    "totalMouseMovement": 8366.002153954983
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.040Z",
+    "totalMouseMovement": 8368.83058107973
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.057Z",
+    "totalMouseMovement": 8371.06664905723
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.074Z",
+    "totalMouseMovement": 8372.06664905723
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.091Z",
+    "totalMouseMovement": 8374.06664905723
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.107Z",
+    "totalMouseMovement": 8376.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.124Z",
+    "totalMouseMovement": 8377.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.140Z",
+    "totalMouseMovement": 8384.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.157Z",
+    "totalMouseMovement": 8386.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.396Z",
+    "totalMouseMovement": 8388.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.407Z",
+    "totalMouseMovement": 8389.302717034729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.457Z",
+    "totalMouseMovement": 8390.716930597102
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.474Z",
+    "totalMouseMovement": 8393.545357721849
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.490Z",
+    "totalMouseMovement": 8395.781425699348
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.507Z",
+    "totalMouseMovement": 8398.017493676847
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.523Z",
+    "totalMouseMovement": 8399.017493676847
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.540Z",
+    "totalMouseMovement": 8400.017493676847
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.556Z",
+    "totalMouseMovement": 8403.623044952312
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.573Z",
+    "totalMouseMovement": 8405.037258514685
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.660Z",
+    "totalMouseMovement": 8406.037258514685
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.673Z",
+    "totalMouseMovement": 8407.451472077058
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.690Z",
+    "totalMouseMovement": 8409.687540054558
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.706Z",
+    "totalMouseMovement": 8411.687540054558
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.723Z",
+    "totalMouseMovement": 8412.687540054558
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:47.740Z",
+    "totalMouseMovement": 8414.101753616931
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.484Z",
+    "totalMouseMovement": 8415.101753616931
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.500Z",
+    "totalMouseMovement": 8416.101753616931
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.538Z",
+    "totalMouseMovement": 8417.101753616931
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.556Z",
+    "totalMouseMovement": 8418.101753616931
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.572Z",
+    "totalMouseMovement": 8419.515967179304
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.587Z",
+    "totalMouseMovement": 8420.515967179304
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.604Z",
+    "totalMouseMovement": 8421.515967179304
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.621Z",
+    "totalMouseMovement": 8423.752035156804
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.637Z",
+    "totalMouseMovement": 8425.752035156804
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.654Z",
+    "totalMouseMovement": 8428.914312816973
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.671Z",
+    "totalMouseMovement": 8431.914312816973
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.688Z",
+    "totalMouseMovement": 8435.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.704Z",
+    "totalMouseMovement": 8437.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.721Z",
+    "totalMouseMovement": 8438.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.737Z",
+    "totalMouseMovement": 8440.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.754Z",
+    "totalMouseMovement": 8441.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.771Z",
+    "totalMouseMovement": 8443.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.787Z",
+    "totalMouseMovement": 8445.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.804Z",
+    "totalMouseMovement": 8447.519864092437
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.854Z",
+    "totalMouseMovement": 8448.93407765481
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.904Z",
+    "totalMouseMovement": 8449.93407765481
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.920Z",
+    "totalMouseMovement": 8450.93407765481
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.937Z",
+    "totalMouseMovement": 8452.348291217184
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.954Z",
+    "totalMouseMovement": 8453.348291217184
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:50.971Z",
+    "totalMouseMovement": 8454.348291217184
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:51.238Z",
+    "totalMouseMovement": 8455.348291217184
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:52.736Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:52.740Z",
+    "target": "SPAN",
+    "x": 170,
+    "y": 262
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.136Z",
+    "totalMouseMovement": 8462.419359029049
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.153Z",
+    "totalMouseMovement": 8466.89149498405
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.169Z",
+    "totalMouseMovement": 8476.325476116106
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.185Z",
+    "totalMouseMovement": 8479.487753776275
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.203Z",
+    "totalMouseMovement": 8484.487753776275
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.219Z",
+    "totalMouseMovement": 8488.09330505174
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.347Z",
+    "totalMouseMovement": 8492.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.354Z",
+    "totalMouseMovement": 8493.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.369Z",
+    "totalMouseMovement": 8494.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.386Z",
+    "totalMouseMovement": 8495.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.597Z",
+    "totalMouseMovement": 8497.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.604Z",
+    "totalMouseMovement": 8501.216410677358
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.618Z",
+    "totalMouseMovement": 8505.339516302976
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.635Z",
+    "totalMouseMovement": 8510.339516302976
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.652Z",
+    "totalMouseMovement": 8513.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.668Z",
+    "totalMouseMovement": 8518.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.685Z",
+    "totalMouseMovement": 8520.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.702Z",
+    "totalMouseMovement": 8521.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:53.718Z",
+    "totalMouseMovement": 8522.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:54.883Z",
+    "totalMouseMovement": 8523.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:54.934Z",
+    "totalMouseMovement": 8524.501793963145
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:54.965Z",
+    "totalMouseMovement": 8525.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:54.980Z",
+    "totalMouseMovement": 8526.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.017Z",
+    "totalMouseMovement": 8527.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.034Z",
+    "totalMouseMovement": 8528.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.051Z",
+    "totalMouseMovement": 8529.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.067Z",
+    "totalMouseMovement": 8531.916007525519
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.102Z",
+    "totalMouseMovement": 8534.152075503018
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.117Z",
+    "totalMouseMovement": 8535.152075503018
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.134Z",
+    "totalMouseMovement": 8536.152075503018
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.151Z",
+    "totalMouseMovement": 8538.388143480517
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.167Z",
+    "totalMouseMovement": 8540.388143480517
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.184Z",
+    "totalMouseMovement": 8542.624211458016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.201Z",
+    "totalMouseMovement": 8543.624211458016
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.217Z",
+    "totalMouseMovement": 8545.03842502039
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.235Z",
+    "totalMouseMovement": 8546.03842502039
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.250Z",
+    "totalMouseMovement": 8547.03842502039
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.284Z",
+    "totalMouseMovement": 8548.03842502039
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.354Z",
+    "totalMouseMovement": 8549.452638582763
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.367Z",
+    "totalMouseMovement": 8550.452638582763
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.417Z",
+    "totalMouseMovement": 8552.452638582763
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.589Z",
+    "totalMouseMovement": 8554.452638582763
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.604Z",
+    "totalMouseMovement": 8555.452638582763
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.620Z",
+    "totalMouseMovement": 8556.866852145136
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.636Z",
+    "totalMouseMovement": 8557.866852145136
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.676Z",
+    "totalMouseMovement": 8558.866852145136
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.780Z",
+    "totalMouseMovement": 8560.866852145136
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.788Z",
+    "totalMouseMovement": 8561.866852145136
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.858Z",
+    "totalMouseMovement": 8564.102920122636
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.866Z",
+    "totalMouseMovement": 8568.345560809756
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.883Z",
+    "totalMouseMovement": 8573.73072561689
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.900Z",
+    "totalMouseMovement": 8578.73072561689
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.916Z",
+    "totalMouseMovement": 8582.336276892354
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:55.933Z",
+    "totalMouseMovement": 8583.750490454728
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:33:56.204Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:33:56.209Z",
+    "target": "SPAN",
+    "x": 162,
+    "y": 339
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.518Z",
+    "totalMouseMovement": 8591.030600344007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.535Z",
+    "totalMouseMovement": 8598.310710233287
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.551Z",
+    "totalMouseMovement": 8603.310710233287
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.566Z",
+    "totalMouseMovement": 8604.72492379566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.698Z",
+    "totalMouseMovement": 8605.72492379566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.700Z",
+    "totalMouseMovement": 8607.72492379566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.716Z",
+    "totalMouseMovement": 8609.72492379566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.733Z",
+    "totalMouseMovement": 8612.553350920407
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.783Z",
+    "totalMouseMovement": 8614.553350920407
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.799Z",
+    "totalMouseMovement": 8615.553350920407
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.816Z",
+    "totalMouseMovement": 8616.553350920407
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.833Z",
+    "totalMouseMovement": 8621.553350920407
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.849Z",
+    "totalMouseMovement": 8628.261554852907
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.866Z",
+    "totalMouseMovement": 8635.332622664771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.883Z",
+    "totalMouseMovement": 8640.332622664771
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.899Z",
+    "totalMouseMovement": 8642.56869064227
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.916Z",
+    "totalMouseMovement": 8643.982904204644
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.954Z",
+    "totalMouseMovement": 8646.218972182143
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.970Z",
+    "totalMouseMovement": 8647.218972182143
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.983Z",
+    "totalMouseMovement": 8649.455040159643
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:56.999Z",
+    "totalMouseMovement": 8652.617317819811
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.016Z",
+    "totalMouseMovement": 8653.617317819811
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.033Z",
+    "totalMouseMovement": 8655.031531382185
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.049Z",
+    "totalMouseMovement": 8656.445744944558
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.066Z",
+    "totalMouseMovement": 8658.681812922057
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.083Z",
+    "totalMouseMovement": 8665.390016854557
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.099Z",
+    "totalMouseMovement": 8668.552294514726
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.116Z",
+    "totalMouseMovement": 8671.714572174895
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.133Z",
+    "totalMouseMovement": 8673.714572174895
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.234Z",
+    "totalMouseMovement": 8675.714572174895
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.382Z",
+    "totalMouseMovement": 8677.950640152394
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.399Z",
+    "totalMouseMovement": 8680.77906727714
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.416Z",
+    "totalMouseMovement": 8685.02170796426
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.432Z",
+    "totalMouseMovement": 8687.850135089007
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.449Z",
+    "totalMouseMovement": 8691.012412749176
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.466Z",
+    "totalMouseMovement": 8693.248480726676
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.482Z",
+    "totalMouseMovement": 8698.63364553381
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.499Z",
+    "totalMouseMovement": 8702.239196809274
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.516Z",
+    "totalMouseMovement": 8707.624361616408
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.532Z",
+    "totalMouseMovement": 8716.843906073702
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.549Z",
+    "totalMouseMovement": 8723.552110006201
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.565Z",
+    "totalMouseMovement": 8726.71438766637
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.582Z",
+    "totalMouseMovement": 8728.95045564387
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.599Z",
+    "totalMouseMovement": 8729.95045564387
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.804Z",
+    "totalMouseMovement": 8731.364669206243
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.815Z",
+    "totalMouseMovement": 8732.364669206243
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.832Z",
+    "totalMouseMovement": 8735.364669206243
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.849Z",
+    "totalMouseMovement": 8738.19309633099
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.865Z",
+    "totalMouseMovement": 8740.19309633099
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.882Z",
+    "totalMouseMovement": 8742.429164308489
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:57.898Z",
+    "totalMouseMovement": 8743.429164308489
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.011Z",
+    "totalMouseMovement": 8744.429164308489
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.018Z",
+    "totalMouseMovement": 8745.843377870862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.034Z",
+    "totalMouseMovement": 8746.843377870862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.065Z",
+    "totalMouseMovement": 8747.843377870862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.082Z",
+    "totalMouseMovement": 8748.843377870862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.140Z",
+    "totalMouseMovement": 8749.843377870862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.150Z",
+    "totalMouseMovement": 8752.079445848362
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.165Z",
+    "totalMouseMovement": 8754.31551382586
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.181Z",
+    "totalMouseMovement": 8756.31551382586
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.198Z",
+    "totalMouseMovement": 8758.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.215Z",
+    "totalMouseMovement": 8759.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.232Z",
+    "totalMouseMovement": 8760.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.283Z",
+    "totalMouseMovement": 8761.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.349Z",
+    "totalMouseMovement": 8762.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.365Z",
+    "totalMouseMovement": 8763.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.381Z",
+    "totalMouseMovement": 8764.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.398Z",
+    "totalMouseMovement": 8765.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.418Z",
+    "totalMouseMovement": 8766.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.431Z",
+    "totalMouseMovement": 8767.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.448Z",
+    "totalMouseMovement": 8768.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.465Z",
+    "totalMouseMovement": 8769.55158180336
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.514Z",
+    "totalMouseMovement": 8771.78764978086
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.531Z",
+    "totalMouseMovement": 8774.023717758359
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.548Z",
+    "totalMouseMovement": 8779.023717758359
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.564Z",
+    "totalMouseMovement": 8781.259785735858
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.715Z",
+    "totalMouseMovement": 8782.259785735858
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.843Z",
+    "totalMouseMovement": 8783.259785735858
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:58.995Z",
+    "totalMouseMovement": 8784.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.147Z",
+    "totalMouseMovement": 8785.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.165Z",
+    "totalMouseMovement": 8786.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.309Z",
+    "totalMouseMovement": 8787.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.323Z",
+    "totalMouseMovement": 8788.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.338Z",
+    "totalMouseMovement": 8789.673999298231
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.501Z",
+    "totalMouseMovement": 8791.088212860604
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:33:59.798Z",
+    "totalMouseMovement": 8792.088212860604
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:01.207Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:01.212Z",
+    "target": "LI",
+    "x": 108,
+    "y": 379
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.546Z",
+    "totalMouseMovement": 8794.088212860604
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.562Z",
+    "totalMouseMovement": 8800.170975390904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.579Z",
+    "totalMouseMovement": 8810.220851012024
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.596Z",
+    "totalMouseMovement": 8824.362986635755
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.613Z",
+    "totalMouseMovement": 8833.362986635755
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.629Z",
+    "totalMouseMovement": 8843.56102566294
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.646Z",
+    "totalMouseMovement": 8848.946190470075
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.662Z",
+    "totalMouseMovement": 8855.028953000374
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.679Z",
+    "totalMouseMovement": 8861.35350832071
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.696Z",
+    "totalMouseMovement": 8865.35350832071
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.713Z",
+    "totalMouseMovement": 8866.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.729Z",
+    "totalMouseMovement": 8867.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.827Z",
+    "totalMouseMovement": 8868.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.835Z",
+    "totalMouseMovement": 8870.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:01.845Z",
+    "totalMouseMovement": 8871.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.229Z",
+    "totalMouseMovement": 8873.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.244Z",
+    "totalMouseMovement": 8879.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.261Z",
+    "totalMouseMovement": 8887.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.278Z",
+    "totalMouseMovement": 8892.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.294Z",
+    "totalMouseMovement": 8893.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.311Z",
+    "totalMouseMovement": 8896.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.327Z",
+    "totalMouseMovement": 8897.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:03.344Z",
+    "totalMouseMovement": 8899.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.435Z",
+    "totalMouseMovement": 8901.767721883083
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.442Z",
+    "totalMouseMovement": 8908.170846120516
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.459Z",
+    "totalMouseMovement": 8913.55601092765
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.476Z",
+    "totalMouseMovement": 8917.161562203115
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.492Z",
+    "totalMouseMovement": 8922.546727010249
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.509Z",
+    "totalMouseMovement": 8930.792938261484
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.526Z",
+    "totalMouseMovement": 8936.875700791783
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.542Z",
+    "totalMouseMovement": 8948.056040679281
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.559Z",
+    "totalMouseMovement": 8959.23638056678
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.576Z",
+    "totalMouseMovement": 8965.23638056678
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.592Z",
+    "totalMouseMovement": 8974.291765704917
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.609Z",
+    "totalMouseMovement": 8979.291765704917
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.626Z",
+    "totalMouseMovement": 8983.291765704917
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.642Z",
+    "totalMouseMovement": 8984.70597926729
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.659Z",
+    "totalMouseMovement": 8985.70597926729
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:05.740Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:05.741Z",
+    "target": "UL",
+    "x": 202,
+    "y": 310
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.949Z",
+    "totalMouseMovement": 8987.120192829663
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.959Z",
+    "totalMouseMovement": 8992.777047079155
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.975Z",
+    "totalMouseMovement": 9004.818641657947
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:05.992Z",
+    "totalMouseMovement": 9017.624890132813
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.009Z",
+    "totalMouseMovement": 9025.687147881112
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.025Z",
+    "totalMouseMovement": 9039.103555746111
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.042Z",
+    "totalMouseMovement": 9049.733701558845
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.059Z",
+    "totalMouseMovement": 9053.976342245965
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.092Z",
+    "totalMouseMovement": 9054.976342245965
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.109Z",
+    "totalMouseMovement": 9058.976342245965
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.125Z",
+    "totalMouseMovement": 9062.138619906134
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.142Z",
+    "totalMouseMovement": 9065.300897566303
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.158Z",
+    "totalMouseMovement": 9066.300897566303
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.175Z",
+    "totalMouseMovement": 9067.715111128677
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:06.405Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:06.410Z",
+    "target": "SPAN",
+    "x": 146,
+    "y": 364
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.525Z",
+    "totalMouseMovement": 9069.951179106176
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.542Z",
+    "totalMouseMovement": 9079.006564244313
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.558Z",
+    "totalMouseMovement": 9086.077632056178
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.576Z",
+    "totalMouseMovement": 9092.402187376514
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.592Z",
+    "totalMouseMovement": 9097.787352183648
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.609Z",
+    "totalMouseMovement": 9100.949629843817
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.625Z",
+    "totalMouseMovement": 9104.111907503986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.642Z",
+    "totalMouseMovement": 9106.111907503986
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.659Z",
+    "totalMouseMovement": 9109.274185164155
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.675Z",
+    "totalMouseMovement": 9111.510253141654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.692Z",
+    "totalMouseMovement": 9112.510253141654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.709Z",
+    "totalMouseMovement": 9113.510253141654
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.826Z",
+    "totalMouseMovement": 9117.982389096655
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.841Z",
+    "totalMouseMovement": 9125.262498985934
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:06.858Z",
+    "totalMouseMovement": 9127.262498985934
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:07.427Z",
+    "totalMouseMovement": 9128.262498985934
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:07.441Z",
+    "totalMouseMovement": 9129.262498985934
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:07.995Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:07.999Z",
+    "target": "SPAN",
+    "x": 130,
+    "y": 335
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.093Z",
+    "totalMouseMovement": 9131.498566963433
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.107Z",
+    "totalMouseMovement": 9136.597586477026
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.123Z",
+    "totalMouseMovement": 9139.759864137195
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.140Z",
+    "totalMouseMovement": 9141.995932114694
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.157Z",
+    "totalMouseMovement": 9143.995932114694
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.174Z",
+    "totalMouseMovement": 9146.232000092194
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.190Z",
+    "totalMouseMovement": 9147.232000092194
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.207Z",
+    "totalMouseMovement": 9148.232000092194
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.241Z",
+    "totalMouseMovement": 9149.232000092194
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.257Z",
+    "totalMouseMovement": 9150.646213654567
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.274Z",
+    "totalMouseMovement": 9154.769319280185
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.290Z",
+    "totalMouseMovement": 9159.769319280185
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.307Z",
+    "totalMouseMovement": 9161.769319280185
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.323Z",
+    "totalMouseMovement": 9163.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.340Z",
+    "totalMouseMovement": 9164.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.373Z",
+    "totalMouseMovement": 9165.183532842559
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:08.484Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:08.489Z",
+    "target": "SPAN",
+    "x": 118,
+    "y": 368
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.643Z",
+    "totalMouseMovement": 9166.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.656Z",
+    "totalMouseMovement": 9170.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.673Z",
+    "totalMouseMovement": 9176.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.690Z",
+    "totalMouseMovement": 9181.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.706Z",
+    "totalMouseMovement": 9185.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.723Z",
+    "totalMouseMovement": 9186.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.740Z",
+    "totalMouseMovement": 9188.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.757Z",
+    "totalMouseMovement": 9190.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.773Z",
+    "totalMouseMovement": 9192.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.790Z",
+    "totalMouseMovement": 9193.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.806Z",
+    "totalMouseMovement": 9195.183532842559
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:08.823Z",
+    "totalMouseMovement": 9196.183532842559
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:09.001Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  },
+  {
+    "type": "click",
+    "e": "click",
+    "timestamp": "2024-10-19T12:34:09.005Z",
+    "target": "SPAN",
+    "x": 118,
+    "y": 399
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.206Z",
+    "totalMouseMovement": 9209.637156889632
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.223Z",
+    "totalMouseMovement": 9216.84825944056
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.240Z",
+    "totalMouseMovement": 9223.55646337306
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.256Z",
+    "totalMouseMovement": 9230.627531184924
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.273Z",
+    "totalMouseMovement": 9242.834086800658
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.289Z",
+    "totalMouseMovement": 9250.644336476566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.306Z",
+    "totalMouseMovement": 9255.644336476566
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.322Z",
+    "totalMouseMovement": 9259.24988775203
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.339Z",
+    "totalMouseMovement": 9264.906742001522
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.356Z",
+    "totalMouseMovement": 9270.563596251013
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.373Z",
+    "totalMouseMovement": 9273.39202337576
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.397Z",
+    "totalMouseMovement": 9274.39202337576
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.439Z",
+    "totalMouseMovement": 9276.62809135326
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.456Z",
+    "totalMouseMovement": 9278.864159330758
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.473Z",
+    "totalMouseMovement": 9279.864159330758
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:34:09.489Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:34:09.523Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.540Z",
+    "totalMouseMovement": 9280.864159330758
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.557Z",
+    "totalMouseMovement": 9282.278372893132
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.573Z",
+    "totalMouseMovement": 9284.514440870631
+  },
+  {
+    "type": "mousewheel",
+    "timestamp": "2024-10-19T12:34:09.574Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.590Z",
+    "totalMouseMovement": 9290.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.606Z",
+    "totalMouseMovement": 9294.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.623Z",
+    "totalMouseMovement": 9299.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.640Z",
+    "totalMouseMovement": 9302.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.656Z",
+    "totalMouseMovement": 9304.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.673Z",
+    "totalMouseMovement": 9308.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.690Z",
+    "totalMouseMovement": 9309.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.706Z",
+    "totalMouseMovement": 9310.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.723Z",
+    "totalMouseMovement": 9311.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.739Z",
+    "totalMouseMovement": 9312.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.756Z",
+    "totalMouseMovement": 9313.514440870631
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.773Z",
+    "totalMouseMovement": 9317.119992146096
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.789Z",
+    "totalMouseMovement": 9319.119992146096
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.806Z",
+    "totalMouseMovement": 9320.119992146096
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.823Z",
+    "totalMouseMovement": 9322.356060123595
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.839Z",
+    "totalMouseMovement": 9324.356060123595
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.856Z",
+    "totalMouseMovement": 9327.184487248342
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.873Z",
+    "totalMouseMovement": 9329.42055522584
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.889Z",
+    "totalMouseMovement": 9331.65662320334
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.906Z",
+    "totalMouseMovement": 9335.65662320334
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.923Z",
+    "totalMouseMovement": 9339.779728828958
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.939Z",
+    "totalMouseMovement": 9357.807485206278
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.956Z",
+    "totalMouseMovement": 9368.987825093776
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.973Z",
+    "totalMouseMovement": 9376.603598199641
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:09.989Z",
+    "totalMouseMovement": 9397.194858481615
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.006Z",
+    "totalMouseMovement": 9440.461473787182
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.022Z",
+    "totalMouseMovement": 9474.870774855352
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.039Z",
+    "totalMouseMovement": 9518.287361547536
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.056Z",
+    "totalMouseMovement": 9551.08980048125
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.072Z",
+    "totalMouseMovement": 9574.52054950897
+  },
+  {
+    "type": "scroll",
+    "timestamp": "2024-10-19T12:34:10.074Z",
+    "deltaY": 100
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.089Z",
+    "totalMouseMovement": 9600.769359005784
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.106Z",
+    "totalMouseMovement": 9624.85254816337
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.122Z",
+    "totalMouseMovement": 9649.692032860117
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.139Z",
+    "totalMouseMovement": 9670.952324485586
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.156Z",
+    "totalMouseMovement": 9690.75131435881
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.173Z",
+    "totalMouseMovement": 9711.269598887493
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.189Z",
+    "totalMouseMovement": 9722.086252713885
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.206Z",
+    "totalMouseMovement": 9726.328893401005
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.223Z",
+    "totalMouseMovement": 9729.93444467647
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.239Z",
+    "totalMouseMovement": 9730.93444467647
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.289Z",
+    "totalMouseMovement": 9732.93444467647
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.306Z",
+    "totalMouseMovement": 9738.765396571314
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.322Z",
+    "totalMouseMovement": 9750.427300361005
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.339Z",
+    "totalMouseMovement": 9763.843708226004
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.355Z",
+    "totalMouseMovement": 9780.244927692862
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.372Z",
+    "totalMouseMovement": 9788.847252959904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.389Z",
+    "totalMouseMovement": 9793.847252959904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.406Z",
+    "totalMouseMovement": 9794.847252959904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.422Z",
+    "totalMouseMovement": 9795.847252959904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.439Z",
+    "totalMouseMovement": 9796.847252959904
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.455Z",
+    "totalMouseMovement": 9800.009530620073
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.472Z",
+    "totalMouseMovement": 9801.423744182446
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.489Z",
+    "totalMouseMovement": 9803.659812159945
+  },
+  {
+    "type": "mouseMovement",
+    "timestamp": "2024-10-19T12:34:10.571Z",
+    "totalMouseMovement": 9804.659812159945
+  },
+  {
+    "type": "highlight",
+    "timestamp": "2024-10-19T12:34:10.979Z",
+    "highlightedText": "It is approximately 10:00 am in mid-July and you have just crash landed in the Atacama Desert in South America. Your light twin-engined plane containing the bodies of the pilot and co-pilot has completely burned out with only the frame remaining. None of you have been injured. The pilot was unable to notify anyone of your position before the crash. However, he had indicated before impact that you were 50 miles (about 80 km) from a mining camp, which is the nearest known settlement, and approximately 65 miles (about 104 km) off the course that was filed in your Flight Plan. The immediate area is quite flat, except for occasional cacti, and appears to be rather barren. The last weather report indicated that the temperature would reach 110 F (43℃) today, which means that the temperature at ground level will be 130 F (54℃). You are dressed in lightweight clothing-short-sleeved shirts, pants, socks, and street shoes. Everyone has a handkerchief and collectively, you have 3 packs of cigarettes and a ballpoint pen. Before your plane caught fire, your group was able to salvage the 15 items listed on the “Salvaged Items” page. Your task is to rank these items according to their importance to your survival, starting with a “1” for the most important,to a “15” for the least important.\n\nNotice:\n\twhat you need to know before you can begin creating a list of essential items? The list of items is dependent upon the location and conditions of the new world.\n\nYour items:\n\tTorch with 4 battery-cells\n\tFolding knife\n\tAir map of the area\n\tPlastic raincoat (large size)\n\tMagnetic compass\n\tFirst-aid kit\n\t.45 calibre pistol (loaded) (.45口径手枪)\n\tParachute (red & white) (降落伞)\n\tBottle of 1000 salt tablets\n\t2 litres of water per person\n\tA book entitled ‘Desert Animals That Can Be Eaten’\n\tSunglasses (for everyone)\n\t2 litres of 180 proof liquor (2升90度的烈酒)\n\tOvercoat (for everyone)\n\tA cosmetic mirror",
+    "highlightedTextLength": 1899
+  }
+]

@@ -4,17 +4,17 @@
 # import pandas as pd
 #
 # # 读取CSV文件
-# data = []
+# rawdata = []
 # with open('C:\\Users\\zqy\\Documents\\over regression\\over_behavior_trace\\src\\scorecounting_30ppl\\rank_desert.csv', 'r') as file:
 #     reader = csv.reader(file)
 #     next(reader)  # Skip the header
 #     for row in reader:
 #         participant = row[0]
 #         scores = ast.literal_eval(row[1])  # Convert string representation of list to actual list
-#         data.append((participant, scores))
+#         rawdata.append((participant, scores))
 #
 # # 将数据转换为DataFrame
-# df = pd.DataFrame(data, columns=['Participant', 'Scores'])
+# df = pd.DataFrame(rawdata, columns=['Participant', 'Scores'])
 #
 # # 将每个用户的Scores列展开成独立的列
 # scores_df = pd.DataFrame(df['Scores'].tolist(), index=df['Participant'])

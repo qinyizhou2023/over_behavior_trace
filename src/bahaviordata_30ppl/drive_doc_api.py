@@ -72,7 +72,7 @@ def main():
     values = result.get('values', [])
 
     if not values:
-        print('No data found.')
+        print('No rawdata found.')
     else:
         for i, row in enumerate(values, start=1):
             if row:  # Check if the row has any values

@@ -5,7 +5,7 @@ import seaborn as sns
 from scipy import stats
 from sklearn.preprocessing import StandardScaler
 
-# Load the data
+# Load the rawdata
 df = pd.read_csv('C:\\Users\\zqy\\Documents\\over regression\\git_behavior_trace\\merge_alldata.csv')
 
 # Identify numeric columns

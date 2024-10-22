@@ -19,7 +19,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https://www.
 # 改1：修改要查找的位置（注意第一个为下面的form名称）
 SAMPLE_SPREADSHEET_ID = '1YdZHoKNUerpQm022fLJs0Fmu13eM1yHuWI3vIsfgcD4'
 
-# chathistory data
+# chathistory rawdata
 CHATHISTORY_DATA = 'A!F2:F'
 FILENAME_DATA = 'A!B2:B'  # 用于文件名的数据范围
 
@@ -71,7 +71,7 @@ def main():
             filenames = filename_result.get('values', [])
 
             if not values:
-                print('No data found.')
+                print('No rawdata found.')
             else:
                 for (row, filename_row) in zip(values, filenames):
                     if row and filename_row:  # Check if both rows have values

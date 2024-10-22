@@ -169,7 +169,7 @@ def calculate_item_ranking_sd(participants_scores):
     return item_sds
 
 
-# Use the existing participants_scores data
+# Use the existing participants_scores rawdata
 item_sds = calculate_item_ranking_sd(participants_scores)
 
 print("\nStandard Deviations for each item's ranking:")

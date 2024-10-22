@@ -63,7 +63,7 @@ for filename in os.listdir(directory):
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
-        # Parse prompt-related data
+        # Parse prompt-related rawdata
         prompts = parse_behavior_data(data)
         prompt_statistics = calculate_statistics(prompts)
 
@@ -127,19 +127,19 @@ for filename in os.listdir(directory):
         #
         # #计算blur和focus之间的时间
         # i = 0
-        # while i < len(data):
-        #     if data[i]['type'] == 'focus':
-        #         focus_start = datetime.fromisoformat(data[i]['timestamp'])
+        # while i < len(rawdata):
+        #     if rawdata[i]['type'] == 'focus':
+        #         focus_start = datetime.fromisoformat(rawdata[i]['timestamp'])
         #         i += 1
-        #         while i < len(data) and data[i]['type'] != 'blur':
+        #         while i < len(rawdata) and rawdata[i]['type'] != 'blur':
         #             i += 1
-        #         if i < len(data) and data[i]['type'] == 'blur':
-        #             blur_end = datetime.fromisoformat(data[i]['timestamp'])
+        #         if i < len(rawdata) and rawdata[i]['type'] == 'blur':
+        #             blur_end = datetime.fromisoformat(rawdata[i]['timestamp'])
         #             duration = (blur_end - focus_start).total_seconds()
         #             focus_time.append(duration)
         #             # blur_time.append({
-        #             #     'focus_start': data[i - 1]['timestamp'],
-        #             #     'blur_end': data[i]['timestamp'],
+        #             #     'focus_start': rawdata[i - 1]['timestamp'],
+        #             #     'blur_end': rawdata[i]['timestamp'],
         #             #     'duration': duration
         #             # })
         #             i += 1
